@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcy2bxvbwagyj"
 path.s3tc="res://.godot/imported/Levier_Base_DefaultMaterial_Metallic.jpg-7f89e60b3daf981759db00a1db32b5b5.s3tc.ctex"
+path.etc2="res://.godot/imported/Levier_Base_DefaultMaterial_Metallic.jpg-7f89e60b3daf981759db00a1db32b5b5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Levier_Base/Levier_Base_DefaultMaterial_Metallic.jpg"
-dest_files=["res://.godot/imported/Levier_Base_DefaultMaterial_Metallic.jpg-7f89e60b3daf981759db00a1db32b5b5.s3tc.ctex"]
+dest_files=["res://.godot/imported/Levier_Base_DefaultMaterial_Metallic.jpg-7f89e60b3daf981759db00a1db32b5b5.s3tc.ctex", "res://.godot/imported/Levier_Base_DefaultMaterial_Metallic.jpg-7f89e60b3daf981759db00a1db32b5b5.etc2.ctex"]
 
 [params]
 

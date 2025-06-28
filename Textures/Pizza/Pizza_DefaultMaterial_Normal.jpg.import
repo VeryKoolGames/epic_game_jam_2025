@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1mvyr2eu773t"
 path.s3tc="res://.godot/imported/Pizza_DefaultMaterial_Normal.jpg-4810b175aa278be6cea8fe536f6a606f.s3tc.ctex"
+path.etc2="res://.godot/imported/Pizza_DefaultMaterial_Normal.jpg-4810b175aa278be6cea8fe536f6a606f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Pizza/Pizza_DefaultMaterial_Normal.jpg"
-dest_files=["res://.godot/imported/Pizza_DefaultMaterial_Normal.jpg-4810b175aa278be6cea8fe536f6a606f.s3tc.ctex"]
+dest_files=["res://.godot/imported/Pizza_DefaultMaterial_Normal.jpg-4810b175aa278be6cea8fe536f6a606f.s3tc.ctex", "res://.godot/imported/Pizza_DefaultMaterial_Normal.jpg-4810b175aa278be6cea8fe536f6a606f.etc2.ctex"]
 
 [params]
 

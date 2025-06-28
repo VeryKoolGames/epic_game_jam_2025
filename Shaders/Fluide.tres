@@ -11,7 +11,6 @@ render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_s
 
 
 "
-graph_offset = Vector2(-459.707, -64.253)
 nodes/fragment/2/node = SubResource("VisualShaderNodeVectorFunc_fsag3")
 nodes/fragment/2/position = Vector2(-1320, 160)
 nodes/fragment/3/node = SubResource("VisualShaderNodeFresnel_fsag3")

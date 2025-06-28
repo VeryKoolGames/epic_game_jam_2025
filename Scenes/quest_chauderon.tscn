@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2cruqx0lragc"]
+
+[ext_resource type="Texture2D" uid="uid://cu0f538wdduh8" path="res://Textures/2.png" id="1_074ki"]
+[ext_resource type="Texture2D" uid="uid://xng7swy4fbcn" path="res://Textures/Chauderon.png" id="2_bpmoj"]
+[ext_resource type="Texture2D" uid="uid://3g4pfp8jgkjp" path="res://Textures/pizza.png" id="3_y8htl"]
+[ext_resource type="Texture2D" uid="uid://cybhc8oy6ble6" path="res://Textures/+.png" id="4_37y7w"]
+[ext_resource type="Texture2D" uid="uid://dpejgccgelgt3" path="res://Textures/pasteque.png" id="5_hu00p"]
+[ext_resource type="Texture2D" uid="uid://cm61wifferryx" path="res://Textures/seau.png" id="6_ay38o"]
+
+[node name="Quest_Chauderon" type="HBoxContainer"]
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Numero" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("1_074ki")
+
+[node name="Chauderon" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_bpmoj")
+
+[node name="Objet1" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_y8htl")
+
+[node name="+" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("4_37y7w")
+
+[node name="Objet2" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("5_hu00p")
+
+[node name="+2" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("4_37y7w")
+
+[node name="Objet3" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("6_ay38o")

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b30rc8hvc7v4n"
 path.s3tc="res://.godot/imported/Boulon_DefaultMaterial_BaseColor.jpg-1571e96c68b35cf0910e9fd631830e25.s3tc.ctex"
+path.etc2="res://.godot/imported/Boulon_DefaultMaterial_BaseColor.jpg-1571e96c68b35cf0910e9fd631830e25.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Boulon/Boulon_DefaultMaterial_BaseColor.jpg"
-dest_files=["res://.godot/imported/Boulon_DefaultMaterial_BaseColor.jpg-1571e96c68b35cf0910e9fd631830e25.s3tc.ctex"]
+dest_files=["res://.godot/imported/Boulon_DefaultMaterial_BaseColor.jpg-1571e96c68b35cf0910e9fd631830e25.s3tc.ctex", "res://.godot/imported/Boulon_DefaultMaterial_BaseColor.jpg-1571e96c68b35cf0910e9fd631830e25.etc2.ctex"]
 
 [params]
 

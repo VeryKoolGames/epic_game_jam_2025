@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xng7swy4fbcn"
-path="res://.godot/imported/Chauderon.png-c6641dc14b65a79e1abeda6a67aabffb.ctex"
+uid="uid://cnwdvi4g3w266"
+path="res://.godot/imported/VU.png-f3c5c81c56637137f99406837586f58d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Chauderon.png"
-dest_files=["res://.godot/imported/Chauderon.png-c6641dc14b65a79e1abeda6a67aabffb.ctex"]
+source_file="res://Textures/VU.png"
+dest_files=["res://.godot/imported/VU.png-f3c5c81c56637137f99406837586f58d.ctex"]
 
 [params]
 
