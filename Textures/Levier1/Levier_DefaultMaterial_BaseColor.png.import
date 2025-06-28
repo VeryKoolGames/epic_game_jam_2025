@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://34k4mrfpbu5s"
 path.s3tc="res://.godot/imported/Levier_DefaultMaterial_BaseColor.png-cbc01fc24f48838c1a16eaca8ea403e1.s3tc.ctex"
+path.etc2="res://.godot/imported/Levier_DefaultMaterial_BaseColor.png-cbc01fc24f48838c1a16eaca8ea403e1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Levier1/Levier_DefaultMaterial_BaseColor.png"
-dest_files=["res://.godot/imported/Levier_DefaultMaterial_BaseColor.png-cbc01fc24f48838c1a16eaca8ea403e1.s3tc.ctex"]
+dest_files=["res://.godot/imported/Levier_DefaultMaterial_BaseColor.png-cbc01fc24f48838c1a16eaca8ea403e1.s3tc.ctex", "res://.godot/imported/Levier_DefaultMaterial_BaseColor.png-cbc01fc24f48838c1a16eaca8ea403e1.etc2.ctex"]
 
 [params]
 

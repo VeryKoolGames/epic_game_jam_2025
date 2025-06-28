@@ -30,8 +30,13 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("cauldron") and ChallengeManager.can_complete_challenge(player_id):
 		if check_if_ingredient_matches(item):
 			Events.pick_up_item_dropped_in_cauldron.emit(item)
+			scale_down_and_queue_free_rpc.rpc()
 			scale_down_and_queue_free()
-		
+
+@rpc("any_peer")
+func scale_down_and_queue_free_rpc() -> void:
+	scale_down_and_queue_free()
+
 func scale_down_and_queue_free() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector3(0.1, 0.1, 0.1), 0.2)

@@ -1,4 +1,4 @@
-extends Node3D
+extends CharacterBody3D
 class_name Player
 @onready var state_machine = $StateMachine
 @export var animation_tree_arms: AnimationTree
@@ -88,13 +88,14 @@ func _process(delta: float) -> void:
 
 	if direction != Vector3.ZERO:
 		state_machine._transition_to_next_state("Moving")
-		direction = direction.normalized() * player_speed * delta
-		var new_position: Vector3 = global_transform.origin + direction
-		global_transform.origin = new_position
+		direction = direction.normalized()
+		velocity = direction * player_speed
+		move_and_slide()
 		var movement_angle = atan2(direction.x, direction.z)
 		lower_body.rotation.y = movement_angle
 	else:
 		state_machine._transition_to_next_state("Idle")
+		velocity = Vector3.ZERO
 
 	update_position.rpc(global_transform.origin)
 	update_body_rotation.rpc(body.rotation)

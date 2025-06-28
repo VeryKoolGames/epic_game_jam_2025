@@ -1,8 +1,9 @@
-[gd_scene load_steps=51 format=4 uid="uid://crvaw1bdwrnwx"]
+[gd_scene load_steps=58 format=4 uid="uid://crvaw1bdwrnwx"]
 
 [ext_resource type="Script" uid="uid://doll4v777v5ys" path="res://Scenes/multplayer_controller.gd" id="1_fbm17"]
 [ext_resource type="PackedScene" uid="uid://c2w1myauyrkr7" path="res://Scenes/level_base.tscn" id="2_fbm17"]
 [ext_resource type="PackedScene" uid="uid://b7xu4doi4n8h4" path="res://player.tscn" id="2_l6pj4"]
+[ext_resource type="PackedScene" uid="uid://pnrhvhoq3nd7" path="res://Scenes/pasteque.tscn" id="3_2ryth"]
 [ext_resource type="PackedScene" uid="uid://bihg75wr72a7k" path="res://challenge_manager.tscn" id="3_jyhx4"]
 [ext_resource type="PackedScene" uid="uid://dgaabyyvjnbp8" path="res://Scenes/vitre.tscn" id="3_l6pj4"]
 [ext_resource type="Script" uid="uid://lyydk7op06rw" path="res://Scenes/challenge_ui.gd" id="3_x6r4n"]
@@ -13,9 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bpvqwnh5rjub8" path="res://Scenes/Levier.tscn" id="8_vt6um"]
 [ext_resource type="PackedScene" uid="uid://7425d6q18tcs" path="res://Scenes/Alarme.tscn" id="9_on4sc"]
 [ext_resource type="PackedScene" uid="uid://dige7ov43phka" path="res://Scenes/Chauderon.tscn" id="10_yboly"]
-[ext_resource type="PackedScene" uid="uid://duys8ttyui6es" path="res://Scenes/bouton.tscn" id="11_rkg6e"]
-[ext_resource type="PackedScene" uid="uid://bwbsdkhkbn554" path="res://Scenes/pick_up_item.tscn" id="15_x6r4n"]
-[ext_resource type="Resource" uid="uid://d1wnge33j67vn" path="res://Resources/pickable_items/pizza.tres" id="16_dxxom"]
+[ext_resource type="PackedScene" uid="uid://duys8ttyui6es" path="res://Scenes/bouton_bleu.tscn" id="11_rkg6e"]
 [ext_resource type="Script" uid="uid://c7pvct1h5dgjo" path="res://Scenes/sound_manager.gd" id="17_vt6um"]
 [ext_resource type="AudioStream" uid="uid://dyw8ewe2wamal" path="res://Sounds/main-loop.mp3" id="18_on4sc"]
 [ext_resource type="AudioStream" uid="uid://w0o08nlpuaaw" path="res://Sounds/no-1.wav" id="19_sej1a"]
@@ -42,7 +41,10 @@
 [ext_resource type="AudioStream" uid="uid://32pu4dnt3v0u" path="res://Sounds/pointer-3.wav" id="39_457c2"]
 [ext_resource type="AudioStream" uid="uid://cpqcjutu1mnev" path="res://Sounds/pointer-4.wav" id="40_2qjws"]
 [ext_resource type="AudioStream" uid="uid://mesxg5fobxkr" path="res://Sounds/pointer-5.wav" id="41_3656k"]
+[ext_resource type="PackedScene" uid="uid://bbfxv8yygrnvg" path="res://Scenes/bucket.tscn" id="42_457c2"]
 [ext_resource type="AudioStream" uid="uid://yqs48rcagaf8" path="res://Sounds/pointer-6.wav" id="42_cbh4w"]
+[ext_resource type="PackedScene" uid="uid://eyro48rrjwm2" path="res://Scenes/pizza_new.tscn" id="43_2qjws"]
+[ext_resource type="PackedScene" uid="uid://dwfbivyyua57s" path="res://Scenes/screw.tscn" id="44_3656k"]
 
 [sub_resource type="Environment" id="Environment_qehu7"]
 background_mode = 1
@@ -97,6 +99,21 @@ shadow_mesh = SubResource("ArrayMesh_k0ymt")
 radius = 0.493351
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_dxxom"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cbh4w"]
+size = Vector3(38.932, 8.46594, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3656k"]
+size = Vector3(56.2403, 1, 19.0483)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_457c2"]
+size = Vector3(43.9083, 1, 16.9642)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2qjws"]
+size = Vector3(52.1654, 1, 9.95581)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ryth"]
+size = Vector3(4.84473, 0.288086, 1.44043)
 
 [node name="Level_LAB" type="Node3D" node_paths=PackedStringArray("recipe_manager")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -226,10 +243,6 @@ transform = Transform3D(12, 0, 0, 0, -5.24537e-07, 12, 0, -12, -5.24537e-07, 4.5
 [node name="Bouton4" parent="." instance=ExtResource("11_rkg6e")]
 transform = Transform3D(12, 0, 0, 0, -5.24537e-07, 12, 0, -12, -5.24537e-07, 2.5413, 0.868449, 25.3689)
 
-[node name="PickUpItem" parent="." instance=ExtResource("15_x6r4n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.06141e-07, 0.16925, -13.8669)
-item = ExtResource("16_dxxom")
-
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("uid://b7xu4doi4n8h4")
 spawn_path = NodePath("..")
@@ -261,6 +274,44 @@ text = "Host"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 transform = Transform3D(2.44434, 0, 0, 0, 0.863808, 0, 0, 0, 2.5751, 0, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_dxxom")
+
+[node name="MiddleWall" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MiddleWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0480804, 3.73297, -9.54792e-15)
+shape = SubResource("BoxShape3D_cbh4w")
+
+[node name="Ground2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.1028e-06, 0, -25.229)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground2"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.35188e-23, 0, -8.35188e-23, 1, -3.14453, 0, -3.6335)
+shape = SubResource("BoxShape3D_3656k")
+
+[node name="Ground3" type="StaticBody3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -1.1043e-06, 0, 25.2635)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground3"]
+transform = Transform3D(1, -2.47274e-12, 2.6513e-19, 2.47274e-12, 1, -1.144e-12, -2.65127e-19, 1.144e-12, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_457c2")
+
+[node name="Ground4" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 18.8902, 0, 0.0242547)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground4"]
+transform = Transform3D(1, 0, 1.29596e-19, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.551167, -1.90735e-06, -4.47791)
+shape = SubResource("BoxShape3D_2qjws")
+
+[node name="Ground5" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -17.7563, 0, -0.0920609)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground5"]
+transform = Transform3D(12.401, -1.13687e-13, 2.13791e-18, 1.13687e-13, 12.401, 1.13687e-13, 1.32137e-19, -1.13687e-13, 12.401, -0.753274, -4.41423, -2.73089)
+shape = SubResource("BoxShape3D_2ryth")
 
 [node name="SoundManager" type="Node" parent="." node_paths=PackedStringArray("no_sounds", "yes_sounds", "button_sounds", "positive_feedback_sounds", "pointing_sounds")]
 script = ExtResource("17_vt6um")
@@ -358,6 +409,21 @@ stream = ExtResource("42_cbh4w")
 
 [node name="BadAlarm" type="AudioStreamPlayer2D" parent="SoundManager"]
 stream = ExtResource("34_yakfb")
+
+[node name="Items" type="Node3D" parent="."]
+
+[node name="Bucket" parent="Items" instance=ExtResource("42_457c2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26414e-07, 1.02026, -5.17975)
+
+[node name="Pizza" parent="Items" instance=ExtResource("43_2qjws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.28027, 0, -18.6203)
+
+[node name="Screw2" parent="Items" instance=ExtResource("44_3656k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.91347e-07, 0, -11.2407)
+
+[node name="Pasteque" parent="Items" instance=ExtResource("3_2ryth")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.66162, 0, -10.2113)
+collision_layer = 1
 
 [connection signal="pressed" from="Control/Join" to="." method="_on_join_pressed"]
 [connection signal="pressed" from="Control/Host" to="." method="_on_host_pressed"]

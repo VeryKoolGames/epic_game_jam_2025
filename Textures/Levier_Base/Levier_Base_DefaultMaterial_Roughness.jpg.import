@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b48gynue5qfnr"
 path.s3tc="res://.godot/imported/Levier_Base_DefaultMaterial_Roughness.jpg-1471585736891873225417c7eb9e542d.s3tc.ctex"
+path.etc2="res://.godot/imported/Levier_Base_DefaultMaterial_Roughness.jpg-1471585736891873225417c7eb9e542d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Levier_Base/Levier_Base_DefaultMaterial_Roughness.jpg"
-dest_files=["res://.godot/imported/Levier_Base_DefaultMaterial_Roughness.jpg-1471585736891873225417c7eb9e542d.s3tc.ctex"]
+dest_files=["res://.godot/imported/Levier_Base_DefaultMaterial_Roughness.jpg-1471585736891873225417c7eb9e542d.s3tc.ctex", "res://.godot/imported/Levier_Base_DefaultMaterial_Roughness.jpg-1471585736891873225417c7eb9e542d.etc2.ctex"]
 
 [params]
 

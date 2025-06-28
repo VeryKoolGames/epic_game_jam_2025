@@ -19,6 +19,17 @@ func sync_holding_animation(is_holding: bool):
 	else:
 		stop_holding_anim()
 
+		
+func change_pickable_layer() -> void:
+	if pickable_item:
+		pickable_item.collision_layer = 1 << 1
+	print("Layer mask:", pickable_item.collision_layer)
+
+
+func set_pickable_to_layer_1_and_2() -> void:
+	if pickable_item:
+		pickable_item.collision_layer = (1 << 0) | (1 << 1)
+
 @rpc("any_peer", "call_remote", "reliable")
 func sync_carrying_state(carrying: bool):
 	is_carrying_item = carrying
@@ -37,6 +48,7 @@ func _input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("pickup") and pickable_item and is_carrying_item:
 		stop_holding_anim()
+		set_pickable_to_layer_1_and_2()
 		sync_holding_animation.rpc(false)
 		sync_carrying_state.rpc(false)
 
@@ -62,7 +74,7 @@ func stop_holding_anim() -> void:
 	animation_bras_tree.set("parameters/conditions/idle", true)
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	if area.get_parent().is_in_group("pickup"):
+	if area.get_parent().is_in_group("pickup") and not is_carrying_item:
 		pickable_item = area.get_parent()
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
@@ -84,6 +96,7 @@ func _process(_delta: float) -> void:
 func pick_up_item() -> void:
 	if not _is_multiplayer_authority():
 		return
+	change_pickable_layer()
 	
 	play_holding_anim()
 	sync_holding_animation.rpc(true)

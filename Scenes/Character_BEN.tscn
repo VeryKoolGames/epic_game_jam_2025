@@ -1,10 +1,6 @@
-[gd_scene load_steps=63 format=4 uid="uid://bp7fkoscj61yf"]
+[gd_scene load_steps=62 format=4 uid="uid://bp7fkoscj61yf"]
 
 [ext_resource type="Material" uid="uid://cw74fednag0qt" path="res://Materials/M_Character1.tres" id="1_m68lo"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2413y"]
-radius = 0.812016
-height = 3.77156
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_du6dw"]
 
@@ -1521,12 +1517,6 @@ transitions = ["Start", "Corps_Idle", SubResource("AnimationNodeStateMachineTran
 
 [node name="Character" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00662601, 0)
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00443172, 1.87862, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-shape = SubResource("CapsuleShape3D_2413y")
 
 [node name="Bassin" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.025, 0)
