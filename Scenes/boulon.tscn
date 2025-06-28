@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://dwde2xmolg5tl"]
+[gd_scene load_steps=7 format=4 uid="uid://dwde2xmolg5tl"]
 
 [ext_resource type="Material" uid="uid://dro40ry32akif" path="res://Materials/M_Boulon.tres" id="1_kuyfi"]
+[ext_resource type="Material" uid="uid://boonw1hakjrsj" path="res://Materials/M_OutlineMaterial.tres" id="2_vbl2p"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ppwlh"]
 radius = 0.131508
@@ -49,5 +50,6 @@ shape = SubResource("SphereShape3D_ppwlh")
 [node name="Boulon" type="MeshInstance3D" parent="RigidBody3D"]
 transform = Transform3D(0.687631, 0, 0, 0, 0.848784, 0, 0, 0, 0.687631, 0, 0, 0)
 material_override = ExtResource("1_kuyfi")
+material_overlay = ExtResource("2_vbl2p")
 mesh = SubResource("ArrayMesh_ppwlh")
 skeleton = NodePath("")

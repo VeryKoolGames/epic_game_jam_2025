@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bpvqwnh5rjub8"]
+[gd_scene load_steps=11 format=4 uid="uid://bpvqwnh5rjub8"]
 
 [ext_resource type="PackedScene" uid="uid://ciq5lcaynma44" path="res://Models/Levier.fbx" id="1_ts4xu"]
 [ext_resource type="Material" uid="uid://cuav0s0pid8x3" path="res://Materials/M_Levier_Base.tres" id="2_bqvmv"]
@@ -37,6 +37,14 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4w3uc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cw3od"]
+transparency = 1
+cull_mode = 1
+shading_mode = 0
+diffuse_mode = 3
+grow = true
+grow_amount = 0.9
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kyp0u"]
 
@@ -87,5 +95,6 @@ skeleton = NodePath("")
 [node name="Cylinder_012" type="MeshInstance3D" parent="." index="2"]
 transform = Transform3D(2.59819e-09, -0.0150665, -0.0167747, 6.88557e-10, -0.0167747, 0.0150665, -0.0225476, -1.34394e-09, 0, 0, -0.0255476, -7.06464e-05)
 material_override = ExtResource("3_cw3od")
+material_overlay = SubResource("StandardMaterial3D_cw3od")
 mesh = SubResource("ArrayMesh_ruxfk")
 skeleton = NodePath("")

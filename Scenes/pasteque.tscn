@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://pnrhvhoq3nd7"]
+[gd_scene load_steps=10 format=4 uid="uid://sdvkjmh51bqg"]
 
 [ext_resource type="Script" uid="uid://ctopn0cibdbr3" path="res://Scenes/pick_up_item.gd" id="1_ub2e1"]
 [ext_resource type="Material" uid="uid://dnpsbm11ucksw" path="res://Materials/M_Pasteque.tres" id="2_2d42o"]
@@ -8,6 +8,13 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g50du"]
 radius = 1.08238
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g50du"]
+cull_mode = 1
+shading_mode = 0
+diffuse_mode = 3
+grow = true
+grow_amount = 0.07
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2t32a"]
 
@@ -61,6 +68,7 @@ shape = SubResource("SphereShape3D_g50du")
 [node name="Sphere" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0116603, -0.0254318, 0.00946145)
 material_override = ExtResource("2_2d42o")
+material_overlay = SubResource("StandardMaterial3D_g50du")
 mesh = SubResource("ArrayMesh_f03bg")
 skeleton = NodePath("")
 

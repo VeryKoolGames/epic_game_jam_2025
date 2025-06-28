@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://c04a34ghpnpb7"]
+[gd_scene load_steps=8 format=4 uid="uid://c04a34ghpnpb7"]
 
 [ext_resource type="PackedScene" uid="uid://cv1xsar330yk4" path="res://Models/Bouton.fbx" id="1_cym33"]
 [ext_resource type="Material" uid="uid://0lkt3a3t5kat" path="res://Materials/M_Bouton_Rouge.tres" id="2_cym33"]
 [ext_resource type="Material" uid="uid://ccrehi7khf42" path="res://Materials/M_Metal2.tres" id="3_38i68"]
+[ext_resource type="Material" uid="uid://boonw1hakjrsj" path="res://Materials/M_OutlineMaterial.tres" id="3_gwxb4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ote5x"]
 
@@ -41,6 +42,7 @@ shadow_mesh = SubResource("ArrayMesh_6imlb")
 [node name="Cylinder_018" parent="." index="0"]
 transform = Transform3D(0.429987, 0, 0, 0, 0.429987, 0, 0, 0, 0.429987, 0, 0.0726331, 0)
 material_override = ExtResource("2_cym33")
+material_overlay = ExtResource("3_gwxb4")
 
 [node name="Cylinder_019" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(0.53069, 0, 0, 0, 0.367251, 0, 0, 0, 0.53069, 0, 0.03206, 0)

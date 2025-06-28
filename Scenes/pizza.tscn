@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=4 uid="uid://cv6pia3j8i1ft"]
+[gd_scene load_steps=6 format=4 uid="uid://cv6pia3j8i1ft"]
 
 [ext_resource type="Material" uid="uid://0sbde04t52g4" path="res://Materials/M_Pizza.tres" id="1_nkrds"]
+[ext_resource type="Material" uid="uid://boonw1hakjrsj" path="res://Materials/M_OutlineMaterial.tres" id="2_je5pd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ncf1u"]
 
@@ -41,5 +42,6 @@ shadow_mesh = SubResource("ArrayMesh_nkrds")
 [node name="Pizza" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.998323, -0.0578922, 0, 0.0578922, 0.998323, 0, 0, 0, 1, 0, 0, 0)
 material_override = ExtResource("1_nkrds")
+material_overlay = ExtResource("2_je5pd")
 mesh = SubResource("ArrayMesh_6pkll")
 skeleton = NodePath("")

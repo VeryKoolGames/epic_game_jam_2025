@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cv6pia3j8i1ft" path="res://Scenes/pizza.tscn" id="16_o7gwb"]
 [ext_resource type="PackedScene" uid="uid://3jc12w52gg2k" path="res://Scenes/seau.tscn" id="17_fs1vp"]
 [ext_resource type="PackedScene" uid="uid://d13o8lmc5tq0p" path="res://Scenes/support_2.tscn" id="18_5ypls"]
-[ext_resource type="PackedScene" path="res://Scenes/main_ui.tscn" id="19_jm27w"]
+[ext_resource type="PackedScene" uid="uid://bu3ip0kio7dka" path="res://Scenes/main_ui.tscn" id="19_jm27w"]
 
 [sub_resource type="Environment" id="Environment_qehu7"]
 background_mode = 1
@@ -32,10 +32,10 @@ ssao_intensity = 3.22
 ssao_horizon = 0.0
 ssao_sharpness = 1.0
 glow_enabled = true
-glow_intensity = 1.32
-glow_hdr_threshold = 1.77
-glow_hdr_scale = 1.83
-glow_hdr_luminance_cap = 1.2
+glow_intensity = 0.43
+glow_hdr_threshold = 1.07
+glow_hdr_scale = 1.26
+glow_hdr_luminance_cap = 88.69
 fog_light_color = Color(0.754621, 0.655637, 0.390674, 1)
 fog_light_energy = 0.05
 fog_density = 0.0055
@@ -85,20 +85,20 @@ shadow_mesh = SubResource("ArrayMesh_k0ymt")
 
 [node name="Level_LAB2" type="Node3D"]
 
-[node name="Character" parent="." instance=ExtResource("2_iu0du")]
-transform = Transform3D(0.999983, 0, -0.00589916, 0, 1, 0, 0.00589916, 0, 0.999983, -2.58293, -1.79063, -14.8584)
-
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.00589919, 0.916745, -0.39943, 9.38072e-09, 0.399437, 0.916761, 0.999983, 0.00540817, -0.00235638, -18.2355, 43.142, -0.102638)
+transform = Transform3D(-0.00589919, 0.916745, -0.39943, 9.38072e-09, 0.399437, 0.916761, 0.999983, 0.00540814, -0.00235636, -18.2355, 43.142, -0.102638)
 environment = SubResource("Environment_qehu7")
 fov = 51.2
 near = 0.038
+
+[node name="Character" parent="." instance=ExtResource("2_iu0du")]
+transform = Transform3D(0.999983, 0, -0.00589916, 0, 1, 0, 0.00589916, 0, 0.999983, -2.58293, -1.79063, -14.8584)
 
 [node name="LevelBase" parent="." instance=ExtResource("3_iu0du")]
 transform = Transform3D(-0.0707898, 0, -11.9998, 0, 12, 0, 11.9998, 0, -0.0707898, 0.00314409, -1.82186, 0.00495756)
 
 [node name="Character2" parent="." instance=ExtResource("2_iu0du")]
-transform = Transform3D(-0.937701, 0, -0.347443, 0, 1, 0, 0.347443, 0, -0.937701, -5.40226, -1.71523, 9.81709)
+transform = Transform3D(-0.937701, 0, -0.347443, 0, 1, 0, 0.347443, 0, -0.937701, -5.37844, -1.67677, 9.95655)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.686663, 0.722189, 0.0832891, -0.14911, 0.0277808, 0.98843, 0.71152, -0.691138, 0.126762, 0.00314409, 9.6028, 0.00495756)
