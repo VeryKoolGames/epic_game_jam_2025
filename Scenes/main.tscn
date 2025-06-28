@@ -1,3 +1,86 @@
-[gd_scene format=3 uid="uid://j8cejglxxn1w"]
+[gd_scene load_steps=11 format=3 uid="uid://cfbccupdrb0yo"]
 
-[node name="Main" type="Node2D"]
+[ext_resource type="Script" uid="uid://doll4v777v5ys" path="res://Scenes/multplayer_controller.gd" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://b7xu4doi4n8h4" path="res://player.tscn" id="2_8gbba"]
+[ext_resource type="Script" uid="uid://ctopn0cibdbr3" path="res://Scenes/pick_up_item.gd" id="3_8gbba"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_bo1nx"]
+sky_material = SubResource("ProceduralSkyMaterial_jjgbg")
+
+[sub_resource type="Environment" id="Environment_8gbba"]
+background_mode = 2
+sky = SubResource("Sky_bo1nx")
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bo1nx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bo1nx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8gbba"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jjvhh"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_bo1nx")
+player_scene = ExtResource("2_8gbba")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8gbba")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10.9753, 0, 0, 0, 1, 0, 0, 0, 6.00543, 0, -0.514078, 0)
+mesh = SubResource("PlaneMesh_bo1nx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.81663, 8.68904, 2.63714)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Join" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Join"
+
+[node name="Host" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 3.0
+offset_right = 319.0
+offset_bottom = 34.0
+text = "Host"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://b7xu4doi4n8h4")
+spawn_path = NodePath("..")
+
+[node name="Node3D" type="RigidBody3D" parent="." groups=["pickup"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2014, 0, 0)
+mass = 2.0
+gravity_scale = 0.0
+script = ExtResource("3_8gbba")
+
+[node name="PickUpItem" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("BoxMesh_bo1nx")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="Node3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
+shape = SubResource("BoxShape3D_8gbba")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D"]
+shape = SubResource("BoxShape3D_jjvhh")
+
+[connection signal="pressed" from="Control/Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="Control/Host" to="." method="_on_host_pressed"]
