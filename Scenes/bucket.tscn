@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://bbfxv8yygrnvg"]
 
 [ext_resource type="Script" uid="uid://ctopn0cibdbr3" path="res://Scenes/pick_up_item.gd" id="1_fl0yo"]
-[ext_resource type="Resource" uid="uid://x7kuod37ayus" path="res://Resources/pickable_items/screw.tres" id="2_7pcy1"]
+[ext_resource type="Resource" uid="uid://db24k1ygpmd81" path="res://Resources/pickable_items/bucket.tres" id="2_fl0yo"]
 [ext_resource type="Material" uid="uid://b4jjhd8qhjj1r" path="res://Materials/M_Seau.tres" id="3_fl0yo"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_fl0yo"]
@@ -50,7 +50,7 @@ shadow_mesh = SubResource("ArrayMesh_phn6m")
 mass = 2.0
 gravity_scale = 5.0
 script = ExtResource("1_fl0yo")
-item = ExtResource("2_7pcy1")
+item = ExtResource("2_fl0yo")
 
 [node name="Area3D" type="Area3D" parent="."]
 

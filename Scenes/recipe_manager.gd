@@ -3,7 +3,8 @@ class_name RecipeManager
 
 @export var available_ingredients: Array[ResPickableItem]
 @export var max_ingredients_per_recipe: int = 3
-static var current_recipe: Dictionary = {}
+var current_recipe: Dictionary = {}
+var copy_recipe: Dictionary = {}
 
 func _ready() -> void:
 	Events.pick_up_item_dropped_in_cauldron.connect(_remove_ingredient)
@@ -29,6 +30,7 @@ func complete_recipe() -> void:
 func create_challenge() -> Challenge:
 	var recipe = _create_random_recipe()
 	current_recipe = recipe
+	copy_recipe = recipe
 	add_new_recipe.rpc(recipe)
 	return self
 
@@ -61,3 +63,24 @@ func _remove_ingredient(ingredient: ResPickableItem) -> void:
 		if ingr.type == ingredient.type:
 			current_recipe.ingredients.erase(ingr)
 			break
+	if current_recipe.is_empty():
+		print("Recipe completed!")
+	print("Current recipe after removal:", current_recipe)
+
+func try_ingredient(item: ResPickableItem) -> void:
+	print("Trying ingredient: ", item.type)
+	if not current_recipe or not current_recipe.ingredients:
+		return
+	print(current_recipe.ingredients)
+	for ingr in current_recipe.ingredients:
+		if ingr.type == item.type:
+			current_recipe.ingredients.erase(ingr)
+			print("erased done: left:", current_recipe)
+			if current_recipe.ingredients.is_empty():
+				print("Recipe completed!")
+			return
+	reset_recipe()
+	return
+
+func reset_recipe() -> void:
+	current_recipe = copy_recipe

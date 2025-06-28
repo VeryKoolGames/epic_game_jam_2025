@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cv6pia3j8i1ft" path="res://Scenes/pizza.tscn" id="16_o7gwb"]
 [ext_resource type="PackedScene" uid="uid://3jc12w52gg2k" path="res://Scenes/seau.tscn" id="17_fs1vp"]
 [ext_resource type="PackedScene" uid="uid://d13o8lmc5tq0p" path="res://Scenes/support_2.tscn" id="18_5ypls"]
-[ext_resource type="PackedScene" uid="uid://bu3ip0kio7dka" path="res://Scenes/main_ui.tscn" id="19_jm27w"]
+[ext_resource type="PackedScene" path="res://Scenes/main_ui.tscn" id="19_jm27w"]
 
 [sub_resource type="Environment" id="Environment_qehu7"]
 background_mode = 1
@@ -83,7 +83,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k0ymt")
 
-[node name="Level_LAB" type="Node3D"]
+[node name="Level_LAB2" type="Node3D"]
 
 [node name="Character" parent="." instance=ExtResource("2_iu0du")]
 transform = Transform3D(0.999983, 0, -0.00589916, 0, 1, 0, 0.00589916, 0, 0.999983, -2.58293, -1.79063, -14.8584)

@@ -20,7 +20,7 @@ config/icon="res://Assets/Sprites/icon.svg"
 Enums="*res://Enums.gd"
 Events="*res://Events.gd"
 PlayerIds="*res://PlayerIds.gd"
-SoundManager="*res://sound_manager.gd"
+SoundManager="*res://Scenes/sound_manager.gd"
 
 [display]
 
