@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://b4jjhd8qhjj1r"]
+
+[ext_resource type="Texture2D" uid="uid://ddxbsm2rm8atd" path="res://Textures/Seau/Seau_DefaultMaterial_BaseColor.jpg" id="1_3i23m"]
+[ext_resource type="Texture2D" uid="uid://cm1ruudcsg1da" path="res://Textures/Pastéque/DefaultMaterial_Mixed_AO.png" id="2_lpd3h"]
+[ext_resource type="Texture2D" uid="uid://cnki64p3celsn" path="res://Textures/Seau/Seau_DefaultMaterial_Metallic.jpg" id="3_lpd3h"]
+[ext_resource type="Texture2D" uid="uid://by8fnqpoynh3y" path="res://Textures/Seau/Seau_DefaultMaterial_Normal.jpg" id="4_ewgyv"]
+[ext_resource type="Texture2D" uid="uid://cfpwt5e8mexlr" path="res://Textures/Seau/Seau_DefaultMaterial_Roughness.jpg" id="5_lhwb2"]
+
+[resource]
+albedo_texture = ExtResource("1_3i23m")
+metallic_specular = 0.0
+metallic_texture = ExtResource("3_lpd3h")
+roughness_texture = ExtResource("5_lhwb2")
+normal_enabled = true
+normal_texture = ExtResource("4_ewgyv")
+ao_texture = ExtResource("2_lpd3h")

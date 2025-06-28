@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://dige7ov43phka"]
+[gd_scene load_steps=11 format=4 uid="uid://dige7ov43phka"]
 
 [ext_resource type="PackedScene" uid="uid://dbq7qv4oanf06" path="res://Models/Chauderon.fbx" id="1_c8wyo"]
 [ext_resource type="Material" uid="uid://cit0p0lope4sa" path="res://Materials/M_Chauderon.tres" id="2_c8wyo"]
+[ext_resource type="Material" uid="uid://b3gclco6xybib" path="res://Materials/M_Pierre.tres" id="3_nmbyy"]
+[ext_resource type="Material" uid="uid://bncicsk3fs4g1" path="res://Materials/M_Liquid.tres" id="4_yeq2f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xunog"]
 
@@ -79,10 +81,12 @@ material_override = ExtResource("2_c8wyo")
 
 [node name="PierresChauderon" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(1.09427, 0, 0, 0, 0.871412, 0, 0, 0, 1.09427, 0, 0, 0)
+material_override = ExtResource("3_nmbyy")
 mesh = SubResource("ArrayMesh_jx1m7")
 skeleton = NodePath("")
 
 [node name="LiquideCauderon" type="MeshInstance3D" parent="." index="2"]
-transform = Transform3D(0.172374, 0, 0, 0, 0.172374, 0, 0, 0, 0.172374, 0, 0.313011, 0)
+transform = Transform3D(0.172374, 0, 0, 0, 0.172374, 0, 0, 0, 0.172374, 0, 0.234136, 0)
+material_override = ExtResource("4_yeq2f")
 mesh = SubResource("ArrayMesh_nmbyy")
 skeleton = NodePath("")

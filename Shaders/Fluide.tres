@@ -1,0 +1,18 @@
+[gd_resource type="VisualShader" load_steps=3 format=3 uid="uid://4ua8na2b38ne"]
+
+[sub_resource type="VisualShaderNodeVectorFunc" id="VisualShaderNodeVectorFunc_fsag3"]
+
+[sub_resource type="VisualShaderNodeFresnel" id="VisualShaderNodeFresnel_fsag3"]
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+
+
+"
+graph_offset = Vector2(-459.707, -64.253)
+nodes/fragment/2/node = SubResource("VisualShaderNodeVectorFunc_fsag3")
+nodes/fragment/2/position = Vector2(-1320, 160)
+nodes/fragment/3/node = SubResource("VisualShaderNodeFresnel_fsag3")
+nodes/fragment/3/position = Vector2(-1600, 600)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://dbe5o1jd6qqm3"]
+[gd_scene load_steps=11 format=4 uid="uid://dbe5o1jd6qqm3"]
 
 [ext_resource type="PackedScene" uid="uid://dygwcegpspw6h" path="res://Models/Plaque_Pression.fbx" id="1_uayr1"]
-[ext_resource type="Material" uid="uid://b4fbouh8wkyvp" path="res://Materials/M_Metal.tres" id="2_ow8wa"]
+[ext_resource type="Material" uid="uid://ctei5tx1vcokt" path="res://Materials/M_Bouton_Bleu.tres" id="2_nsskn"]
+[ext_resource type="Material" uid="uid://ccrehi7khf42" path="res://Materials/M_Metal2.tres" id="3_s6xfs"]
 [ext_resource type="Material" uid="uid://dip7iok4xreaq" path="res://Materials/M_PlaqueDePression_lights.tres" id="3_x1gdt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x35pi"]
@@ -76,9 +77,10 @@ shadow_mesh = SubResource("ArrayMesh_unq2a")
 
 [node name="Cube_010" parent="." index="0"]
 transform = Transform3D(0.714404, 0, 0, 0, 0.714404, 0, 0, 0, 0.714404, 0, 0.0298006, 0)
+material_override = ExtResource("2_nsskn")
 
 [node name="Plaque_Base" type="MeshInstance3D" parent="." index="1"]
-material_override = ExtResource("2_ow8wa")
+material_override = ExtResource("3_s6xfs")
 mesh = SubResource("ArrayMesh_efqi4")
 skeleton = NodePath("")
 
