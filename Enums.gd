@@ -1,0 +1,8 @@
+extends Node
+
+enum PICKABLE_ITEMS_TYPES {
+	PASTEQUE,
+	SCREW,
+	BUCKET,
+	PIZZA
+}
