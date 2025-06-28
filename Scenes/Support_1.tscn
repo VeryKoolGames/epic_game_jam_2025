@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvyfuyygx27e8"]
+
+[ext_resource type="PackedScene" uid="uid://cjqbmm2fhxwo" path="res://Models/Support.fbx" id="1_leb3j"]
+[ext_resource type="PackedScene" uid="uid://duys8ttyui6es" path="res://Scenes/bouton.tscn" id="2_qobr1"]
+
+[node name="Support" instance=ExtResource("1_leb3j")]
+
+[node name="Bouton" parent="." index="1" instance=ExtResource("2_qobr1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000186384, 0.187242, -0.000341177)

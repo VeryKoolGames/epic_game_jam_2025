@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2w1myauyrkr7"]
+
+[ext_resource type="PackedScene" uid="uid://ntbs2acqb3lr" path="res://Models/LevelBase.fbx" id="1_fhsqj"]
+[ext_resource type="Material" uid="uid://c1m0ejor36hxk" path="res://Materials/BaseMaterial.tres" id="2_38dla"]
+
+[node name="LevelBase" instance=ExtResource("1_fhsqj")]
+
+[node name="Ground" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_38dla")
