@@ -106,10 +106,11 @@ func pick_up_item() -> void:
 	tween.tween_callback(Callable(self, "_finish_pickup"))
 	var target_pos = arm_transform.to_global(carry_offset)
 	var target_rot = arm_transform.global_transform.basis.get_euler()
-	tween.tween_property(pickable_item, "global_position", target_pos, 0.3)
+	tween.tween_property(pickable_item, "global_position", target_pos, 0.1)
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_OUT)
-	tween.tween_property(pickable_item, "rotation", target_rot, 0.3)
+	tween.tween_property(pickable_item, "rotation", target_rot, 0.1)
+	tween.set_parallel()
 
 func _finish_pickup():
 	if not _is_multiplayer_authority():

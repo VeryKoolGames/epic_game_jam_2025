@@ -83,7 +83,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k0ymt")
 
-[node name="Level_LAB" type="Node3D"]
+[node name="Level_LAB2" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.00589919, 0.916745, -0.39943, 9.38072e-09, 0.399437, 0.916761, 0.999983, 0.00540814, -0.00235636, -18.2355, 43.142, -0.102638)

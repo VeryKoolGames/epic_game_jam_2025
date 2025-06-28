@@ -5,7 +5,7 @@ extends Node
 @export var button_sounds: Array[AudioStreamPlayer2D]
 @export var positive_feedback_sounds: Array[AudioStreamPlayer2D]
 @export var pointing_sounds: Array[AudioStreamPlayer2D]
-@onready var bad_alarm = $BadAlarm
+@export var bad_alarm: AudioStreamPlayer2D
 
 @rpc("any_peer")
 func _play_no_sound_rpc():
@@ -24,7 +24,9 @@ func _play_no_sound() -> void:
 	_play_random_sound(no_sounds)
 
 func _play_random_sound(sound_list: Array[AudioStreamPlayer2D]):
-	var random_sound = sound_list[randi_range(0, no_sounds.size() - 1)]
+	if sound_list.is_empty():
+		return
+	var random_sound = sound_list[randi_range(0, sound_list.size() - 1)]
 	print(random_sound)
 	random_sound.play()
 
