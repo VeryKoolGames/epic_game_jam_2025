@@ -19,7 +19,7 @@ void fragment() {
 			ALPHA = 1.0;
 		}
 	}
-	
+
 }
 
 //void light() {
