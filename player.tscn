@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7xu4doi4n8h4"]
+
+[ext_resource type="Script" uid="uid://xitaxubo1t8y" path="res://player_movement.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://crlg8pvy7gq8h" path="res://pick_up_manager.gd" id="2_onrkg"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_4flbx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i3pqv"]
+size = Vector3(1, 1, 1.08986)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_onrkg"]
+
+[node name="player" type="Node3D"]
+script = ExtResource("1_4flbx")
+
+[node name="PickUpManager" type="Node" parent="."]
+script = ExtResource("2_onrkg")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_4flbx")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.832848)
+shape = SubResource("BoxShape3D_i3pqv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_onrkg")
+
+[connection signal="area_entered" from="Area3D" to="PickUpManager" method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="PickUpManager" method="_on_area_3d_area_exited"]
