@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://fm6n60ah1tvx"
 path.s3tc="res://.godot/imported/LevelBase_Base_Normal.jpg-d2c209ba981c5e6f701ca27394eada74.s3tc.ctex"
+path.etc2="res://.godot/imported/LevelBase_Base_Normal.jpg-d2c209ba981c5e6f701ca27394eada74.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/BaseLevel/LevelBase_Base_Normal.jpg"
-dest_files=["res://.godot/imported/LevelBase_Base_Normal.jpg-d2c209ba981c5e6f701ca27394eada74.s3tc.ctex"]
+dest_files=["res://.godot/imported/LevelBase_Base_Normal.jpg-d2c209ba981c5e6f701ca27394eada74.s3tc.ctex", "res://.godot/imported/LevelBase_Base_Normal.jpg-d2c209ba981c5e6f701ca27394eada74.etc2.ctex"]
 
 [params]
 

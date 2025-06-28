@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bp7fkoscj61yf"]
+[gd_scene load_steps=63 format=4 uid="uid://bp7fkoscj61yf"]
 
 [ext_resource type="Material" uid="uid://cw74fednag0qt" path="res://Materials/M_Character1.tres" id="1_m68lo"]
 

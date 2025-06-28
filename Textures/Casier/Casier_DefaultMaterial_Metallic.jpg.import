@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dse338cuomv4m"
 path.s3tc="res://.godot/imported/Casier_DefaultMaterial_Metallic.jpg-a6d14a0ebeaf6323d77c4a26c5d27fce.s3tc.ctex"
+path.etc2="res://.godot/imported/Casier_DefaultMaterial_Metallic.jpg-a6d14a0ebeaf6323d77c4a26c5d27fce.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Casier/Casier_DefaultMaterial_Metallic.jpg"
-dest_files=["res://.godot/imported/Casier_DefaultMaterial_Metallic.jpg-a6d14a0ebeaf6323d77c4a26c5d27fce.s3tc.ctex"]
+dest_files=["res://.godot/imported/Casier_DefaultMaterial_Metallic.jpg-a6d14a0ebeaf6323d77c4a26c5d27fce.s3tc.ctex", "res://.godot/imported/Casier_DefaultMaterial_Metallic.jpg-a6d14a0ebeaf6323d77c4a26c5d27fce.etc2.ctex"]
 
 [params]
 

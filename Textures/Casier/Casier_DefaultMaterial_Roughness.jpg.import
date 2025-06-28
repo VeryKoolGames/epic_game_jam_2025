@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0ly0kk4udu7u"
 path.s3tc="res://.godot/imported/Casier_DefaultMaterial_Roughness.jpg-bca8b84a3f5a9c64b2367b2e8277c2a3.s3tc.ctex"
+path.etc2="res://.godot/imported/Casier_DefaultMaterial_Roughness.jpg-bca8b84a3f5a9c64b2367b2e8277c2a3.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Casier/Casier_DefaultMaterial_Roughness.jpg"
-dest_files=["res://.godot/imported/Casier_DefaultMaterial_Roughness.jpg-bca8b84a3f5a9c64b2367b2e8277c2a3.s3tc.ctex"]
+dest_files=["res://.godot/imported/Casier_DefaultMaterial_Roughness.jpg-bca8b84a3f5a9c64b2367b2e8277c2a3.s3tc.ctex", "res://.godot/imported/Casier_DefaultMaterial_Roughness.jpg-bca8b84a3f5a9c64b2367b2e8277c2a3.etc2.ctex"]
 
 [params]
 

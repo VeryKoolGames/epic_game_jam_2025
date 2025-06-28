@@ -1,16 +1,18 @@
-[gd_scene load_steps=17 format=4 uid="uid://cp6yol3y6rixl"]
+[gd_scene load_steps=19 format=4 uid="uid://crvaw1bdwrnwx"]
 
-[ext_resource type="PackedScene" uid="uid://bp7fkoscj61yf" path="res://Scenes/Character_BEN.tscn" id="2_iu0du"]
-[ext_resource type="PackedScene" uid="uid://dgaabyyvjnbp8" path="res://Scenes/vitre.tscn" id="3_1xwfk"]
-[ext_resource type="PackedScene" uid="uid://c2w1myauyrkr7" path="res://Scenes/level_base.tscn" id="3_iu0du"]
-[ext_resource type="Material" uid="uid://b4fbouh8wkyvp" path="res://Materials/M_Metal.tres" id="4_1xwfk"]
-[ext_resource type="PackedScene" uid="uid://dbe5o1jd6qqm3" path="res://Scenes/plaque_pression.tscn" id="5_bjdbk"]
-[ext_resource type="PackedScene" uid="uid://baa7hs3cq2wn3" path="res://Scenes/Casier.tscn" id="6_26jke"]
-[ext_resource type="PackedScene" uid="uid://bpvqwnh5rjub8" path="res://Scenes/Levier.tscn" id="7_e07ug"]
-[ext_resource type="PackedScene" uid="uid://bvyfuyygx27e8" path="res://Scenes/Support_1.tscn" id="7_k6myj"]
-[ext_resource type="PackedScene" uid="uid://7425d6q18tcs" path="res://Scenes/Alarme.tscn" id="8_k6myj"]
-[ext_resource type="PackedScene" uid="uid://dige7ov43phka" path="res://Scenes/Chauderon.tscn" id="9_k6myj"]
-[ext_resource type="PackedScene" uid="uid://duys8ttyui6es" path="res://Scenes/bouton.tscn" id="11_ssh82"]
+[ext_resource type="Script" uid="uid://doll4v777v5ys" path="res://Scenes/multplayer_controller.gd" id="1_fbm17"]
+[ext_resource type="PackedScene" uid="uid://c2w1myauyrkr7" path="res://Scenes/level_base.tscn" id="2_fbm17"]
+[ext_resource type="PackedScene" uid="uid://b7xu4doi4n8h4" path="res://player.tscn" id="2_l6pj4"]
+[ext_resource type="PackedScene" uid="uid://bihg75wr72a7k" path="res://challenge_manager.tscn" id="3_jyhx4"]
+[ext_resource type="PackedScene" uid="uid://dgaabyyvjnbp8" path="res://Scenes/vitre.tscn" id="3_l6pj4"]
+[ext_resource type="PackedScene" uid="uid://dbe5o1jd6qqm3" path="res://Scenes/plaque_pression.tscn" id="4_jyhx4"]
+[ext_resource type="PackedScene" uid="uid://bvyfuyygx27e8" path="res://Scenes/Support_1.tscn" id="5_x6r4n"]
+[ext_resource type="Material" uid="uid://b4fbouh8wkyvp" path="res://Materials/M_Metal.tres" id="6_dxxom"]
+[ext_resource type="PackedScene" uid="uid://baa7hs3cq2wn3" path="res://Scenes/Casier.tscn" id="7_gvlqo"]
+[ext_resource type="PackedScene" uid="uid://bpvqwnh5rjub8" path="res://Scenes/Levier.tscn" id="8_vt6um"]
+[ext_resource type="PackedScene" uid="uid://7425d6q18tcs" path="res://Scenes/Alarme.tscn" id="9_on4sc"]
+[ext_resource type="PackedScene" uid="uid://dige7ov43phka" path="res://Scenes/Chauderon.tscn" id="10_yboly"]
+[ext_resource type="PackedScene" uid="uid://duys8ttyui6es" path="res://Scenes/bouton.tscn" id="11_rkg6e"]
 
 [sub_resource type="Environment" id="Environment_qehu7"]
 background_mode = 1
@@ -61,10 +63,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k0ymt")
 
-[node name="Level_LAB" type="Node3D"]
+[node name="Level_LAB" type="Node3D" node_paths=PackedStringArray("recipe_manager")]
+script = ExtResource("1_fbm17")
+player_scene = ExtResource("2_l6pj4")
+recipe_manager = NodePath("ChallengeManager/RecipeManager")
 
-[node name="Character" parent="." instance=ExtResource("2_iu0du")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67371, -1.79063, -14.8478)
+[node name="ChallengeManager" parent="." instance=ExtResource("3_jyhx4")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-3.72074e-08, 0.916761, -0.399437, 2.29412e-08, 0.399437, 0.916761, 1, 2.49467e-08, -3.58936e-08, -18.239, 43.142, 0)
@@ -72,11 +76,8 @@ environment = SubResource("Environment_qehu7")
 fov = 51.2
 near = 0.038
 
-[node name="LevelBase" parent="." instance=ExtResource("3_iu0du")]
+[node name="LevelBase" parent="." instance=ExtResource("2_fbm17")]
 transform = Transform3D(1.43099e-07, 0, -12, 0, 12, 0, 12, 0, 1.43099e-07, 0, -1.82186, 0)
-
-[node name="Character2" parent="." instance=ExtResource("2_iu0du")]
-transform = Transform3D(-0.935635, 0, -0.352969, 0, 1, 0, 0.352969, 0, -0.935635, -5.34742, -1.71523, 9.84385)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.622132, 0.622952, -0.474218, 0, 0.605711, 0.795685, 0.782912, -0.495021, 0.376832, 0, 9.6028, 0)
@@ -84,78 +85,107 @@ shadow_enabled = true
 shadow_bias = 0.015
 shadow_opacity = 0.8
 
-[node name="Vitre" parent="." instance=ExtResource("3_1xwfk")]
+[node name="Vitre" parent="." instance=ExtResource("3_l6pj4")]
 transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, 0, -1.63009, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(18.155, 0, 0, 0, 18.155, 0, 0, 0, 18.155, 0, -2.48838, 0)
 mesh = SubResource("PlaneMesh_iu0du")
 
-[node name="Plaque_Pression2" parent="." instance=ExtResource("5_bjdbk")]
+[node name="Plaque_Pression2" parent="." instance=ExtResource("4_jyhx4")]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -9.88725, -1.68862, -18.0945)
 
-[node name="Plaque_Pression3" parent="." instance=ExtResource("5_bjdbk")]
+[node name="Plaque_Pression3" parent="." instance=ExtResource("4_jyhx4")]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 11.733, -1.68862, -9.29976)
 
-[node name="Plaque_Pression4" parent="." instance=ExtResource("5_bjdbk")]
+[node name="Plaque_Pression4" parent="." instance=ExtResource("4_jyhx4")]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -16.0453, -1.68862, 4.49003)
 
-[node name="Plaque_Pression5" parent="." instance=ExtResource("5_bjdbk")]
+[node name="Plaque_Pression5" parent="." instance=ExtResource("4_jyhx4")]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 9.99933, -1.68862, 21.132)
 
-[node name="Support2" parent="." instance=ExtResource("7_k6myj")]
+[node name="Support2" parent="." instance=ExtResource("5_x6r4n")]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -14.8459, -2.09702, -18.1964)
 
 [node name="Cables" type="MeshInstance3D" parent="."]
 transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, -0.934284, -1.77434, 0.0864835)
-material_override = ExtResource("4_1xwfk")
+material_override = ExtResource("6_dxxom")
 mesh = SubResource("ArrayMesh_1p48u")
 skeleton = NodePath("")
 
-[node name="Casier" parent="." instance=ExtResource("6_26jke")]
+[node name="Casier" parent="." instance=ExtResource("7_gvlqo")]
 transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, -15.613, -1.90931, -24.4146)
 
-[node name="Casier2" parent="." instance=ExtResource("6_26jke")]
+[node name="Casier2" parent="." instance=ExtResource("7_gvlqo")]
 transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, -12.9513, -1.90931, -24.663)
 
-[node name="Casier3" parent="." instance=ExtResource("6_26jke")]
+[node name="Casier3" parent="." instance=ExtResource("7_gvlqo")]
 transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, -10.1404, -1.86225, -24.5535)
 
-[node name="Casier4" parent="." instance=ExtResource("6_26jke")]
+[node name="Casier4" parent="." instance=ExtResource("7_gvlqo")]
 transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, 12.2998, -1.90931, 24.4842)
 
-[node name="Casier5" parent="." instance=ExtResource("6_26jke")]
+[node name="Casier5" parent="." instance=ExtResource("7_gvlqo")]
 transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, 9.48881, -1.86225, 24.3786)
 
-[node name="Levier" parent="." instance=ExtResource("7_e07ug")]
+[node name="Levier" parent="." instance=ExtResource("8_vt6um")]
 transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, -6.21433, 2.46505, -25.3172)
 
-[node name="Levier2" parent="." instance=ExtResource("7_e07ug")]
+[node name="Levier2" parent="." instance=ExtResource("8_vt6um")]
 transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 18.8909, 2.46505, 17.5895)
 
-[node name="Alarme2" parent="." instance=ExtResource("8_k6myj")]
+[node name="Alarme2" parent="." instance=ExtResource("9_on4sc")]
 transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, -5.39238, 7.65303, -25.1938)
 
-[node name="Alarme5" parent="." instance=ExtResource("8_k6myj")]
+[node name="Alarme5" parent="." instance=ExtResource("9_on4sc")]
 transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, -5.39238, 7.65303, 25.3156)
 
-[node name="Alarme3" parent="." instance=ExtResource("8_k6myj")]
+[node name="Alarme3" parent="." instance=ExtResource("9_on4sc")]
 transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 18.8651, 7.65303, -8.14438)
 
-[node name="Alarme4" parent="." instance=ExtResource("8_k6myj")]
+[node name="Alarme4" parent="." instance=ExtResource("9_on4sc")]
 transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 18.8651, 7.65303, 7.99858)
 
-[node name="Chauderon" parent="." instance=ExtResource("9_k6myj")]
+[node name="Chauderon" parent="." instance=ExtResource("10_yboly")]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 13.3526, -1.83192, -18.8701)
 
-[node name="Bouton" parent="." instance=ExtResource("11_ssh82")]
+[node name="Bouton" parent="." instance=ExtResource("11_rkg6e")]
 transform = Transform3D(12, 0, 0, 0, -5.24537e-07, 12, 0, -12, -5.24537e-07, -7.30734, 0.868449, 25.3689)
 
-[node name="Bouton2" parent="." instance=ExtResource("11_ssh82")]
+[node name="Bouton2" parent="." instance=ExtResource("11_rkg6e")]
 transform = Transform3D(12, 0, 0, 0, -5.24537e-07, 12, 0, -12, -5.24537e-07, -9.29274, 0.868449, 25.3689)
 
-[node name="Bouton3" parent="." instance=ExtResource("11_ssh82")]
+[node name="Bouton3" parent="." instance=ExtResource("11_rkg6e")]
 transform = Transform3D(12, 0, 0, 0, -5.24537e-07, 12, 0, -12, -5.24537e-07, 4.5267, 0.868449, 25.3689)
 
-[node name="Bouton4" parent="." instance=ExtResource("11_ssh82")]
+[node name="Bouton4" parent="." instance=ExtResource("11_rkg6e")]
 transform = Transform3D(12, 0, 0, 0, -5.24537e-07, 12, 0, -12, -5.24537e-07, 2.5413, 0.868449, 25.3689)
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://b7xu4doi4n8h4")
+spawn_path = NodePath("..")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Join" type="Button" parent="Control"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Join"
+
+[node name="Host" type="Button" parent="Control"]
+offset_left = 281.0
+offset_top = 3.0
+offset_right = 319.0
+offset_bottom = 34.0
+text = "Host"
+
+[connection signal="pressed" from="Control/Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="Control/Host" to="." method="_on_host_pressed"]
+
+[editable path="ChallengeManager"]

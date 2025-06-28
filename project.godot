@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="epic_game_jam_2025"
-run/main_scene="uid://cfbccupdrb0yo"
+run/main_scene="uid://crvaw1bdwrnwx"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Assets/Sprites/icon.svg"
 
@@ -71,5 +71,5 @@ point={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-viewport/hdr_2d=true
 textures/vram_compression/import_etc2_astc=true
+viewport/hdr_2d=true

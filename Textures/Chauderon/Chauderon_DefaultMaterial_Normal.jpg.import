@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://im50g22v8xje"
 path.s3tc="res://.godot/imported/Chauderon_DefaultMaterial_Normal.jpg-5dc7c07c4707f2c5d571ab36fed4c7df.s3tc.ctex"
+path.etc2="res://.godot/imported/Chauderon_DefaultMaterial_Normal.jpg-5dc7c07c4707f2c5d571ab36fed4c7df.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/Chauderon/Chauderon_DefaultMaterial_Normal.jpg"
-dest_files=["res://.godot/imported/Chauderon_DefaultMaterial_Normal.jpg-5dc7c07c4707f2c5d571ab36fed4c7df.s3tc.ctex"]
+dest_files=["res://.godot/imported/Chauderon_DefaultMaterial_Normal.jpg-5dc7c07c4707f2c5d571ab36fed4c7df.s3tc.ctex", "res://.godot/imported/Chauderon_DefaultMaterial_Normal.jpg-5dc7c07c4707f2c5d571ab36fed4c7df.etc2.ctex"]
 
 [params]
 
