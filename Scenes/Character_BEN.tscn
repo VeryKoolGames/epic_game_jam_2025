@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bids675rpy630"]
+[gd_scene load_steps=48 format=3 uid="uid://bp7fkoscj61yf"]
 
 [ext_resource type="PackedScene" uid="uid://c526tk4j0w2q8" path="res://Models/Bassin.fbx" id="1_2413y"]
 [ext_resource type="PackedScene" uid="uid://dk38nu2l84ff0" path="res://Models/Bras1.fbx" id="2_pbw6m"]
@@ -232,6 +232,9 @@ _data = {
 &"PiedsMoving": SubResource("Animation_2413y"),
 &"RESET": SubResource("Animation_pbw6m")
 }
+
+[sub_resource type="Animation" id="Animation_4id4p"]
+resource_name = "Bras_AnyState"
 
 [sub_resource type="Animation" id="Animation_imwsj"]
 resource_name = "Bras_Holding"
@@ -949,9 +952,6 @@ tracks/16/keys = {
 "times": PackedFloat32Array(0)
 }
 
-[sub_resource type="Animation" id="Animation_4id4p"]
-resource_name = "Bras_AnyState"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i67cs"]
 _data = {
 &"Bras_AnyState": SubResource("Animation_4id4p"),
@@ -1004,7 +1004,7 @@ resource_name = "Corps_Moving"
 loop_mode = 1
 tracks/0/type = "bezier"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("Haut:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -1207,7 +1207,7 @@ states/Pied_Moving/node = SubResource("AnimationNodeAnimation_pbw6m")
 states/Pied_Moving/position = Vector2(386.25, 73)
 states/Start/position = Vector2(120, 49)
 transitions = ["Start", "Pied_Idle", SubResource("AnimationNodeStateMachineTransition_mxyx0"), "Pied_Idle", "Pied_Moving", SubResource("AnimationNodeStateMachineTransition_cx1u1"), "Pied_Moving", "Pied_Idle", SubResource("AnimationNodeStateMachineTransition_h30la")]
-graph_offset = Vector2(-60, -142)
+graph_offset = Vector2(41.64, -111.1)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jtyek"]
 animation = &"Bras_Holding"
@@ -1230,6 +1230,7 @@ advance_condition = &"Holding"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pbw6m"]
+xfade_time = 0.1
 advance_mode = 2
 advance_condition = &"Pointing"
 
@@ -1237,18 +1238,28 @@ advance_condition = &"Pointing"
 advance_mode = 2
 advance_condition = &"Moving"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q74fp"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fhoy6"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"idle"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ivjqc"]
 states/Bras_Holding/node = SubResource("AnimationNodeAnimation_jtyek")
 states/Bras_Holding/position = Vector2(672, 153.753)
 states/Bras_Idle/node = SubResource("AnimationNodeAnimation_mxyx0")
-states/Bras_Idle/position = Vector2(472.688, 153.724)
+states/Bras_Idle/position = Vector2(472.688, 153.738)
 states/Bras_Moving/node = SubResource("AnimationNodeAnimation_h30la")
-states/Bras_Moving/position = Vector2(627.5, 282.33)
+states/Bras_Moving/position = Vector2(672.25, 334.33)
 states/Bras_Pointing/node = SubResource("AnimationNodeAnimation_t4olk")
-states/Bras_Pointing/position = Vector2(361, 284.08)
+states/Bras_Pointing/position = Vector2(349, 317.08)
 states/Start/position = Vector2(266.5, 164.665)
-transitions = ["Bras_Idle", "Bras_Holding", SubResource("AnimationNodeStateMachineTransition_p3oh3"), "Start", "Bras_Idle", SubResource("AnimationNodeStateMachineTransition_2413y"), "Bras_Idle", "Bras_Pointing", SubResource("AnimationNodeStateMachineTransition_pbw6m"), "Bras_Idle", "Bras_Moving", SubResource("AnimationNodeStateMachineTransition_t4olk")]
-graph_offset = Vector2(20.0002, -32.4199)
+transitions = ["Bras_Idle", "Bras_Holding", SubResource("AnimationNodeStateMachineTransition_p3oh3"), "Start", "Bras_Idle", SubResource("AnimationNodeStateMachineTransition_2413y"), "Bras_Idle", "Bras_Pointing", SubResource("AnimationNodeStateMachineTransition_pbw6m"), "Bras_Idle", "Bras_Moving", SubResource("AnimationNodeStateMachineTransition_t4olk"), "Bras_Pointing", "Bras_Idle", SubResource("AnimationNodeStateMachineTransition_q74fp"), "Bras_Holding", "Bras_Idle", SubResource("AnimationNodeStateMachineTransition_fhoy6")]
+graph_offset = Vector2(61.9103, 108.54)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cx1u1"]
 animation = &"Corps_Idle"
@@ -1352,6 +1363,7 @@ anim_player = NodePath("../AnimBras")
 parameters/conditions/Holding = false
 parameters/conditions/Moving = false
 parameters/conditions/Pointing = false
+parameters/conditions/idle = false
 
 [node name="AnimationTree_Corps" type="AnimationTree" parent="."]
 deterministic = false

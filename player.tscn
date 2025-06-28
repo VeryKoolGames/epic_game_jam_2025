@@ -1,7 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7xu4doi4n8h4"]
+[gd_scene load_steps=12 format=3 uid="uid://b7xu4doi4n8h4"]
 
 [ext_resource type="Script" uid="uid://xitaxubo1t8y" path="res://player_movement.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://bp7fkoscj61yf" path="res://Scenes/Character_BEN.tscn" id="2_i3pqv"]
 [ext_resource type="Script" uid="uid://crlg8pvy7gq8h" path="res://pick_up_manager.gd" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://dl8wqv5m34vdd" path="res://body_rotation.gd" id="3_1jxqw"]
+[ext_resource type="Script" uid="uid://flfq6f8c0vgb" path="res://Models/multiplayer_leg.gd" id="3_dw050"]
+[ext_resource type="Script" uid="uid://btymqwpmemt1k" path="res://state_machine.gd" id="4_hqtel"]
+[ext_resource type="Script" uid="uid://btm7y0xhygg1u" path="res://idle_state.gd" id="5_sweqy"]
+[ext_resource type="Script" uid="uid://3rn8avddbug0" path="res://moving_state.gd" id="6_2hs0m"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_4flbx"]
 
@@ -10,11 +16,33 @@ size = Vector3(1, 1, 1.08986)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_onrkg"]
 
-[node name="player" type="Node3D"]
+[node name="player" type="Node3D" node_paths=PackedStringArray("animation_tree_arms")]
 script = ExtResource("1_4flbx")
+animation_tree_arms = NodePath("Character/AnimationTree_Bras")
 
-[node name="PickUpManager" type="Node" parent="."]
+[node name="Character" parent="." instance=ExtResource("2_i3pqv")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.00662601, 0)
+
+[node name="Jambe" parent="Character/Bassin" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, -0.365916, -0.281493, -0.0168233)
+script = ExtResource("3_dw050")
+
+[node name="Jambe2" parent="Character/Bassin" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0.370381, -0.280949, -0.0163134)
+
+[node name="Haut" parent="Character" index="2"]
+script = ExtResource("3_1jxqw")
+
+[node name="Bras1" parent="Character/Haut/Bras" index="0"]
+transform = Transform3D(0.327291, -0.899224, 0, 0.682186, 0.248296, -0.623455, 0.585856, 0.213234, 0.725967, -0.664546, -0.270204, 0.00287721)
+
+[node name="Bras2" parent="Character/Haut/Bras" index="1"]
+transform = Transform3D(-0.337763, 0.927994, -2.50362e-06, 0.927994, 0.337763, 0, 8.5629e-07, -2.35263e-06, -0.98755, 0.728581, -0.177329, -5.98271e-05)
+
+[node name="PickUpManager" type="Node" parent="." node_paths=PackedStringArray("animation_bras_tree", "arm_transform")]
 script = ExtResource("2_onrkg")
+animation_bras_tree = NodePath("../Character/AnimationTree_Bras")
+arm_transform = NodePath("../Character/Haut")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_4flbx")
@@ -26,7 +54,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.832848)
 shape = SubResource("BoxShape3D_i3pqv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_onrkg")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_hqtel")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("5_sweqy")
+
+[node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation_foot_tree", "animation_body_tree")]
+script = ExtResource("6_2hs0m")
+animation_foot_tree = NodePath("../../Character/AnimationTree_Pieds")
+animation_body_tree = NodePath("../../Character/AnimationTree_Corps")
 
 [connection signal="area_entered" from="Area3D" to="PickUpManager" method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="PickUpManager" method="_on_area_3d_area_exited"]
+
+[editable path="Character"]

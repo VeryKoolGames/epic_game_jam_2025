@@ -1,8 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://cfbccupdrb0yo"]
+[gd_scene load_steps=20 format=3 uid="uid://cfbccupdrb0yo"]
 
 [ext_resource type="Script" uid="uid://doll4v777v5ys" path="res://Scenes/multplayer_controller.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://b7xu4doi4n8h4" path="res://player.tscn" id="2_8gbba"]
 [ext_resource type="Script" uid="uid://ctopn0cibdbr3" path="res://Scenes/pick_up_item.gd" id="3_8gbba"]
+[ext_resource type="Script" uid="uid://bjniccxguo31t" path="res://Scenes/challenge_manager.gd" id="4_d1ilt"]
+[ext_resource type="Script" uid="uid://b0y2ljixi3lyl" path="res://Scenes/recipe_manager.gd" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://bkcwfgfwoswk2" path="res://Resources/pickable_item.gd" id="5_ynf5e"]
+[ext_resource type="Resource" uid="uid://c3iu1n28meewj" path="res://Resources/pickable_items/pasteque.tres" id="6_hptm8"]
+[ext_resource type="Resource" uid="uid://d1wnge33j67vn" path="res://Resources/pickable_items/pizza.tres" id="7_d1ilt"]
+[ext_resource type="Resource" uid="uid://db24k1ygpmd81" path="res://Resources/pickable_items/bucket.tres" id="8_6iyac"]
+[ext_resource type="Resource" uid="uid://x7kuod37ayus" path="res://Resources/pickable_items/screw.tres" id="9_fdnlq"]
+[ext_resource type="Script" uid="uid://bvrne068fol83" path="res://Scenes/button_manager.gd" id="11_6iyac"]
+[ext_resource type="Script" uid="uid://lyydk7op06rw" path="res://Scenes/challenge_ui.gd" id="12_6iyac"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -24,9 +33,34 @@ tonemap_mode = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jjvhh"]
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("recipe_manager")]
 script = ExtResource("1_bo1nx")
 player_scene = ExtResource("2_8gbba")
+recipe_manager = NodePath("ChallengeManager/RecipeManager")
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_6iyac")
+
+[node name="Label" type="Label" parent="Control2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Current Challenge"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8gbba")
@@ -68,6 +102,7 @@ spawn_path = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2014, 0, 0)
 mass = 2.0
 gravity_scale = 0.0
+freeze = true
 script = ExtResource("3_8gbba")
 
 [node name="PickUpItem" type="MeshInstance3D" parent="Node3D"]
@@ -81,6 +116,16 @@ shape = SubResource("BoxShape3D_8gbba")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D"]
 shape = SubResource("BoxShape3D_jjvhh")
+
+[node name="ChallengeManager" type="Node" parent="."]
+script = ExtResource("4_d1ilt")
+
+[node name="RecipeManager" type="Node" parent="ChallengeManager"]
+script = ExtResource("4_jjvhh")
+available_ingredients = Array[ExtResource("5_ynf5e")]([ExtResource("6_hptm8"), ExtResource("7_d1ilt"), ExtResource("8_6iyac"), ExtResource("9_fdnlq")])
+
+[node name="ButtonManager" type="Node" parent="ChallengeManager"]
+script = ExtResource("11_6iyac")
 
 [connection signal="pressed" from="Control/Join" to="." method="_on_join_pressed"]
 [connection signal="pressed" from="Control/Host" to="." method="_on_host_pressed"]

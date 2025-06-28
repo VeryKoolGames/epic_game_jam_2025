@@ -2,6 +2,7 @@ extends Node
 
 var peer = ENetMultiplayerPeer.new()
 @export var player_scene: PackedScene
+@export var recipe_manager: RecipeManager
 
 func _on_host_pressed() -> void:
 	peer.create_server(64359)
@@ -10,6 +11,7 @@ func _on_host_pressed() -> void:
 	multiplayer.peer_connected.connect(_sync_world_state)
 	_add_player()
 	_setup_items()
+	recipe_manager._generate_new_recipe()
 	$Control.hide()
 
 func _setup_items():
@@ -34,6 +36,7 @@ func _sync_world_state(id: int):
 				var player = get_node_or_null(str(player_id))
 				if player:
 					player.update_position.rpc_id(id, player.global_transform.origin)
+		recipe_manager.sync_recipes.rpc_id(id, recipe_manager.get_current_recipe())
 
 func _on_join_pressed() -> void:
 	peer.create_client("192.168.222.29", 64359)

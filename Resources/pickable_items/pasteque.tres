@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ResPickableItem" load_steps=2 format=3 uid="uid://c3iu1n28meewj"]
+
+[ext_resource type="Script" uid="uid://bkcwfgfwoswk2" path="res://Resources/pickable_item.gd" id="1_jhpl5"]
+
+[resource]
+script = ExtResource("1_jhpl5")
+metadata/_custom_type_script = "uid://bkcwfgfwoswk2"
