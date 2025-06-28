@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://dcvk4j6nhljl0"]
+
+[ext_resource type="Texture2D" uid="uid://xsrua1py30kj" path="res://Textures/1.png" id="1_307fv"]
+[ext_resource type="Texture2D" uid="uid://s37fpvt2vga8" path="res://Textures/bouton_bleu.png" id="2_87x1d"]
+[ext_resource type="Texture2D" uid="uid://0mx5fxrl8euh" path="res://Textures/arrow.png" id="3_sdb6w"]
+[ext_resource type="Texture2D" uid="uid://bawpjas8o3d76" path="res://Textures/Bouton_jaune.png" id="4_5j3wn"]
+[ext_resource type="Texture2D" uid="uid://duo48bf8em8ln" path="res://Textures/bouton_rouge.png" id="5_ydyuc"]
+[ext_resource type="Texture2D" uid="uid://ckn5jgaune3ka" path="res://Textures/LevierRouge.png" id="6_c7cpm"]
+
+[node name="Quest_Button" type="HBoxContainer"]
+offset_right = 871.0
+offset_bottom = 144.0
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Numero" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("1_307fv")
+stretch_mode = 4
+
+[node name="Bouton1" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_87x1d")
+
+[node name="Fleche" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_sdb6w")
+stretch_mode = 4
+
+[node name="Bouton2" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("4_5j3wn")
+stretch_mode = 4
+
+[node name="Fleche2" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_sdb6w")
+stretch_mode = 4
+
+[node name="Bouton3" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("5_ydyuc")
+stretch_mode = 4
+
+[node name="Fleche3" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_sdb6w")
+stretch_mode = 4
+
+[node name="Bouton4" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("6_c7cpm")
+stretch_mode = 4
