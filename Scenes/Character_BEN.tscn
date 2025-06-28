@@ -1551,7 +1551,7 @@ transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0.000435233, 2.36228
 transform = Transform3D(0.9, 0, 0, 0, 1.1, 0, 0, 0, 0.9, 0, 0.029, 0)
 
 [node name="Tête" type="MeshInstance3D" parent="Haut/Tete"]
-transform = Transform3D(0.942292, 0, 0, 0, 0.942292, 0, 0, 0, 0.942292, 0, 0, 0)
+transform = Transform3D(0.942292, 0, 0, 0, 0.942292, 0, 0, 0, 0.942292, 0, 0, 0.00510607)
 material_override = ExtResource("1_m68lo")
 mesh = SubResource("ArrayMesh_ajjov")
 skeleton = NodePath("")
