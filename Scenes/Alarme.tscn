@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://7425d6q18tcs"]
+[gd_scene load_steps=9 format=4 uid="uid://7425d6q18tcs"]
 
 [ext_resource type="PackedScene" uid="uid://cussxfd7m1dmi" path="res://Models/Alarme.fbx" id="1_i1cu0"]
 [ext_resource type="Material" uid="uid://b0dt2hmvi3dhl" path="res://Materials/M_Vitre.tres" id="2_c6d8l"]
-[ext_resource type="Material" uid="uid://dip7iok4xreaq" path="res://Materials/M_PlaqueDePression_lights.tres" id="3_5s4w3"]
+[ext_resource type="Material" uid="uid://dqmg27e2t7ap6" path="res://Materials/M_AlarmeVert.tres" id="3_c6d8l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wtam5"]
 
@@ -36,6 +36,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hxyoj")
 
+[sub_resource type="Gradient" id="Gradient_c6d8l"]
+offsets = PackedFloat32Array(0, 0.228571, 0.764286, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5s4w3"]
+gradient = SubResource("Gradient_c6d8l")
+
 [node name="Alarme" instance=ExtResource("1_i1cu0")]
 
 [node name="Alarme" parent="." index="0"]
@@ -43,6 +50,13 @@ material_override = ExtResource("2_c6d8l")
 
 [node name="Alarme2" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(1.35418e-08, 0.0610688, 0, -0.0757312, 1.09199e-08, 0, 0, 0, 0.0757312, -0.00387481, 0, 0)
-material_override = ExtResource("3_5s4w3")
+material_override = ExtResource("3_c6d8l")
 mesh = SubResource("ArrayMesh_hx6bj")
 skeleton = NodePath("")
+
+[node name="Gradient" type="Sprite3D" parent="." index="2"]
+transform = Transform3D(-5.71576e-08, -0.2808, -9.57728e-10, 0, -1.22742e-08, 0.0219103, -1.30761, 1.22742e-08, 4.18636e-17, 0.0779002, -0.0020701, -0.00408602)
+modulate = Color(0.679, 0.724, 0, 0.156)
+alpha_scissor_threshold = 0.208
+alpha_hash_scale = 1.25
+texture = SubResource("GradientTexture2D_5s4w3")
