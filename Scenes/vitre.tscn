@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgaabyyvjnbp8"]
+
+[ext_resource type="PackedScene" uid="uid://dd73wscomhx4d" path="res://Models/Vitre.fbx" id="1_oajx5"]
+[ext_resource type="Material" uid="uid://b0dt2hmvi3dhl" path="res://Materials/M_Vitre.tres" id="2_toium"]
+[ext_resource type="Material" uid="uid://b4fbouh8wkyvp" path="res://Materials/M_Metal.tres" id="3_toium"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oajx5"]
+
+[node name="Vitre" instance=ExtResource("1_oajx5")]
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_toium")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.115697, 0, 0, 0, 0.171859, 0, 0, 0, 3.19515, 0, 0.0678352, 0)
+material_override = ExtResource("3_toium")
+mesh = SubResource("BoxMesh_oajx5")
