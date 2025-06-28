@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=4 uid="uid://crvaw1bdwrnwx"]
+[gd_scene load_steps=51 format=4 uid="uid://crvaw1bdwrnwx"]
 
 [ext_resource type="Script" uid="uid://doll4v777v5ys" path="res://Scenes/multplayer_controller.gd" id="1_fbm17"]
 [ext_resource type="PackedScene" uid="uid://c2w1myauyrkr7" path="res://Scenes/level_base.tscn" id="2_fbm17"]
 [ext_resource type="PackedScene" uid="uid://b7xu4doi4n8h4" path="res://player.tscn" id="2_l6pj4"]
 [ext_resource type="PackedScene" uid="uid://bihg75wr72a7k" path="res://challenge_manager.tscn" id="3_jyhx4"]
 [ext_resource type="PackedScene" uid="uid://dgaabyyvjnbp8" path="res://Scenes/vitre.tscn" id="3_l6pj4"]
+[ext_resource type="Script" uid="uid://lyydk7op06rw" path="res://Scenes/challenge_ui.gd" id="3_x6r4n"]
 [ext_resource type="PackedScene" uid="uid://dbe5o1jd6qqm3" path="res://Scenes/plaque_pression.tscn" id="4_jyhx4"]
 [ext_resource type="PackedScene" uid="uid://bvyfuyygx27e8" path="res://Scenes/Support_1.tscn" id="5_x6r4n"]
 [ext_resource type="Material" uid="uid://b4fbouh8wkyvp" path="res://Materials/M_Metal.tres" id="6_dxxom"]
@@ -13,6 +14,35 @@
 [ext_resource type="PackedScene" uid="uid://7425d6q18tcs" path="res://Scenes/Alarme.tscn" id="9_on4sc"]
 [ext_resource type="PackedScene" uid="uid://dige7ov43phka" path="res://Scenes/Chauderon.tscn" id="10_yboly"]
 [ext_resource type="PackedScene" uid="uid://duys8ttyui6es" path="res://Scenes/bouton.tscn" id="11_rkg6e"]
+[ext_resource type="PackedScene" uid="uid://bwbsdkhkbn554" path="res://Scenes/pick_up_item.tscn" id="15_x6r4n"]
+[ext_resource type="Resource" uid="uid://d1wnge33j67vn" path="res://Resources/pickable_items/pizza.tres" id="16_dxxom"]
+[ext_resource type="Script" uid="uid://c7pvct1h5dgjo" path="res://Scenes/sound_manager.gd" id="17_vt6um"]
+[ext_resource type="AudioStream" uid="uid://dyw8ewe2wamal" path="res://Sounds/main-loop.mp3" id="18_on4sc"]
+[ext_resource type="AudioStream" uid="uid://w0o08nlpuaaw" path="res://Sounds/no-1.wav" id="19_sej1a"]
+[ext_resource type="AudioStream" uid="uid://cf4bn2ml88mvy" path="res://Sounds/no-2.wav" id="20_mc2fm"]
+[ext_resource type="AudioStream" uid="uid://cp4syecrpp6ot" path="res://Sounds/no-3.wav" id="21_uxvps"]
+[ext_resource type="AudioStream" uid="uid://dvr2u5fpeq7al" path="res://Sounds/no-4.wav" id="22_qux0v"]
+[ext_resource type="AudioStream" uid="uid://bs6vty4mf3y28" path="res://Sounds/yes-1.wav" id="23_20c72"]
+[ext_resource type="AudioStream" uid="uid://bh3apx4fc8rjl" path="res://Sounds/positive-feedback1.wav" id="23_dga7u"]
+[ext_resource type="AudioStream" uid="uid://rghjcuw7274a" path="res://Sounds/positive-feedback2.wav" id="24_tipo7"]
+[ext_resource type="AudioStream" uid="uid://cg6boddbnxvfx" path="res://Sounds/yes-2.wav" id="24_xk0xp"]
+[ext_resource type="AudioStream" uid="uid://drnyfp4e8xu65" path="res://Sounds/yes-3.wav" id="25_cybxk"]
+[ext_resource type="AudioStream" uid="uid://dnjbrsl8xhq7h" path="res://Sounds/positive-feedback3.wav" id="25_ii62h"]
+[ext_resource type="AudioStream" uid="uid://cdhmdfn6ulqgo" path="res://Sounds/yes-4.wav" id="26_ehnl4"]
+[ext_resource type="AudioStream" uid="uid://drifouhgghw12" path="res://Sounds/yes-5.wav" id="27_8bv7e"]
+[ext_resource type="AudioStream" uid="uid://cjs8v44wisfw8" path="res://Sounds/button-1.wav" id="28_72m11"]
+[ext_resource type="AudioStream" uid="uid://bmic1utbj2sd5" path="res://Sounds/button-2.wav" id="29_yakfb"]
+[ext_resource type="AudioStream" uid="uid://bbuqemdhms20s" path="res://Sounds/button-3.wav" id="30_q70v4"]
+[ext_resource type="AudioStream" uid="uid://dqpv47nqsh6q5" path="res://Sounds/button-4.wav" id="31_3b705"]
+[ext_resource type="AudioStream" uid="uid://c4klh62wesm0v" path="res://Sounds/button-5.wav" id="32_dga7u"]
+[ext_resource type="AudioStream" uid="uid://mi6yfxipnwtt" path="res://Sounds/button-6.wav" id="33_tipo7"]
+[ext_resource type="AudioStream" uid="uid://bvkk4tj8p4riu" path="res://Sounds/bad-alarm.mp3" id="34_yakfb"]
+[ext_resource type="AudioStream" uid="uid://603ksu2ddrot" path="res://Sounds/pointer-1.wav" id="37_yysie"]
+[ext_resource type="AudioStream" uid="uid://boy7ouu5toblp" path="res://Sounds/pointer-2.wav" id="38_2ryth"]
+[ext_resource type="AudioStream" uid="uid://32pu4dnt3v0u" path="res://Sounds/pointer-3.wav" id="39_457c2"]
+[ext_resource type="AudioStream" uid="uid://cpqcjutu1mnev" path="res://Sounds/pointer-4.wav" id="40_2qjws"]
+[ext_resource type="AudioStream" uid="uid://mesxg5fobxkr" path="res://Sounds/pointer-5.wav" id="41_3656k"]
+[ext_resource type="AudioStream" uid="uid://yqs48rcagaf8" path="res://Sounds/pointer-6.wav" id="42_cbh4w"]
 
 [sub_resource type="Environment" id="Environment_qehu7"]
 background_mode = 1
@@ -63,10 +93,40 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k0ymt")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_jyhx4"]
+radius = 0.493351
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_dxxom"]
+
 [node name="Level_LAB" type="Node3D" node_paths=PackedStringArray("recipe_manager")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_fbm17")
 player_scene = ExtResource("2_l6pj4")
 recipe_manager = NodePath("ChallengeManager/RecipeManager")
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_x6r4n")
+
+[node name="Label" type="Label" parent="Control2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Current Challenge"
 
 [node name="ChallengeManager" parent="." instance=ExtResource("3_jyhx4")]
 
@@ -149,6 +209,11 @@ transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 18.
 [node name="Chauderon" parent="." instance=ExtResource("10_yboly")]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 13.3526, -1.83192, -18.8701)
 
+[node name="Area3D" type="Area3D" parent="Chauderon" groups=["cauldron"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chauderon/Area3D"]
+shape = SubResource("SphereShape3D_jyhx4")
+
 [node name="Bouton" parent="." instance=ExtResource("11_rkg6e")]
 transform = Transform3D(12, 0, 0, 0, -5.24537e-07, 12, 0, -12, -5.24537e-07, -7.30734, 0.868449, 25.3689)
 
@@ -160,6 +225,10 @@ transform = Transform3D(12, 0, 0, 0, -5.24537e-07, 12, 0, -12, -5.24537e-07, 4.5
 
 [node name="Bouton4" parent="." instance=ExtResource("11_rkg6e")]
 transform = Transform3D(12, 0, 0, 0, -5.24537e-07, 12, 0, -12, -5.24537e-07, 2.5413, 0.868449, 25.3689)
+
+[node name="PickUpItem" parent="." instance=ExtResource("15_x6r4n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.06141e-07, 0.16925, -13.8669)
+item = ExtResource("16_dxxom")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("uid://b7xu4doi4n8h4")
@@ -174,18 +243,124 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Join" type="Button" parent="Control"]
+layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 text = "Join"
 
 [node name="Host" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 281.0
 offset_top = 3.0
 offset_right = 319.0
 offset_bottom = 34.0
 text = "Host"
 
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(2.44434, 0, 0, 0, 0.863808, 0, 0, 0, 2.5751, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_dxxom")
+
+[node name="SoundManager" type="Node" parent="." node_paths=PackedStringArray("no_sounds", "yes_sounds", "button_sounds", "positive_feedback_sounds", "pointing_sounds")]
+script = ExtResource("17_vt6um")
+no_sounds = [NodePath("NoSounds/AudioStreamPlayer2D"), NodePath("NoSounds/AudioStreamPlayer2D2"), NodePath("NoSounds/AudioStreamPlayer2D3"), NodePath("NoSounds/AudioStreamPlayer2D4")]
+yes_sounds = [NodePath("YesSounds/AudioStreamPlayer2D"), NodePath("YesSounds/AudioStreamPlayer2D2"), NodePath("YesSounds/AudioStreamPlayer2D3"), NodePath("YesSounds/AudioStreamPlayer2D4"), NodePath("YesSounds/AudioStreamPlayer2D5")]
+button_sounds = [NodePath("ButtonSounds/AudioStreamPlayer2D"), NodePath("ButtonSounds/AudioStreamPlayer2D2"), NodePath("ButtonSounds/AudioStreamPlayer2D3"), NodePath("ButtonSounds/AudioStreamPlayer2D4"), NodePath("ButtonSounds/AudioStreamPlayer2D5"), NodePath("ButtonSounds/AudioStreamPlayer2D6")]
+positive_feedback_sounds = [NodePath("PositiveFeedbackSounds/AudioStreamPlayer2D"), NodePath("PositiveFeedbackSounds/AudioStreamPlayer2D2"), NodePath("PositiveFeedbackSounds/AudioStreamPlayer2D3")]
+pointing_sounds = [NodePath("PointingSounds/AudioStreamPlayer2D"), NodePath("PointingSounds/AudioStreamPlayer2D2"), NodePath("PointingSounds/AudioStreamPlayer2D3"), NodePath("PointingSounds/AudioStreamPlayer2D4"), NodePath("PointingSounds/AudioStreamPlayer2D5"), NodePath("PointingSounds/AudioStreamPlayer2D6")]
+
+[node name="MainMusic" type="AudioStreamPlayer2D" parent="SoundManager"]
+stream = ExtResource("18_on4sc")
+autoplay = true
+
+[node name="NoSounds" type="Node" parent="SoundManager"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundManager/NoSounds"]
+stream = ExtResource("19_sej1a")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SoundManager/NoSounds"]
+stream = ExtResource("20_mc2fm")
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="SoundManager/NoSounds"]
+stream = ExtResource("21_uxvps")
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="SoundManager/NoSounds"]
+stream = ExtResource("22_qux0v")
+
+[node name="PositiveFeedbackSounds" type="Node" parent="SoundManager"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundManager/PositiveFeedbackSounds"]
+stream = ExtResource("23_dga7u")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SoundManager/PositiveFeedbackSounds"]
+stream = ExtResource("24_tipo7")
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="SoundManager/PositiveFeedbackSounds"]
+stream = ExtResource("25_ii62h")
+
+[node name="YesSounds" type="Node" parent="SoundManager"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundManager/YesSounds"]
+stream = ExtResource("23_20c72")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SoundManager/YesSounds"]
+stream = ExtResource("24_xk0xp")
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="SoundManager/YesSounds"]
+stream = ExtResource("25_cybxk")
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="SoundManager/YesSounds"]
+stream = ExtResource("26_ehnl4")
+
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="SoundManager/YesSounds"]
+stream = ExtResource("27_8bv7e")
+
+[node name="ButtonSounds" type="Node" parent="SoundManager"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundManager/ButtonSounds"]
+stream = ExtResource("28_72m11")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SoundManager/ButtonSounds"]
+stream = ExtResource("29_yakfb")
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="SoundManager/ButtonSounds"]
+stream = ExtResource("30_q70v4")
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="SoundManager/ButtonSounds"]
+stream = ExtResource("31_3b705")
+
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="SoundManager/ButtonSounds"]
+stream = ExtResource("32_dga7u")
+
+[node name="AudioStreamPlayer2D6" type="AudioStreamPlayer2D" parent="SoundManager/ButtonSounds"]
+stream = ExtResource("33_tipo7")
+
+[node name="PointingSounds" type="Node" parent="SoundManager"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundManager/PointingSounds"]
+stream = ExtResource("37_yysie")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SoundManager/PointingSounds"]
+stream = ExtResource("38_2ryth")
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="SoundManager/PointingSounds"]
+stream = ExtResource("39_457c2")
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="SoundManager/PointingSounds"]
+stream = ExtResource("40_2qjws")
+
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="SoundManager/PointingSounds"]
+stream = ExtResource("41_3656k")
+
+[node name="AudioStreamPlayer2D6" type="AudioStreamPlayer2D" parent="SoundManager/PointingSounds"]
+stream = ExtResource("42_cbh4w")
+
+[node name="BadAlarm" type="AudioStreamPlayer2D" parent="SoundManager"]
+stream = ExtResource("34_yakfb")
+
 [connection signal="pressed" from="Control/Join" to="." method="_on_join_pressed"]
 [connection signal="pressed" from="Control/Host" to="." method="_on_host_pressed"]
 
 [editable path="ChallengeManager"]
+[editable path="Chauderon"]

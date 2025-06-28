@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwbsdkhkbn554"]
+
+[ext_resource type="Script" uid="uid://ctopn0cibdbr3" path="res://Scenes/pick_up_item.gd" id="1_8jd25"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bo1nx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8gbba"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jjvhh"]
+
+[node name="PickUpItem" type="RigidBody3D" groups=["pickup"]]
+mass = 2.0
+gravity_scale = 5.0
+freeze = true
+script = ExtResource("1_8jd25")
+
+[node name="PickUpItem" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_bo1nx")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_8gbba")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_jjvhh")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

@@ -1619,7 +1619,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_cx1u1")
 }
 autoplay = "Pied_Idle"
-speed_scale = 1.5
+speed_scale = 4.0
 
 [node name="AnimBras" type="AnimationPlayer" parent="."]
 libraries = {

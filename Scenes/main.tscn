@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cfbccupdrb0yo"]
+[gd_scene load_steps=11 format=3 uid="uid://cfbccupdrb0yo"]
 
 [ext_resource type="Script" uid="uid://doll4v777v5ys" path="res://Scenes/multplayer_controller.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://b7xu4doi4n8h4" path="res://player.tscn" id="2_8gbba"]
-[ext_resource type="Script" uid="uid://ctopn0cibdbr3" path="res://Scenes/pick_up_item.gd" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://bwbsdkhkbn554" path="res://Scenes/pick_up_item.tscn" id="4_kry3j"]
 [ext_resource type="PackedScene" uid="uid://bihg75wr72a7k" path="res://challenge_manager.tscn" id="5_kry3j"]
+[ext_resource type="Resource" uid="uid://d1wnge33j67vn" path="res://Resources/pickable_items/pizza.tres" id="7_d1ilt"]
 [ext_resource type="Script" uid="uid://lyydk7op06rw" path="res://Scenes/challenge_ui.gd" id="12_6iyac"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
@@ -20,16 +21,9 @@ tonemap_mode = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bo1nx"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_bo1nx"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_8gbba"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_jjvhh"]
-
-[node name="Main" type="Node3D" node_paths=PackedStringArray("recipe_manager")]
+[node name="Main" type="Node3D"]
 script = ExtResource("1_bo1nx")
 player_scene = ExtResource("2_8gbba")
-recipe_manager = NodePath("")
 
 [node name="Control2" type="Control" parent="."]
 layout_mode = 3
@@ -91,24 +85,9 @@ text = "Host"
 _spawnable_scenes = PackedStringArray("uid://b7xu4doi4n8h4")
 spawn_path = NodePath("..")
 
-[node name="Node3D" type="RigidBody3D" parent="." groups=["pickup"]]
+[node name="PickUpItem" parent="." instance=ExtResource("4_kry3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2014, 0, 0)
-mass = 2.0
-gravity_scale = 0.0
-freeze = true
-script = ExtResource("3_8gbba")
-
-[node name="PickUpItem" type="MeshInstance3D" parent="Node3D"]
-mesh = SubResource("BoxMesh_bo1nx")
-skeleton = NodePath("../..")
-
-[node name="Area3D" type="Area3D" parent="Node3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
-shape = SubResource("BoxShape3D_8gbba")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D"]
-shape = SubResource("BoxShape3D_jjvhh")
+item = ExtResource("7_d1ilt")
 
 [node name="ChallengeManager" parent="." instance=ExtResource("5_kry3j")]
 

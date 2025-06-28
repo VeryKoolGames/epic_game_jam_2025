@@ -17,7 +17,6 @@ func _process(delta: float) -> void:
 	if input_vector.length() < deadzone:
 		return
 
-	# Calculate angle and rotate body
 	var angle = atan2(-input_vector.x, -input_vector.y)  # In Godot, Y is forward
 	var target_rotation = Vector3(0, angle, 0)
 	rotation = target_rotation
