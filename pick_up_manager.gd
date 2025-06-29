@@ -47,24 +47,32 @@ func _input(event: InputEvent) -> void:
 		return
 
 	if event.is_action_pressed("pickup") and pickable_item and is_carrying_item:
+		SoundManager.play_throw_sounds()
 		stop_holding_anim()
 		set_pickable_to_layer_1_and_2()
 		sync_holding_animation.rpc(false)
-		sync_carrying_state.rpc(false)
-
+		#sync_carrying_state.rpc(false)
 		pickable_item.freeze = false
-		owner.is_holding = false
+		release_item()
 		_apply_force_to_item()
-		is_carrying_item = false
 
 		if _is_multiplayer_authority():
 			pickable_item.update_item_position.rpc(pickable_item.global_transform.origin)
 
 	elif event.is_action_pressed("pickup") and pickable_item and not is_carrying_item:
+		print("Picking up item")
 		pick_up_item()
 		var player_id = get_parent().name.to_int()
+		print("I am am ", player_id, "And I just picked up an item")
+		pickable_item.player = get_parent()
 		pickable_item._set_multiplayer_authority.rpc(player_id)
 
+func release_item()	-> void:
+	pickable_item = null
+	owner.is_holding = false
+	is_carrying_item = false
+	stop_holding_anim()
+	
 func play_holding_anim() -> void:
 	animation_bras_tree.set("parameters/conditions/Holding", true)
 	animation_bras_tree.set("parameters/conditions/idle", false)
@@ -75,12 +83,15 @@ func stop_holding_anim() -> void:
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.get_parent().is_in_group("pickup") and not is_carrying_item:
+		owner.can_interact = false
 		pickable_item = area.get_parent()
 		#pickable_item.activate_outline()
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	if area.get_parent().is_in_group("pickup") and not is_carrying_item and pickable_item:
+		owner.can_interact = true
 		#pickable_item.deactivate_outline()
+		pickable_item.freeze = false
 		pickable_item = null
 
 func _apply_force_to_item() -> void:
@@ -90,7 +101,7 @@ func _apply_force_to_item() -> void:
 		pickable_item.apply_central_impulse(force_direction * force_magnitude)
 
 func _process(_delta: float) -> void:
-	if pickable_item and is_carrying_item and _is_multiplayer_authority():
+	if pickable_item and is_carrying_item and _is_multiplayer_authority() and not pickable_item.is_reseting:
 		var carried_position = arm_transform.to_global(carry_offset)
 		pickable_item.global_transform.origin = carried_position
 		pickable_item.update_item_position.rpc(carried_position)
@@ -102,7 +113,6 @@ func pick_up_item() -> void:
 	
 	play_holding_anim()
 	sync_holding_animation.rpc(true)
-	pickable_item.player_id = owner.name.to_int()
 
 	var tween = create_tween()
 	tween.tween_callback(Callable(self, "_finish_pickup"))

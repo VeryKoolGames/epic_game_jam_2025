@@ -19,9 +19,13 @@ var is_pointing := false
 var is_holding := false
 var position_initialized := false  # Add this flag
 var can_interact := true
+@export var pickup_manager: Node
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
+
+func release_item() -> void:
+	pickup_manager.release_item()
 
 func _ready() -> void:
 	if multiplayer.get_unique_id() == 1:
@@ -77,11 +81,13 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_released("point") and is_pointing and not is_holding:
 		animation_tree_arms.set("parameters/conditions/idle", true)
 		animation_tree_arms.set("parameters/conditions/Pointing", false)
+		SoundManager.play_pointing_sound()
 		sync_pointing_state.rpc(false)
 		await get_tree().create_timer(0.5).timeout
 		is_pointing = false
 
 func _process(delta: float) -> void:
+	# Makes the other player move on the screen
 	if not is_multiplayer_authority():
 		lerp_alpha = min(lerp_alpha + delta * 5, 1.0)
 		global_transform.origin = last_position.lerp(target_position, lerp_alpha)

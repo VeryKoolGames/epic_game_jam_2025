@@ -4,8 +4,14 @@ class_name ChallengeManager
 static var challenge_counter := 0
 @export var challenge_total: int = 5
 @export var challenges: Array[Challenge]
-var current_challenge: Challenge
+static var current_challenge: Challenge
 static var player_that_generated_quest: int = 1
+
+static func is_challenge_button() -> bool:
+	return current_challenge is ButtonManager
+
+static func is_challenge_recipe() -> bool:
+	return current_challenge is RecipeManager	
 
 @rpc("any_peer")
 func _share_challenge_rpc() -> void:
@@ -50,5 +56,8 @@ func create_first_challenge() -> void:
 	_share_challenge()
 	_share_challenge_rpc.rpc()
 
-static func can_complete_challenge(player_id: int):
+static func can_complete_challenge(player_id: int) -> bool:
+#	if player_id != PlayerIds.player_one_id and player_id != PlayerIds.player_two_id:
+#		return false
+	print("Checking if player ID can complete challenge:", player_id, "and player that generated quest is:", player_that_generated_quest)
 	return player_id != player_that_generated_quest

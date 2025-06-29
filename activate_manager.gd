@@ -3,12 +3,13 @@ extends Node
 var current_activable: Activable
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("pickup") and current_activable:
+	if event.is_action_pressed("pickup") and current_activable and ChallengeManager.is_challenge_button():
 		current_activable.activate()
+		SoundManager.play_button_sound()
 		print(owner.name.to_int())
 		print(ChallengeManager.can_complete_challenge(owner.name.to_int()))
 		if ChallengeManager.can_complete_challenge(owner.name.to_int()):
-			Events.try_combination.emit(current_activable.id)
+			Events.try_combination.emit(current_activable.id, owner.name.to_int())
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:

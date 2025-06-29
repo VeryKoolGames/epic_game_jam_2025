@@ -264,9 +264,10 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_n7ghd"]
 size = Vector3(2.91357, 4.13385, 1.47223)
 
-[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("animation_tree_arms") groups=["player"]]
+[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("animation_tree_arms", "pickup_manager") groups=["player"]]
 script = ExtResource("1_4flbx")
 animation_tree_arms = NodePath("Character/AnimationTree_Bras")
+pickup_manager = NodePath("PickUpManager")
 
 [node name="Character" parent="." instance=ExtResource("2_i3pqv")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.00662601, 0)

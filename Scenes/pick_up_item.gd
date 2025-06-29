@@ -6,9 +6,12 @@ var target_position := Vector3.ZERO
 var lerp_alpha := 0.0
 @export var item: ResPickableItem
 @export var mesh: MeshInstance3D
-var player_id := -1
 var original_position := Vector3.ZERO
 var recipe_manager: RecipeManager
+var is_reseting := false
+@onready var area := $Area3D
+var player: Player
+
 
 func _ready() -> void:
 	recipe_manager = get_parent().get_parent()
@@ -26,7 +29,7 @@ func _set_multiplayer_authority(id: int):
 
 func _process(delta: float) -> void:
 	if is_multiplayer_authority():
-		if not freeze and linear_velocity.length() > 0.1:
+		if not freeze and linear_velocity.length() > 0.1 and not is_reseting:
 			update_item_position.rpc(global_transform.origin)
 	else:
 		lerp_alpha = min(lerp_alpha + delta * 5.0, 1)
@@ -34,10 +37,15 @@ func _process(delta: float) -> void:
 		
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	if area.is_in_group("cauldron") and ChallengeManager.can_complete_challenge(player_id):
+	
+	if area.is_in_group("cauldron") and player and ChallengeManager.can_complete_challenge(player.name.to_int()):
+		player.release_item()
+		print("I am player", player.name.to_int(), " and I entered can compete ", ChallengeManager.can_complete_challenge(player.name.to_int()))
+		is_reseting = true
 		recipe_manager.try_ingredient(item)
 		scale_down_and_queue_free_rpc.rpc()
 		scale_down_and_queue_free()
+		_reset_item()
 
 @rpc("any_peer")
 func scale_down_and_queue_free_rpc() -> void:
@@ -53,6 +61,10 @@ func make_item_respawn() -> void:
 	global_transform.origin = original_position
 	tween.tween_property(self, "scale", Vector3(1, 1, 1), 0.2)
 
+func _reset_item() -> void:
+	await get_tree().create_timer(4).timeout
+	is_reseting = false
+	
 func activate_outline() -> void:
 	return
 	mesh.material_overlay.grow = true
