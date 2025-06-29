@@ -16,7 +16,7 @@ func _input(event: InputEvent) -> void:
 
 func emote_cooldown() -> void:
 	can_use_emotes = false
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(1).timeout
 	can_use_emotes = true
 
 func play_thumbs_up_emote() -> void:

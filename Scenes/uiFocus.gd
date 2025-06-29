@@ -10,3 +10,7 @@ func _ready():
 func _on_focus_entered():
 	if focus_sound and not focus_sound.playing:
 		focus_sound.play()
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_valider") and has_focus():
+		emit_signal("pressed")  # ✅ corrige ici

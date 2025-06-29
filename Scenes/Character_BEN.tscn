@@ -1758,6 +1758,7 @@ mesh = SubResource("ArrayMesh_rbes7")
 skeleton = NodePath("")
 
 [node name="AnimPieds" type="AnimationPlayer" parent="."]
+deterministic = true
 libraries = {
 &"": SubResource("AnimationLibrary_cx1u1")
 }
@@ -1776,6 +1777,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_q74fp")
 }
 autoplay = "Corps_Moving"
+speed_scale = 1.5
 
 [node name="AnimationTree_Pieds" type="AnimationTree" parent="."]
 deterministic = false
