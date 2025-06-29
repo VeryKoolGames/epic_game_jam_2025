@@ -1,9 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://bpvqwnh5rjub8"]
+[gd_scene load_steps=15 format=4 uid="uid://v7c0gin77qlp"]
 
-[ext_resource type="PackedScene" uid="uid://ciq5lcaynma44" path="res://Models/Levier.fbx" id="1_ts4xu"]
-[ext_resource type="Material" uid="uid://cuav0s0pid8x3" path="res://Materials/M_Levier_Base.tres" id="2_bqvmv"]
-[ext_resource type="Script" uid="uid://d3lk4p3giegoy" path="res://Scenes/activable_lever.gd" id="2_r4tcf"]
-[ext_resource type="Material" uid="uid://dl8ew2ub2x0sp" path="res://Materials/M_Bouton_Jaune.tres" id="3_cw3od"]
+[ext_resource type="PackedScene" uid="uid://ciq5lcaynma44" path="res://Models/Levier.fbx" id="1_gb01h"]
+[ext_resource type="Script" uid="uid://d3lk4p3giegoy" path="res://Scenes/activable_lever.gd" id="2_thm3l"]
+[ext_resource type="Material" uid="uid://cuav0s0pid8x3" path="res://Materials/M_Levier_Base.tres" id="3_kvc1r"]
+[ext_resource type="Material" uid="uid://0lkt3a3t5kat" path="res://Materials/M_Bouton_Rouge.tres" id="4_gb01h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oqarf"]
 
@@ -112,8 +112,8 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_r4tcf"]
 size = Vector3(0.595703, 0.85498, 0.378296)
 
-[node name="Levier" node_paths=PackedStringArray("mesh") instance=ExtResource("1_ts4xu")]
-script = ExtResource("2_r4tcf")
+[node name="Levier" node_paths=PackedStringArray("mesh") instance=ExtResource("1_gb01h")]
+script = ExtResource("2_thm3l")
 mesh = NodePath("Cylinder_012")
 id = 2
 
@@ -123,13 +123,13 @@ visible = false
 
 [node name="LevierBase" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(0.11404, 0, 0, 0, -5.56984e-09, -0.11404, 0, 0.0467232, -1.35946e-08, 0, 0, 0)
-material_override = ExtResource("2_bqvmv")
+material_override = ExtResource("3_kvc1r")
 mesh = SubResource("ArrayMesh_ecjm3")
 skeleton = NodePath("")
 
 [node name="Cylinder_012" type="MeshInstance3D" parent="." index="2"]
 transform = Transform3D(1.19819e-07, -0.0150665, -0.0167747, 4.25271e-08, -0.0167747, 0.0150665, -0.0225476, -1.11703e-07, -6.07243e-08, 0, -0.0255476, -7.06464e-05)
-material_override = ExtResource("3_cw3od")
+material_override = ExtResource("4_gb01h")
 mesh = SubResource("ArrayMesh_ruxfk")
 skeleton = NodePath("")
 
