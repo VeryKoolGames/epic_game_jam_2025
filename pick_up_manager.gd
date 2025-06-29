@@ -56,7 +56,7 @@ func _input(event: InputEvent) -> void:
 		release_item()
 		_apply_force_to_item()
 
-		if _is_multiplayer_authority():
+		if _is_multiplayer_authority() and pickable_item:
 			pickable_item.update_item_position.rpc(pickable_item.global_transform.origin)
 
 	elif event.is_action_pressed("pickup") and pickable_item and not is_carrying_item:

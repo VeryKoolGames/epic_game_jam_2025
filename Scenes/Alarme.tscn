@@ -1,8 +1,239 @@
-[gd_scene load_steps=9 format=4 uid="uid://7425d6q18tcs"]
+[gd_scene load_steps=16 format=4 uid="uid://7425d6q18tcs"]
 
 [ext_resource type="PackedScene" uid="uid://cussxfd7m1dmi" path="res://Models/Alarme.fbx" id="1_i1cu0"]
+[ext_resource type="Material" uid="uid://dj2fggklv5unn" path="res://Materials/M_AlarmeNeutre.tres" id="2_5s4w3"]
 [ext_resource type="Material" uid="uid://b0dt2hmvi3dhl" path="res://Materials/M_Vitre.tres" id="2_c6d8l"]
 [ext_resource type="Material" uid="uid://dqmg27e2t7ap6" path="res://Materials/M_AlarmeVert.tres" id="3_c6d8l"]
+[ext_resource type="Material" uid="uid://cymc6r638augp" path="res://Materials/M_AlarmeRouge.tres" id="4_rs0de"]
+
+[sub_resource type="Animation" id="Animation_rs0de"]
+resource_name = "Alarme_Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Alarme2:material_override")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_5s4w3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Gradient:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.679, 0.724, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uraq0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Alarme2:material_override")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_c6d8l")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Gradient:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.679, 0.724, 0, 0)]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Gradient:rotation:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(6.28319, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Gradient:modulate:r")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.792346, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Gradient:modulate:g")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.124004, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Gradient:modulate:b")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2.88785e-07, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Gradient:modulate:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.427, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_5s4w3"]
+resource_name = "Alarme_Correct"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Gradient:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.679, 0.724, 0, 0.281)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Alarme2:material_override")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_c6d8l")]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Gradient:rotation:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-6.28319, -0.25, 0, 0.25, 0, 12.5664, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.6)
+}
+
+[sub_resource type="Animation" id="Animation_wumj3"]
+resource_name = "Alarme_Erreur"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Alarme2:material_override")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_rs0de")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Gradient:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.792346, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Gradient:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.124004, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Gradient:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2.88785e-07, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Gradient:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.427, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Gradient:rotation:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-6.28319, -0.25, 0, 0.25, 0, 12.5664, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.6)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wumj3"]
+_data = {
+&"Alarme_Correct": SubResource("Animation_5s4w3"),
+&"Alarme_Erreur": SubResource("Animation_wumj3"),
+&"Alarme_Idle": SubResource("Animation_rs0de"),
+&"RESET": SubResource("Animation_uraq0")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wtam5"]
 
@@ -38,25 +269,34 @@ shadow_mesh = SubResource("ArrayMesh_hxyoj")
 
 [sub_resource type="Gradient" id="Gradient_c6d8l"]
 offsets = PackedFloat32Array(0, 0.228571, 0.764286, 1)
-colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+colors = PackedColorArray(0, 0, 0, 0, 2, 2, 2, 1, 2, 2, 2, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5s4w3"]
 gradient = SubResource("Gradient_c6d8l")
+use_hdr = true
 
 [node name="Alarme" instance=ExtResource("1_i1cu0")]
 
-[node name="Alarme" parent="." index="0"]
+[node name="AlarmeAnimations" type="AnimationPlayer" parent="." index="0"]
+root_node = NodePath("../Alarme")
+libraries = {
+&"": SubResource("AnimationLibrary_wumj3")
+}
+autoplay = "Alarme_Correct"
+
+[node name="Alarme" parent="." index="1"]
 material_override = ExtResource("2_c6d8l")
 
-[node name="Alarme2" type="MeshInstance3D" parent="." index="1"]
+[node name="Alarme2" type="MeshInstance3D" parent="." index="2"]
 transform = Transform3D(1.35418e-08, 0.0610688, 0, -0.0757312, 1.09199e-08, 0, 0, 0, 0.0757312, -0.00387481, 0, 0)
 material_override = ExtResource("3_c6d8l")
 mesh = SubResource("ArrayMesh_hx6bj")
 skeleton = NodePath("")
 
-[node name="Gradient" type="Sprite3D" parent="." index="2"]
-transform = Transform3D(-5.71576e-08, -0.2808, -9.57728e-10, 0, -1.22742e-08, 0.0219103, -1.30761, 1.22742e-08, 4.18636e-17, 0.0779002, -0.0020701, -0.00408602)
-modulate = Color(0.679, 0.724, 0, 0.156)
+[node name="Gradient" type="Sprite3D" parent="." index="3"]
+transform = Transform3D(0.653805, -0.1404, 0.0154929, 0.92462, 0.198556, -3.83092e-09, -0.653805, 0.1404, 0.0154929, 0.078, 0, 0)
+top_level = true
+modulate = Color(0.792346, 0.124004, 2.88785e-07, 0.427)
 alpha_scissor_threshold = 0.208
 alpha_hash_scale = 1.25
 texture = SubResource("GradientTexture2D_5s4w3")
