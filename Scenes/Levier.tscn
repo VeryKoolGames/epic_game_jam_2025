@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ciq5lcaynma44" path="res://Models/Levier.fbx" id="1_ts4xu"]
 [ext_resource type="Material" uid="uid://cuav0s0pid8x3" path="res://Materials/M_Levier_Base.tres" id="2_bqvmv"]
-[ext_resource type="Script" path="res://Scenes/activable_lever.gd" id="2_r4tcf"]
+[ext_resource type="Script" uid="uid://d3lk4p3giegoy" path="res://Scenes/activable_lever.gd" id="2_r4tcf"]
 [ext_resource type="Material" uid="uid://dl8ew2ub2x0sp" path="res://Materials/M_Bouton_Jaune.tres" id="3_cw3od"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oqarf"]

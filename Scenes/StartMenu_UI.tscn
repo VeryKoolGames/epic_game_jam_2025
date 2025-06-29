@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://05pijcj62mo0" path="res://Textures/Controles.png" id="3_wudg0"]
 [ext_resource type="Texture2D" uid="uid://davuiivi46j0u" path="res://Textures/Host.png" id="4_7da1l"]
 [ext_resource type="Texture2D" uid="uid://cs30op1ywnkoh" path="res://Textures/Join_Selected.png" id="5_7nsd5"]
-[ext_resource type="Script" uid="uid://fug0mcjty4wp" path="res://Scenes/uiFocus.gd" id="5_kbb16"]
+[ext_resource type="Script" path="res://Scenes/uiFocus.gd" id="5_kbb16"]
 [ext_resource type="Texture2D" uid="uid://co602k1lwohr7" path="res://Textures/Host_Selected.png" id="8_7nsd5"]
 [ext_resource type="AudioStream" uid="uid://blir55sqdicaq" path="res://Sounds/HoverSound.wav" id="9_swf8m"]
 
@@ -66,6 +66,11 @@ texture_focused = ExtResource("8_7nsd5")
 stretch_mode = 4
 script = ExtResource("5_kbb16")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="VBoxContainer/Host"]
+position = Vector2(0, 170)
+stream = ExtResource("9_swf8m")
+volume_db = -6.0
+
 [node name="Join" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("3_4aawq")
@@ -74,8 +79,3 @@ texture_hover = ExtResource("5_7nsd5")
 texture_disabled = ExtResource("3_4aawq")
 texture_focused = ExtResource("5_7nsd5")
 stretch_mode = 4
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(35, 839)
-stream = ExtResource("9_swf8m")
-volume_db = -6.0

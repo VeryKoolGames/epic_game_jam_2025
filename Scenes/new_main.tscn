@@ -1,6 +1,6 @@
-[gd_scene load_steps=66 format=4 uid="uid://crvaw1bdwrnwx"]
+[gd_scene load_steps=68 format=4 uid="uid://crvaw1bdwrnwx"]
 
-[ext_resource type="Script" path="res://Scenes/multplayer_controller.gd" id="1_fbm17"]
+[ext_resource type="Script" uid="uid://doll4v777v5ys" path="res://Scenes/multplayer_controller.gd" id="1_fbm17"]
 [ext_resource type="PackedScene" uid="uid://c2w1myauyrkr7" path="res://Scenes/level_base.tscn" id="2_fbm17"]
 [ext_resource type="PackedScene" uid="uid://b7xu4doi4n8h4" path="res://player.tscn" id="2_l6pj4"]
 [ext_resource type="PackedScene" uid="uid://sdvkjmh51bqg" path="res://Scenes/pasteque.tscn" id="3_2ryth"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://7425d6q18tcs" path="res://Scenes/Alarme.tscn" id="9_on4sc"]
 [ext_resource type="PackedScene" uid="uid://dige7ov43phka" path="res://Scenes/Chauderon.tscn" id="10_yboly"]
 [ext_resource type="PackedScene" uid="uid://duys8ttyui6es" path="res://Scenes/bouton_bleu.tscn" id="11_rkg6e"]
-[ext_resource type="Script" path="res://Scenes/sound_manager.gd" id="17_vt6um"]
+[ext_resource type="Script" uid="uid://c7pvct1h5dgjo" path="res://Scenes/sound_manager.gd" id="17_vt6um"]
 [ext_resource type="AudioStream" uid="uid://dyw8ewe2wamal" path="res://Sounds/main-loop.mp3" id="18_on4sc"]
 [ext_resource type="PackedScene" uid="uid://bu3ip0kio7dka" path="res://Scenes/main_ui.tscn" id="19_2qjws"]
 [ext_resource type="AudioStream" uid="uid://w0o08nlpuaaw" path="res://Sounds/no-1.wav" id="19_sej1a"]
@@ -45,14 +45,12 @@
 [ext_resource type="AudioStream" uid="uid://32pu4dnt3v0u" path="res://Sounds/pointer-3.wav" id="39_457c2"]
 [ext_resource type="AudioStream" uid="uid://cpqcjutu1mnev" path="res://Sounds/pointer-4.wav" id="40_2qjws"]
 [ext_resource type="AudioStream" uid="uid://mesxg5fobxkr" path="res://Sounds/pointer-5.wav" id="41_3656k"]
-[ext_resource type="PackedScene" path="res://Scenes/bucket.tscn" id="42_457c2"]
+[ext_resource type="PackedScene" uid="uid://bbfxv8yygrnvg" path="res://Scenes/bucket.tscn" id="42_457c2"]
 [ext_resource type="AudioStream" uid="uid://yqs48rcagaf8" path="res://Sounds/pointer-6.wav" id="42_cbh4w"]
-
-[ext_resource type="PackedScene" uid="uid://d13o8lmc5tq0p" path="res://Scenes/support_2.tscn" id="49_xo33y"]
-
-[ext_resource type="PackedScene" uid="uid://eyro48rrjwm2" path="res://Scenes/pizza_new.tscn" id="43_2qjws"]
+[ext_resource type="PackedScene" uid="uid://bfoasbx47yc0b" path="res://Scenes/pizza_new.tscn" id="43_2qjws"]
 [ext_resource type="PackedScene" uid="uid://dwfbivyyua57s" path="res://Scenes/screw.tscn" id="44_3656k"]
 [ext_resource type="AudioStream" uid="uid://ba6cb74cg3ow1" path="res://Sounds/throw1.wav" id="49_4fhuq"]
+[ext_resource type="PackedScene" uid="uid://d13o8lmc5tq0p" path="res://Scenes/support_2.tscn" id="49_xo33y"]
 [ext_resource type="AudioStream" uid="uid://d1i4d821ti8fv" path="res://Sounds/60835__pogotron__swishes.wav" id="50_awx01"]
 [ext_resource type="AudioStream" uid="uid://cj4vrwr01ykkg" path="res://Sounds/throw3.wav" id="51_e02gb"]
 [ext_resource type="AudioStream" uid="uid://rrsgypaloacl" path="res://Sounds/throw4.wav" id="52_y2xj3"]
@@ -468,6 +466,23 @@ stream = ExtResource("42_cbh4w")
 [node name="BadAlarm" type="AudioStreamPlayer2D" parent="SoundManager"]
 stream = ExtResource("34_yakfb")
 
+[node name="ThrowSounds" type="Node" parent="SoundManager"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundManager/ThrowSounds"]
+stream = ExtResource("49_4fhuq")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SoundManager/ThrowSounds"]
+stream = ExtResource("50_awx01")
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="SoundManager/ThrowSounds"]
+stream = ExtResource("51_e02gb")
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="SoundManager/ThrowSounds"]
+stream = ExtResource("52_y2xj3")
+
+[node name="LeverSound" type="AudioStreamPlayer2D" parent="SoundManager"]
+stream = ExtResource("53_awx01")
+
 [node name="Support3" parent="." instance=ExtResource("49_xo33y")]
 transform = Transform3D(-0.058433, 0, 11.9999, 0, 12, 0, -11.9999, 0, -0.058433, -2.66828, -1.90174, 19.0013)
 
@@ -486,23 +501,10 @@ transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, 7.6
 [node name="YellowButton" parent="Support4" instance=ExtResource("20_3656k")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.000295639, 0.188573, 0.00657427)
 
-[node name="ThrowSounds" type="Node" parent="SoundManager"]
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundManager/ThrowSounds"]
-stream = ExtResource("49_4fhuq")
-
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SoundManager/ThrowSounds"]
-stream = ExtResource("50_awx01")
-
-[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="SoundManager/ThrowSounds"]
-stream = ExtResource("51_e02gb")
-
-[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="SoundManager/ThrowSounds"]
-stream = ExtResource("52_y2xj3")
-
-[node name="LeverSound" type="AudioStreamPlayer2D" parent="SoundManager"]
-stream = ExtResource("53_awx01")
+[connection signal="pressed" from="StartMenuUI/VBoxContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="StartMenuUI/VBoxContainer/Join" to="." method="_on_join_pressed"]
 
 [editable path="ChallengeManager"]
 [editable path="Chauderon"]
 [editable path="Chauderon2"]
+[editable path="StartMenuUI"]

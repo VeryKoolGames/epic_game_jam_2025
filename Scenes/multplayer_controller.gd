@@ -16,7 +16,7 @@ func _on_host_pressed() -> void:
 	player_id = 1
 	challenge_manager.create_first_challenge()
 	ChallengeManager.player_that_generated_quest = 1
-	$Control.hide()
+	$StartMenuUI.hide()
 	PlayerIds.player_one_id = 1
 	var ip = get_local_ip()
 	print("Host is ready on IP:", ip)
@@ -78,4 +78,4 @@ func sync_player_id(id: int) -> void:
 func _on_join_pressed() -> void:
 	peer.create_client("192.168.222.29", 5000)
 	multiplayer.multiplayer_peer = peer
-	$Control.hide()
+	$StartMenuUI.hide()
