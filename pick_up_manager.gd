@@ -52,8 +52,8 @@ func _input(event: InputEvent) -> void:
 #		sync_holding_animation.rpc(false)
 		#sync_carrying_state.rpc(false)
 		pickable_item.freeze = false
-		release_item()
 		_apply_force_to_item()
+		release_item()
 
 		if _is_multiplayer_authority() and pickable_item:
 			pickable_item.update_item_position.rpc(pickable_item.global_transform.origin)
@@ -95,7 +95,7 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 
 func _apply_force_to_item() -> void:
 	if pickable_item:
-		var force_direction = - (get_parent().global_transform.origin - pickable_item.global_transform.origin).normalized()
+		var force_direction = -(get_parent().global_transform.origin - pickable_item.global_transform.origin).normalized()
 		var force_magnitude := 50.0
 		pickable_item.apply_central_impulse(force_direction * force_magnitude)
 

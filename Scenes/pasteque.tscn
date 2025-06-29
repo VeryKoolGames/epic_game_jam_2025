@@ -7,8 +7,9 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8gbba"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_g50du"]
-radius = 1.08238
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f03bg"]
+radius = 1.0021
+height = 2.22434
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2t32a"]
 
@@ -58,7 +59,7 @@ mesh = NodePath("Sphere")
 shape = SubResource("BoxShape3D_8gbba")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_g50du")
+shape = SubResource("CapsuleShape3D_f03bg")
 
 [node name="Sphere" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0116603, -0.0254318, 0.00946145)

@@ -37,6 +37,10 @@ func _process(delta: float) -> void:
 		
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
+	if area.is_in_group("cauldron") and player:	
+		print("I am player", player.name.to_int(), "and I entered the cauldron area")
+		print("And I can complete challenge:", ChallengeManager.can_complete_challenge(player.name.to_int()))
+	
 	if area.is_in_group("cauldron") and player and ChallengeManager.can_complete_challenge(player.name.to_int()):
 		player.release_item()
 		is_reseting = true
