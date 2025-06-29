@@ -61,4 +61,4 @@ func try_combination(try: int, player_id: int) -> void:
 func reset_combination() -> void:
 	SoundManager.play_bad_alarm_sound()
 	Events.wrong_button_pressed.emit()
-	correct_combination = combination_copy.duplicate(true)
+	current_number_of_guess = 0

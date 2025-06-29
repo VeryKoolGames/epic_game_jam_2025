@@ -70,5 +70,7 @@ func play_throw_sounds() -> void:
 	_play_random_sound(throw_sounds)
 
 func play_lever_sound() -> void:
+	if not lever_sound:
+		return
 	lever_sound.pitch_scale = randf_range(0.8, 1.2)
 	lever_sound.play

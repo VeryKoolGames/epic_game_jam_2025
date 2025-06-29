@@ -6,12 +6,13 @@ static var challenge_counter := 0
 @export var challenges: Array[Challenge]
 static var current_challenge: Challenge
 static var player_that_generated_quest: int = 1
+static var type: String
 
 static func is_challenge_button() -> bool:
-	return current_challenge is ButtonManager
+	return type == "button"
 
 static func is_challenge_recipe() -> bool:
-	return current_challenge is RecipeManager	
+	return type == "recipe"	
 
 @rpc("any_peer")
 func _share_challenge_rpc() -> void:
@@ -29,6 +30,10 @@ func sync_challenges() -> void:
 func _share_challenge_counter(counter: int) -> void:
 	player_that_generated_quest = counter
 
+@rpc("any_peer")
+func _share_new_challenge(_type: String) -> void:
+	type = _type
+
 func _share_challenge() -> void:
 	Events.on_challenge_created.emit(current_challenge)
 
@@ -39,16 +44,24 @@ func _ready() -> void:
 	Events.on_challenge_completed.connect(create_challenge)
 	
 func create_challenge() -> void:
+	if player_that_generated_quest == owner.player_id:
+		return
 	challenge_counter += 1
 	if challenge_counter >= challenge_total:
 		print("Game finish")
-	current_challenge = challenges[1].create_challenge()
+		return
+	current_challenge = challenges[randi_range(0, challenges.size() - 1)].create_challenge()
 	player_that_generated_quest = owner.player_id
 	print("Challenge created by player ID: ", player_that_generated_quest)
 	_share_challenge_creator.rpc(owner.player_id)
 	_share_challenge_rpc.rpc()
 	_share_challenge_counter.rpc(challenge_counter)
 	_share_challenge()
+	if current_challenge is ButtonManager:
+		type = "button"
+	elif current_challenge is RecipeManager:
+		type = "recipe"
+	_share_new_challenge.rpc(type)
 
 func create_first_challenge() -> void:
 	current_challenge = challenges[0].create_challenge()

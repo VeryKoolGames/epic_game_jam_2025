@@ -125,9 +125,8 @@ func pick_up_item() -> void:
 	tween.set_parallel()
 
 func _finish_pickup():
-	if not _is_multiplayer_authority():
+	if not _is_multiplayer_authority() or not pickable_item:
 		return
-
 	pickable_item.freeze = true
 	is_carrying_item = true
 	owner.is_holding = true
