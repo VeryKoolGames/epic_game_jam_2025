@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://bvyfuyygx27e8"]
+[gd_scene load_steps=6 format=4 uid="uid://bvyfuyygx27e8"]
 
 [ext_resource type="PackedScene" uid="uid://cjqbmm2fhxwo" path="res://Models/Support.fbx" id="1_leb3j"]
-[ext_resource type="PackedScene" uid="uid://duys8ttyui6es" path="res://Scenes/bouton_bleu.tscn" id="2_qobr1"]
 [ext_resource type="Material" uid="uid://dpqcahk3s43uj" path="res://Materials/M_Support1.tres" id="3_qobr1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_22giq"]
@@ -43,10 +42,7 @@ shadow_mesh = SubResource("ArrayMesh_xoo8m")
 [node name="Cube_007" parent="." index="0"]
 visible = false
 
-[node name="Bouton" parent="." index="1" instance=ExtResource("2_qobr1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000186384, 0.187242, -0.000341177)
-
-[node name="Cube_008" type="MeshInstance3D" parent="." index="2"]
+[node name="Cube_008" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 0.742621, 0, 0, 0, 1, 0, 0, 0)
 material_override = ExtResource("3_qobr1")
 mesh = SubResource("ArrayMesh_svj08")

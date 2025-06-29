@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://eyro48rrjwm2"]
+[gd_scene load_steps=10 format=4 uid="uid://bfoasbx47yc0b"]
 
 [ext_resource type="Script" uid="uid://ctopn0cibdbr3" path="res://Scenes/pick_up_item.gd" id="1_hsasi"]
 [ext_resource type="Resource" uid="uid://d1wnge33j67vn" path="res://Resources/pickable_items/pizza.tres" id="2_hsasi"]
@@ -9,8 +9,8 @@ height = 0.194427
 radius = 1.15723
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_12whq"]
-height = 0.200623
-radius = 1.14648
+height = 0.254608
+radius = 1.66748
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsasi"]
 cull_mode = 1
@@ -66,11 +66,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00230405, 0)
 shape = SubResource("CylinderShape3D_vnnbs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000769887, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0277626, 0)
 shape = SubResource("CylinderShape3D_12whq")
 
 [node name="Pizza" type="MeshInstance3D" parent="."]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+transform = Transform3D(8.78, 0, 0, 0, 8.78, 0, 0, 0, 8.78, 0, 0, 0)
 material_override = ExtResource("3_hsasi")
 material_overlay = SubResource("StandardMaterial3D_hsasi")
 mesh = SubResource("ArrayMesh_uanht")

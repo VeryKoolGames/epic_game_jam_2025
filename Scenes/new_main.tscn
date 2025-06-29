@@ -1,6 +1,6 @@
-[gd_scene load_steps=61 format=4 uid="uid://crvaw1bdwrnwx"]
+[gd_scene load_steps=63 format=4 uid="uid://crvaw1bdwrnwx"]
 
-[ext_resource type="Script" uid="uid://doll4v777v5ys" path="res://Scenes/multplayer_controller.gd" id="1_fbm17"]
+[ext_resource type="Script" path="res://Scenes/multplayer_controller.gd" id="1_fbm17"]
 [ext_resource type="PackedScene" uid="uid://c2w1myauyrkr7" path="res://Scenes/level_base.tscn" id="2_fbm17"]
 [ext_resource type="PackedScene" uid="uid://b7xu4doi4n8h4" path="res://player.tscn" id="2_l6pj4"]
 [ext_resource type="PackedScene" uid="uid://sdvkjmh51bqg" path="res://Scenes/pasteque.tscn" id="3_2ryth"]
@@ -14,12 +14,13 @@
 [ext_resource type="PackedScene" uid="uid://7425d6q18tcs" path="res://Scenes/Alarme.tscn" id="9_on4sc"]
 [ext_resource type="PackedScene" uid="uid://dige7ov43phka" path="res://Scenes/Chauderon.tscn" id="10_yboly"]
 [ext_resource type="PackedScene" uid="uid://duys8ttyui6es" path="res://Scenes/bouton_bleu.tscn" id="11_rkg6e"]
-[ext_resource type="Script" uid="uid://c7pvct1h5dgjo" path="res://Scenes/sound_manager.gd" id="17_vt6um"]
+[ext_resource type="Script" path="res://Scenes/sound_manager.gd" id="17_vt6um"]
 [ext_resource type="AudioStream" uid="uid://dyw8ewe2wamal" path="res://Sounds/main-loop.mp3" id="18_on4sc"]
-[ext_resource type="PackedScene" uid="uid://875rvmjci6m2" path="res://Scenes/main_ui.tscn" id="19_2qjws"]
+[ext_resource type="PackedScene" uid="uid://bu3ip0kio7dka" path="res://Scenes/main_ui.tscn" id="19_2qjws"]
 [ext_resource type="AudioStream" uid="uid://w0o08nlpuaaw" path="res://Sounds/no-1.wav" id="19_sej1a"]
 [ext_resource type="PackedScene" uid="uid://c14qob8p1iwj4" path="res://Scenes/bouton_jaune.tscn" id="20_3656k"]
 [ext_resource type="PackedScene" uid="uid://c04a34ghpnpb7" path="res://Scenes/bouton_rouge.tscn" id="20_cbh4w"]
+[ext_resource type="PackedScene" uid="uid://bcefawil7o070" path="res://Scenes/StartMenu_UI.tscn" id="20_gs3d0"]
 [ext_resource type="AudioStream" uid="uid://cf4bn2ml88mvy" path="res://Sounds/no-2.wav" id="20_mc2fm"]
 [ext_resource type="AudioStream" uid="uid://cp4syecrpp6ot" path="res://Sounds/no-3.wav" id="21_uxvps"]
 [ext_resource type="PackedScene" uid="uid://doac725qiu2t3" path="res://Scenes/bouton_vert.tscn" id="21_xo33y"]
@@ -44,26 +45,38 @@
 [ext_resource type="AudioStream" uid="uid://32pu4dnt3v0u" path="res://Sounds/pointer-3.wav" id="39_457c2"]
 [ext_resource type="AudioStream" uid="uid://cpqcjutu1mnev" path="res://Sounds/pointer-4.wav" id="40_2qjws"]
 [ext_resource type="AudioStream" uid="uid://mesxg5fobxkr" path="res://Sounds/pointer-5.wav" id="41_3656k"]
-[ext_resource type="PackedScene" uid="uid://bbfxv8yygrnvg" path="res://Scenes/bucket.tscn" id="42_457c2"]
+[ext_resource type="PackedScene" path="res://Scenes/bucket.tscn" id="42_457c2"]
 [ext_resource type="AudioStream" uid="uid://yqs48rcagaf8" path="res://Sounds/pointer-6.wav" id="42_cbh4w"]
-[ext_resource type="PackedScene" uid="uid://eyro48rrjwm2" path="res://Scenes/pizza_new.tscn" id="43_2qjws"]
-[ext_resource type="PackedScene" uid="uid://dwfbivyyua57s" path="res://Scenes/screw.tscn" id="44_3656k"]
+[ext_resource type="PackedScene" uid="uid://bfoasbx47yc0b" path="res://Scenes/pizza_new.tscn" id="43_2qjws"]
+[ext_resource type="PackedScene" path="res://Scenes/screw.tscn" id="44_3656k"]
+[ext_resource type="PackedScene" uid="uid://d13o8lmc5tq0p" path="res://Scenes/support_2.tscn" id="49_xo33y"]
 
 [sub_resource type="Environment" id="Environment_qehu7"]
 background_mode = 1
 background_color = Color(0.0565378, 0.0905886, 0.195398, 1)
 ambient_light_source = 2
-ambient_light_color = Color(0.713567, 0.59233, 0.769739, 1)
-ambient_light_energy = 2.39
+ambient_light_color = Color(0.785402, 0.574108, 0.662434, 1)
+ambient_light_energy = 2.65
+tonemap_exposure = 0.93
+ssao_radius = 0.01
+ssao_intensity = 3.22
+ssao_horizon = 0.0
+ssao_sharpness = 1.0
 glow_enabled = true
-glow_intensity = 0.9
-glow_hdr_scale = 1.37
+glow_intensity = 0.43
+glow_hdr_threshold = 1.07
+glow_hdr_scale = 1.26
+glow_hdr_luminance_cap = 88.69
+fog_light_color = Color(0.754621, 0.655637, 0.390674, 1)
+fog_light_energy = 0.05
+fog_density = 0.0055
+fog_height = 74.64
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.379
 adjustment_enabled = true
-adjustment_brightness = 1.12
-adjustment_contrast = 1.15
-adjustment_saturation = 1.1
+adjustment_brightness = 0.96
+adjustment_contrast = 1.12
+adjustment_saturation = 1.28
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_iu0du"]
 
@@ -196,10 +209,7 @@ transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 11.733, -1.68862, -9.29976
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -16.0453, -1.68862, 4.49003)
 
 [node name="Plaque_Pression5" parent="." instance=ExtResource("4_jyhx4")]
-transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 9.99933, -1.68862, 21.132)
-
-[node name="Support2" parent="." instance=ExtResource("5_x6r4n")]
-transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -14.8459, -2.09702, -18.1964)
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 10.6545, -1.68862, 20.5528)
 
 [node name="Cables" type="MeshInstance3D" parent="."]
 transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, -0.934284, -1.77434, 0.0864835)
@@ -210,11 +220,20 @@ skeleton = NodePath("")
 [node name="Casier" parent="." instance=ExtResource("7_gvlqo")]
 transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, -15.613, -1.90931, -24.4146)
 
+[node name="Casier7" parent="." instance=ExtResource("7_gvlqo")]
+transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 18.2187, -1.90931, -11.3329)
+
+[node name="Casier8" parent="." instance=ExtResource("7_gvlqo")]
+transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 18.2187, -1.90931, -8.64247)
+
+[node name="Casier9" parent="." instance=ExtResource("7_gvlqo")]
+transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 18.2187, -1.90931, -2.59754)
+
 [node name="Casier2" parent="." instance=ExtResource("7_gvlqo")]
-transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, -12.9513, -1.90931, -24.663)
+transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, -12.8929, -1.90931, -24.443)
 
 [node name="Casier3" parent="." instance=ExtResource("7_gvlqo")]
-transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, -10.1404, -1.86225, -24.5535)
+transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, -10.1404, -1.86225, -24.3402)
 
 [node name="Casier4" parent="." instance=ExtResource("7_gvlqo")]
 transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, 12.2998, -1.90931, 24.4842)
@@ -222,11 +241,32 @@ transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, 12.
 [node name="Casier5" parent="." instance=ExtResource("7_gvlqo")]
 transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, 9.48881, -1.86225, 24.3786)
 
+[node name="Casier5" parent="Casier5" instance=ExtResource("7_gvlqo")]
+transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, 9.48881, -1.86225, 24.3786)
+
+[node name="Casier6" parent="." instance=ExtResource("7_gvlqo")]
+transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, -6.28002, -1.86225, 24.3786)
+
+[node name="Casier5" parent="Casier6" instance=ExtResource("7_gvlqo")]
+transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, 9.48881, -1.86225, 24.3786)
+
 [node name="Levier" parent="." instance=ExtResource("8_vt6um")]
 transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, -6.21433, 2.46505, -25.3172)
 
+[node name="Levier5" parent="." instance=ExtResource("8_vt6um")]
+transform = Transform3D(2.29282e-14, 5.24537e-07, -12, 12, -5.24537e-07, 0, -5.24537e-07, -12, -5.24537e-07, -13.6178, -1.86784, -9.52404)
+
+[node name="Levier6" parent="." instance=ExtResource("8_vt6um")]
+transform = Transform3D(-12, 1.04907e-06, 0, -1.04907e-06, -12, 0, 0, 0, 12, 19.0021, 2.06192, -5.57244)
+
 [node name="Levier2" parent="." instance=ExtResource("8_vt6um")]
 transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 18.8909, 2.46505, 17.5895)
+
+[node name="Levier3" parent="." instance=ExtResource("8_vt6um")]
+transform = Transform3D(-0.0324367, 0.0363416, 10.0033, 7.46314, 6.66111, 7.74672e-07, -6.66103, 7.46305, -0.0487118, -2.67216, 1.41533, 18.4991)
+
+[node name="Levier4" parent="." instance=ExtResource("8_vt6um")]
+transform = Transform3D(-9.98904, 0.53644, -8.72638e-07, 0.53644, 9.98904, 7.03456e-08, 8.75155e-07, 2.34485e-08, -10.0034, 18.9035, 2.35512, 5.49597)
 
 [node name="Alarme2" parent="." instance=ExtResource("9_on4sc")]
 transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, -5.39238, 7.65303, -25.1938)
@@ -257,42 +297,25 @@ transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -13.3788, -1.83192, 12.350
 shape = SubResource("SphereShape3D_jyhx4")
 
 [node name="BlueButton" parent="." instance=ExtResource("11_rkg6e")]
-transform = Transform3D(12, 0, 0, 0, -5.24537e-07, 12, 0, -12, -5.24537e-07, 6.53866, 0.868449, 25.3689)
-
-[node name="YellowButton" parent="." instance=ExtResource("20_3656k")]
-transform = Transform3D(12, 0, 0, 0, -5.24537e-07, 12, 0, -12, -5.24537e-07, -0.198202, 0.868449, 25.3689)
+transform = Transform3D(12, -1.54969e-07, -3.72235e-07, 3.72235e-07, 8.51573, 8.45472, 1.54969e-07, -8.45472, 8.51573, -11.5349, 1.36603, -3.91895)
 
 [node name="Bouton2" parent="." instance=ExtResource("20_cbh4w")]
-transform = Transform3D(12, 0, 0, 0, -5.24537e-07, 12, 0, -12, -5.24537e-07, -6.12173, 0.868449, 25.3689)
+transform = Transform3D(12, 0, 0, 0, -5.24537e-07, 12, 0, -12, -5.24537e-07, 1.94259, 0.868449, 25.3689)
+
+[node name="Bouton3" parent="." instance=ExtResource("20_cbh4w")]
+transform = Transform3D(-12, 1.04907e-06, 4.58565e-14, 0, -5.24537e-07, 12, 1.04907e-06, 12, 5.24537e-07, -0.107845, 1.42232, -25.2866)
 
 [node name="BoutonV" parent="." instance=ExtResource("21_xo33y")]
 transform = Transform3D(12, 0, 0, 0, -5.24537e-07, 12, 0, -12, -5.24537e-07, -12.9339, 0.868449, 25.3689)
+
+[node name="BoutonV3" parent="." instance=ExtResource("21_xo33y")]
+transform = Transform3D(-12, 1.04907e-06, 4.58565e-14, 0, -5.24537e-07, 12, 1.04907e-06, 12, 5.24537e-07, 2.87845, 1.56685, -25.2955)
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("uid://b7xu4doi4n8h4")
 spawn_path = NodePath("..")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Join" type="Button" parent="Control"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Join"
-
-[node name="Host" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 281.0
-offset_top = 3.0
-offset_right = 319.0
-offset_bottom = 34.0
-text = "Host"
+[node name="StartMenuUI" parent="." instance=ExtResource("20_gs3d0")]
 
 [node name="Ground" type="StaticBody3D" parent="."]
 
@@ -435,8 +458,23 @@ stream = ExtResource("42_cbh4w")
 [node name="BadAlarm" type="AudioStreamPlayer2D" parent="SoundManager"]
 stream = ExtResource("34_yakfb")
 
-[connection signal="pressed" from="Control/Join" to="." method="_on_join_pressed"]
-[connection signal="pressed" from="Control/Host" to="." method="_on_host_pressed"]
+[node name="Support3" parent="." instance=ExtResource("49_xo33y")]
+transform = Transform3D(-0.058433, 0, 11.9999, 0, 12, 0, -11.9999, 0, -0.058433, -2.66828, -1.90174, 19.0013)
+
+[node name="Support5" parent="." instance=ExtResource("49_xo33y")]
+transform = Transform3D(-0.058433, 0, 11.9999, 0, 12, 0, -11.9999, 0, -0.058433, -11.532, -1.90174, -3.51262)
+
+[node name="Support" parent="." instance=ExtResource("5_x6r4n")]
+transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, 10.8434, -1.80046, 8.1825)
+
+[node name="YellowButton" parent="Support" instance=ExtResource("20_3656k")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.000295639, 0.188573, 0.00657427)
+
+[node name="Support4" parent="." instance=ExtResource("5_x6r4n")]
+transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, 7.61424, -1.80046, -13.4974)
+
+[node name="YellowButton" parent="Support4" instance=ExtResource("20_3656k")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.000295639, 0.188573, 0.00657427)
 
 [editable path="ChallengeManager"]
 [editable path="Chauderon"]
