@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8oqymfuasdpg"]
+
+[ext_resource type="Texture2D" uid="uid://cybhc8oy6ble6" path="res://Textures/+.png" id="1_gbuht"]
+
+[node name="+" type="TextureRect"]
+size_flags_vertical = 4
+texture = ExtResource("1_gbuht")

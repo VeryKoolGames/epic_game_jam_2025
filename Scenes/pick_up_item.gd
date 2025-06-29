@@ -52,13 +52,3 @@ func make_item_respawn() -> void:
 	global_transform.origin = original_position
 	tween.tween_property(self, "scale", Vector3(1, 1, 1), 0.2)
 	
-#
-#func check_if_ingredient_matches(ingredient: ResPickableItem) -> bool:
-	#var current_recipe = RecipeManager.current_recipe
-	#if not current_recipe or not current_recipe.ingredients:
-		#return false
-#
-	#for ingr in current_recipe.ingredients:
-		#if ingr.type == ingredient.type:
-			#return true
-	#return false

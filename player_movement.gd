@@ -22,6 +22,12 @@ var position_initialized := false  # Add this flag
 func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
 
+func _ready() -> void:
+	if multiplayer.get_unique_id() == 1:
+		global_position.x -= 15
+	else:
+		global_position.x += 15
+
 @rpc("any_peer")
 func update_position(new_pos: Vector3):
 	last_position = global_transform.origin

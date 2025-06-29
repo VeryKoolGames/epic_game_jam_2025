@@ -14,9 +14,60 @@
 [ext_resource type="Texture2D" uid="uid://capprch2xg8y8" path="res://Textures/NonoThisisBad.png" id="11_nvl01"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i3pqv"]
-size = Vector3(2.25726, 3.41492, 1.55884)
+size = Vector3(3.18809, 8.84837, 3.3053)
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_4flbx"]
+
+[sub_resource type="Animation" id="Animation_ivps1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Sprite3D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_nvl01"]
 resource_name = "thumbs_up"
@@ -70,7 +121,13 @@ tracks/3/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_ivps1"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_urp6f"]
+_data = {
+&"RESET": SubResource("Animation_ivps1"),
+&"thumbs_up": SubResource("Animation_nvl01")
+}
+
+[sub_resource type="Animation" id="Animation_bwjto"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -87,19 +144,19 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Sprite3D:scale")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1, 1, 1)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Sprite3D:visible")
+tracks/2/path = NodePath(".:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -111,20 +168,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".:visible")
+tracks/3/path = NodePath("../Sprite3D:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Sprite3D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_urp6f"]
-_data = {
-&"RESET": SubResource("Animation_ivps1"),
-&"thumbs_up": SubResource("Animation_nvl01")
 }
 
 [sub_resource type="Animation" id="Animation_urp6f"]
@@ -191,69 +254,6 @@ tracks/4/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_bwjto"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Sprite3D:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../Sprite3D:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_606se"]
 _data = {
 &"RESET": SubResource("Animation_bwjto"),
@@ -274,9 +274,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0
 transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, -0.365916, -0.281493, -0.0168233)
 script = ExtResource("3_dw050")
 
-[node name="Jambe2" parent="Character/Bassin" index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0.370381, -0.280949, -0.0163134)
-
 [node name="Haut" parent="Character" index="1"]
 script = ExtResource("3_1jxqw")
 
@@ -290,7 +287,7 @@ transform = Transform3D(-0.337763, 0.927994, -2.50362e-06, 0.927994, 0.337763, 0
 transform = Transform3D(-0.997511, 0, 8.72052e-08, 0, 0.997511, 0, -8.72052e-08, 0, -0.997511, -0.00043415, -2.36301, 0.00180842)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Character/Haut/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0196838, 1.20746, -1.06734)
+transform = Transform3D(0.999999, 0, 2.11758e-21, 0, 0.999999, 0, -2.11758e-21, 0, 0.999999, 0.0533696, 2.31951, -2.00336)
 shape = SubResource("BoxShape3D_i3pqv")
 
 [node name="PickUpManager" type="Node" parent="." node_paths=PackedStringArray("animation_bras_tree", "arm_transform")]
