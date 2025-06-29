@@ -43,20 +43,24 @@ func _create_random_recipe() -> Dictionary:
 	return recipe
 
 func try_ingredient(item: ResPickableItem) -> void:
+	print("Trying ingredient:", item.type)
+	print("I am player ID:", multiplayer.get_unique_id())
 	if not current_recipe or not current_recipe.ingredients:
 		return
 	print(current_recipe.ingredients)
 	for ingr in current_recipe.ingredients:
-		if ingr.type == int(item.type):
+		if int(ingr.type) == int(item.type):
 			print("Ingredient matched:", ingr.type, "with item type:", item.type)
 			current_recipe.ingredients.erase(ingr)
 			if current_recipe.ingredients.is_empty():
+				SoundManager.play_positive_feedback_sound()
 				Events.on_challenge_completed.emit()
 			return
 	reset_recipe()
 	return
 
 func reset_recipe() -> void:
+	SoundManager.play_bad_alarm_sound()
 	print("reseting recipe")
 	print("before", current_recipe)
 	current_recipe = copy_recipe.duplicate(true)

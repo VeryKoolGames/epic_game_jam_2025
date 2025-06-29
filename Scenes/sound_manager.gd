@@ -5,7 +5,9 @@ extends Node
 @export var button_sounds: Array[AudioStreamPlayer2D]
 @export var positive_feedback_sounds: Array[AudioStreamPlayer2D]
 @export var pointing_sounds: Array[AudioStreamPlayer2D]
+@export var throw_sounds: Array[AudioStreamPlayer2D]
 @export var bad_alarm: AudioStreamPlayer2D
+@export var lever_sound: AudioStreamPlayer2D
 
 @rpc("any_peer")
 func _play_no_sound_rpc():
@@ -39,6 +41,8 @@ func play_button_sound() -> void:
 	_play_button_sound_rpc.rpc()
 
 func play_bad_alarm_sound() -> void:
+	if not bad_alarm:
+		return
 	bad_alarm.play()
 	play_bad_alarm_sound_rpc.rpc()
 
@@ -58,6 +62,13 @@ func play_positive_feedback_sound() -> void:
 func play_pointing_sound_rpc() -> void:
 	_play_random_sound(pointing_sounds)
 
-func play_positive_sound() -> void:
+func play_pointing_sound() -> void:	
+	play_pointing_sound_rpc.rpc()
 	_play_random_sound(pointing_sounds)
-	play_bad_alarm_sound_rpc.rpc()
+	
+func play_throw_sounds() -> void:
+	_play_random_sound(throw_sounds)
+
+func play_lever_sound() -> void:
+	lever_sound.pitch_scale = randf_range(0.8, 1.2)
+	lever_sound.play

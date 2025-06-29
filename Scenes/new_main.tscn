@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://crvaw1bdwrnwx"]
+[gd_scene load_steps=66 format=4 uid="uid://crvaw1bdwrnwx"]
 
 [ext_resource type="Script" path="res://Scenes/multplayer_controller.gd" id="1_fbm17"]
 [ext_resource type="PackedScene" uid="uid://c2w1myauyrkr7" path="res://Scenes/level_base.tscn" id="2_fbm17"]
@@ -47,9 +47,16 @@
 [ext_resource type="AudioStream" uid="uid://mesxg5fobxkr" path="res://Sounds/pointer-5.wav" id="41_3656k"]
 [ext_resource type="PackedScene" path="res://Scenes/bucket.tscn" id="42_457c2"]
 [ext_resource type="AudioStream" uid="uid://yqs48rcagaf8" path="res://Sounds/pointer-6.wav" id="42_cbh4w"]
-[ext_resource type="PackedScene" uid="uid://bfoasbx47yc0b" path="res://Scenes/pizza_new.tscn" id="43_2qjws"]
-[ext_resource type="PackedScene" path="res://Scenes/screw.tscn" id="44_3656k"]
+
 [ext_resource type="PackedScene" uid="uid://d13o8lmc5tq0p" path="res://Scenes/support_2.tscn" id="49_xo33y"]
+
+[ext_resource type="PackedScene" uid="uid://eyro48rrjwm2" path="res://Scenes/pizza_new.tscn" id="43_2qjws"]
+[ext_resource type="PackedScene" uid="uid://dwfbivyyua57s" path="res://Scenes/screw.tscn" id="44_3656k"]
+[ext_resource type="AudioStream" uid="uid://ba6cb74cg3ow1" path="res://Sounds/throw1.wav" id="49_4fhuq"]
+[ext_resource type="AudioStream" uid="uid://d1i4d821ti8fv" path="res://Sounds/60835__pogotron__swishes.wav" id="50_awx01"]
+[ext_resource type="AudioStream" uid="uid://cj4vrwr01ykkg" path="res://Sounds/throw3.wav" id="51_e02gb"]
+[ext_resource type="AudioStream" uid="uid://rrsgypaloacl" path="res://Sounds/throw4.wav" id="52_y2xj3"]
+[ext_resource type="AudioStream" uid="uid://dw643prukx38l" path="res://Sounds/lever.wav" id="53_awx01"]
 
 [sub_resource type="Environment" id="Environment_qehu7"]
 background_mode = 1
@@ -361,13 +368,16 @@ collision_layer = 3
 transform = Transform3D(12.401, -1.13687e-13, 2.13791e-18, 1.13687e-13, 12.401, 1.13687e-13, 1.32137e-19, -1.13687e-13, 12.401, -0.753274, -4.41423, -2.73089)
 shape = SubResource("BoxShape3D_2ryth")
 
-[node name="SoundManager" type="Node" parent="." node_paths=PackedStringArray("no_sounds", "yes_sounds", "button_sounds", "positive_feedback_sounds", "pointing_sounds")]
+[node name="SoundManager" type="Node" parent="." node_paths=PackedStringArray("no_sounds", "yes_sounds", "button_sounds", "positive_feedback_sounds", "pointing_sounds", "throw_sounds", "bad_alarm", "lever_sound")]
 script = ExtResource("17_vt6um")
 no_sounds = [NodePath("NoSounds/AudioStreamPlayer2D"), NodePath("NoSounds/AudioStreamPlayer2D2"), NodePath("NoSounds/AudioStreamPlayer2D3"), NodePath("NoSounds/AudioStreamPlayer2D4")]
 yes_sounds = [NodePath("YesSounds/AudioStreamPlayer2D"), NodePath("YesSounds/AudioStreamPlayer2D2"), NodePath("YesSounds/AudioStreamPlayer2D3"), NodePath("YesSounds/AudioStreamPlayer2D4"), NodePath("YesSounds/AudioStreamPlayer2D5")]
 button_sounds = [NodePath("ButtonSounds/AudioStreamPlayer2D"), NodePath("ButtonSounds/AudioStreamPlayer2D2"), NodePath("ButtonSounds/AudioStreamPlayer2D3"), NodePath("ButtonSounds/AudioStreamPlayer2D4"), NodePath("ButtonSounds/AudioStreamPlayer2D5"), NodePath("ButtonSounds/AudioStreamPlayer2D6")]
 positive_feedback_sounds = [NodePath("PositiveFeedbackSounds/AudioStreamPlayer2D"), NodePath("PositiveFeedbackSounds/AudioStreamPlayer2D2"), NodePath("PositiveFeedbackSounds/AudioStreamPlayer2D3")]
 pointing_sounds = [NodePath("PointingSounds/AudioStreamPlayer2D"), NodePath("PointingSounds/AudioStreamPlayer2D2"), NodePath("PointingSounds/AudioStreamPlayer2D3"), NodePath("PointingSounds/AudioStreamPlayer2D4"), NodePath("PointingSounds/AudioStreamPlayer2D5"), NodePath("PointingSounds/AudioStreamPlayer2D6")]
+throw_sounds = [NodePath("ThrowSounds/AudioStreamPlayer2D"), NodePath("ThrowSounds/AudioStreamPlayer2D2"), NodePath("ThrowSounds/AudioStreamPlayer2D3"), NodePath("ThrowSounds/AudioStreamPlayer2D4")]
+bad_alarm = NodePath("BadAlarm")
+lever_sound = NodePath("LeverSound")
 
 [node name="MainMusic" type="AudioStreamPlayer2D" parent="SoundManager"]
 stream = ExtResource("18_on4sc")
@@ -475,6 +485,23 @@ transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, 7.6
 
 [node name="YellowButton" parent="Support4" instance=ExtResource("20_3656k")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.000295639, 0.188573, 0.00657427)
+
+[node name="ThrowSounds" type="Node" parent="SoundManager"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundManager/ThrowSounds"]
+stream = ExtResource("49_4fhuq")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SoundManager/ThrowSounds"]
+stream = ExtResource("50_awx01")
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="SoundManager/ThrowSounds"]
+stream = ExtResource("51_e02gb")
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="SoundManager/ThrowSounds"]
+stream = ExtResource("52_y2xj3")
+
+[node name="LeverSound" type="AudioStreamPlayer2D" parent="SoundManager"]
+stream = ExtResource("53_awx01")
 
 [editable path="ChallengeManager"]
 [editable path="Chauderon"]

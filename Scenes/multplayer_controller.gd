@@ -18,6 +18,15 @@ func _on_host_pressed() -> void:
 	ChallengeManager.player_that_generated_quest = 1
 	$Control.hide()
 	PlayerIds.player_one_id = 1
+	var ip = get_local_ip()
+	print("Host is ready on IP:", ip)
+
+func get_local_ip() -> String:
+	var ip_list = IP.get_local_addresses()
+	for ip in ip_list:
+		if ip.begins_with("192.168.") or ip.begins_with("10.") or ip.begins_with("172."):
+			return ip
+	return "127.0.0.1"  # fallback
 
 func _setup_items():
 	var items = get_tree().get_nodes_in_group("pickup")
@@ -36,10 +45,15 @@ func _set_player_position(player: Node, id: int):
 		return
 		player.global_position.x -= 15
 	else:
-#		player.global_position.x += 50
-#		player.update_position.rpc_id(id, player.global_position)
 		PlayerIds.player_two_id = id
+		_set_players_ids.rpc(PlayerIds.player_two_id)
 
+@rpc("any_peer")
+func _set_players_ids(player_two_id: int) -> void:
+	PlayerIds.player_one_id = 1
+	PlayerIds.player_two_id = player_two_id
+	print("Player IDs set: Player One ID =", PlayerIds.player_one_id, ", Player Two ID =", PlayerIds.player_two_id)
+	
 func _sync_world_state(id: int):
 	if multiplayer.is_server():
 		var items = get_tree().get_nodes_in_group("pickup")
@@ -62,6 +76,6 @@ func sync_player_id(id: int) -> void:
 	player_id = id
 		
 func _on_join_pressed() -> void:
-	peer.create_client("192.168.1.101", 5000)
+	peer.create_client("192.168.222.29", 5000)
 	multiplayer.multiplayer_peer = peer
 	$Control.hide()

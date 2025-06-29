@@ -17,6 +17,7 @@ func deactivate_outline() -> void:
 	mesh.material_overlay.grow = false
 
 func activate() -> void:
+	SoundManager.play_lever_sound()
 	is_active = true
 	animation_player.play("activate_lever")
 	activate_lever_rpc.rpc()

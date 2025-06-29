@@ -41,7 +41,12 @@ func create_random_combination() -> void:
 
 	combination_copy = correct_combination.duplicate(true)
 
-func try_combination(try: int) -> void:
+func try_combination(try: int, player_id: int) -> void:
+	print("Trying combination for player ID:", player_id)
+	print(ChallengeManager.can_complete_challenge(player_id))
+	if not ChallengeManager.can_complete_challenge(player_id):
+		return
+	
 	if correct_combination.is_empty():
 		return
 	var res := correct_combination[current_number_of_guess] == try
@@ -49,10 +54,11 @@ func try_combination(try: int) -> void:
 		reset_combination()
 	else:
 		current_number_of_guess += 1
-		correct_combination.erase(try)
-	if correct_combination.is_empty():
+	if current_number_of_guess > 3 and current_number_of_guess == correct_combination.size():
+		SoundManager.play_positive_feedback_sound()
 		Events.on_challenge_completed.emit()
 
 func reset_combination() -> void:
+	SoundManager.play_bad_alarm_sound()
 	Events.wrong_button_pressed.emit()
 	correct_combination = combination_copy.duplicate(true)
