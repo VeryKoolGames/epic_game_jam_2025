@@ -1,47 +1,39 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2cruqx0lragc"]
+[gd_scene load_steps=15 format=3 uid="uid://c2cruqx0lragc"]
 
 [ext_resource type="Texture2D" uid="uid://cu0f538wdduh8" path="res://Textures/2.png" id="1_074ki"]
+[ext_resource type="Script" uid="uid://0li2d3t2b8v7" path="res://Scenes/ui_recipe_line_generator.gd" id="1_bpmoj"]
 [ext_resource type="Texture2D" uid="uid://xng7swy4fbcn" path="res://Textures/Chauderon.png" id="2_bpmoj"]
+[ext_resource type="PackedScene" uid="uid://c8oqymfuasdpg" path="res://Scenes/ui_plus.tscn" id="2_pwcxu"]
+[ext_resource type="Script" uid="uid://ef2soe5gf3ae" path="res://Scenes/ui_number_setter.gd" id="3_37y7w"]
+[ext_resource type="PackedScene" uid="uid://bp3srd6plouv4" path="res://Scenes/ui_line_image.tscn" id="3_61h5y"]
 [ext_resource type="Texture2D" uid="uid://3g4pfp8jgkjp" path="res://Textures/pizza.png" id="3_y8htl"]
-[ext_resource type="Texture2D" uid="uid://cybhc8oy6ble6" path="res://Textures/+.png" id="4_37y7w"]
 [ext_resource type="Texture2D" uid="uid://dpejgccgelgt3" path="res://Textures/pasteque.png" id="5_hu00p"]
+[ext_resource type="Texture2D" uid="uid://5bf58bwa4ph6" path="res://Textures/Boulon.png" id="5_nlk37"]
 [ext_resource type="Texture2D" uid="uid://cm61wifferryx" path="res://Textures/seau.png" id="6_ay38o"]
+[ext_resource type="Texture2D" uid="uid://xsrua1py30kj" path="res://Textures/1.png" id="10_ei3p5"]
+[ext_resource type="Texture2D" uid="uid://dgeau2q4ux86v" path="res://Textures/3.png" id="11_44jig"]
+[ext_resource type="Texture2D" uid="uid://bw1h7csvoe0lm" path="res://Textures/4.png" id="12_s7l1f"]
+[ext_resource type="Texture2D" uid="uid://dbe3v3j13pddx" path="res://Textures/5.png" id="13_fpn04"]
 
 [node name="Quest_Chauderon" type="HBoxContainer"]
 theme_override_constants/separation = 10
 alignment = 1
+script = ExtResource("1_bpmoj")
+plus_scene = ExtResource("2_pwcxu")
+template_scene = ExtResource("3_61h5y")
+pasteque_texture = ExtResource("5_hu00p")
+screw_texture = ExtResource("5_nlk37")
+bucket_texture = ExtResource("6_ay38o")
+pizza_texture = ExtResource("3_y8htl")
 
 [node name="Numero" type="TextureRect" parent="."]
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("1_074ki")
+script = ExtResource("3_37y7w")
+potential_numbers = Array[Texture2D]([ExtResource("10_ei3p5"), ExtResource("1_074ki"), ExtResource("11_44jig"), ExtResource("12_s7l1f"), ExtResource("13_fpn04")])
 
 [node name="Chauderon" type="TextureRect" parent="."]
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("2_bpmoj")
-
-[node name="Objet1" type="TextureRect" parent="."]
-layout_mode = 2
-size_flags_vertical = 4
-texture = ExtResource("3_y8htl")
-
-[node name="+" type="TextureRect" parent="."]
-layout_mode = 2
-size_flags_vertical = 4
-texture = ExtResource("4_37y7w")
-
-[node name="Objet2" type="TextureRect" parent="."]
-layout_mode = 2
-size_flags_vertical = 4
-texture = ExtResource("5_hu00p")
-
-[node name="+2" type="TextureRect" parent="."]
-layout_mode = 2
-size_flags_vertical = 4
-texture = ExtResource("4_37y7w")
-
-[node name="Objet3" type="TextureRect" parent="."]
-layout_mode = 2
-size_flags_vertical = 4
-texture = ExtResource("6_ay38o")

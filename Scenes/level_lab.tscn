@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cv6pia3j8i1ft" path="res://Scenes/pizza.tscn" id="16_o7gwb"]
 [ext_resource type="PackedScene" uid="uid://3jc12w52gg2k" path="res://Scenes/seau.tscn" id="17_fs1vp"]
 [ext_resource type="PackedScene" uid="uid://d13o8lmc5tq0p" path="res://Scenes/support_2.tscn" id="18_5ypls"]
-[ext_resource type="PackedScene" uid="uid://bu3ip0kio7dka" path="res://Scenes/main_ui.tscn" id="19_jm27w"]
+[ext_resource type="PackedScene" uid="uid://875rvmjci6m2" path="res://Scenes/main_ui.tscn" id="19_jm27w"]
 
 [sub_resource type="Environment" id="Environment_qehu7"]
 background_mode = 1

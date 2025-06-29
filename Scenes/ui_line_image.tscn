@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp3srd6plouv4"]
+
+[ext_resource type="Texture2D" uid="uid://dpejgccgelgt3" path="res://Textures/pasteque.png" id="1_fl188"]
+
+[node name="Objet2" type="TextureRect"]
+size_flags_vertical = 4
+texture = ExtResource("1_fl188")
