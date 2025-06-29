@@ -1,6 +1,6 @@
 extends TextureButton
 
-@onready var focus_sound: AudioStreamPlayer = $AudioStreamPlayer
+@onready var focus_sound: AudioStreamPlayer2D = $AudioStreamPlayer
 
 func _ready():
 	grab_focus()
