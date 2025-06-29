@@ -47,9 +47,9 @@ func _input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("pickup") and pickable_item and is_carrying_item:
 		SoundManager.play_throw_sounds()
-		stop_holding_anim()
-		set_pickable_to_layer_1_and_2()
-		sync_holding_animation.rpc(false)
+#		stop_holding_anim()
+#		set_pickable_to_layer_1_and_2()
+#		sync_holding_animation.rpc(false)
 		#sync_carrying_state.rpc(false)
 		pickable_item.freeze = false
 		release_item()
@@ -68,6 +68,8 @@ func release_item()	-> void:
 	pickable_item = null
 	owner.is_holding = false
 	is_carrying_item = false
+	set_pickable_to_layer_1_and_2()
+	sync_holding_animation.rpc(false)
 	stop_holding_anim()
 	
 func play_holding_anim() -> void:

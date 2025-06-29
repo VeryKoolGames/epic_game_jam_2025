@@ -5,14 +5,18 @@ var can_use_emotes := true
 @onready var thumbs_down_anim = $ThumbDown/AnimationPlayer
 
 func _input(event: InputEvent) -> void:
+	if not is_multiplayer_authority():
+		return  # don't even check input on other players
+
 	if event.is_action_pressed("no") and can_use_emotes:
 		emote_cooldown()
 		SoundManager._play_no_sound()
-		play_thumbs_down_emote()
+		thumbs_down_anim.play("thumb_down")
+
 	if event.is_action_pressed("yes") and can_use_emotes:
 		emote_cooldown()
 		SoundManager._play_yes_sound()
-		play_thumbs_up_emote()
+		thumbs_up_anim.play("thumbs_up")
 
 func emote_cooldown() -> void:
 	can_use_emotes = false

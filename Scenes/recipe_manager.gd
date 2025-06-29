@@ -51,6 +51,7 @@ func try_ingredient(item: ResPickableItem) -> void:
 			current_recipe.ingredients.erase(ingr)
 			print("Ingredient matched:", ingr.type)
 			if current_recipe.ingredients.is_empty():
+				get_parent().on_success_challenge()
 				SoundManager.play_positive_feedback_sound()
 				get_parent().create_challenge()
 			return
@@ -58,5 +59,7 @@ func try_ingredient(item: ResPickableItem) -> void:
 	return
 
 func reset_recipe() -> void:
+	print("reseting recipes")
+	get_parent().on_fail_challenge()
 	SoundManager.play_bad_alarm_sound()
-	current_recipe = copy_recipe.duplicate(true)
+#	share_new_recipe.rpc(copy_recipe)

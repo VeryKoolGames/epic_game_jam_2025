@@ -57,10 +57,12 @@ func try_combination(try: int, player_id: int) -> void:
 	else:
 		current_number_of_guess += 1
 	if current_number_of_guess > 2 and current_number_of_guess == correct_combination.size():
+		get_parent().on_success_challenge()
 		SoundManager.play_positive_feedback_sound()
 		get_parent().create_challenge()
 
 func reset_combination() -> void:
+	get_parent().on_fail_challenge()
 	SoundManager.play_bad_alarm_sound()
 	Events.wrong_button_pressed.emit()
 	current_number_of_guess = 0

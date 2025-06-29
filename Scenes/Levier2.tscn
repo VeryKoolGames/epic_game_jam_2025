@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://v7c0gin77qlp"]
+[gd_scene load_steps=15 format=4 uid="uid://7yw24tf3refn"]
 
 [ext_resource type="PackedScene" uid="uid://ciq5lcaynma44" path="res://Models/Levier.fbx" id="1_gb01h"]
 [ext_resource type="Script" uid="uid://d3lk4p3giegoy" path="res://Scenes/activable_lever.gd" id="2_thm3l"]
@@ -110,7 +110,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r4tcf"]
-size = Vector3(0.595703, 0.85498, 0.378296)
+size = Vector3(0.308472, 0.347778, 0.378296)
 
 [node name="Levier" node_paths=PackedStringArray("mesh") instance=ExtResource("1_gb01h")]
 script = ExtResource("2_thm3l")
@@ -141,5 +141,5 @@ libraries = {
 [node name="Area3D" type="Area3D" parent="." index="4" groups=["activable"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.202148, 0.0725098, -0.0144653)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0585323, 0.0621949, -0.0144653)
 shape = SubResource("BoxShape3D_r4tcf")
