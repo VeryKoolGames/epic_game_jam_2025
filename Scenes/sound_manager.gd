@@ -29,7 +29,6 @@ func _play_random_sound(sound_list: Array[AudioStreamPlayer2D]):
 	if sound_list.is_empty():
 		return
 	var random_sound = sound_list[randi_range(0, sound_list.size() - 1)]
-	print(random_sound)
 	random_sound.play()
 
 @rpc("any_peer")

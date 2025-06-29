@@ -45,17 +45,17 @@
 [ext_resource type="AudioStream" uid="uid://32pu4dnt3v0u" path="res://Sounds/pointer-3.wav" id="39_457c2"]
 [ext_resource type="AudioStream" uid="uid://cpqcjutu1mnev" path="res://Sounds/pointer-4.wav" id="40_2qjws"]
 [ext_resource type="AudioStream" uid="uid://mesxg5fobxkr" path="res://Sounds/pointer-5.wav" id="41_3656k"]
-[ext_resource type="PackedScene" path="res://Scenes/bucket.tscn" id="42_457c2"]
+[ext_resource type="PackedScene" uid="uid://bbfxv8yygrnvg" path="res://Scenes/bucket.tscn" id="42_457c2"]
 [ext_resource type="AudioStream" uid="uid://yqs48rcagaf8" path="res://Sounds/pointer-6.wav" id="42_cbh4w"]
 [ext_resource type="PackedScene" uid="uid://bfoasbx47yc0b" path="res://Scenes/pizza_new.tscn" id="43_2qjws"]
-[ext_resource type="PackedScene" path="res://Scenes/screw.tscn" id="44_3656k"]
+[ext_resource type="PackedScene" uid="uid://dwfbivyyua57s" path="res://Scenes/screw.tscn" id="44_3656k"]
 [ext_resource type="AudioStream" uid="uid://ba6cb74cg3ow1" path="res://Sounds/throw1.wav" id="49_4fhuq"]
 [ext_resource type="PackedScene" uid="uid://d13o8lmc5tq0p" path="res://Scenes/support_2.tscn" id="49_xo33y"]
 [ext_resource type="AudioStream" uid="uid://d1i4d821ti8fv" path="res://Sounds/60835__pogotron__swishes.wav" id="50_awx01"]
 [ext_resource type="AudioStream" uid="uid://cj4vrwr01ykkg" path="res://Sounds/throw3.wav" id="51_e02gb"]
 [ext_resource type="AudioStream" uid="uid://rrsgypaloacl" path="res://Sounds/throw4.wav" id="52_y2xj3"]
 [ext_resource type="AudioStream" uid="uid://dw643prukx38l" path="res://Sounds/lever.wav" id="53_awx01"]
-[ext_resource type="PackedScene" uid="uid://v7c0gin77qlp" path="res://Scenes/Levier2.tscn" id="56_d7hbc"]
+[ext_resource type="PackedScene" path="res://Scenes/Levier2.tscn" id="56_d7hbc"]
 
 [sub_resource type="Environment" id="Environment_qehu7"]
 background_mode = 1
@@ -251,7 +251,7 @@ transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, 9.4
 transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, -6.28002, -1.86225, 24.3786)
 
 [node name="Levier5" parent="." instance=ExtResource("8_vt6um")]
-transform = Transform3D(2.29282e-14, 5.24537e-07, -12, 12, -5.24537e-07, 0, -5.24537e-07, -12, -5.24537e-07, -13.6178, -1.86784, -12.5773)
+transform = Transform3D(2.29282e-14, 5.24537e-07, -12, 12, -5.24537e-07, 0, -5.24537e-07, -12, -5.24537e-07, -13.6178, -1.86784, -14.7303)
 
 [node name="Levier2" parent="." instance=ExtResource("8_vt6um")]
 transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 18.8909, 2.46505, 17.5895)
@@ -291,13 +291,13 @@ transform = Transform3D(12, -1.54969e-07, -3.72235e-07, 3.72235e-07, 8.51573, 8.
 transform = Transform3D(12, 0, 0, 0, -5.24537e-07, 12, 0, -12, -5.24537e-07, 1.94259, 0.868449, 25.3689)
 
 [node name="Bouton3" parent="." instance=ExtResource("20_cbh4w")]
-transform = Transform3D(-12, 1.04907e-06, 4.58565e-14, 0, -5.24537e-07, 12, 1.04907e-06, 12, 5.24537e-07, -0.107845, 1.42232, -25.2866)
+transform = Transform3D(-12, 1.04907e-06, 4.58565e-14, 0, -5.24537e-07, 12, 1.04907e-06, 12, 5.24537e-07, -4.59234, 1.42232, -25.2866)
 
 [node name="BoutonV" parent="." instance=ExtResource("21_xo33y")]
 transform = Transform3D(12, 0, 0, 0, -5.24537e-07, 12, 0, -12, -5.24537e-07, -12.9339, 0.868449, 25.3689)
 
 [node name="BoutonV3" parent="." instance=ExtResource("21_xo33y")]
-transform = Transform3D(-12, 1.04907e-06, 4.58565e-14, 0, -5.24537e-07, 12, 1.04907e-06, 12, 5.24537e-07, 2.87845, 1.56685, -25.2955)
+transform = Transform3D(-11.9998, 1.04586e-06, 0.0726751, 0.0726751, -5.34058e-07, 11.9998, 1.04908e-06, 12, 5.27714e-07, 5.44656, 1.56685, -25.2955)
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("uid://b7xu4doi4n8h4")

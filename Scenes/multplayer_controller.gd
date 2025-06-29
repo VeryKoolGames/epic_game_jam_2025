@@ -19,7 +19,6 @@ func _on_host_pressed() -> void:
 	$StartMenuUI.hide()
 	PlayerIds.player_one_id = 1
 	var ip = get_local_ip()
-	print("Host is ready on IP:", ip)
 
 func get_local_ip() -> String:
 	var ip_list = IP.get_local_addresses()
@@ -40,7 +39,6 @@ func _add_player(id = 1):
 	call_deferred("_set_player_position", player, id)
 	
 func _set_player_position(player: Node, id: int):
-	print("Setting player position for ID: ", id)
 	if id == 1:
 		return
 		player.global_position.x -= 15
@@ -52,7 +50,6 @@ func _set_player_position(player: Node, id: int):
 func _set_players_ids(player_two_id: int) -> void:
 	PlayerIds.player_one_id = 1
 	PlayerIds.player_two_id = player_two_id
-	print("Player IDs set: Player One ID =", PlayerIds.player_one_id, ", Player Two ID =", PlayerIds.player_two_id)
 	
 func _sync_world_state(id: int):
 	if multiplayer.is_server():

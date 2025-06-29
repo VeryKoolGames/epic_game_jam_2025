@@ -23,7 +23,6 @@ func sync_holding_animation(is_holding: bool):
 func change_pickable_layer() -> void:
 	if pickable_item:
 		pickable_item.collision_layer = 1 << 1
-	print("Layer mask:", pickable_item.collision_layer)
 
 
 func set_pickable_to_layer_1_and_2() -> void:
@@ -60,10 +59,8 @@ func _input(event: InputEvent) -> void:
 			pickable_item.update_item_position.rpc(pickable_item.global_transform.origin)
 
 	elif event.is_action_pressed("pickup") and pickable_item and not is_carrying_item:
-		print("Picking up item")
 		pick_up_item()
 		var player_id = get_parent().name.to_int()
-		print("I am am ", player_id, "And I just picked up an item")
 		pickable_item.player = get_parent()
 		pickable_item._set_multiplayer_authority.rpc(player_id)
 

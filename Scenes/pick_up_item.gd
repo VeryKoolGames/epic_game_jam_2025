@@ -37,10 +37,8 @@ func _process(delta: float) -> void:
 		
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	
 	if area.is_in_group("cauldron") and player and ChallengeManager.can_complete_challenge(player.name.to_int()):
 		player.release_item()
-		print("I am player", player.name.to_int(), " and I entered can compete ", ChallengeManager.can_complete_challenge(player.name.to_int()))
 		is_reseting = true
 		recipe_manager.try_ingredient(item)
 		scale_down_and_queue_free_rpc.rpc()

@@ -39,7 +39,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6imlb")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ib40r"]
-size = Vector3(0.310425, 0.302986, 0.445129)
+size = Vector3(0.181625, 0.172855, 0.162708)
 
 [sub_resource type="Animation" id="Animation_ib40r"]
 length = 0.001
@@ -96,7 +96,7 @@ skeleton = NodePath("")
 [node name="Area3D" type="Area3D" parent="." index="2" groups=["activable"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0248413, 0.117344, 0.0231628)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00138095, 0.0522787, -0.00572404)
 shape = SubResource("BoxShape3D_ib40r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]

@@ -8,4 +8,4 @@ func _ready() -> void:
 func _start_game() -> void:
 	# This function is called when the game starts.
 	# You can add your game initialization logic here.
-	print("Game started!")
+	pass

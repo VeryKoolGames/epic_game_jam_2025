@@ -14,7 +14,6 @@ func update(_delta: float) -> void:
 		var target_pos = owner.global_transform.origin
 		pickable_item.global_transform.origin = target_pos
 		pickable_item.update_item_position.rpc(target_pos)
-		print(target_pos)
 
 func physics_update(_delta: float) -> void:
 	pass
@@ -30,7 +29,6 @@ func enter(previous_state_path: String, data := {}) -> void:
 func change_pickable_layer() -> void:	
 	if pickable_item:
 		pickable_item.physics_layer = 1 << 1
-	print("Layer mask:", pickable_item.physics_layer)
 		
 
 func set_pickable_to_layer_1_and_2() -> void:
@@ -38,7 +36,6 @@ func set_pickable_to_layer_1_and_2() -> void:
 		pickable_item.physics_layer = (1 << 0) | (1 << 1)
 
 func exit() -> void:
-	print("exiting")
 	animation_bras_tree.set("parameters/conditions/idle", true)
 	animation_bras_tree.set("parameters/conditions/Holding", false)
 	set_pickable_to_layer_1_and_2()

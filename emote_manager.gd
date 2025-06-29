@@ -25,8 +25,6 @@ func play_thumbs_up_emote() -> void:
 
 @rpc("any_peer")
 func play_anim_rpc(sender_id: int) -> void:
-	print(multiplayer.get_unique_id())
-	print(sender_id)
 	if multiplayer.get_unique_id() != sender_id:
 		thumbs_up_anim.play("thumbs_up")
 
