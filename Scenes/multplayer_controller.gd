@@ -41,7 +41,6 @@ func _set_player_position(player: Node, id: int):
 		PlayerIds.player_two_id = id
 
 func _sync_world_state(id: int):
-	print("Syncing world state for player ID: ", id)
 	if multiplayer.is_server():
 		var items = get_tree().get_nodes_in_group("pickup")
 		for item in items:
@@ -61,7 +60,6 @@ func _sync_world_state(id: int):
 @rpc("authority", "call_local")
 func sync_player_id(id: int) -> void:
 	player_id = id
-	print("Player ID synced: ", player_id)
 		
 func _on_join_pressed() -> void:
 	peer.create_client("192.168.1.101", 5000)

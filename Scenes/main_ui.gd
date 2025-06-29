@@ -1,6 +1,7 @@
 extends Control
 
 @export var cauldron_quest_line_scene: PackedScene
+@export var button_quest_line_scene: PackedScene
 @export var unknown_quest_line_scene: PackedScene
 @onready var animation_player = $UI_Anim
 @onready var box_container = $FeuilleContainer/VBoxContainer
@@ -32,6 +33,11 @@ func _generate_challenge_line(challenge: Challenge) -> void:
 	if challenge is RecipeManager and not ChallengeManager.can_complete_challenge(owner.player_id):
 		var line = cauldron_quest_line_scene.instantiate()
 		line.set_ingredients_textures(challenge.current_recipe.ingredients)
+		box_container.add_child(line)
+		box_container.move_child(line, 0)
+	elif challenge is ButtonManager and not ChallengeManager.can_complete_challenge(owner.player_id):
+		var line = button_quest_line_scene.instantiate()
+		line.set_ingredients_textures(challenge.correct_combination)
 		box_container.add_child(line)
 		box_container.move_child(line, 0)
 	else:

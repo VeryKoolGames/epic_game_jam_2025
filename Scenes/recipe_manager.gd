@@ -17,8 +17,8 @@ func add_new_recipe(recipe: Dictionary) -> void:
 
 func create_challenge() -> Challenge:
 	var recipe = _create_random_recipe()
-	current_recipe = recipe.duplicate()
-	copy_recipe = recipe.duplicate()
+	current_recipe = recipe.duplicate(true)
+	copy_recipe = recipe.duplicate(true)
 	add_new_recipe.rpc(recipe)
 	return self
 
@@ -30,7 +30,7 @@ func _create_random_recipe() -> Dictionary:
 		 "ingredients": [],
 	 }
 
-	var selected_ingredients = available_ingredients.duplicate()
+	var selected_ingredients = available_ingredients.duplicate(true)
 	selected_ingredients.shuffle()
 
 	var num_ingredients = min(randi_range(2, max_ingredients_per_recipe), selected_ingredients.size() - 1)
@@ -47,7 +47,8 @@ func try_ingredient(item: ResPickableItem) -> void:
 		return
 	print(current_recipe.ingredients)
 	for ingr in current_recipe.ingredients:
-		if ingr.type == item.type:
+		if ingr.type == int(item.type):
+			print("Ingredient matched:", ingr.type, "with item type:", item.type)
 			current_recipe.ingredients.erase(ingr)
 			if current_recipe.ingredients.is_empty():
 				Events.on_challenge_completed.emit()
@@ -56,4 +57,7 @@ func try_ingredient(item: ResPickableItem) -> void:
 	return
 
 func reset_recipe() -> void:
-	current_recipe = copy_recipe
+	print("reseting recipe")
+	print("before", current_recipe)
+	current_recipe = copy_recipe.duplicate(true)
+	print("after", current_recipe)

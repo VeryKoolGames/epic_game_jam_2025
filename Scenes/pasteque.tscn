@@ -3,18 +3,12 @@
 [ext_resource type="Script" uid="uid://ctopn0cibdbr3" path="res://Scenes/pick_up_item.gd" id="1_ub2e1"]
 [ext_resource type="Material" uid="uid://dnpsbm11ucksw" path="res://Materials/M_Pasteque.tres" id="2_2d42o"]
 [ext_resource type="Resource" uid="uid://c3iu1n28meewj" path="res://Resources/pickable_items/pasteque.tres" id="2_g50du"]
+[ext_resource type="Material" uid="uid://p4pkoqaiiqs2" path="res://Materials/PastequeOutlineMaterial.tres" id="4_f03bg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8gbba"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g50du"]
 radius = 1.08238
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g50du"]
-cull_mode = 1
-shading_mode = 0
-diffuse_mode = 3
-grow = true
-grow_amount = 0.07
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2t32a"]
 
@@ -50,12 +44,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gx1ds")
 
-[node name="Pasteque" type="RigidBody3D" groups=["pickup"]]
+[node name="Pasteque" type="RigidBody3D" node_paths=PackedStringArray("mesh") groups=["pickup"]]
 collision_layer = 2
 mass = 2.0
 gravity_scale = 5.0
 script = ExtResource("1_ub2e1")
 item = ExtResource("2_g50du")
+mesh = NodePath("Sphere")
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -68,7 +63,7 @@ shape = SubResource("SphereShape3D_g50du")
 [node name="Sphere" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0116603, -0.0254318, 0.00946145)
 material_override = ExtResource("2_2d42o")
-material_overlay = SubResource("StandardMaterial3D_g50du")
+material_overlay = ExtResource("4_f03bg")
 mesh = SubResource("ArrayMesh_f03bg")
 skeleton = NodePath("")
 

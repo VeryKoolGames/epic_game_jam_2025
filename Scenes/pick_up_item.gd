@@ -5,6 +5,7 @@ var last_position := Vector3.ZERO
 var target_position := Vector3.ZERO
 var lerp_alpha := 0.0
 @export var item: ResPickableItem
+@export var mesh: MeshInstance3D
 var player_id := -1
 var original_position := Vector3.ZERO
 var recipe_manager: RecipeManager
@@ -12,7 +13,7 @@ var recipe_manager: RecipeManager
 func _ready() -> void:
 	recipe_manager = get_parent().get_parent()
 	original_position = global_transform.origin
-
+	
 @rpc("any_peer")
 func update_item_position(new_pos: Vector3):
 	last_position = global_transform.origin
@@ -51,4 +52,11 @@ func make_item_respawn() -> void:
 	var tween = create_tween()
 	global_transform.origin = original_position
 	tween.tween_property(self, "scale", Vector3(1, 1, 1), 0.2)
-	
+
+func activate_outline() -> void:
+	return
+	mesh.material_overlay.grow = true
+
+func deactivate_outline() -> void:
+	return
+	mesh.material_overlay.grow = false

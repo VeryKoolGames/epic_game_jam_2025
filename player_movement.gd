@@ -18,6 +18,7 @@ var target_lower_body_rotation := Vector3.ZERO
 var is_pointing := false
 var is_holding := false
 var position_initialized := false  # Add this flag
+var can_interact := true
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
@@ -30,12 +31,18 @@ func _ready() -> void:
 
 @rpc("any_peer")
 func update_position(new_pos: Vector3):
+	if multiplayer.get_unique_id() == name.to_int():
+		# This update came back to the owner — ignore it
+		return
 	last_position = global_transform.origin
 	target_position = new_pos
 	lerp_alpha = 0.0
 
 @rpc("any_peer")
 func update_body_rotation(new_rot: Vector3):
+	if multiplayer.get_unique_id() == name.to_int():
+	# This update came back to the owner — ignore it
+		return
 	last_rotation = body.rotation
 	target_rotation = new_rot
 	rotation_lerp_alpha = 0.0
@@ -52,6 +59,9 @@ func sync_pointing_state(pointing: bool):
 
 @rpc("any_peer")
 func update_lower_body_rotation(new_rot: Vector3):
+	if multiplayer.get_unique_id() == name.to_int():
+	# This update came back to the owner — ignore it
+		return
 	last_lower_body_rotation = lower_body.rotation
 	target_lower_body_rotation = new_rot
 	lower_body_rotation_lerp_alpha = 0.0

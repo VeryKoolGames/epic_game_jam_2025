@@ -1,6 +1,7 @@
 extends Node
 class_name Challenge
 
+var is_challenge_active
 
 func _ready() -> void:
 	pass # Replace with function body.

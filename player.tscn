@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b7xu4doi4n8h4"]
+[gd_scene load_steps=23 format=3 uid="uid://b7xu4doi4n8h4"]
 
 [ext_resource type="Script" uid="uid://xitaxubo1t8y" path="res://player_movement.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://bp7fkoscj61yf" path="res://Scenes/Character_BEN.tscn" id="2_i3pqv"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b3jm68ee88e5c" path="res://Textures/Bulle.png" id="10_ivps1"]
 [ext_resource type="Texture2D" uid="uid://d1vfd8tl6lwqr" path="res://Textures/ThumbsUp.png" id="10_n7ghd"]
 [ext_resource type="Texture2D" uid="uid://capprch2xg8y8" path="res://Textures/NonoThisisBad.png" id="11_nvl01"]
+[ext_resource type="Script" uid="uid://cwu5ibpqs2iux" path="res://activate_manager.gd" id="13_urp6f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i3pqv"]
 size = Vector3(3.18809, 8.84837, 3.3053)
@@ -261,9 +262,9 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n7ghd"]
-size = Vector3(2.91357, 4.76868, 1.47223)
+size = Vector3(2.91357, 4.13385, 1.47223)
 
-[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("animation_tree_arms")]
+[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("animation_tree_arms") groups=["player"]]
 script = ExtResource("1_4flbx")
 animation_tree_arms = NodePath("Character/AnimationTree_Bras")
 
@@ -273,6 +274,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0
 [node name="Jambe" parent="Character/Bassin" index="1"]
 transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, -0.365916, -0.281493, -0.0168233)
 script = ExtResource("3_dw050")
+
+[node name="Jambe2" parent="Character/Bassin" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0.370381, -0.280949, -0.0163134)
 
 [node name="Haut" parent="Character" index="1"]
 script = ExtResource("3_1jxqw")
@@ -340,10 +344,15 @@ libraries = {
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12085, 1.88434, -0.0631409)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12085, 2.20175, -0.0631409)
 shape = SubResource("BoxShape3D_n7ghd")
 
+[node name="ActivateManager" type="Node" parent="."]
+script = ExtResource("13_urp6f")
+
 [connection signal="area_entered" from="Character/Haut/Area3D" to="PickUpManager" method="_on_area_3d_area_entered"]
+[connection signal="area_entered" from="Character/Haut/Area3D" to="ActivateManager" method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Character/Haut/Area3D" to="PickUpManager" method="_on_area_3d_area_exited"]
+[connection signal="area_exited" from="Character/Haut/Area3D" to="ActivateManager" method="_on_area_3d_area_exited"]
 
 [editable path="Character"]

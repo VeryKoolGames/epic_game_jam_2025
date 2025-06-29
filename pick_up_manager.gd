@@ -76,9 +76,11 @@ func stop_holding_anim() -> void:
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.get_parent().is_in_group("pickup") and not is_carrying_item:
 		pickable_item = area.get_parent()
+		#pickable_item.activate_outline()
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
-	if area.get_parent().is_in_group("pickup") and not is_carrying_item:
+	if area.get_parent().is_in_group("pickup") and not is_carrying_item and pickable_item:
+		#pickable_item.deactivate_outline()
 		pickable_item = null
 
 func _apply_force_to_item() -> void:

@@ -19,6 +19,10 @@ func _share_challenge_creator(player_id: int) -> void:
 func sync_challenges() -> void:
 	_share_challenge_rpc()
 
+@rpc("any_peer")
+func _share_challenge_counter(counter: int) -> void:
+	player_that_generated_quest = counter
+
 func _share_challenge() -> void:
 	Events.on_challenge_created.emit(current_challenge)
 
@@ -32,16 +36,16 @@ func create_challenge() -> void:
 	challenge_counter += 1
 	if challenge_counter >= challenge_total:
 		print("Game finish")
-	current_challenge = challenges[randi_range(0, challenges.size() - 1)].create_challenge()
+	current_challenge = challenges[1].create_challenge()
 	player_that_generated_quest = owner.player_id
 	print("Challenge created by player ID: ", player_that_generated_quest)
 	_share_challenge_creator.rpc(owner.player_id)
 	_share_challenge_rpc.rpc()
+	_share_challenge_counter.rpc(challenge_counter)
 	_share_challenge()
 
 func create_first_challenge() -> void:
-	current_challenge = challenges[randi_range(0, challenges.size() - 1)].create_challenge()
-	print("First challenge created by player ID: ", owner.player_id)
+	current_challenge = challenges[0].create_challenge()
 	_share_challenge_creator.rpc(owner.player_id)
 	_share_challenge()
 	_share_challenge_rpc.rpc()

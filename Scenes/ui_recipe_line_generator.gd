@@ -1,6 +1,5 @@
 extends HBoxContainer
 
-@onready var number_rect: TextureRect = $Numero
 @export var plus_scene: PackedScene
 @export var template_scene: PackedScene
 @export var pasteque_texture: Texture2D
@@ -10,22 +9,16 @@ extends HBoxContainer
 
 func set_ingredients_textures(ingredients: Array) -> void:
 	for index in range(0, ingredients.size()):
+		if index != 0:
+			add_plus()
 		match ingredients[index].type:
 			Enums.PICKABLE_ITEMS_TYPES.PASTEQUE:
-				if index != 0:
-					add_plus()
 				add_image(pasteque_texture)
 			Enums.PICKABLE_ITEMS_TYPES.SCREW:
-				if index != 0:
-					add_plus()
 				add_image(screw_texture)
 			Enums.PICKABLE_ITEMS_TYPES.BUCKET:
-				if index != 0:
-					add_plus()
 				add_image(bucket_texture)
 			Enums.PICKABLE_ITEMS_TYPES.PIZZA:
-				if index != 0:
-					add_plus()
 				add_image(pizza_texture)
 
 func add_image(texture: Texture2D) -> void:

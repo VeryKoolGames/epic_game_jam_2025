@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://bpvqwnh5rjub8"]
+[gd_scene load_steps=16 format=4 uid="uid://bpvqwnh5rjub8"]
 
 [ext_resource type="PackedScene" uid="uid://ciq5lcaynma44" path="res://Models/Levier.fbx" id="1_ts4xu"]
 [ext_resource type="Material" uid="uid://cuav0s0pid8x3" path="res://Materials/M_Levier_Base.tres" id="2_bqvmv"]
+[ext_resource type="Script" uid="uid://d3lk4p3giegoy" path="res://Scenes/activable_lever.gd" id="2_r4tcf"]
 [ext_resource type="Material" uid="uid://dl8ew2ub2x0sp" path="res://Materials/M_Bouton_Jaune.tres" id="3_cw3od"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oqarf"]
@@ -43,7 +44,6 @@ transparency = 1
 cull_mode = 1
 shading_mode = 0
 diffuse_mode = 3
-grow = true
 grow_amount = 0.9
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kyp0u"]
@@ -80,7 +80,49 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_x85w7")
 
-[node name="Levier" instance=ExtResource("1_ts4xu")]
+[sub_resource type="Animation" id="Animation_r4tcf"]
+resource_name = "activate_lever"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cylinder_012:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.731802, -1.5708, 3.14159), Vector3(-1.39626, -1.5708, 3.14159), Vector3(-2.0944, -1.5708, 3.14159)]
+}
+
+[sub_resource type="Animation" id="Animation_nsh7t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cylinder_012:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.731802, -1.5708, 3.14159)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_udwsm"]
+_data = {
+&"RESET": SubResource("Animation_nsh7t"),
+&"activate_lever": SubResource("Animation_r4tcf")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r4tcf"]
+size = Vector3(0.595703, 0.85498, 0.378296)
+
+[node name="Levier" node_paths=PackedStringArray("mesh") instance=ExtResource("1_ts4xu")]
+script = ExtResource("2_r4tcf")
+mesh = NodePath("Cylinder_012")
+id = 2
 
 [node name="Cylinder_011" parent="." index="0"]
 transform = Transform3D(2.59819e-09, -0.0150665, -0.0167747, 6.88557e-10, -0.0167747, 0.0150665, -0.0225476, -1.34394e-09, 0, 0, 0, 0)
@@ -93,8 +135,19 @@ mesh = SubResource("ArrayMesh_ecjm3")
 skeleton = NodePath("")
 
 [node name="Cylinder_012" type="MeshInstance3D" parent="." index="2"]
-transform = Transform3D(2.59819e-09, -0.0150665, -0.0167747, 6.88557e-10, -0.0167747, 0.0150665, -0.0225476, -1.34394e-09, 0, 0, -0.0255476, -7.06464e-05)
+transform = Transform3D(3.26057e-09, -0.0150665, -0.0167747, 2.53292e-09, -0.0167747, 0.0150665, -0.0225476, -4.06316e-09, -7.33245e-10, 0, -0.0255476, -7.06464e-05)
 material_override = ExtResource("3_cw3od")
 material_overlay = SubResource("StandardMaterial3D_cw3od")
 mesh = SubResource("ArrayMesh_ruxfk")
 skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_udwsm")
+}
+
+[node name="Area3D" type="Area3D" parent="." index="4" groups=["activable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.202148, 0.0725098, -0.0144653)
+shape = SubResource("BoxShape3D_r4tcf")

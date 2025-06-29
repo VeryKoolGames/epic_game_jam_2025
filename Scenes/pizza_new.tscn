@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://eyro48rrjwm2"]
+[gd_scene load_steps=10 format=4 uid="uid://eyro48rrjwm2"]
 
 [ext_resource type="Script" uid="uid://ctopn0cibdbr3" path="res://Scenes/pick_up_item.gd" id="1_hsasi"]
 [ext_resource type="Resource" uid="uid://d1wnge33j67vn" path="res://Resources/pickable_items/pizza.tres" id="2_hsasi"]
@@ -11,6 +11,12 @@ radius = 1.15723
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_12whq"]
 height = 0.200623
 radius = 1.14648
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsasi"]
+cull_mode = 1
+shading_mode = 0
+diffuse_mode = 3
+grow_amount = 0.04
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ncf1u"]
 
@@ -46,11 +52,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ii2wt")
 
-[node name="Pizza" type="RigidBody3D" groups=["pickup"]]
+[node name="Pizza2" type="RigidBody3D" node_paths=PackedStringArray("mesh") groups=["pickup"]]
 mass = 2.0
 gravity_scale = 5.0
 script = ExtResource("1_hsasi")
 item = ExtResource("2_hsasi")
+mesh = NodePath("Pizza")
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -65,6 +72,7 @@ shape = SubResource("CylinderShape3D_12whq")
 [node name="Pizza" type="MeshInstance3D" parent="."]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 material_override = ExtResource("3_hsasi")
+material_overlay = SubResource("StandardMaterial3D_hsasi")
 mesh = SubResource("ArrayMesh_uanht")
 skeleton = NodePath("")
 

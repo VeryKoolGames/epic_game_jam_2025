@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://dwfbivyyua57s"]
+[gd_scene load_steps=10 format=4 uid="uid://dwfbivyyua57s"]
 
 [ext_resource type="Script" uid="uid://ctopn0cibdbr3" path="res://Scenes/pick_up_item.gd" id="1_fk7dp"]
 [ext_resource type="Resource" uid="uid://x7kuod37ayus" path="res://Resources/pickable_items/screw.tres" id="2_fk7dp"]
@@ -11,6 +11,12 @@ radius = 1.27197
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xd4pm"]
 height = 0.673977
 radius = 1.27734
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fk7dp"]
+cull_mode = 1
+shading_mode = 0
+diffuse_mode = 3
+grow_amount = 0.03
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2x0o8"]
 
@@ -46,11 +52,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xu8sd")
 
-[node name="Screw" type="RigidBody3D" groups=["pickup"]]
+[node name="Screw" type="RigidBody3D" node_paths=PackedStringArray("mesh") groups=["pickup"]]
 mass = 2.0
 gravity_scale = 5.0
 script = ExtResource("1_fk7dp")
 item = ExtResource("2_fk7dp")
+mesh = NodePath("Boulon")
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -65,6 +72,7 @@ shape = SubResource("CylinderShape3D_xd4pm")
 [node name="Boulon" type="MeshInstance3D" parent="."]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 material_override = ExtResource("3_fk7dp")
+material_overlay = SubResource("StandardMaterial3D_fk7dp")
 mesh = SubResource("ArrayMesh_48b2a")
 skeleton = NodePath("")
 

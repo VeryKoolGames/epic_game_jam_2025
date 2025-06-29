@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://c04a34ghpnpb7"]
+[gd_scene load_steps=13 format=4 uid="uid://c04a34ghpnpb7"]
 
 [ext_resource type="PackedScene" uid="uid://cv1xsar330yk4" path="res://Models/Bouton.fbx" id="1_cym33"]
+[ext_resource type="Script" uid="uid://bhh25luioh8tl" path="res://Scenes/button.gd" id="2_38i68"]
 [ext_resource type="Material" uid="uid://0lkt3a3t5kat" path="res://Materials/M_Bouton_Rouge.tres" id="2_cym33"]
 [ext_resource type="Material" uid="uid://ccrehi7khf42" path="res://Materials/M_Metal2.tres" id="3_38i68"]
 [ext_resource type="Material" uid="uid://boonw1hakjrsj" path="res://Materials/M_OutlineMaterial.tres" id="3_gwxb4"]
@@ -37,7 +38,51 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6imlb")
 
-[node name="Bouton" instance=ExtResource("1_cym33")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_gwxb4"]
+size = Vector3(0.208435, 0.42572, 0.213501)
+
+[sub_resource type="Animation" id="Animation_38i68"]
+resource_name = "push_button"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cylinder_018:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.0726331, 0), Vector3(0, 0.06, 0), Vector3(0, 0.04, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bpc0o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cylinder_018:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.0726331, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_awjuu"]
+_data = {
+&"RESET": SubResource("Animation_bpc0o"),
+&"push_button": SubResource("Animation_38i68")
+}
+
+[node name="Bouton" node_paths=PackedStringArray("mesh") instance=ExtResource("1_cym33")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+script = ExtResource("2_38i68")
+mesh = NodePath("Cylinder_018")
+id = 1
 
 [node name="Cylinder_018" parent="." index="0"]
 transform = Transform3D(0.429987, 0, 0, 0, 0.429987, 0, 0, 0, 0.429987, 0, 0.0726331, 0)
@@ -47,5 +92,17 @@ material_overlay = ExtResource("3_gwxb4")
 [node name="Cylinder_019" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(0.53069, 0, 0, 0, 0.367251, 0, 0, 0, 0.53069, 0, 0.03206, 0)
 material_override = ExtResource("3_38i68")
+material_overlay = ExtResource("3_gwxb4")
 mesh = SubResource("ArrayMesh_lsiiv")
 skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="." index="2" groups=["activable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00430298, 0.210846, -0.0111694)
+shape = SubResource("BoxShape3D_gwxb4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_awjuu")
+}
