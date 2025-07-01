@@ -93,8 +93,7 @@ shadow_mesh = SubResource("ArrayMesh_k0ymt")
 [sub_resource type="SphereShape3D" id="SphereShape3D_jyhx4"]
 radius = 0.493351
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_fvls2"]
-size = Vector3(2.41577, 0.423889, 3.02216)
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_fvls2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cbh4w"]
 size = Vector3(38.932, 8.46594, 1)
@@ -111,12 +110,36 @@ size = Vector3(52.1654, 1, 9.95581)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2ryth"]
 size = Vector3(4.84473, 0.344116, 1.44043)
 
-[node name="Level_LAB" type="Node3D" node_paths=PackedStringArray("recipe_manager", "challenge_manager")]
+[node name="Level_LAB" type="Node3D" node_paths=PackedStringArray("recipe_manager", "challenge_manager", "IpUI", "IpLineEdit")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_fbm17")
 player_scene = ExtResource("2_l6pj4")
 recipe_manager = NodePath("ChallengeManager/RecipeManager")
 challenge_manager = NodePath("ChallengeManager")
+IpUI = NodePath("StartMenuUI/IP")
+IpLineEdit = NodePath("StartMenuUI/IP/LineEdit")
+
+[node name="ServerUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ServerUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 60.0
+offset_right = 20.0
+offset_bottom = 83.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Your server IP is: "
 
 [node name="Main_ui" parent="." instance=ExtResource("19_2qjws")]
 
@@ -326,11 +349,44 @@ spawn_path = NodePath("..")
 
 [node name="StartMenuUI" parent="." instance=ExtResource("20_gs3d0")]
 
+[node name="IP" type="Control" parent="StartMenuUI"]
+visible = false
+anchors_preset = 0
+offset_left = 492.0
+offset_top = 892.0
+offset_right = 532.0
+offset_bottom = 932.0
+
+[node name="LineEdit" type="LineEdit" parent="StartMenuUI/IP"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 20.0
+offset_right = 369.0
+offset_bottom = 75.0
+
+[node name="Label" type="Label" parent="StartMenuUI/IP"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 14.0
+offset_right = 79.0
+offset_bottom = 81.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "IP: "
+
+[node name="ip_button" type="Button" parent="StartMenuUI/IP"]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 34.0
+offset_right = 518.0
+offset_bottom = 65.0
+text = "Connect"
+
 [node name="Ground" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-transform = Transform3D(18.9402, 0, 0, 0, 18.9402, 0, 0, 0, 18.9402, -0.658929, -5.45582, -0.279673)
-shape = SubResource("BoxShape3D_fvls2")
+transform = Transform3D(18.9402, 0, 0, 0, 18.9402, 0, 0, 0, 18.9402, -0.658929, -1.13433, -0.279673)
+shape = SubResource("WorldBoundaryShape3D_fvls2")
 
 [node name="MiddleWall" type="StaticBody3D" parent="."]
 
@@ -401,6 +457,7 @@ transform = Transform3D(-5.24537e-07, -12, -5.24537e-07, 4.58565e-14, 5.24537e-0
 
 [connection signal="pressed" from="StartMenuUI/VBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="StartMenuUI/VBoxContainer/Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="StartMenuUI/IP/ip_button" to="." method="_on_ip_button_pressed"]
 
 [editable path="ChallengeManager"]
 [editable path="ChallengeManager/AlarmManager/Alarme2"]

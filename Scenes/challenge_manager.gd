@@ -73,6 +73,8 @@ func create_first_challenge() -> void:
 	_share_challenge_creator.rpc(owner.player_id)
 	_share_challenge()
 	_share_challenge_rpc.rpc()
+	type = "recipe"
+	_share_new_challenge.rpc(type)
 
 static func can_complete_challenge(player_id: int) -> bool:
 	return player_id != player_that_generated_quest

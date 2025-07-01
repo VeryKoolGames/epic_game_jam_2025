@@ -1,15 +1,22 @@
-[gd_scene load_steps=10 format=4 uid="uid://sdvkjmh51bqg"]
+[gd_scene load_steps=11 format=4 uid="uid://sdvkjmh51bqg"]
 
 [ext_resource type="Script" uid="uid://ctopn0cibdbr3" path="res://Scenes/pick_up_item.gd" id="1_ub2e1"]
 [ext_resource type="Material" uid="uid://dnpsbm11ucksw" path="res://Materials/M_Pasteque.tres" id="2_2d42o"]
 [ext_resource type="Resource" uid="uid://c3iu1n28meewj" path="res://Resources/pickable_items/pasteque.tres" id="2_g50du"]
-[ext_resource type="Material" uid="uid://p4pkoqaiiqs2" path="res://Materials/PastequeOutlineMaterial.tres" id="4_f03bg"]
+[ext_resource type="Shader" uid="uid://d2serugfknpkw" path="res://Shaders/outline.gdshader" id="4_f03bg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8gbba"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f03bg"]
 radius = 1.0021
 height = 2.22434
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tgb3b"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_f03bg")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/thickness = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2t32a"]
 
@@ -52,6 +59,7 @@ gravity_scale = 5.0
 script = ExtResource("1_ub2e1")
 item = ExtResource("2_g50du")
 mesh = NodePath("Sphere")
+outline_thickness = 0.2
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -64,7 +72,7 @@ shape = SubResource("CapsuleShape3D_f03bg")
 [node name="Sphere" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0116603, -0.0254318, 0.00946145)
 material_override = ExtResource("2_2d42o")
-material_overlay = ExtResource("4_f03bg")
+material_overlay = SubResource("ShaderMaterial_tgb3b")
 mesh = SubResource("ArrayMesh_f03bg")
 skeleton = NodePath("")
 

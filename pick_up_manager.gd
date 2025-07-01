@@ -47,16 +47,9 @@ func _input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("pickup") and pickable_item and is_carrying_item:
 		SoundManager.play_throw_sounds()
-#		stop_holding_anim()
-#		set_pickable_to_layer_1_and_2()
-#		sync_holding_animation.rpc(false)
-		#sync_carrying_state.rpc(false)
 		pickable_item.freeze = false
 		_apply_force_to_item()
 		release_item()
-
-		if _is_multiplayer_authority() and pickable_item:
-			pickable_item.update_item_position.rpc(pickable_item.global_transform.origin)
 
 	elif event.is_action_pressed("pickup") and pickable_item and not is_carrying_item:
 		pick_up_item()
@@ -81,17 +74,20 @@ func stop_holding_anim() -> void:
 	animation_bras_tree.set("parameters/conditions/idle", true)
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	if area.get_parent().is_in_group("pickup") and not is_carrying_item:
+	if area.get_parent().is_in_group("pickup") and not is_carrying_item and ChallengeManager.is_challenge_recipe():
 		owner.can_interact = false
 		pickable_item = area.get_parent()
-		#pickable_item.activate_outline()
+		pickable_item.activate_outline()
+	if area.get_parent().is_in_group("pickup"):
+		area.get_parent().activate_outline()
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
-	if area.get_parent().is_in_group("pickup") and not is_carrying_item and pickable_item:
+	if area.get_parent().is_in_group("pickup") and not is_carrying_item and pickable_item and ChallengeManager.is_challenge_recipe():
 		owner.can_interact = true
-		#pickable_item.deactivate_outline()
 		pickable_item.freeze = false
 		pickable_item = null
+	if area.get_parent().is_in_group("pickup"):
+		area.get_parent().deactivate_outline()
 
 func _apply_force_to_item() -> void:
 	if pickable_item:
@@ -106,8 +102,7 @@ func _process(_delta: float) -> void:
 		pickable_item.update_item_position.rpc(carried_position)
 
 func pick_up_item() -> void:
-	if not _is_multiplayer_authority():
-		return
+	pickable_item.deactivate_outline()
 	change_pickable_layer()
 	
 	play_holding_anim()

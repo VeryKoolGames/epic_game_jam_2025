@@ -1,21 +1,20 @@
 extends Activable
 
 @export var mesh: MeshInstance3D
+@export var outline_material: ShaderMaterial
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
-	mesh.material_overlay = mesh.material_overlay.duplicate()
+	outline_material = mesh.material_overlay as ShaderMaterial
 	Events.wrong_button_pressed.connect(on_wrong_button_pressed)
 
 func activate_outline() -> void:
-	return
-	if is_active:
-		return
-	mesh.material_overlay.grow = true
-	
+	if outline_material:
+		outline_material.set_shader_parameter("thickness", outline_thickness)
+
 func deactivate_outline() -> void:
-	return
-	mesh.material_overlay.grow = false
+	if outline_material:
+		outline_material.set_shader_parameter("thickness", 0.0)
 
 func activate() -> void:
 	SoundManager.play_button_sound()
