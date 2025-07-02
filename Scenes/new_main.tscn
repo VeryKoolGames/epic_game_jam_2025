@@ -211,9 +211,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.97326, 0, -3.71026)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2781, 0, -14.02)
 collision_layer = 1
 
-[node name="AlarmManager" type="Node" parent="ChallengeManager" node_paths=PackedStringArray("animation_trees")]
+[node name="AlarmManager" type="Node" parent="ChallengeManager" node_paths=PackedStringArray("animation_trees", "camera")]
 script = ExtResource("9_ktlin")
 animation_trees = [NodePath("Alarme2/AnimationTree"), NodePath("Alarme5/AnimationTree"), NodePath("Alarme3/AnimationTree"), NodePath("Alarme4/AnimationTree")]
+camera = NodePath("../../Camera3D")
 
 [node name="Alarme2" parent="ChallengeManager/AlarmManager" instance=ExtResource("9_on4sc")]
 transform = Transform3D(12, 0, -1.7053e-13, 0, 12, 0, 1.7053e-13, 0, 12, -25.1938, 7.65303, 5.39238)
@@ -238,6 +239,33 @@ transform = Transform3D(1.57361e-06, 0, -12, 0, 12, 0, 12, 0, 1.57361e-06, 7.998
 
 [node name="Gradient" parent="ChallengeManager/AlarmManager/Alarme4" index="3"]
 transform = Transform3D(0.653808, -0.1404, 0.0154929, 0.92462, 0.198556, -9.78596e-08, -0.653802, 0.140401, 0.0154929, 0.078, 0, 0)
+
+[node name="Overlay" type="Control" parent="ChallengeManager/AlarmManager"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RedOverlay" type="ColorRect" parent="ChallengeManager/AlarmManager/Overlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.823529, 0.196078, 0.25098, 0)
+
+[node name="GreenOverlay" type="ColorRect" parent="ChallengeManager/AlarmManager/Overlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.568627, 0.2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-3.72074e-08, 0.916761, -0.399437, 2.29412e-08, 0.399437, 0.916761, 1, 2.49467e-08, -3.58936e-08, -18.239, 43.142, 0)

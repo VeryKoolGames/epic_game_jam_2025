@@ -51,6 +51,9 @@ func _input(event: InputEvent) -> void:
 		_apply_force_to_item()
 		release_item()
 
+		if _is_multiplayer_authority() and pickable_item:
+			pickable_item.update_item_position.rpc(pickable_item.global_transform.origin)
+
 	elif event.is_action_pressed("pickup") and pickable_item and not is_carrying_item:
 		pick_up_item()
 		var player_id = get_parent().name.to_int()
@@ -74,6 +77,8 @@ func stop_holding_anim() -> void:
 	animation_bras_tree.set("parameters/conditions/idle", true)
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
+	if not is_multiplayer_authority():
+		return
 	if area.get_parent().is_in_group("pickup") and not is_carrying_item and ChallengeManager.is_challenge_recipe():
 		owner.can_interact = false
 		pickable_item = area.get_parent()
@@ -82,6 +87,8 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		area.get_parent().activate_outline()
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
+	if not is_multiplayer_authority():
+		return
 	if area.get_parent().is_in_group("pickup") and not is_carrying_item and pickable_item and ChallengeManager.is_challenge_recipe():
 		owner.can_interact = true
 		pickable_item.freeze = false
@@ -124,5 +131,4 @@ func _finish_pickup():
 	pickable_item.freeze = true
 	is_carrying_item = true
 	owner.is_holding = true
-
 	sync_carrying_state.rpc(true)
