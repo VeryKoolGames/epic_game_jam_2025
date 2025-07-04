@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://crvaw1bdwrnwx"]
+[gd_scene load_steps=43 format=3 uid="uid://crvaw1bdwrnwx"]
 
 [ext_resource type="Script" uid="uid://doll4v777v5ys" path="res://Scenes/multplayer_controller.gd" id="1_fbm17"]
 [ext_resource type="PackedScene" uid="uid://c2w1myauyrkr7" path="res://Scenes/level_base.tscn" id="2_fbm17"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://h1ndq8lcfi74" path="res://Textures/connect.png" id="25_8bv7e"]
 [ext_resource type="Texture2D" uid="uid://c2svdsj1i2bo6" path="res://Textures/connect2.png" id="26_6pwei"]
 [ext_resource type="PackedScene" uid="uid://d1o6jpckrouff" path="res://Scenes/tapis_roulant.tscn" id="32_q70v4"]
+[ext_resource type="PackedScene" uid="uid://c4sglkguxh4ah" path="res://Scenes/porte.tscn" id="33_72m11"]
 [ext_resource type="PackedScene" path="res://Scenes/bucket.tscn" id="42_457c2"]
 [ext_resource type="PackedScene" uid="uid://bfoasbx47yc0b" path="res://Scenes/pizza_new.tscn" id="43_2qjws"]
 [ext_resource type="PackedScene" path="res://Scenes/screw.tscn" id="44_3656k"]
@@ -270,11 +271,9 @@ light_angular_distance = 15.28
 light_specular = 1.604
 shadow_enabled = true
 shadow_bias = 10.0
-shadow_normal_bias = 0.0
+shadow_normal_bias = 4.264
 shadow_reverse_cull_face = true
-shadow_transmittance_bias = -2.516
-shadow_opacity = 0.7
-shadow_blur = 2.321
+shadow_opacity = 0.66
 
 [node name="Vitre" parent="." instance=ExtResource("3_l6pj4")]
 transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, 0, -1.63009, 0)
@@ -508,10 +507,16 @@ transform = Transform3D(-5.22706e-07, -2.89427e-07, 9.10105, 6.62132, 6.24398, 5
 transform = Transform3D(-5.24537e-07, -12, -5.24537e-07, 4.58565e-14, 5.24537e-07, -12, 12, -5.24537e-07, 2.29282e-14, 18.9753, 2.40254, 7.47906)
 
 [node name="TapisRoulant" parent="." instance=ExtResource("32_q70v4")]
-transform = Transform3D(-8.39823e-07, 0, -19.2129, 0, 13.5485, 0, 19.2129, 0, -8.39823e-07, 15.7033, -1.07537, 6.86412e-07)
+transform = Transform3D(-8.39823e-07, 0, -19.2129, 0, 13.5485, 0, 19.2129, 0, -8.39823e-07, 15.7033, -1.07537, 0.105638)
 
 [node name="TapisRoulant2" parent="." instance=ExtResource("32_q70v4")]
 transform = Transform3D(-8.39823e-07, 0, 19.2129, 0, 13.5485, 0, -19.2129, 0, -8.39823e-07, -15.771, -1.07537, -6.89375e-07)
+
+[node name="Porte" parent="." instance=ExtResource("33_72m11")]
+transform = Transform3D(-5.24537e-07, 0, -12, 0, 12.7793, 0, 12, 0, -5.24537e-07, 18.8927, -2.20889, -10.978)
+
+[node name="Porte2" parent="." instance=ExtResource("33_72m11")]
+transform = Transform3D(-5.24537e-07, 0, -12, 0, 12.7793, 0, 12, 0, -5.24537e-07, 18.8927, -2.20889, 11.0308)
 
 [connection signal="pressed" from="StartMenuUI/VBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="StartMenuUI/VBoxContainer/Join" to="." method="_on_join_pressed"]
