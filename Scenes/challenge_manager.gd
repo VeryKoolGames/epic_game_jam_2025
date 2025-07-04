@@ -7,6 +7,7 @@ static var challenge_counter := 0
 static var current_challenge: Challenge
 static var player_that_generated_quest: int = 1
 static var type: String
+@onready var alarm_manager = $AlarmManager
 
 static func is_challenge_button() -> bool:
 	return type == "button"
@@ -29,6 +30,14 @@ func sync_challenges() -> void:
 @rpc("any_peer")
 func _share_challenge_counter(counter: int) -> void:
 	challenge_counter = counter
+
+@rpc("any_peer")
+func on_fail() -> void:
+	alarm_manager.show_wrong_alarm()
+
+@rpc("any_peer")
+func on_success() -> void:
+	alarm_manager.show_correct_alarm()
 
 @rpc("any_peer")
 func _share_new_challenge(_type: String) -> void:
@@ -64,6 +73,16 @@ func create_first_challenge() -> void:
 	_share_challenge_creator.rpc(owner.player_id)
 	_share_challenge()
 	_share_challenge_rpc.rpc()
+	type = "recipe"
+	_share_new_challenge.rpc(type)
 
 static func can_complete_challenge(player_id: int) -> bool:
 	return player_id != player_that_generated_quest
+
+func on_fail_challenge():
+	on_fail.rpc()
+	alarm_manager.show_wrong_alarm()
+
+func on_success_challenge():
+	on_success.rpc()
+	alarm_manager.show_correct_alarm()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://crvaw1bdwrnwx"]
+[gd_scene load_steps=39 format=4 uid="uid://crvaw1bdwrnwx"]
 
 [ext_resource type="Script" uid="uid://doll4v777v5ys" path="res://Scenes/multplayer_controller.gd" id="1_fbm17"]
 [ext_resource type="PackedScene" uid="uid://c2w1myauyrkr7" path="res://Scenes/level_base.tscn" id="2_fbm17"]
@@ -11,51 +11,21 @@
 [ext_resource type="Material" uid="uid://b4fbouh8wkyvp" path="res://Materials/M_Metal.tres" id="6_dxxom"]
 [ext_resource type="PackedScene" uid="uid://baa7hs3cq2wn3" path="res://Scenes/Casier.tscn" id="7_gvlqo"]
 [ext_resource type="PackedScene" uid="uid://bpvqwnh5rjub8" path="res://Scenes/Levier.tscn" id="8_vt6um"]
+[ext_resource type="Script" uid="uid://cvkjl6fixr21p" path="res://Scenes/alarm_manager.gd" id="9_ktlin"]
 [ext_resource type="PackedScene" uid="uid://7425d6q18tcs" path="res://Scenes/Alarme.tscn" id="9_on4sc"]
 [ext_resource type="PackedScene" uid="uid://dige7ov43phka" path="res://Scenes/Chauderon.tscn" id="10_yboly"]
 [ext_resource type="PackedScene" uid="uid://duys8ttyui6es" path="res://Scenes/bouton_bleu.tscn" id="11_rkg6e"]
-[ext_resource type="Script" uid="uid://c7pvct1h5dgjo" path="res://Scenes/sound_manager.gd" id="17_vt6um"]
-[ext_resource type="AudioStream" uid="uid://dyw8ewe2wamal" path="res://Sounds/main-loop.mp3" id="18_on4sc"]
 [ext_resource type="PackedScene" uid="uid://bu3ip0kio7dka" path="res://Scenes/main_ui.tscn" id="19_2qjws"]
-[ext_resource type="AudioStream" uid="uid://w0o08nlpuaaw" path="res://Sounds/no-1.wav" id="19_sej1a"]
 [ext_resource type="PackedScene" uid="uid://c14qob8p1iwj4" path="res://Scenes/bouton_jaune.tscn" id="20_3656k"]
 [ext_resource type="PackedScene" uid="uid://c04a34ghpnpb7" path="res://Scenes/bouton_rouge.tscn" id="20_cbh4w"]
 [ext_resource type="PackedScene" uid="uid://bcefawil7o070" path="res://Scenes/StartMenu_UI.tscn" id="20_gs3d0"]
-[ext_resource type="AudioStream" uid="uid://cf4bn2ml88mvy" path="res://Sounds/no-2.wav" id="20_mc2fm"]
-[ext_resource type="AudioStream" uid="uid://cp4syecrpp6ot" path="res://Sounds/no-3.wav" id="21_uxvps"]
 [ext_resource type="PackedScene" uid="uid://doac725qiu2t3" path="res://Scenes/bouton_vert.tscn" id="21_xo33y"]
-[ext_resource type="AudioStream" uid="uid://dvr2u5fpeq7al" path="res://Sounds/no-4.wav" id="22_qux0v"]
-[ext_resource type="AudioStream" uid="uid://bs6vty4mf3y28" path="res://Sounds/yes-1.wav" id="23_20c72"]
-[ext_resource type="AudioStream" uid="uid://bh3apx4fc8rjl" path="res://Sounds/positive-feedback1.wav" id="23_dga7u"]
-[ext_resource type="AudioStream" uid="uid://rghjcuw7274a" path="res://Sounds/positive-feedback2.wav" id="24_tipo7"]
-[ext_resource type="AudioStream" uid="uid://cg6boddbnxvfx" path="res://Sounds/yes-2.wav" id="24_xk0xp"]
-[ext_resource type="AudioStream" uid="uid://drnyfp4e8xu65" path="res://Sounds/yes-3.wav" id="25_cybxk"]
-[ext_resource type="AudioStream" uid="uid://dnjbrsl8xhq7h" path="res://Sounds/positive-feedback3.wav" id="25_ii62h"]
-[ext_resource type="AudioStream" uid="uid://cdhmdfn6ulqgo" path="res://Sounds/yes-4.wav" id="26_ehnl4"]
-[ext_resource type="AudioStream" uid="uid://drifouhgghw12" path="res://Sounds/yes-5.wav" id="27_8bv7e"]
-[ext_resource type="AudioStream" uid="uid://cjs8v44wisfw8" path="res://Sounds/button-1.wav" id="28_72m11"]
-[ext_resource type="AudioStream" uid="uid://bmic1utbj2sd5" path="res://Sounds/button-2.wav" id="29_yakfb"]
-[ext_resource type="AudioStream" uid="uid://bbuqemdhms20s" path="res://Sounds/button-3.wav" id="30_q70v4"]
-[ext_resource type="AudioStream" uid="uid://dqpv47nqsh6q5" path="res://Sounds/button-4.wav" id="31_3b705"]
-[ext_resource type="AudioStream" uid="uid://c4klh62wesm0v" path="res://Sounds/button-5.wav" id="32_dga7u"]
-[ext_resource type="AudioStream" uid="uid://mi6yfxipnwtt" path="res://Sounds/button-6.wav" id="33_tipo7"]
-[ext_resource type="AudioStream" uid="uid://bvkk4tj8p4riu" path="res://Sounds/bad-alarm.mp3" id="34_yakfb"]
-[ext_resource type="AudioStream" uid="uid://603ksu2ddrot" path="res://Sounds/pointer-1.wav" id="37_yysie"]
-[ext_resource type="AudioStream" uid="uid://boy7ouu5toblp" path="res://Sounds/pointer-2.wav" id="38_2ryth"]
-[ext_resource type="AudioStream" uid="uid://32pu4dnt3v0u" path="res://Sounds/pointer-3.wav" id="39_457c2"]
-[ext_resource type="AudioStream" uid="uid://cpqcjutu1mnev" path="res://Sounds/pointer-4.wav" id="40_2qjws"]
-[ext_resource type="AudioStream" uid="uid://mesxg5fobxkr" path="res://Sounds/pointer-5.wav" id="41_3656k"]
-[ext_resource type="PackedScene" path="res://Scenes/bucket.tscn" id="42_457c2"]
-[ext_resource type="AudioStream" uid="uid://yqs48rcagaf8" path="res://Sounds/pointer-6.wav" id="42_cbh4w"]
+[ext_resource type="PackedScene" uid="uid://bu4xqgeb015w2" path="res://Scenes/sound_manager.tscn" id="22_fvls2"]
+[ext_resource type="PackedScene" uid="uid://bbfxv8yygrnvg" path="res://Scenes/bucket.tscn" id="42_457c2"]
 [ext_resource type="PackedScene" uid="uid://bfoasbx47yc0b" path="res://Scenes/pizza_new.tscn" id="43_2qjws"]
-[ext_resource type="PackedScene" path="res://Scenes/screw.tscn" id="44_3656k"]
-[ext_resource type="AudioStream" uid="uid://ba6cb74cg3ow1" path="res://Sounds/throw1.wav" id="49_4fhuq"]
+[ext_resource type="PackedScene" uid="uid://dwfbivyyua57s" path="res://Scenes/screw.tscn" id="44_3656k"]
 [ext_resource type="PackedScene" uid="uid://d13o8lmc5tq0p" path="res://Scenes/support_2.tscn" id="49_xo33y"]
-[ext_resource type="AudioStream" uid="uid://d1i4d821ti8fv" path="res://Sounds/60835__pogotron__swishes.wav" id="50_awx01"]
-[ext_resource type="AudioStream" uid="uid://cj4vrwr01ykkg" path="res://Sounds/throw3.wav" id="51_e02gb"]
-[ext_resource type="AudioStream" uid="uid://rrsgypaloacl" path="res://Sounds/throw4.wav" id="52_y2xj3"]
-[ext_resource type="AudioStream" uid="uid://dw643prukx38l" path="res://Sounds/lever.wav" id="53_awx01"]
-[ext_resource type="PackedScene" uid="uid://v7c0gin77qlp" path="res://Scenes/Levier2.tscn" id="56_d7hbc"]
+[ext_resource type="PackedScene" uid="uid://7yw24tf3refn" path="res://Scenes/Levier2.tscn" id="56_d7hbc"]
 
 [sub_resource type="Environment" id="Environment_qehu7"]
 background_mode = 1
@@ -123,7 +93,7 @@ shadow_mesh = SubResource("ArrayMesh_k0ymt")
 [sub_resource type="SphereShape3D" id="SphereShape3D_jyhx4"]
 radius = 0.493351
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_dxxom"]
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_fvls2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cbh4w"]
 size = Vector3(38.932, 8.46594, 1)
@@ -138,16 +108,74 @@ size = Vector3(43.9083, 1, 16.9642)
 size = Vector3(52.1654, 1, 9.95581)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2ryth"]
-size = Vector3(4.84473, 0.288086, 1.44043)
+size = Vector3(4.84473, 0.344116, 1.44043)
 
-[node name="Level_LAB" type="Node3D" node_paths=PackedStringArray("recipe_manager", "challenge_manager")]
+[node name="Level_LAB" type="Node3D" node_paths=PackedStringArray("recipe_manager", "challenge_manager", "IpUI", "IpLineEdit")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_fbm17")
 player_scene = ExtResource("2_l6pj4")
 recipe_manager = NodePath("ChallengeManager/RecipeManager")
 challenge_manager = NodePath("ChallengeManager")
+IpUI = NodePath("StartMenuUI/IP")
+IpLineEdit = NodePath("StartMenuUI/IP/LineEdit")
+
+[node name="ServerUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ServerUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 60.0
+offset_right = 20.0
+offset_bottom = 83.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Your server IP is: "
 
 [node name="Main_ui" parent="." instance=ExtResource("19_2qjws")]
+
+[node name="LookingUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="LookingUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Label" type="Label" parent="LookingUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Looking for a server to connect to ..."
 
 [node name="ChallengeManager" parent="." instance=ExtResource("3_jyhx4")]
 
@@ -182,6 +210,62 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.97326, 0, -3.71026)
 [node name="Pasteque" parent="ChallengeManager/RecipeManager/Items2" instance=ExtResource("3_2ryth")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2781, 0, -14.02)
 collision_layer = 1
+
+[node name="AlarmManager" type="Node" parent="ChallengeManager" node_paths=PackedStringArray("animation_trees", "camera")]
+script = ExtResource("9_ktlin")
+animation_trees = [NodePath("Alarme2/AnimationTree"), NodePath("Alarme5/AnimationTree"), NodePath("Alarme3/AnimationTree"), NodePath("Alarme4/AnimationTree")]
+camera = NodePath("../../Camera3D")
+
+[node name="Alarme2" parent="ChallengeManager/AlarmManager" instance=ExtResource("9_on4sc")]
+transform = Transform3D(12, 0, -1.7053e-13, 0, 12, 0, 1.7053e-13, 0, 12, -25.1938, 7.65303, 5.39238)
+
+[node name="Gradient" parent="ChallengeManager/AlarmManager/Alarme2" index="3"]
+transform = Transform3D(0.653808, -0.1404, 0.0154929, 0.92462, 0.198556, -9.78596e-08, -0.653802, 0.140401, 0.0154929, 0.078, 0, 0)
+
+[node name="Alarme5" parent="ChallengeManager/AlarmManager" instance=ExtResource("9_on4sc")]
+transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 25.3156, 7.65303, 5.39238)
+
+[node name="Gradient" parent="ChallengeManager/AlarmManager/Alarme5" index="3"]
+transform = Transform3D(0.653808, -0.1404, 0.0154929, 0.92462, 0.198556, -9.78596e-08, -0.653802, 0.140401, 0.0154929, 0.078, 0, 0)
+
+[node name="Alarme3" parent="ChallengeManager/AlarmManager" instance=ExtResource("9_on4sc")]
+transform = Transform3D(1.57361e-06, 0, -12, 0, 12, 0, 12, 0, 1.57361e-06, -8.14438, 7.65303, -18.8651)
+
+[node name="Gradient" parent="ChallengeManager/AlarmManager/Alarme3" index="3"]
+transform = Transform3D(0.653808, -0.1404, 0.0154929, 0.92462, 0.198556, -9.78596e-08, -0.653802, 0.140401, 0.0154929, 0.078, 0, 0)
+
+[node name="Alarme4" parent="ChallengeManager/AlarmManager" instance=ExtResource("9_on4sc")]
+transform = Transform3D(1.57361e-06, 0, -12, 0, 12, 0, 12, 0, 1.57361e-06, 7.99858, 7.65303, -18.8651)
+
+[node name="Gradient" parent="ChallengeManager/AlarmManager/Alarme4" index="3"]
+transform = Transform3D(0.653808, -0.1404, 0.0154929, 0.92462, 0.198556, -9.78596e-08, -0.653802, 0.140401, 0.0154929, 0.078, 0, 0)
+
+[node name="Overlay" type="Control" parent="ChallengeManager/AlarmManager"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RedOverlay" type="ColorRect" parent="ChallengeManager/AlarmManager/Overlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.823529, 0.196078, 0.25098, 0)
+
+[node name="GreenOverlay" type="ColorRect" parent="ChallengeManager/AlarmManager/Overlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.568627, 0.2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-3.72074e-08, 0.916761, -0.399437, 2.29412e-08, 0.399437, 0.916761, 1, 2.49467e-08, -3.58936e-08, -18.239, 43.142, 0)
@@ -256,18 +340,6 @@ transform = Transform3D(2.29282e-14, 5.24537e-07, -12, 12, -5.24537e-07, 0, -5.2
 [node name="Levier2" parent="." instance=ExtResource("8_vt6um")]
 transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 18.8909, 2.46505, 17.5895)
 
-[node name="Alarme2" parent="." instance=ExtResource("9_on4sc")]
-transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, -5.39238, 7.65303, -25.1938)
-
-[node name="Alarme5" parent="." instance=ExtResource("9_on4sc")]
-transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, -5.39238, 7.65303, 25.3156)
-
-[node name="Alarme3" parent="." instance=ExtResource("9_on4sc")]
-transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 18.8651, 7.65303, -8.14438)
-
-[node name="Alarme4" parent="." instance=ExtResource("9_on4sc")]
-transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 18.8651, 7.65303, 7.99858)
-
 [node name="Chauderon" parent="." instance=ExtResource("10_yboly")]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 13.3526, -1.83192, -18.8701)
 
@@ -305,11 +377,44 @@ spawn_path = NodePath("..")
 
 [node name="StartMenuUI" parent="." instance=ExtResource("20_gs3d0")]
 
+[node name="IP" type="Control" parent="StartMenuUI"]
+visible = false
+anchors_preset = 0
+offset_left = 492.0
+offset_top = 892.0
+offset_right = 532.0
+offset_bottom = 932.0
+
+[node name="LineEdit" type="LineEdit" parent="StartMenuUI/IP"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 20.0
+offset_right = 369.0
+offset_bottom = 75.0
+
+[node name="Label" type="Label" parent="StartMenuUI/IP"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 14.0
+offset_right = 79.0
+offset_bottom = 81.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "IP: "
+
+[node name="ip_button" type="Button" parent="StartMenuUI/IP"]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 34.0
+offset_right = 518.0
+offset_bottom = 65.0
+text = "Connect"
+
 [node name="Ground" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-transform = Transform3D(2.44434, 0, 0, 0, 0.863808, 0, 0, 0, 2.5751, 0, 0, 0)
-shape = SubResource("WorldBoundaryShape3D_dxxom")
+transform = Transform3D(18.9402, 0, 0, 0, 18.9402, 0, 0, 0, 18.9402, -0.658929, -1.13433, -0.279673)
+shape = SubResource("WorldBoundaryShape3D_fvls2")
 
 [node name="MiddleWall" type="StaticBody3D" parent="."]
 
@@ -346,125 +451,10 @@ transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, 
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground5"]
-transform = Transform3D(12.401, -1.13687e-13, 2.13791e-18, 1.13687e-13, 12.401, 1.13687e-13, 1.32137e-19, -1.13687e-13, 12.401, -0.753274, -4.41423, -2.73089)
+transform = Transform3D(12.401, -1.13687e-13, 2.57837e-18, 1.13687e-13, 12.401, 1.13687e-13, 1.32137e-19, -1.13687e-13, 12.401, -0.753274, -4.06681, -2.73089)
 shape = SubResource("BoxShape3D_2ryth")
 
-[node name="SoundManager" type="Node" parent="." node_paths=PackedStringArray("no_sounds", "yes_sounds", "button_sounds", "positive_feedback_sounds", "pointing_sounds", "throw_sounds", "bad_alarm", "lever_sound")]
-script = ExtResource("17_vt6um")
-no_sounds = [NodePath("NoSounds/AudioStreamPlayer2D"), NodePath("NoSounds/AudioStreamPlayer2D2"), NodePath("NoSounds/AudioStreamPlayer2D3"), NodePath("NoSounds/AudioStreamPlayer2D4")]
-yes_sounds = [NodePath("YesSounds/AudioStreamPlayer2D"), NodePath("YesSounds/AudioStreamPlayer2D2"), NodePath("YesSounds/AudioStreamPlayer2D3"), NodePath("YesSounds/AudioStreamPlayer2D4"), NodePath("YesSounds/AudioStreamPlayer2D5")]
-button_sounds = [NodePath("ButtonSounds/AudioStreamPlayer2D"), NodePath("ButtonSounds/AudioStreamPlayer2D2"), NodePath("ButtonSounds/AudioStreamPlayer2D3"), NodePath("ButtonSounds/AudioStreamPlayer2D4"), NodePath("ButtonSounds/AudioStreamPlayer2D5"), NodePath("ButtonSounds/AudioStreamPlayer2D6")]
-positive_feedback_sounds = [NodePath("PositiveFeedbackSounds/AudioStreamPlayer2D"), NodePath("PositiveFeedbackSounds/AudioStreamPlayer2D2"), NodePath("PositiveFeedbackSounds/AudioStreamPlayer2D3")]
-pointing_sounds = [NodePath("PointingSounds/AudioStreamPlayer2D"), NodePath("PointingSounds/AudioStreamPlayer2D2"), NodePath("PointingSounds/AudioStreamPlayer2D3"), NodePath("PointingSounds/AudioStreamPlayer2D4"), NodePath("PointingSounds/AudioStreamPlayer2D5"), NodePath("PointingSounds/AudioStreamPlayer2D6")]
-throw_sounds = [NodePath("ThrowSounds/AudioStreamPlayer2D"), NodePath("ThrowSounds/AudioStreamPlayer2D2"), NodePath("ThrowSounds/AudioStreamPlayer2D3"), NodePath("ThrowSounds/AudioStreamPlayer2D4")]
-bad_alarm = NodePath("BadAlarm")
-lever_sound = NodePath("LeverSound")
-
-[node name="MainMusic" type="AudioStreamPlayer2D" parent="SoundManager"]
-stream = ExtResource("18_on4sc")
-autoplay = true
-
-[node name="NoSounds" type="Node" parent="SoundManager"]
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundManager/NoSounds"]
-stream = ExtResource("19_sej1a")
-
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SoundManager/NoSounds"]
-stream = ExtResource("20_mc2fm")
-
-[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="SoundManager/NoSounds"]
-stream = ExtResource("21_uxvps")
-
-[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="SoundManager/NoSounds"]
-stream = ExtResource("22_qux0v")
-
-[node name="PositiveFeedbackSounds" type="Node" parent="SoundManager"]
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundManager/PositiveFeedbackSounds"]
-stream = ExtResource("23_dga7u")
-
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SoundManager/PositiveFeedbackSounds"]
-stream = ExtResource("24_tipo7")
-
-[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="SoundManager/PositiveFeedbackSounds"]
-stream = ExtResource("25_ii62h")
-
-[node name="YesSounds" type="Node" parent="SoundManager"]
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundManager/YesSounds"]
-stream = ExtResource("23_20c72")
-
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SoundManager/YesSounds"]
-stream = ExtResource("24_xk0xp")
-
-[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="SoundManager/YesSounds"]
-stream = ExtResource("25_cybxk")
-
-[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="SoundManager/YesSounds"]
-stream = ExtResource("26_ehnl4")
-
-[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="SoundManager/YesSounds"]
-stream = ExtResource("27_8bv7e")
-
-[node name="ButtonSounds" type="Node" parent="SoundManager"]
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundManager/ButtonSounds"]
-stream = ExtResource("28_72m11")
-
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SoundManager/ButtonSounds"]
-stream = ExtResource("29_yakfb")
-
-[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="SoundManager/ButtonSounds"]
-stream = ExtResource("30_q70v4")
-
-[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="SoundManager/ButtonSounds"]
-stream = ExtResource("31_3b705")
-
-[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="SoundManager/ButtonSounds"]
-stream = ExtResource("32_dga7u")
-
-[node name="AudioStreamPlayer2D6" type="AudioStreamPlayer2D" parent="SoundManager/ButtonSounds"]
-stream = ExtResource("33_tipo7")
-
-[node name="PointingSounds" type="Node" parent="SoundManager"]
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundManager/PointingSounds"]
-stream = ExtResource("37_yysie")
-
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SoundManager/PointingSounds"]
-stream = ExtResource("38_2ryth")
-
-[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="SoundManager/PointingSounds"]
-stream = ExtResource("39_457c2")
-
-[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="SoundManager/PointingSounds"]
-stream = ExtResource("40_2qjws")
-
-[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="SoundManager/PointingSounds"]
-stream = ExtResource("41_3656k")
-
-[node name="AudioStreamPlayer2D6" type="AudioStreamPlayer2D" parent="SoundManager/PointingSounds"]
-stream = ExtResource("42_cbh4w")
-
-[node name="BadAlarm" type="AudioStreamPlayer2D" parent="SoundManager"]
-stream = ExtResource("34_yakfb")
-
-[node name="ThrowSounds" type="Node" parent="SoundManager"]
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundManager/ThrowSounds"]
-stream = ExtResource("49_4fhuq")
-
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SoundManager/ThrowSounds"]
-stream = ExtResource("50_awx01")
-
-[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="SoundManager/ThrowSounds"]
-stream = ExtResource("51_e02gb")
-
-[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="SoundManager/ThrowSounds"]
-stream = ExtResource("52_y2xj3")
-
-[node name="LeverSound" type="AudioStreamPlayer2D" parent="SoundManager"]
-stream = ExtResource("53_awx01")
+[node name="SoundManager" parent="." instance=ExtResource("22_fvls2")]
 
 [node name="Support3" parent="." instance=ExtResource("49_xo33y")]
 transform = Transform3D(-0.058433, 0, 11.9999, 0, 12, 0, -11.9999, 0, -0.058433, -2.66828, -1.90174, 16.4939)
@@ -495,8 +485,13 @@ transform = Transform3D(-5.24537e-07, -12, -5.24537e-07, 4.58565e-14, 5.24537e-0
 
 [connection signal="pressed" from="StartMenuUI/VBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="StartMenuUI/VBoxContainer/Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="StartMenuUI/IP/ip_button" to="." method="_on_ip_button_pressed"]
 
 [editable path="ChallengeManager"]
+[editable path="ChallengeManager/AlarmManager/Alarme2"]
+[editable path="ChallengeManager/AlarmManager/Alarme5"]
+[editable path="ChallengeManager/AlarmManager/Alarme3"]
+[editable path="ChallengeManager/AlarmManager/Alarme4"]
 [editable path="Chauderon"]
 [editable path="Chauderon2"]
 [editable path="StartMenuUI"]

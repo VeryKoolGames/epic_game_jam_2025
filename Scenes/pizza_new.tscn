@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://bfoasbx47yc0b"]
+[gd_scene load_steps=11 format=4 uid="uid://bfoasbx47yc0b"]
 
 [ext_resource type="Script" uid="uid://ctopn0cibdbr3" path="res://Scenes/pick_up_item.gd" id="1_hsasi"]
 [ext_resource type="Resource" uid="uid://d1wnge33j67vn" path="res://Resources/pickable_items/pizza.tres" id="2_hsasi"]
 [ext_resource type="Material" uid="uid://0sbde04t52g4" path="res://Materials/M_Pizza.tres" id="3_hsasi"]
+[ext_resource type="Shader" uid="uid://d2serugfknpkw" path="res://Shaders/outline.gdshader" id="4_vnnbs"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vnnbs"]
 height = 0.194427
@@ -12,11 +13,12 @@ radius = 1.15723
 height = 0.254608
 radius = 1.66748
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsasi"]
-cull_mode = 1
-shading_mode = 0
-diffuse_mode = 3
-grow_amount = 0.04
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_12whq"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_vnnbs")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/thickness = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ncf1u"]
 
@@ -58,6 +60,7 @@ gravity_scale = 5.0
 script = ExtResource("1_hsasi")
 item = ExtResource("2_hsasi")
 mesh = NodePath("Pizza")
+outline_thickness = 0.03
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -72,7 +75,7 @@ shape = SubResource("CylinderShape3D_12whq")
 [node name="Pizza" type="MeshInstance3D" parent="."]
 transform = Transform3D(8.78, 0, 0, 0, 8.78, 0, 0, 0, 8.78, 0, 0, 0)
 material_override = ExtResource("3_hsasi")
-material_overlay = SubResource("StandardMaterial3D_hsasi")
+material_overlay = SubResource("ShaderMaterial_12whq")
 mesh = SubResource("ArrayMesh_uanht")
 skeleton = NodePath("")
 

@@ -21,7 +21,8 @@ func emote_cooldown() -> void:
 
 func play_thumbs_up_emote() -> void:
 	play_anim_rpc.rpc(owner.name.to_int())
-	thumbs_up_anim.play("thumbs_up")
+	if multiplayer.get_unique_id() == owner.name.to_int():
+		thumbs_up_anim.play("thumbs_up")
 
 @rpc("any_peer")
 func play_anim_rpc(sender_id: int) -> void:
@@ -30,7 +31,8 @@ func play_anim_rpc(sender_id: int) -> void:
 
 func play_thumbs_down_emote() -> void:
 	play_down_anim_rpc.rpc(owner.name.to_int())
-	thumbs_down_anim.play("thumb_down")
+	if multiplayer.get_unique_id() == owner.name.to_int():
+		thumbs_down_anim.play("thumb_down")
 
 @rpc("any_peer")
 func play_down_anim_rpc(sender_id: int) -> void:

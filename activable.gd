@@ -3,6 +3,7 @@ class_name Activable
 
 var is_active := false
 @export var id: int
+@export var outline_thickness: float
 
 func activate() -> void:
 	pass

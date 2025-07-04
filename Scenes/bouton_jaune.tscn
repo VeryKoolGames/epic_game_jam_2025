@@ -1,10 +1,18 @@
-[gd_scene load_steps=13 format=4 uid="uid://c14qob8p1iwj4"]
+[gd_scene load_steps=15 format=4 uid="uid://c14qob8p1iwj4"]
 
 [ext_resource type="PackedScene" uid="uid://cv1xsar330yk4" path="res://Models/Bouton.fbx" id="1_y353y"]
 [ext_resource type="Script" uid="uid://bhh25luioh8tl" path="res://Scenes/button.gd" id="2_i8jxg"]
 [ext_resource type="Material" uid="uid://dl8ew2ub2x0sp" path="res://Materials/M_Bouton_Jaune.tres" id="2_y353y"]
 [ext_resource type="Material" uid="uid://boonw1hakjrsj" path="res://Materials/M_OutlineMaterial.tres" id="3_i0gch"]
 [ext_resource type="Material" uid="uid://ccrehi7khf42" path="res://Materials/M_Metal2.tres" id="3_i8jxg"]
+[ext_resource type="Shader" uid="uid://d2serugfknpkw" path="res://Shaders/outline.gdshader" id="6_btld6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wc4v5"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_btld6")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/thickness = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ote5x"]
 
@@ -82,6 +90,7 @@ _data = {
 script = ExtResource("2_i8jxg")
 mesh = NodePath("Cylinder_018")
 id = 4
+outline_thickness = 0.03
 
 [node name="Cylinder_018" parent="." index="0"]
 transform = Transform3D(0.429987, 0, 0, 0, 0.429987, 0, 0, 0, 0.429987, 0, 0.0726331, 0)
@@ -91,7 +100,7 @@ material_overlay = ExtResource("3_i0gch")
 [node name="Cylinder_019" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(0.53069, 0, 0, 0, 0.367251, 0, 0, 0, 0.53069, 0, 0.03206, 0)
 material_override = ExtResource("3_i8jxg")
-material_overlay = ExtResource("3_i0gch")
+material_overlay = SubResource("ShaderMaterial_wc4v5")
 mesh = SubResource("ArrayMesh_lsiiv")
 skeleton = NodePath("")
 
