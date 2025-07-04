@@ -19,6 +19,8 @@ var is_pointing := false
 var is_holding := false
 var position_initialized := false  # Add this flag
 var can_interact := true
+var arm_state_machine: StateMachine
+var can_point := true
 @export var pickup_manager: Node
 
 func _enter_tree() -> void:
@@ -28,6 +30,7 @@ func release_item() -> void:
 	pickup_manager.release_item()
 
 func _ready() -> void:
+	arm_state_machine = animation_tree_arms.get_child(0)
 	if multiplayer.get_unique_id() == 1:
 		global_position.x -= 15
 	else:
@@ -36,7 +39,6 @@ func _ready() -> void:
 @rpc("any_peer")
 func update_position(new_pos: Vector3):
 	if multiplayer.get_unique_id() == name.to_int():
-		# This update came back to the owner — ignore it
 		return
 	last_position = global_transform.origin
 	target_position = new_pos
@@ -45,7 +47,6 @@ func update_position(new_pos: Vector3):
 @rpc("any_peer")
 func update_body_rotation(new_rot: Vector3):
 	if multiplayer.get_unique_id() == name.to_int():
-	# This update came back to the owner — ignore it
 		return
 	last_rotation = body.rotation
 	target_rotation = new_rot
@@ -54,17 +55,21 @@ func update_body_rotation(new_rot: Vector3):
 @rpc("any_peer")
 func sync_pointing_state(pointing: bool):
 	is_pointing = pointing
-	if pointing:
-		animation_tree_arms.set("parameters/conditions/Pointing", true)
-		animation_tree_arms.set("parameters/conditions/idle", false)
-	else:
-		animation_tree_arms.set("parameters/conditions/idle", true)
-		animation_tree_arms.set("parameters/conditions/Pointing", false)
+	#if pointing:
+		#animation_tree_arms.set("parameters/conditions/Pointing", true)
+		#animation_tree_arms.set("parameters/conditions/idle", false)
+	#else:
+		#animation_tree_arms.set("parameters/conditions/idle", true)
+		#animation_tree_arms.set("parameters/conditions/Pointing", false)
+
+func switch_to_holding_state() -> void:
+	is_holding = true
+	is_pointing = false
+	arm_state_machine._transition_to_next_state("Holding")
 
 @rpc("any_peer")
 func update_lower_body_rotation(new_rot: Vector3):
 	if multiplayer.get_unique_id() == name.to_int():
-	# This update came back to the owner — ignore it
 		return
 	last_lower_body_rotation = lower_body.rotation
 	target_lower_body_rotation = new_rot
@@ -73,21 +78,22 @@ func update_lower_body_rotation(new_rot: Vector3):
 func _input(event: InputEvent) -> void:
 	if not is_multiplayer_authority():
 		return
-	if event.is_action_released("point") and not is_pointing and not is_holding:
-		animation_tree_arms.set("parameters/conditions/Pointing", true)
-		sync_pointing_state.rpc(true)
-		await get_tree().create_timer(0.5).timeout
+	if event.is_action_pressed("point") and not is_pointing and can_point and not is_holding:
+		point_cooldown()
 		is_pointing = true
-	elif event.is_action_released("point") and is_pointing and not is_holding:
-		animation_tree_arms.set("parameters/conditions/idle", true)
-		animation_tree_arms.set("parameters/conditions/Pointing", false)
+		arm_state_machine._transition_to_next_state("Pointing")
 		SoundManager.play_pointing_sound()
-		sync_pointing_state.rpc(false)
-		await get_tree().create_timer(0.5).timeout
+	elif event.is_action_pressed("point") and is_pointing and can_point and not is_holding:
+		point_cooldown()
+		arm_state_machine._transition_to_next_state("Idle")
 		is_pointing = false
 
+func point_cooldown() -> void:
+	can_point = false
+	await get_tree().create_timer(0.5).timeout
+	can_point = true
+
 func _process(delta: float) -> void:
-	# Makes the other player move on the screen
 	if not is_multiplayer_authority():
 		lerp_alpha = min(lerp_alpha + delta * 5, 1.0)
 		global_transform.origin = last_position.lerp(target_position, lerp_alpha)
@@ -110,12 +116,16 @@ func _process(delta: float) -> void:
 
 	if direction != Vector3.ZERO:
 		state_machine._transition_to_next_state("Moving")
+		if not is_holding and not is_pointing:
+			arm_state_machine._transition_to_next_state("Moving")
 		direction = direction.normalized()
 		velocity = direction * player_speed
 		move_and_slide()
 		var movement_angle = atan2(direction.x, direction.z)
 		lower_body.rotation.y = movement_angle
 	else:
+		if not is_holding and not is_pointing:
+			arm_state_machine._transition_to_next_state("Idle")
 		state_machine._transition_to_next_state("Idle")
 		velocity = Vector3.ZERO
 
