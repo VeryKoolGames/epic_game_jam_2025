@@ -1,12 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://4wflyogo0bk2"]
+[gd_scene load_steps=2 format=3 uid="uid://4wflyogo0bk2"]
 
-[ext_resource type="Texture2D" uid="uid://dgeau2q4ux86v" path="res://Textures/3.png" id="1_w7aur"]
 [ext_resource type="Texture2D" uid="uid://b5wctqlmm2w1w" path="res://Textures/?.png" id="2_a11rl"]
-[ext_resource type="Script" uid="uid://ef2soe5gf3ae" path="res://Scenes/ui_number_setter.gd" id="2_jhbyv"]
-[ext_resource type="Texture2D" uid="uid://xsrua1py30kj" path="res://Textures/1.png" id="3_kw84w"]
-[ext_resource type="Texture2D" uid="uid://cu0f538wdduh8" path="res://Textures/2.png" id="4_bvd7v"]
-[ext_resource type="Texture2D" uid="uid://bw1h7csvoe0lm" path="res://Textures/4.png" id="5_xbxos"]
-[ext_resource type="Texture2D" uid="uid://dbe3v3j13pddx" path="res://Textures/5.png" id="6_38du7"]
 
 [node name="Quest_Locked" type="HBoxContainer"]
 z_index = -1
@@ -14,14 +8,6 @@ offset_right = 358.0
 offset_bottom = 116.0
 theme_override_constants/separation = 10
 alignment = 1
-
-[node name="Numero" type="TextureRect" parent="."]
-layout_mode = 2
-size_flags_vertical = 4
-texture = ExtResource("1_w7aur")
-stretch_mode = 4
-script = ExtResource("2_jhbyv")
-potential_numbers = Array[Texture2D]([ExtResource("3_kw84w"), ExtResource("4_bvd7v"), ExtResource("1_w7aur"), ExtResource("5_xbxos"), ExtResource("6_38du7")])
 
 [node name="?" type="TextureRect" parent="."]
 layout_mode = 2

@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ocebcxj6vxq8"]
+
+[ext_resource type="Shader" uid="uid://bgitm7y0oee3l" path="res://Materials/S_PatternSpatial.gdshader" id="1_0p23w"]
+[ext_resource type="Texture2D" uid="uid://br4mrxhybt43u" path="res://Textures/Pattern1.png" id="2_0p23w"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_0p23w")
+shader_parameter/my_texture = ExtResource("2_0p23w")
+shader_parameter/color = Color(0.164157, 0.152131, 0.147661, 1)
+shader_parameter/speed = Vector2(0, 2)
+shader_parameter/tiling = Vector2(1.61, 21.46)

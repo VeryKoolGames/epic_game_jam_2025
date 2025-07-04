@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://fyuc0qt3b14e"]
+
+[ext_resource type="PackedScene" uid="uid://bcefawil7o070" path="res://Scenes/StartMenu_UI.tscn" id="1_626he"]
+[ext_resource type="Texture2D" uid="uid://ce5bi2mq2jued" path="res://Textures/Enter.png" id="2_8u0lp"]
+[ext_resource type="FontFile" uid="uid://bttgq66wddl8h" path="res://GT-Maru-Medium-Trial.otf" id="3_i2i62"]
+[ext_resource type="Texture2D" uid="uid://h1ndq8lcfi74" path="res://Textures/connect.png" id="4_lfskg"]
+[ext_resource type="Texture2D" uid="uid://c2svdsj1i2bo6" path="res://Textures/connect2.png" id="5_ru7em"]
+[ext_resource type="Texture2D" uid="uid://ou4etkjgr434" path="res://Textures/1x1.png" id="6_8u0lp"]
+[ext_resource type="Material" uid="uid://bxjbi563sulmc" path="res://Materials/M_Pattern.tres" id="6_i2i62"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = ExtResource("6_i2i62")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_8u0lp")
+
+[node name="StartMenuUI" parent="." instance=ExtResource("1_626he")]
+layout_mode = 1
+
+[node name="IP" type="Control" parent="StartMenuUI"]
+visible = false
+anchors_preset = 0
+offset_left = 547.0
+offset_top = 907.0
+offset_right = 1105.0
+offset_bottom = 1004.0
+
+[node name="TextureRect" type="TextureRect" parent="StartMenuUI/IP"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -57.0
+offset_right = 718.0
+offset_bottom = 153.0
+texture = ExtResource("2_8u0lp")
+stretch_mode = 4
+
+[node name="LineEdit" type="LineEdit" parent="StartMenuUI/IP"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 20.0
+offset_right = 485.0
+offset_bottom = 75.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("3_i2i62")
+theme_override_font_sizes/font_size = 40
+clear_button_enabled = true
+flat = true
+
+[node name="Label" type="Label" parent="StartMenuUI/IP"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 21.0
+offset_right = 45.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("3_i2i62")
+theme_override_font_sizes/font_size = 48
+text = "IP: "
+
+[node name="ip_button" type="Button" parent="StartMenuUI/IP"]
+visible = false
+layout_mode = 0
+offset_left = 526.0
+offset_top = 6.0
+offset_right = 827.0
+offset_bottom = 89.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_i2i62")
+theme_override_font_sizes/font_size = 21
+text = "CONNECT"
+icon = ExtResource("4_lfskg")
+flat = true
+
+[node name="TextureButton" type="TextureButton" parent="StartMenuUI/IP"]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 13.0
+offset_right = 722.0
+offset_bottom = 91.0
+texture_normal = ExtResource("5_ru7em")
+texture_pressed = ExtResource("4_lfskg")
+texture_hover = ExtResource("4_lfskg")
+texture_disabled = ExtResource("5_ru7em")
+texture_focused = ExtResource("4_lfskg")
+
+[editable path="StartMenuUI"]

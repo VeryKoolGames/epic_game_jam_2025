@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://budqe0daur7sg"]
+
+[ext_resource type="PackedScene" uid="uid://b7xu4doi4n8h4" path="res://player.tscn" id="1_b30ec"]
+[ext_resource type="Material" uid="uid://bkue4bktxk0cg" path="res://Materials/M_Character2.tres" id="2_x88p5"]
+
+[node name="player" instance=ExtResource("1_b30ec")]
+
+[node name="Jambe" parent="Character/Bassin" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, -0.365916, -0.281493, -0.0168233)
+
+[node name="Jambe" parent="Character/Bassin/Jambe" index="0"]
+material_override = ExtResource("2_x88p5")
+
+[node name="Jambe2" parent="Character/Bassin" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0.370381, -0.280949, -0.0163134)
+
+[node name="Jambe" parent="Character/Bassin/Jambe2" index="0"]
+material_override = ExtResource("2_x88p5")
+
+[node name="Tête" parent="Character/Haut/Tete" index="0"]
+material_override = ExtResource("2_x88p5")
+
+[node name="Chapeau" parent="Character/Haut/Tete/Chapeau" index="0"]
+material_override = ExtResource("2_x88p5")
+
+[node name="Torce" parent="Character/Haut/Torse" index="0"]
+material_override = ExtResource("2_x88p5")
+
+[node name="Bras1" parent="Character/Haut/Bras" index="0"]
+transform = Transform3D(0.327291, -0.899224, 0, 0.682186, 0.248296, -0.623455, 0.585856, 0.213234, 0.725967, -0.664546, -0.270204, 0.00287721)
+
+[node name="Bras1" parent="Character/Haut/Bras/Bras1" index="0"]
+material_override = ExtResource("2_x88p5")
+
+[node name="Bras2" parent="Character/Haut/Bras" index="1"]
+transform = Transform3D(-0.337763, 0.927994, -2.50362e-06, 0.927994, 0.337763, 0, 8.5629e-07, -2.35263e-06, -0.98755, 0.728581, -0.177329, -5.98271e-05)
+
+[node name="Bras1" parent="Character/Haut/Bras/Bras2" index="0"]
+material_override = ExtResource("2_x88p5")
+
+[editable path="Character"]

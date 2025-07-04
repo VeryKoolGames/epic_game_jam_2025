@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dye24yil2p77u"
-path.s3tc="res://.godot/imported/Perso_DefaultMaterial_BaseColor.jpg-302b562b710b2529df913096ee87ab3d.s3tc.ctex"
-path.etc2="res://.godot/imported/Perso_DefaultMaterial_BaseColor.jpg-302b562b710b2529df913096ee87ab3d.etc2.ctex"
+uid="uid://br4mrxhybt43u"
+path.s3tc="res://.godot/imported/Pattern1.png-c634e85818a8caf61630cfada1876c1c.s3tc.ctex"
+path.etc2="res://.godot/imported/Pattern1.png-c634e85818a8caf61630cfada1876c1c.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Player2/Perso_DefaultMaterial_BaseColor.jpg"
-dest_files=["res://.godot/imported/Perso_DefaultMaterial_BaseColor.jpg-302b562b710b2529df913096ee87ab3d.s3tc.ctex", "res://.godot/imported/Perso_DefaultMaterial_BaseColor.jpg-302b562b710b2529df913096ee87ab3d.etc2.ctex"]
+source_file="res://Textures/Pattern1.png"
+dest_files=["res://.godot/imported/Pattern1.png-c634e85818a8caf61630cfada1876c1c.s3tc.ctex", "res://.godot/imported/Pattern1.png-c634e85818a8caf61630cfada1876c1c.etc2.ctex"]
 
 [params]
 
