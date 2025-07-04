@@ -1,16 +1,11 @@
-[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://c1m0ejor36hxk"]
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c1m0ejor36hxk"]
 
-[ext_resource type="Texture2D" uid="uid://c5dcwpt172fbi" path="res://Textures/BaseLevel/LevelBase_Base_BaseColor.jpg" id="1_f655n"]
-[ext_resource type="Texture2D" uid="uid://c7n65yfuh4hvj" path="res://Textures/BaseLevel/LevelBase_Base_Metallic.jpg" id="2_qt2f4"]
+[ext_resource type="Texture2D" uid="uid://b7vabap4d6itb" path="res://Textures/patternItch.png" id="1_jc6py"]
 [ext_resource type="Texture2D" uid="uid://fm6n60ah1tvx" path="res://Textures/BaseLevel/LevelBase_Base_Normal.jpg" id="3_03jtq"]
-[ext_resource type="Texture2D" uid="uid://byji3uhv0u8sb" path="res://Textures/BaseLevel/LevelBase_Base_Roughness.jpg" id="4_u642f"]
 
 [resource]
-albedo_color = Color(0.513233, 0.513233, 0.513233, 1)
-albedo_texture = ExtResource("1_f655n")
-metallic = 0.3
-metallic_specular = 0.26
-metallic_texture = ExtResource("2_qt2f4")
-roughness_texture = ExtResource("4_u642f")
-normal_enabled = true
+cull_mode = 2
+albedo_color = Color(0.564962, 0.564962, 0.564962, 1)
+albedo_texture = ExtResource("1_jc6py")
+metallic_specular = 0.0
 normal_texture = ExtResource("3_03jtq")
