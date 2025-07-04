@@ -336,9 +336,6 @@ animation = &"Alarme_Erreur"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wumj3"]
 animation = &"Alarme_Idle"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vooyt"]
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jyqod"]
 advance_mode = 2
 advance_condition = &"error"
@@ -359,6 +356,9 @@ reset = false
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rs0de"]
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_rs0de"]
 states/Alarme_Correct/node = SubResource("AnimationNodeAnimation_rs0de")
 states/Alarme_Correct/position = Vector2(744, 42.5)
@@ -366,8 +366,8 @@ states/Alarme_Erreur/node = SubResource("AnimationNodeAnimation_uraq0")
 states/Alarme_Erreur/position = Vector2(387.5, 35.5)
 states/Alarme_Idle/node = SubResource("AnimationNodeAnimation_wumj3")
 states/Alarme_Idle/position = Vector2(548, 155.5)
-transitions = ["Start", "Alarme_Idle", SubResource("AnimationNodeStateMachineTransition_vooyt"), "Alarme_Idle", "Alarme_Erreur", SubResource("AnimationNodeStateMachineTransition_jyqod"), "Alarme_Idle", "Alarme_Correct", SubResource("AnimationNodeStateMachineTransition_at3up"), "Alarme_Erreur", "Alarme_Idle", SubResource("AnimationNodeStateMachineTransition_k0br1"), "Alarme_Correct", "Alarme_Idle", SubResource("AnimationNodeStateMachineTransition_isxpm")]
-graph_offset = Vector2(184, -78)
+transitions = ["Alarme_Idle", "Alarme_Erreur", SubResource("AnimationNodeStateMachineTransition_jyqod"), "Alarme_Idle", "Alarme_Correct", SubResource("AnimationNodeStateMachineTransition_at3up"), "Alarme_Erreur", "Alarme_Idle", SubResource("AnimationNodeStateMachineTransition_k0br1"), "Alarme_Correct", "Alarme_Idle", SubResource("AnimationNodeStateMachineTransition_isxpm"), "Start", "Alarme_Idle", SubResource("AnimationNodeStateMachineTransition_rs0de")]
+graph_offset = Vector2(118, -22)
 
 [node name="Alarme" instance=ExtResource("1_i1cu0")]
 

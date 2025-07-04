@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://cp6yol3y6rixl"]
+[gd_scene load_steps=26 format=4 uid="uid://cp6yol3y6rixl"]
 
 [ext_resource type="PackedScene" uid="uid://bp7fkoscj61yf" path="res://Scenes/Character_BEN.tscn" id="2_iu0du"]
 [ext_resource type="PackedScene" uid="uid://dgaabyyvjnbp8" path="res://Scenes/vitre.tscn" id="3_1xwfk"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://3jc12w52gg2k" path="res://Scenes/seau.tscn" id="17_fs1vp"]
 [ext_resource type="PackedScene" uid="uid://d13o8lmc5tq0p" path="res://Scenes/support_2.tscn" id="18_5ypls"]
 [ext_resource type="PackedScene" uid="uid://bu3ip0kio7dka" path="res://Scenes/main_ui.tscn" id="19_jm27w"]
+[ext_resource type="PackedScene" uid="uid://c4sglkguxh4ah" path="res://Scenes/porte.tscn" id="20_kg1bj"]
 
 [sub_resource type="Environment" id="Environment_qehu7"]
 background_mode = 1
@@ -207,3 +208,6 @@ transform = Transform3D(8.11, 0, 0, 0, 8.11, 0, 0, 0, 8.11, -15.6196, 0, -5.9601
 transform = Transform3D(-12, 0, 1.04907e-06, 0, 12, 0, -1.04907e-06, 0, -12, 4.58096, -1.93537, -15.0925)
 
 [node name="Main_ui" parent="." instance=ExtResource("19_jm27w")]
+
+[node name="Porte" parent="." instance=ExtResource("20_kg1bj")]
+transform = Transform3D(-5.46392e-07, 0, 12.5, 0, 12.5, 0, -12.5, 0, -5.46392e-07, 18.936, -2.17391, -11.0075)
