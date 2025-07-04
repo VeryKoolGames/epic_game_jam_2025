@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 func _transition_to_next_state(target_state_path: String, data: Dictionary = {}) -> void:
 	if not has_node(target_state_path):
 		return
-
+	
 	var previous_state_path := state.name
 	state.exit()
 	state = get_node(target_state_path)

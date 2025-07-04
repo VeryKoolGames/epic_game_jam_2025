@@ -12,12 +12,12 @@ func _ready() -> void:
 func _is_multiplayer_authority() -> bool:
 	return get_parent().is_multiplayer_authority()
 
-@rpc("any_peer", "call_remote", "reliable")
-func sync_holding_animation(is_holding: bool):
-	if is_holding:
-		play_holding_anim()
-	else:
-		stop_holding_anim()
+#@rpc("any_peer", "call_remote", "reliable")
+#func sync_holding_animation(is_holding: bool):
+	#if is_holding:
+		#play_holding_anim()
+	#else:
+		#stop_holding_anim()
 
 		
 func change_pickable_layer() -> void:
@@ -37,8 +37,8 @@ func sync_carrying_state(carrying: bool):
 func on_item_droped_in_cauldron(_item: ResPickableItem) -> void:
 	is_carrying_item = false
 	pickable_item = null
-	stop_holding_anim()
-	sync_holding_animation.rpc(false)
+	#stop_holding_anim()
+	#sync_holding_animation.rpc(false)
 	sync_carrying_state.rpc(false)
 
 func _input(event: InputEvent) -> void:
@@ -50,6 +50,7 @@ func _input(event: InputEvent) -> void:
 		pickable_item.freeze = false
 		_apply_force_to_item()
 		release_item()
+		owner.arm_state_machine._transition_to_next_state("Idle")
 
 		if _is_multiplayer_authority() and pickable_item:
 			pickable_item.update_item_position.rpc(pickable_item.global_transform.origin)
@@ -65,16 +66,16 @@ func release_item()	-> void:
 	owner.is_holding = false
 	is_carrying_item = false
 	set_pickable_to_layer_1_and_2()
-	sync_holding_animation.rpc(false)
-	stop_holding_anim()
+#	sync_holding_animation.rpc(false)
+#	stop_holding_anim()
 	
-func play_holding_anim() -> void:
-	animation_bras_tree.set("parameters/conditions/Holding", true)
-	animation_bras_tree.set("parameters/conditions/idle", false)
-
-func stop_holding_anim() -> void:
-	animation_bras_tree.set("parameters/conditions/Holding", false)
-	animation_bras_tree.set("parameters/conditions/idle", true)
+#func play_holding_anim() -> void:
+	#animation_bras_tree.set("parameters/conditions/Holding", true)
+	#animation_bras_tree.set("parameters/conditions/idle", false)
+#
+#func stop_holding_anim() -> void:
+	#animation_bras_tree.set("parameters/conditions/Holding", false)
+	#animation_bras_tree.set("parameters/conditions/idle", true)
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if not is_multiplayer_authority():
@@ -111,10 +112,7 @@ func _process(_delta: float) -> void:
 func pick_up_item() -> void:
 	pickable_item.deactivate_outline()
 	change_pickable_layer()
-	
-	play_holding_anim()
-	sync_holding_animation.rpc(true)
-
+	owner.switch_to_holding_state()
 	var tween = create_tween()
 	tween.tween_callback(Callable(self, "_finish_pickup"))
 	var target_pos = arm_transform.to_global(carry_offset)
