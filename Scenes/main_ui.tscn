@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bu3ip0kio7dka"]
 
-[ext_resource type="Script" path="res://Scenes/main_ui.gd" id="1_7okpu"]
+[ext_resource type="Script" uid="uid://dbxwixgxb5x4m" path="res://Scenes/main_ui.gd" id="1_7okpu"]
 [ext_resource type="Texture2D" uid="uid://dfuxs0t0cxtrd" path="res://Textures/Feuille.png" id="1_ylo01"]
 [ext_resource type="PackedScene" uid="uid://dcvk4j6nhljl0" path="res://Scenes/Quest_bouton.tscn" id="2_f28it"]
 [ext_resource type="PackedScene" uid="uid://c2cruqx0lragc" path="res://Scenes/quest_chauderon.tscn" id="3_f28it"]

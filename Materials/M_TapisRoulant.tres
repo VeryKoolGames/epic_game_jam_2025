@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ocebcxj6vxq8"]
 
-[ext_resource type="Shader" uid="uid://bgitm7y0oee3l" path="res://Materials/S_PatternSpatial.gdshader" id="1_0p23w"]
+[ext_resource type="Shader" path="res://Materials/S_PatternSpatial.gdshader" id="1_0p23w"]
 [ext_resource type="Texture2D" uid="uid://br4mrxhybt43u" path="res://Textures/Pattern1.png" id="2_0p23w"]
 
 [resource]

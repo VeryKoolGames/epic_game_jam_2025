@@ -9,8 +9,6 @@ func _transition_to_next_state(target_state_path: String, data: Dictionary = {})
 	if target_state_path == state.name:
 		return
 	
-	print("Transitioning to state: ", target_state_path)
-	print("Current state: ", state.name)
 	var previous_state_path := state.name
 	state.exit()
 	state = get_node(target_state_path)
