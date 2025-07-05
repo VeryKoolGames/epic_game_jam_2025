@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://behht73jq01o2"]
+
+[ext_resource type="Shader" uid="uid://dtehot50fiu46" path="res://Materials/S_PatternSpatial.gdshader" id="1_6jfgb"]
+[ext_resource type="Texture2D" uid="uid://b7vabap4d6itb" path="res://Textures/patternItch.png" id="2_358os"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_6jfgb")
+shader_parameter/my_texture = ExtResource("2_358os")
+shader_parameter/color = Color(0.564962, 0.564962, 0.564962, 1)
+shader_parameter/tiling = Vector2(9.58, 9.74)
