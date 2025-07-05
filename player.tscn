@@ -278,6 +278,9 @@ script = ExtResource("3_dw050")
 [node name="Haut" parent="Character" index="1"]
 script = ExtResource("3_1jxqw")
 
+[node name="Bras1" parent="Character/Haut/Bras" index="0"]
+transform = Transform3D(0.327291, -0.899224, 0, 0.682186, 0.248296, -0.623455, 0.585856, 0.213234, 0.725967, -0.664546, -0.270204, 0.00287721)
+
 [node name="Area3D" type="Area3D" parent="Character/Haut" index="3"]
 transform = Transform3D(-0.997511, 0, 8.72052e-08, 0, 0.997511, 0, -8.72052e-08, 0, -0.997511, -0.00043415, -2.36301, 0.00180842)
 

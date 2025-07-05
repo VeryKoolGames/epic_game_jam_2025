@@ -5,7 +5,9 @@
 [ext_resource type="Resource" uid="uid://c3iu1n28meewj" path="res://Resources/pickable_items/pasteque.tres" id="2_g50du"]
 [ext_resource type="Shader" uid="uid://d2serugfknpkw" path="res://Shaders/outline.gdshader" id="4_f03bg"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8gbba"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tgb3b"]
+radius = 1.08817
+height = 2.17635
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f03bg"]
 radius = 1.0021
@@ -64,7 +66,7 @@ outline_thickness = 0.2
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("BoxShape3D_8gbba")
+shape = SubResource("CapsuleShape3D_tgb3b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_f03bg")
