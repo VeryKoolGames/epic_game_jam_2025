@@ -21,6 +21,7 @@ var position_initialized := false  # Add this flag
 var can_interact := true
 var arm_state_machine: StateMachine
 var can_point := true
+var is_reading := false
 @export var pickup_manager: Node
 
 func _enter_tree() -> void:
@@ -30,11 +31,21 @@ func release_item() -> void:
 	pickup_manager.release_item()
 
 func _ready() -> void:
+	Events.on_map_opened.connect(on_start_reading_map)
+	Events.on_map_closed.connect(on_stop_reading_map)
 	arm_state_machine = animation_tree_arms.get_child(0)
 	if multiplayer.get_unique_id() == 1:
 		global_position.x -= 15
 	else:
 		global_position.x += 15
+
+func on_start_reading_map() -> void:
+	is_reading = true
+	arm_state_machine._transition_to_next_state("Reading")
+
+func on_stop_reading_map() -> void:
+	is_reading = false
+	arm_state_machine._transition_to_next_state("Idle")
 
 @rpc("any_peer")
 func update_position(new_pos: Vector3):
@@ -76,7 +87,7 @@ func update_lower_body_rotation(new_rot: Vector3):
 	lower_body_rotation_lerp_alpha = 0.0
 
 func _input(event: InputEvent) -> void:
-	if not is_multiplayer_authority():
+	if not is_multiplayer_authority() or is_reading:
 		return
 	if event.is_action_pressed("point") and not is_pointing and can_point and not is_holding:
 		point_cooldown()
@@ -94,6 +105,8 @@ func point_cooldown() -> void:
 	can_point = true
 
 func _process(delta: float) -> void:
+	if is_reading:
+		return
 	if not is_multiplayer_authority():
 		lerp_alpha = min(lerp_alpha + delta * 5, 1.0)
 		global_transform.origin = last_position.lerp(target_position, lerp_alpha)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://7i7rrop85tj8"]
+[gd_scene load_steps=16 format=4 uid="uid://d1o6jpckrouff"]
 
-[ext_resource type="Material" uid="uid://b8dgrrf7ypdwb" path="res://Materials/M_TapisRoulant2.tres" id="1_cfiol"]
-[ext_resource type="Script" uid="uid://sbbs7pmfkmfr" path="res://Scenes/treadmil.gd" id="1_yxqrj"]
-[ext_resource type="Material" uid="uid://ocebcxj6vxq8" path="res://Materials/M_TapisRoulant.tres" id="2_yxqrj"]
-[ext_resource type="Material" uid="uid://dn7chjfw38emp" path="res://Materials/M_TapisRoulant3.tres" id="3_ni8kf"]
+[ext_resource type="Material" uid="uid://b8dgrrf7ypdwb" path="res://Materials/M_TapisRoulant2.tres" id="1_h2640"]
+[ext_resource type="Script" uid="uid://sbbs7pmfkmfr" path="res://Scenes/treadmil.gd" id="1_wcqq5"]
+[ext_resource type="Material" uid="uid://ocebcxj6vxq8" path="res://Materials/M_TapisRoulant.tres" id="2_nvbqr"]
+[ext_resource type="Material" uid="uid://b3gclco6xybib" path="res://Materials/M_Pierre.tres" id="3_nvbqr"]
+[ext_resource type="Material" uid="uid://ccrehi7khf42" path="res://Materials/M_Metal2.tres" id="4_wcqq5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5yqc"]
 resource_name = "Material"
@@ -151,39 +152,40 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8m1c8")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yxqrj"]
-size = Vector3(0.769531, 0.0951843, 0.308838)
+[sub_resource type="BoxShape3D" id="BoxShape3D_wcqq5"]
+size = Vector3(0.767334, 0.126099, 0.333618)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ni8kf"]
-size = Vector3(0.782471, 0.126465, 0.309082)
+[sub_resource type="BoxShape3D" id="BoxShape3D_fb7os"]
+size = Vector3(0.7677, 0.118454, 0.327637)
 
 [node name="Treadmil" type="Node3D"]
-transform = Transform3D(19.2129, 0, 0, 0, 13.5485, 0, 0, 0, 19.2129, 0, 0, 0)
-script = ExtResource("1_yxqrj")
+transform = Transform3D(-8.39821e-07, 0, -19.2129, 0, 13.5485, 0, 19.2129, 0, -8.39821e-07, 0, 0, 0)
+script = ExtResource("1_wcqq5")
 
 [node name="Tapis" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_qddft")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_cfiol")
-surface_material_override/1 = ExtResource("2_yxqrj")
+surface_material_override/0 = ExtResource("1_h2640")
+surface_material_override/1 = ExtResource("2_nvbqr")
 
 [node name="Cube_011" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, -1.47931e-14, 0, 1, 0, 1.47931e-14, 0, 1, -0.000552773, -0.00182727, -0.00714076)
-material_override = ExtResource("3_ni8kf")
+transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -0.000552773, -0.00182727, 0.000574323)
 mesh = SubResource("ArrayMesh_wrhv3")
 skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00878908, 0.0133542, -0.00915522)
-shape = SubResource("BoxShape3D_yxqrj")
+surface_material_override/0 = ExtResource("3_nvbqr")
+surface_material_override/1 = ExtResource("4_wcqq5")
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00891114, 0.00170776, -0.0114746)
-shape = SubResource("BoxShape3D_ni8kf")
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -0.0133057, -5.82475e-05, 0.00323488)
+shape = SubResource("BoxShape3D_wcqq5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -0.00872801, 0.0037946, -0.00122068)
+shape = SubResource("BoxShape3D_fb7os")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

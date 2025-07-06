@@ -57,8 +57,8 @@ func create_challenge() -> void:
 	if challenge_counter >= challenge_total:
 		return
 	current_challenge = challenges[randi_range(0, challenges.size() - 1)].create_challenge()
-	player_that_generated_quest = owner.player_id
-	_share_challenge_creator.rpc(owner.player_id)
+	player_that_generated_quest = MultiplayerManager.player_id
+	_share_challenge_creator.rpc(MultiplayerManager.player_id)
 	_share_challenge_rpc.rpc()
 	_share_challenge_counter.rpc(challenge_counter)
 	_share_challenge()
@@ -70,7 +70,7 @@ func create_challenge() -> void:
 
 func create_first_challenge() -> void:
 	current_challenge = challenges[0].create_challenge()
-	_share_challenge_creator.rpc(owner.player_id)
+	_share_challenge_creator.rpc(MultiplayerManager.player_id)
 	_share_challenge()
 	_share_challenge_rpc.rpc()
 	type = "recipe"

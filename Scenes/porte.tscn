@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://c4sglkguxh4ah"]
+[gd_scene load_steps=14 format=4 uid="uid://c4sglkguxh4ah"]
 
 [ext_resource type="Material" uid="uid://ccrehi7khf42" path="res://Materials/M_Metal2.tres" id="1_mlnpr"]
 [ext_resource type="Material" uid="uid://b4fbouh8wkyvp" path="res://Materials/M_Metal.tres" id="2_3tyl7"]
@@ -70,6 +70,12 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_oxnco")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mlnpr"]
+size = Vector3(0.257019, 0.832458, 0.125244)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3tyl7"]
+size = Vector3(0.290527, 0.893555, 0.124542)
 
 [sub_resource type="Animation" id="Animation_mlnpr"]
 resource_name = "PorteOpen"
@@ -145,11 +151,23 @@ material_override = ExtResource("2_3tyl7")
 mesh = SubResource("ArrayMesh_maml0")
 skeleton = NodePath("")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Porte1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Porte1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0942688, -0.0247498, -0.00427246)
+shape = SubResource("BoxShape3D_mlnpr")
+
 [node name="Porte2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.228347, 0.375982, -1.99628e-08)
 material_override = ExtResource("2_3tyl7")
 mesh = SubResource("ArrayMesh_maml0")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Porte2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Porte2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0935059, -0.0532227, 0.00459289)
+shape = SubResource("BoxShape3D_3tyl7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

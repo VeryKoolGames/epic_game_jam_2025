@@ -1,9 +1,14 @@
-[gd_scene load_steps=60 format=4 uid="uid://bp7fkoscj61yf"]
+[gd_scene load_steps=73 format=4 uid="uid://bp7fkoscj61yf"]
 
 [ext_resource type="Material" uid="uid://cw74fednag0qt" path="res://Materials/M_Character1.tres" id="1_m68lo"]
 [ext_resource type="Material" uid="uid://m0j0slsor7wu" path="res://Materials/M_Doigt.tres" id="2_u631d"]
 [ext_resource type="Material" uid="uid://bqym1fmcsbwoa" path="res://Materials/M_Feuille.tres" id="3_j64co"]
-[ext_resource type="PackedScene" uid="uid://b24btfvuipamm" path="res://Scenes/animation_tree_arms.tscn" id="4_tyk36"]
+[ext_resource type="Script" uid="uid://nk3d3epfxysf" path="res://Scenes/arm_state_machine.gd" id="4_mxyx0"]
+[ext_resource type="Script" uid="uid://qog8db3utmwe" path="res://Scenes/arm_idle_state.gd" id="5_cx1u1"]
+[ext_resource type="Script" uid="uid://djquhmhyx8mn3" path="res://Scenes/arm_pointing_state.gd" id="6_h30la"]
+[ext_resource type="Script" uid="uid://bxtypidalnn74" path="res://Scenes/arm_moving_state.gd" id="7_t4olk"]
+[ext_resource type="Script" uid="uid://b4rwfbh8tiye0" path="res://Scenes/arm_holding_state.gd" id="8_q74fp"]
+[ext_resource type="Script" uid="uid://fukua76sf1ke" path="res://Scenes/arm_reading_state.gd" id="9_jpwj8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_du6dw"]
 
@@ -906,6 +911,18 @@ tracks/15/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Haut/Bras/Bras1/Feuille2:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_q74fp"]
 resource_name = "Bras_Moving"
@@ -1116,6 +1133,45 @@ tracks/8/keys = {
 "values": [true, true]
 }
 
+[sub_resource type="Animation" id="Animation_tyk36"]
+resource_name = "Bras_Reading"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Haut/Bras/Bras1/Feuille2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Haut/Bras/Bras1/Feuille2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.0333333, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.395, 1.395, 1.395)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Haut/Bras/Bras1:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.0333333, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1.22173), Vector3(-1.5708, 0, 1.22173)]
+}
+
 [sub_resource type="Animation" id="Animation_jpwj8"]
 length = 0.001
 tracks/0/type = "bezier"
@@ -1319,6 +1375,30 @@ tracks/17/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Haut/Bras/Bras1/Feuille2:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Haut/Bras/Bras1/Feuille2:scale")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.39533, 1.39534, 0.845734)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i67cs"]
 _data = {
@@ -1327,6 +1407,7 @@ _data = {
 &"Bras_Idle": SubResource("Animation_p3oh3"),
 &"Bras_Moving": SubResource("Animation_q74fp"),
 &"Bras_Pointing": SubResource("Animation_i67cs"),
+&"Bras_Reading": SubResource("Animation_tyk36"),
 &"RESET": SubResource("Animation_jpwj8")
 }
 
@@ -1575,7 +1656,40 @@ states/Pied_Moving/node = SubResource("AnimationNodeAnimation_pbw6m")
 states/Pied_Moving/position = Vector2(386.25, 73)
 states/Start/position = Vector2(120, 49)
 transitions = ["Start", "Pied_Idle", SubResource("AnimationNodeStateMachineTransition_mxyx0"), "Pied_Idle", "Pied_Moving", SubResource("AnimationNodeStateMachineTransition_cx1u1"), "Pied_Moving", "Pied_Idle", SubResource("AnimationNodeStateMachineTransition_h30la")]
-graph_offset = Vector2(41.64, -111.1)
+graph_offset = Vector2(67.62, -160.54)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jtyek"]
+animation = &"Bras_Holding"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mxyx0"]
+animation = &"Bras_Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h30la"]
+animation = &"Bras_Moving"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t4olk"]
+animation = &"Bras_Pointing"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jpwj8"]
+animation = &"Bras_Reading"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2413y"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ivjqc"]
+states/Bras_Holding/node = SubResource("AnimationNodeAnimation_jtyek")
+states/Bras_Holding/position = Vector2(672, 153.753)
+states/Bras_Idle/node = SubResource("AnimationNodeAnimation_mxyx0")
+states/Bras_Idle/position = Vector2(472.688, 153.738)
+states/Bras_Moving/node = SubResource("AnimationNodeAnimation_h30la")
+states/Bras_Moving/position = Vector2(672.25, 334.33)
+states/Bras_Pointing/node = SubResource("AnimationNodeAnimation_t4olk")
+states/Bras_Pointing/position = Vector2(349, 317.08)
+states/Bras_Reading/node = SubResource("AnimationNodeAnimation_jpwj8")
+states/Bras_Reading/position = Vector2(508.39, 249.64)
+states/Start/position = Vector2(255.5, 153.959)
+transitions = ["Start", "Bras_Idle", SubResource("AnimationNodeStateMachineTransition_2413y")]
+graph_offset = Vector2(78.3901, 108.64)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cx1u1"]
 animation = &"Corps_Idle"
@@ -1675,7 +1789,7 @@ skeleton = NodePath("")
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -0.000435233, -0.00609922, 0.00181293)
 
 [node name="Bras1" type="Node3D" parent="Haut/Bras"]
-transform = Transform3D(0.327291, -0.899224, 0, 0.682186, 0.248296, -0.623455, 0.585856, 0.213234, 0.725967, -0.664546, -0.270204, 0.00287721)
+transform = Transform3D(0.297224, -0.816614, 0, 0.619515, 0.225485, -0.566179, 0.532035, 0.193645, 0.659274, -0.664546, -0.270204, 0.00287721)
 
 [node name="Bras1" type="MeshInstance3D" parent="Haut/Bras/Bras1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.84308e-08)
@@ -1690,7 +1804,7 @@ mesh = SubResource("ArrayMesh_j64co")
 skeleton = NodePath("")
 
 [node name="Feuille2" type="MeshInstance3D" parent="Haut/Bras/Bras1"]
-transform = Transform3D(-6.09921e-08, -0.697372, 0.73253, 1.39533, -3.04826e-08, 3.20199e-08, 7.49401e-16, 1.20857, 0.422688, -1.45565, -0.597374, 0.154216)
+transform = Transform3D(-7.624e-08, -0.697374, 0.732531, 1.39533, -6.09922e-08, 3.20201e-08, 2.64251e-08, 1.20857, 0.422687, -1.45565, -0.597374, 0.154216)
 visible = false
 material_override = ExtResource("3_j64co")
 mesh = SubResource("ArrayMesh_u631d")
@@ -1717,7 +1831,6 @@ speed_scale = 4.0
 libraries = {
 &"": SubResource("AnimationLibrary_i67cs")
 }
-autoplay = "Bras_Pointing"
 speed_scale = 1.5
 
 [node name="AnimCorp" type="AnimationPlayer" parent="."]
@@ -1734,7 +1847,28 @@ anim_player = NodePath("../AnimPieds")
 parameters/conditions/idle = false
 parameters/conditions/moving = true
 
-[node name="AnimationTree_Bras" parent="." instance=ExtResource("4_tyk36")]
+[node name="AnimationTree_Bras" type="AnimationTree" parent="."]
+deterministic = false
+tree_root = SubResource("AnimationNodeStateMachine_ivjqc")
+anim_player = NodePath("../AnimBras")
+
+[node name="StateMachine" type="Node" parent="AnimationTree_Bras"]
+script = ExtResource("4_mxyx0")
+
+[node name="Idle" type="Node" parent="AnimationTree_Bras/StateMachine"]
+script = ExtResource("5_cx1u1")
+
+[node name="Pointing" type="Node" parent="AnimationTree_Bras/StateMachine"]
+script = ExtResource("6_h30la")
+
+[node name="Moving" type="Node" parent="AnimationTree_Bras/StateMachine"]
+script = ExtResource("7_t4olk")
+
+[node name="Holding" type="Node" parent="AnimationTree_Bras/StateMachine"]
+script = ExtResource("8_q74fp")
+
+[node name="Reading" type="Node" parent="AnimationTree_Bras/StateMachine"]
+script = ExtResource("9_jpwj8")
 
 [node name="AnimationTree_Corps" type="AnimationTree" parent="."]
 deterministic = false

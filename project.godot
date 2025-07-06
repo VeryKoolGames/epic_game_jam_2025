@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="epic_game_jam_2025"
-run/main_scene="uid://crvaw1bdwrnwx"
+run/main_scene="uid://dtrt3lvupps82"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Assets/Sprites/icon.svg"
 
@@ -21,6 +21,7 @@ Enums="*res://Enums.gd"
 Events="*res://Events.gd"
 PlayerIds="*res://PlayerIds.gd"
 SoundManager="*res://Scenes/sound_manager.tscn"
+MultiplayerManager="*res://multiplayer_manager.gd"
 
 [display]
 

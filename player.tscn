@@ -17,8 +17,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_i3pqv"]
 size = Vector3(3.18809, 8.84837, 3.3053)
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_4flbx"]
-
 [sub_resource type="Animation" id="Animation_ivps1"]
 length = 0.001
 tracks/0/type = "value"
@@ -264,6 +262,8 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_n7ghd"]
 size = Vector3(2.91357, 4.13385, 1.47223)
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_urp6f"]
+
 [node name="player" type="CharacterBody3D" node_paths=PackedStringArray("animation_tree_arms", "pickup_manager") groups=["player"]]
 script = ExtResource("1_4flbx")
 animation_tree_arms = NodePath("Character/AnimationTree_Bras")
@@ -273,6 +273,7 @@ pickup_manager = NodePath("PickUpManager")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.00662601, 0)
 
 [node name="Jambe" parent="Character/Bassin" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, -0.365916, -0.281493, -0.0168233)
 script = ExtResource("3_dw050")
 
 [node name="Haut" parent="Character" index="1"]
@@ -295,9 +296,6 @@ speed_scale = 1.0
 script = ExtResource("2_onrkg")
 animation_bras_tree = NodePath("../Character/AnimationTree_Bras")
 arm_transform = NodePath("../Character/Haut")
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_4flbx")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_hqtel")
@@ -346,6 +344,9 @@ shape = SubResource("BoxShape3D_n7ghd")
 
 [node name="ActivateManager" type="Node" parent="."]
 script = ExtResource("13_urp6f")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_urp6f")
 
 [connection signal="area_entered" from="Character/Haut/Area3D" to="PickUpManager" method="_on_area_3d_area_entered"]
 [connection signal="area_entered" from="Character/Haut/Area3D" to="ActivateManager" method="_on_area_3d_area_entered"]

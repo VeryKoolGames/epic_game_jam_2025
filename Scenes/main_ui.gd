@@ -25,17 +25,19 @@ func _map_open_cooldown() -> void:
 func _open_or_close_map() -> void:
 	if not is_map_open:
 		animation_player.play("UI_Open")
+		Events.on_map_opened.emit()
 	else:
+		Events.on_map_closed.emit()
 		animation_player.play("UI_Close")
 	is_map_open = not is_map_open
 
 func _generate_challenge_line(challenge: Challenge) -> void:
-	if challenge is RecipeManager and not ChallengeManager.can_complete_challenge(owner.player_id):
+	if challenge is RecipeManager and not ChallengeManager.can_complete_challenge(MultiplayerManager.player_id):
 		var line = cauldron_quest_line_scene.instantiate()
 		line.set_ingredients_textures(challenge.current_recipe.ingredients)
 		box_container.add_child(line)
 		box_container.move_child(line, 0)
-	elif challenge is ButtonManager and not ChallengeManager.can_complete_challenge(owner.player_id):
+	elif challenge is ButtonManager and not ChallengeManager.can_complete_challenge(MultiplayerManager.player_id):
 		var line = button_quest_line_scene.instantiate()
 		line.set_ingredients_textures(challenge.correct_combination)
 		box_container.add_child(line)

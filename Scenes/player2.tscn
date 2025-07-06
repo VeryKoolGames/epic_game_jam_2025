@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://budqe0daur7sg"]
+[gd_scene load_steps=3 format=3 uid="uid://d1oevq10yteew"]
 
 [ext_resource type="PackedScene" uid="uid://b7xu4doi4n8h4" path="res://player.tscn" id="1_b30ec"]
-[ext_resource type="Material" uid="uid://bkue4bktxk0cg" path="res://Materials/M_Character2.tres" id="2_x88p5"]
+[ext_resource type="Material" path="res://Materials/M_Character2.tres" id="2_x88p5"]
 
 [node name="player" instance=ExtResource("1_b30ec")]
 
@@ -31,6 +31,9 @@ transform = Transform3D(0.327291, -0.899224, 0, 0.682186, 0.248296, -0.623455, 0
 
 [node name="Bras1" parent="Character/Haut/Bras/Bras1" index="0"]
 material_override = ExtResource("2_x88p5")
+
+[node name="Feuille2" parent="Character/Haut/Bras/Bras1" index="2"]
+transform = Transform3D(-7.624e-08, -0.697374, 0.732531, 1.39533, -6.09922e-08, 3.20201e-08, 2.64251e-08, 1.20857, 0.422687, -1.45565, -0.597374, 0.154216)
 
 [node name="Bras2" parent="Character/Haut/Bras" index="1"]
 transform = Transform3D(-0.337763, 0.927994, -2.50362e-06, 0.927994, 0.337763, 0, 8.5629e-07, -2.35263e-06, -0.98755, 0.728581, -0.177329, -5.98271e-05)
