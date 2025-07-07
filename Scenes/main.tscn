@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://mk3v2fsvyqap"]
+[gd_scene load_steps=11 format=3 uid="uid://j8cejglxxn1w"]
 
 [ext_resource type="Script" uid="uid://doll4v777v5ys" path="res://Scenes/multplayer_controller.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://b7xu4doi4n8h4" path="res://player.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bwbsdkhkbn554" path="res://Scenes/pick_up_item.tscn" id="4_kry3j"]
 [ext_resource type="PackedScene" uid="uid://bihg75wr72a7k" path="res://challenge_manager.tscn" id="5_kry3j"]
 [ext_resource type="Resource" uid="uid://d1wnge33j67vn" path="res://Resources/pickable_items/pizza.tres" id="7_d1ilt"]
-[ext_resource type="Script" uid="uid://lyydk7op06rw" path="res://Scenes/challenge_ui.gd" id="12_6iyac"]
+[ext_resource type="Script" path="res://Scenes/challenge_ui.gd" id="12_6iyac"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)

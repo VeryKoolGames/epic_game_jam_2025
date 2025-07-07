@@ -7,5 +7,5 @@
 shader = ExtResource("1_q3iv3")
 shader_parameter/my_texture = ExtResource("2_aorcs")
 shader_parameter/color = Color(0.849046, 0.815404, 0.789513, 1)
-shader_parameter/speed = Vector2(0.33, -0.2)
-shader_parameter/tiling = Vector2(2.37, 7.93)
+shader_parameter/speed = Vector2(-0.1, -0.1)
+shader_parameter/tiling = Vector2(12.8, 7.93)
