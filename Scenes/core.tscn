@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6al3q3uamyid"]
+[gd_scene load_steps=7 format=3 uid="uid://dtrt3lvupps82"]
 
 [ext_resource type="Script" uid="uid://cqymu4g7vp643" path="res://Scenes/core.gd" id="1_lstiq"]
 [ext_resource type="Script" uid="uid://drgrlvisx2dhf" path="res://Scenes/loading_screen.gd" id="2_gqdy1"]
 [ext_resource type="Shader" uid="uid://dsfjb7yo1u4k1" path="res://Shaders/circle_transition.gdshader" id="3_gxbf5"]
-[ext_resource type="PackedScene" uid="uid://fyuc0qt3b14e" path="res://Scenes/start_menu.tscn" id="4_gqdy1"]
+[ext_resource type="PackedScene" uid="uid://6vtauun1jcfn" path="res://Scenes/start_menu.tscn" id="4_gqdy1"]
 [ext_resource type="FontFile" uid="uid://bttgq66wddl8h" path="res://GT-Maru-Medium-Trial.otf" id="4_gxbf5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7vuks"]

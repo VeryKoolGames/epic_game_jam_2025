@@ -1804,7 +1804,7 @@ mesh = SubResource("ArrayMesh_j64co")
 skeleton = NodePath("")
 
 [node name="Feuille2" type="MeshInstance3D" parent="Haut/Bras/Bras1"]
-transform = Transform3D(-7.624e-08, -0.697374, 0.732531, 1.39533, -6.09922e-08, 3.20201e-08, 2.64251e-08, 1.20857, 0.422687, -1.45565, -0.597374, 0.154216)
+transform = Transform3D(-7.624e-08, -0.697374, 0.732531, 1.39533, -6.09922e-08, 3.20201e-08, 2.6425e-08, 1.20857, 0.422688, -1.45565, -0.597374, 0.154216)
 visible = false
 material_override = ExtResource("3_j64co")
 mesh = SubResource("ArrayMesh_u631d")

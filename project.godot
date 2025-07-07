@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="epic_game_jam_2025"
-run/main_scene="uid://c6al3q3uamyid"
+run/main_scene="uid://dtrt3lvupps82"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Assets/Sprites/icon.svg"
 
