@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://d1o6jpckrouff"]
+[gd_scene load_steps=16 format=4 uid="uid://d4fq7pcuodojb"]
 
 [ext_resource type="Material" uid="uid://b8dgrrf7ypdwb" path="res://Materials/M_TapisRoulant2.tres" id="1_h2640"]
 [ext_resource type="Script" uid="uid://sbbs7pmfkmfr" path="res://Scenes/treadmil.gd" id="1_wcqq5"]
