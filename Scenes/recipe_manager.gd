@@ -5,6 +5,7 @@ class_name RecipeManager
 @export var max_ingredients_per_recipe: int = 3
 var current_recipe: Dictionary = {}
 var copy_recipe: Dictionary = {}
+var is_on_cooldown := false
 
 @rpc("authority", "call_local")
 func sync_recipes(recipe: Dictionary) -> void:
@@ -43,8 +44,9 @@ func _create_random_recipe() -> Dictionary:
 	return recipe
 
 func try_ingredient(item: ResPickableItem) -> void:
-	if not current_recipe or not current_recipe.ingredients:
+	if not current_recipe or not current_recipe.ingredients or is_on_cooldown:
 		return
+	start_cooldown()
 	for ingr in current_recipe.ingredients:
 		if int(ingr.type) == int(item.type):
 			SoundManager.play_positive_feedback_sound()
@@ -55,6 +57,11 @@ func try_ingredient(item: ResPickableItem) -> void:
 			return
 	reset_recipe()
 	return
+
+func start_cooldown() -> void:
+	is_on_cooldown = true
+	await get_tree().create_timer(0.5).timeout
+	is_on_cooldown = false
 
 func reset_recipe() -> void:
 	get_parent().on_fail_challenge()

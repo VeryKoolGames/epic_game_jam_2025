@@ -66,21 +66,11 @@ func release_item()	-> void:
 	owner.is_holding = false
 	is_carrying_item = false
 	set_pickable_to_layer_1_and_2()
-#	sync_holding_animation.rpc(false)
-#	stop_holding_anim()
-	
-#func play_holding_anim() -> void:
-	#animation_bras_tree.set("parameters/conditions/Holding", true)
-	#animation_bras_tree.set("parameters/conditions/idle", false)
-#
-#func stop_holding_anim() -> void:
-	#animation_bras_tree.set("parameters/conditions/Holding", false)
-	#animation_bras_tree.set("parameters/conditions/idle", true)
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if not is_multiplayer_authority():
 		return
-	if area.get_parent().is_in_group("pickup") and not is_carrying_item and ChallengeManager.is_challenge_recipe():
+	if area.get_parent().is_in_group("pickup") and not is_carrying_item:
 		owner.can_interact = false
 		pickable_item = area.get_parent()
 		pickable_item.activate_outline()
@@ -90,7 +80,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	if not is_multiplayer_authority():
 		return
-	if area.get_parent().is_in_group("pickup") and not is_carrying_item and pickable_item and ChallengeManager.is_challenge_recipe():
+	if area.get_parent().is_in_group("pickup") and not is_carrying_item and pickable_item:
 		owner.can_interact = true
 		pickable_item.freeze = false
 		pickable_item = null

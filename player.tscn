@@ -266,6 +266,7 @@ size = Vector3(2.91357, 4.13385, 1.47223)
 
 [node name="player" type="CharacterBody3D" node_paths=PackedStringArray("animation_tree_arms", "pickup_manager") groups=["player"]]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+axis_lock_linear_y = true
 script = ExtResource("1_4flbx")
 animation_tree_arms = NodePath("Character/AnimationTree_Bras")
 pickup_manager = NodePath("PickUpManager")
@@ -277,17 +278,11 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.0
 transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, -0.365916, -0.281493, -0.0168233)
 script = ExtResource("3_dw050")
 
-[node name="Jambe2" parent="Character/Bassin" index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0.370381, -0.280949, -0.0163134)
-
 [node name="Haut" parent="Character" index="1"]
 script = ExtResource("3_1jxqw")
 
 [node name="Bras1" parent="Character/Haut/Bras" index="0"]
 transform = Transform3D(0.327291, -0.899224, 0, 0.682186, 0.248296, -0.623455, 0.585856, 0.213234, 0.725967, -0.664546, -0.270204, 0.00287721)
-
-[node name="Feuille2" parent="Character/Haut/Bras/Bras1" index="2"]
-transform = Transform3D(-7.624e-08, -0.697374, 0.732531, 1.39533, -6.09922e-08, 3.20201e-08, 2.6425e-08, 1.20857, 0.422688, -1.45565, -0.597374, 0.154216)
 
 [node name="Bras2" parent="Character/Haut/Bras" index="1"]
 transform = Transform3D(-0.337763, 0.927994, -2.50362e-06, 0.927994, 0.337763, 0, 8.5629e-07, -2.35263e-06, -0.98755, 0.728581, -0.177329, -5.98271e-05)

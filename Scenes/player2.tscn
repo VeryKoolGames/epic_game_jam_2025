@@ -5,6 +5,9 @@
 
 [node name="player" instance=ExtResource("1_b30ec")]
 
+[node name="Jambe" parent="Character/Bassin" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, -0.365916, -0.281493, -0.0168233)
+
 [node name="Jambe" parent="Character/Bassin/Jambe" index="0"]
 material_override = ExtResource("2_x88p5")
 

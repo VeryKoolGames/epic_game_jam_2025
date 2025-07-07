@@ -1,5 +1,6 @@
-[gd_scene load_steps=43 format=3 uid="uid://crvaw1bdwrnwx"]
+[gd_scene load_steps=44 format=3 uid="uid://crvaw1bdwrnwx"]
 
+[ext_resource type="Script" uid="uid://dsec3wupvew6w" path="res://Scenes/player_id.gd" id="1_6pwei"]
 [ext_resource type="PackedScene" uid="uid://c2w1myauyrkr7" path="res://Scenes/level_base.tscn" id="2_fbm17"]
 [ext_resource type="PackedScene" uid="uid://sdvkjmh51bqg" path="res://Scenes/pasteque.tscn" id="3_2ryth"]
 [ext_resource type="PackedScene" uid="uid://dgym48uucr165" path="res://ui_notif.tscn" id="3_6pwei"]
@@ -90,6 +91,7 @@ size = Vector3(4.84473, 0.344116, 1.44043)
 
 [node name="Main2" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_6pwei")
 
 [node name="UI_Notif" parent="." instance=ExtResource("3_6pwei")]
 metadata/_edit_use_anchors_ = true

@@ -4,6 +4,7 @@ class_name ButtonManager
 var correct_combination: Array[int]
 var combination_copy: Array[int]
 var current_number_of_guess := 0
+var is_on_cooldown := false
 @export var max_number_combination := 3
 
 func _ready() -> void:
@@ -22,11 +23,12 @@ func _reset_count():
 	current_number_of_guess = 0
 	
 func create_challenge() -> Challenge:
+	_reset_count.rpc()
+	current_number_of_guess = 0
 	create_random_combination()
 	Events.new_buttons_challenge_generated.emit(correct_combination)
 	share_new_challenge.rpc()
 	share_combination.rpc(correct_combination)
-	_reset_count.rpc()
 	return self
 
 func create_random_combination() -> void:
@@ -46,6 +48,9 @@ func create_random_combination() -> void:
 	combination_copy = correct_combination.duplicate(true)
 
 func try_combination(try: int, player_id: int) -> void:
+	if is_on_cooldown:
+		return
+	_start_cooldown()
 	if not ChallengeManager.can_complete_challenge(player_id):
 		return
 	
@@ -58,8 +63,15 @@ func try_combination(try: int, player_id: int) -> void:
 		SoundManager.play_positive_feedback_sound()
 		current_number_of_guess += 1
 	if current_number_of_guess > 2 and current_number_of_guess == correct_combination.size():
+		_reset_count.rpc()
+		current_number_of_guess = 0
 		get_parent().on_success_challenge()
 		get_parent().create_challenge()
+
+func _start_cooldown() -> void:
+	is_on_cooldown = true
+	await get_tree().create_timer(.5).timeout
+	is_on_cooldown = false
 
 func reset_combination() -> void:
 	get_parent().on_fail_challenge()

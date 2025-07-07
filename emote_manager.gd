@@ -20,8 +20,8 @@ func emote_cooldown() -> void:
 	can_use_emotes = true
 
 func play_thumbs_up_emote() -> void:
-	play_anim_rpc.rpc(MultiplayerManager.player_id)
-	if multiplayer.get_unique_id() == MultiplayerManager.player_id:
+	play_anim_rpc.rpc(owner.name.to_int())
+	if multiplayer.get_unique_id() == owner.name.to_int():
 		thumbs_up_anim.play("thumbs_up")
 
 @rpc("any_peer")
@@ -30,8 +30,8 @@ func play_anim_rpc(sender_id: int) -> void:
 		thumbs_up_anim.play("thumbs_up")
 
 func play_thumbs_down_emote() -> void:
-	play_down_anim_rpc.rpc(MultiplayerManager.player_id)
-	if multiplayer.get_unique_id() == MultiplayerManager.player_id:
+	play_down_anim_rpc.rpc(owner.name.to_int())
+	if multiplayer.get_unique_id() == owner.name.to_int():
 		thumbs_down_anim.play("thumb_down")
 
 @rpc("any_peer")

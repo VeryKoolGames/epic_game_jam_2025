@@ -38,6 +38,7 @@ func _ready() -> void:
 		global_position.x -= 15
 	else:
 		global_position.x += 15
+		global_position.y -= 2
 
 func on_start_reading_map() -> void:
 	is_reading = true

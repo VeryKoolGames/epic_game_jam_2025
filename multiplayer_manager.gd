@@ -121,23 +121,14 @@ func _setup_items():
 		item.set_multiplayer_authority(1)
 
 func _add_player(id = 1):
+	player_id = id
 	var player
 	if id == 1:
-		player_id = id
 		player = player_scene.instantiate()
 	else:
 		player = load(player_two_path).instantiate()
 	player.name = str(id)
 	get_tree().current_scene.call_deferred("add_child", player)
-	if id != 1:
-		player_id = id
-		PlayerIds.player_two_id = id
-		_set_players_ids.rpc(PlayerIds.player_two_id)
-
-@rpc("any_peer")
-func _set_players_ids(player_two_id: int) -> void:
-	PlayerIds.player_one_id = 1
-	PlayerIds.player_two_id = player_two_id
 
 func _sync_world_state(id: int):
 	if multiplayer.is_server():
