@@ -55,6 +55,7 @@ func try_combination(try: int, player_id: int) -> void:
 	if not res:
 		reset_combination()
 	else:
+		SoundManager.play_positive_feedback_sound()
 		current_number_of_guess += 1
 	if current_number_of_guess > 2 and current_number_of_guess == correct_combination.size():
 		get_parent().on_success_challenge()

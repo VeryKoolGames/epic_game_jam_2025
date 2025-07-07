@@ -123,6 +123,7 @@ func _setup_items():
 func _add_player(id = 1):
 	var player
 	if id == 1:
+		player_id = id
 		player = player_scene.instantiate()
 	else:
 		player = load(player_two_path).instantiate()

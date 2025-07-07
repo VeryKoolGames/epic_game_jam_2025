@@ -40,7 +40,8 @@ func _process(delta: float):
 	if status == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_LOADED:
 		progress_bar.value = move_toward(progress_bar.value, 100.0, delta * 150)
 
-		if progress_bar.value >= 99:
+		if progress_bar.value >= 99.99:
+			progress_bar.value = 100
 			progress_ui.hide()
 			owner.on_load_finished(path)
 			path = ""

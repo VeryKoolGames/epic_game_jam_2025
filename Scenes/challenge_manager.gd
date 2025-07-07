@@ -63,7 +63,7 @@ func create_challenge() -> void:
 	else:
 		current_challenge = challenges[randi_range(0, challenges.size() - 1)].create_challenge()
 	player_that_generated_quest = MultiplayerManager.player_id
-	_share_challenge_creator.rpc(MultiplayerManager.player_id)
+	_share_challenge_creator.rpc(player_that_generated_quest)
 	_share_challenge_rpc.rpc()
 	_share_challenge_counter.rpc(challenge_counter)
 	_share_challenge()

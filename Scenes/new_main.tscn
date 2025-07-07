@@ -64,7 +64,8 @@ adjustment_saturation = 1.28
 [sub_resource type="SphereShape3D" id="SphereShape3D_jyhx4"]
 radius = 0.493351
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_fvls2"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_8bv7e"]
+size = Vector3(2.24658, 0.56189, 3.10645)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cbh4w"]
 size = Vector3(38.932, 8.46594, 1)
@@ -91,6 +92,7 @@ size = Vector3(4.84473, 0.344116, 1.44043)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="UI_Notif" parent="." instance=ExtResource("3_6pwei")]
+metadata/_edit_use_anchors_ = true
 
 [node name="ServerUI" type="Control" parent="."]
 visible = false
@@ -127,6 +129,7 @@ theme_override_font_sizes/font_size = 58
 text = "IP:"
 
 [node name="Main_ui" parent="." instance=ExtResource("19_2qjws")]
+metadata/_edit_use_anchors_ = true
 
 [node name="ChallengeManager" parent="." instance=ExtResource("3_jyhx4")]
 
@@ -144,7 +147,7 @@ collision_layer = 1
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.293, 0, 0)
 
 [node name="Bucket" parent="ChallengeManager/RecipeManager/Items2" instance=ExtResource("42_457c2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0251, 1.02026, -5.17975)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0251, -0.67847, -5.17975)
 
 [node name="Pizza" parent="ChallengeManager/RecipeManager/Items2" instance=ExtResource("43_2qjws")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.83079, -1.16467, -18.6203)
@@ -396,8 +399,8 @@ texture_focused = ExtResource("25_8bv7e")
 [node name="Ground" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-transform = Transform3D(18.9402, 0, 0, 0, 18.9402, 0, 0, 0, 18.9402, -0.658929, -1.92715, -0.279673)
-shape = SubResource("WorldBoundaryShape3D_fvls2")
+transform = Transform3D(18.9402, 0, 0, 0, 18.9402, 0, 0, 0, 18.9402, 0.196525, -6.0761, -0.862306)
+shape = SubResource("BoxShape3D_8bv7e")
 
 [node name="MiddleWall" type="StaticBody3D" parent="."]
 

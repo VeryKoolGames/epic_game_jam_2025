@@ -47,6 +47,7 @@ func try_ingredient(item: ResPickableItem) -> void:
 		return
 	for ingr in current_recipe.ingredients:
 		if int(ingr.type) == int(item.type):
+			SoundManager.play_positive_feedback_sound()
 			current_recipe.ingredients.erase(ingr)
 			if current_recipe.ingredients.is_empty():
 				get_parent().on_success_challenge()
