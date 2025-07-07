@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dgaabyyvjnbp8" path="res://Scenes/vitre.tscn" id="3_1xwfk"]
 [ext_resource type="PackedScene" uid="uid://c2w1myauyrkr7" path="res://Scenes/level_base.tscn" id="3_iu0du"]
 [ext_resource type="Material" uid="uid://b4fbouh8wkyvp" path="res://Materials/M_Metal.tres" id="4_1xwfk"]
-[ext_resource type="PackedScene" uid="uid://dbe5o1jd6qqm3" path="res://Scenes/plaque_pression.tscn" id="5_bjdbk"]
+[ext_resource type="PackedScene" uid="uid://dbe5o1jd6qqm3" path="res://Scenes/pressure_plate.tscn" id="5_bjdbk"]
 [ext_resource type="PackedScene" uid="uid://baa7hs3cq2wn3" path="res://Scenes/Casier.tscn" id="6_26jke"]
 [ext_resource type="PackedScene" uid="uid://bpvqwnh5rjub8" path="res://Scenes/Levier.tscn" id="7_e07ug"]
 [ext_resource type="PackedScene" uid="uid://bvyfuyygx27e8" path="res://Scenes/Support_1.tscn" id="7_k6myj"]

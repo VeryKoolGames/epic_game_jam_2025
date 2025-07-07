@@ -27,7 +27,7 @@ screw_texture = ExtResource("5_nlk37")
 bucket_texture = ExtResource("6_ay38o")
 pizza_texture = ExtResource("3_y8htl")
 
-[node name="Numero" type="TextureRect" parent="."]
+[node name="PlayerFace" type="TextureRect" parent="."]
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("8_pwcxu")

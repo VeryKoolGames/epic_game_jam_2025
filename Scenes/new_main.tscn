@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dgaabyyvjnbp8" path="res://Scenes/vitre.tscn" id="3_l6pj4"]
 [ext_resource type="Texture2D" uid="uid://dwfic5mp75p1b" path="res://Textures/IP_Banner.png" id="3_xk0xp"]
 [ext_resource type="FontFile" uid="uid://bttgq66wddl8h" path="res://GT-Maru-Medium-Trial.otf" id="4_cybxk"]
-[ext_resource type="PackedScene" uid="uid://dbe5o1jd6qqm3" path="res://Scenes/plaque_pression.tscn" id="4_jyhx4"]
+[ext_resource type="PackedScene" uid="uid://dbe5o1jd6qqm3" path="res://Scenes/pressure_plate.tscn" id="4_jyhx4"]
 [ext_resource type="Script" uid="uid://clextdiuv3kn7" path="res://Scenes/server_ui.gd" id="4_yakfb"]
 [ext_resource type="PackedScene" uid="uid://bvyfuyygx27e8" path="res://Scenes/Support_1.tscn" id="5_x6r4n"]
 [ext_resource type="PackedScene" uid="uid://baa7hs3cq2wn3" path="res://Scenes/Casier.tscn" id="7_gvlqo"]
