@@ -134,7 +134,7 @@ text = "IP:"
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Screw2" parent="ChallengeManager/RecipeManager/Items" instance=ExtResource("44_3656k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.91347e-07, 0, -11.2407)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52346e-07, 0, -5.77299)
 
 [node name="Pasteque" parent="ChallengeManager/RecipeManager/Items" instance=ExtResource("3_2ryth")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.66162, 0, -10.2113)
@@ -147,7 +147,23 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.293
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0251, 1.02026, -5.17975)
 
 [node name="Pizza" parent="ChallengeManager/RecipeManager/Items2" instance=ExtResource("43_2qjws")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.83079, 0, -18.6203)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.83079, -1.16467, -18.6203)
+
+[node name="Plaque_Pression2" parent="ChallengeManager/PressurePlateManager" index="0" node_paths=PackedStringArray("pressure_plate_manager") instance=ExtResource("4_jyhx4")]
+transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, -18.0945, -1.68862, 9.88725)
+pressure_plate_manager = NodePath("..")
+
+[node name="Plaque_Pression3" parent="ChallengeManager/PressurePlateManager" index="1" node_paths=PackedStringArray("pressure_plate_manager") instance=ExtResource("4_jyhx4")]
+transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, -9.29976, -1.68862, -11.733)
+pressure_plate_manager = NodePath("..")
+
+[node name="Plaque_Pression4" parent="ChallengeManager/PressurePlateManager" index="2" node_paths=PackedStringArray("pressure_plate_manager") instance=ExtResource("4_jyhx4")]
+transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, 4.49003, -1.68862, 2.0265)
+pressure_plate_manager = NodePath("..")
+
+[node name="Plaque_Pression5" parent="ChallengeManager/PressurePlateManager" index="3" node_paths=PackedStringArray("pressure_plate_manager") instance=ExtResource("4_jyhx4")]
+transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, 20.5528, -1.68862, -10.6545)
+pressure_plate_manager = NodePath("..")
 
 [node name="AlarmManager" type="Node" parent="ChallengeManager" node_paths=PackedStringArray("animation_trees", "camera")]
 script = ExtResource("9_ktlin")
@@ -234,23 +250,11 @@ transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, 0, 
 transform = Transform3D(18.155, 0, 0, 0, 18.155, 0, 0, 0, 18.155, 0, -2.48838, 0)
 mesh = SubResource("PlaneMesh_iu0du")
 
-[node name="Plaque_Pression2" parent="." instance=ExtResource("4_jyhx4")]
-transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -9.88725, -1.68862, -18.0945)
-
-[node name="Plaque_Pression3" parent="." instance=ExtResource("4_jyhx4")]
-transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 11.733, -1.68862, -9.29976)
-
-[node name="Plaque_Pression4" parent="." instance=ExtResource("4_jyhx4")]
-transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -16.0453, -1.68862, 4.49003)
-
-[node name="Plaque_Pression5" parent="." instance=ExtResource("4_jyhx4")]
-transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 10.6545, -1.68862, 20.5528)
-
 [node name="Treadmil" parent="." instance=ExtResource("32_q70v4")]
 transform = Transform3D(-8.39821e-07, 0, -19.2129, 0, 13.5485, 0, 19.2129, 0, -8.39821e-07, 14.801, -0.453705, 6.46974e-07)
 
 [node name="Treadmil2" parent="." instance=ExtResource("32_q70v4")]
-transform = Transform3D(-8.39823e-07, 0, 19.2129, 0, 13.5485, 0, -19.2129, 0, -8.39823e-07, -17.6884, -1.05236, -7.73183e-07)
+transform = Transform3D(-8.39823e-07, 0, 19.2129, 0, 13.5485, 0, -19.2129, 0, -8.39823e-07, -16.0793, -1.05236, -7.02846e-07)
 move_item_left = true
 
 [node name="Casier" parent="." instance=ExtResource("7_gvlqo")]

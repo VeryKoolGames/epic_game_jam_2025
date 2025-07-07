@@ -1,6 +1,7 @@
 extends Control
 
 @export var cauldron_quest_line_scene: PackedScene
+@export var pressure_plate_quest_line_scene: PackedScene
 @export var button_quest_line_scene: PackedScene
 @export var unknown_quest_line_scene: PackedScene
 @onready var animation_player = $UI_Anim
@@ -40,6 +41,10 @@ func _generate_challenge_line(challenge: Challenge) -> void:
 	elif challenge is ButtonManager and not ChallengeManager.can_complete_challenge(MultiplayerManager.player_id):
 		var line = button_quest_line_scene.instantiate()
 		line.set_ingredients_textures(challenge.correct_combination)
+		box_container.add_child(line)
+		box_container.move_child(line, 0)
+	elif challenge is PressurePlateChallenge:
+		var line = pressure_plate_quest_line_scene.instantiate()
 		box_container.add_child(line)
 		box_container.move_child(line, 0)
 	else:

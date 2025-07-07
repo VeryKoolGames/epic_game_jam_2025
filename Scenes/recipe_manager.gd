@@ -45,21 +45,16 @@ func _create_random_recipe() -> Dictionary:
 func try_ingredient(item: ResPickableItem) -> void:
 	if not current_recipe or not current_recipe.ingredients:
 		return
-	print("Trying ingredient:", item.type, "for recipe:", current_recipe)
 	for ingr in current_recipe.ingredients:
 		if int(ingr.type) == int(item.type):
 			current_recipe.ingredients.erase(ingr)
-			print("Ingredient matched:", ingr.type)
 			if current_recipe.ingredients.is_empty():
 				get_parent().on_success_challenge()
-				SoundManager.play_positive_feedback_sound()
 				get_parent().create_challenge()
 			return
 	reset_recipe()
 	return
 
 func reset_recipe() -> void:
-	print("reseting recipes")
 	get_parent().on_fail_challenge()
-	SoundManager.play_bad_alarm_sound()
 #	share_new_recipe.rpc(copy_recipe)

@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdnijlm8yv5od"]
+
+[ext_resource type="Texture2D" uid="uid://b2s5fyxwyg7n7" path="res://Textures/PlaqueBleue.png" id="4_r83qs"]
+[ext_resource type="Texture2D" uid="uid://dd8moyqv7nh0i" path="res://Textures/UI_Perso2.png" id="8_drgm1"]
+[ext_resource type="Script" uid="uid://ef2soe5gf3ae" path="res://Scenes/ui_number_setter.gd" id="9_sfmhx"]
+[ext_resource type="Texture2D" uid="uid://8ewgyqborc0u" path="res://Textures/UI_Perso.png" id="10_famto"]
+
+[node name="LinePressurePlate" type="HBoxContainer"]
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="PlayerFace" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("8_drgm1")
+script = ExtResource("9_sfmhx")
+face_player_one = ExtResource("10_famto")
+face_player_two = ExtResource("8_drgm1")
+
+[node name="Chauderon" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("4_r83qs")
+
+[node name="Chauderon2" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("4_r83qs")
+
+[node name="Chauderon3" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("4_r83qs")
+
+[node name="Chauderon4" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("4_r83qs")

@@ -1,6 +1,10 @@
 extends TextureRect
 
-@export var potential_numbers: Array[Texture2D]
+@export var face_player_one: Texture2D
+@export var face_player_two: Texture2D
 
 func _ready() -> void:
-	texture = potential_numbers[ChallengeManager.challenge_counter]
+	if MultiplayerManager.player_id == 1:
+		texture = face_player_one
+	else:
+		texture = face_player_two

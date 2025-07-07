@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://cwu5ibpqs2iux" path="res://activate_manager.gd" id="13_urp6f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i3pqv"]
-size = Vector3(3.18809, 8.84837, 3.3053)
+size = Vector3(3.18809, 7.2987, 3.3053)
 
 [sub_resource type="Animation" id="Animation_ivps1"]
 length = 0.001

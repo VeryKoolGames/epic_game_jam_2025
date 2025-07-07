@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var animation_player = $AnimationPlayer
+@export var pressure_plate_manager: PressurePlateChallenge
 var is_pressed := false
 var is_activated := false
 var pressed_timer := 0.0
@@ -20,10 +21,13 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 func _activate_pressure_plate() -> void:
 	is_activated = true
 	animation_player.play("activate")
+	pressure_plate_manager.on_pressure_plate_activated()
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	is_pressed = false
 	if is_activated:
+		pressure_plate_manager.on_pressure_plate_deactivated()
 		animation_player.play_backwards("activate")
 	is_activated = false
 	pressed_timer = 0.0
+	

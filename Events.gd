@@ -8,6 +8,7 @@ signal on_map_closed
 signal wrong_button_pressed
 signal try_combination(id: int, player_id: int)
 
+signal on_final_challenge_completed
 
 # MULTIPLAYER CONNECTION MANAGEMENT
 signal on_host_connected
