@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://c2w1myauyrkr7" path="res://Scenes/level_base.tscn" id="2_fbm17"]
 [ext_resource type="PackedScene" uid="uid://sdvkjmh51bqg" path="res://Scenes/pasteque.tscn" id="3_2ryth"]
-[ext_resource type="PackedScene" uid="uid://b1xt0cug20dy7" path="res://ui_notif.tscn" id="3_6pwei"]
+[ext_resource type="PackedScene" uid="uid://dgym48uucr165" path="res://ui_notif.tscn" id="3_6pwei"]
 [ext_resource type="PackedScene" uid="uid://bihg75wr72a7k" path="res://challenge_manager.tscn" id="3_jyhx4"]
 [ext_resource type="PackedScene" uid="uid://dgaabyyvjnbp8" path="res://Scenes/vitre.tscn" id="3_l6pj4"]
 [ext_resource type="Texture2D" uid="uid://dwfic5mp75p1b" path="res://Textures/IP_Banner.png" id="3_xk0xp"]
 [ext_resource type="FontFile" uid="uid://bttgq66wddl8h" path="res://GT-Maru-Medium-Trial.otf" id="4_cybxk"]
 [ext_resource type="PackedScene" uid="uid://dbe5o1jd6qqm3" path="res://Scenes/plaque_pression.tscn" id="4_jyhx4"]
-[ext_resource type="Script" path="res://Scenes/server_ui.gd" id="4_yakfb"]
+[ext_resource type="Script" uid="uid://clextdiuv3kn7" path="res://Scenes/server_ui.gd" id="4_yakfb"]
 [ext_resource type="PackedScene" uid="uid://bvyfuyygx27e8" path="res://Scenes/Support_1.tscn" id="5_x6r4n"]
 [ext_resource type="PackedScene" uid="uid://baa7hs3cq2wn3" path="res://Scenes/Casier.tscn" id="7_gvlqo"]
 [ext_resource type="PackedScene" uid="uid://bpvqwnh5rjub8" path="res://Scenes/Levier.tscn" id="8_vt6um"]
@@ -385,7 +385,7 @@ texture_focused = ExtResource("25_8bv7e")
 [node name="Ground" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-transform = Transform3D(18.9402, 0, 0, 0, 18.9402, 0, 0, 0, 18.9402, -0.658929, -1.13433, -0.279673)
+transform = Transform3D(18.9402, 0, 0, 0, 18.9402, 0, 0, 0, 18.9402, -0.658929, -1.92715, -0.279673)
 shape = SubResource("WorldBoundaryShape3D_fvls2")
 
 [node name="MiddleWall" type="StaticBody3D" parent="."]
@@ -462,33 +462,6 @@ transform = Transform3D(-5.22706e-07, -2.89427e-07, 9.10105, 6.62132, 6.24398, 5
 
 [node name="Bouton" parent="." instance=ExtResource("11_rkg6e")]
 transform = Transform3D(-5.24537e-07, -12, -5.24537e-07, 4.58565e-14, 5.24537e-07, -12, 12, -5.24537e-07, 2.29282e-14, 18.9753, 2.40254, 7.47906)
-
-[node name="TapisRoulant" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(-8.39823e-07, 0, -19.2129, 0, 13.5485, 0, 19.2129, 0, -8.39823e-07, 15.7033, -1.07537, 0.105638)
-script = null
-
-[node name="TapisRoulant2" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(-8.39823e-07, 0, 19.2129, 0, 13.5485, 0, -19.2129, 0, -8.39823e-07, -15.771, -1.07537, -6.89375e-07)
-move_item_left = true
-script = null
 
 [node name="Porte" parent="." instance=ExtResource("33_72m11")]
 transform = Transform3D(-5.24537e-07, 0, -12, 0, 12.7793, 0, 12, 0, -5.24537e-07, 18.8927, -2.20889, -10.978)
