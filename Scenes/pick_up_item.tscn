@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwbsdkhkbn554"]
+[gd_scene load_steps=5 format=3 uid="uid://c5p4y58en3w3q"]
 
-[ext_resource type="Script" uid="uid://ctopn0cibdbr3" path="res://Scenes/pick_up_item.gd" id="1_8jd25"]
+[ext_resource type="Script" uid="uid://ctopn0cibdbr3" path="res://Assets/Scripts/PickupItems/pick_up_item.gd" id="1_8jd25"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bo1nx"]
 

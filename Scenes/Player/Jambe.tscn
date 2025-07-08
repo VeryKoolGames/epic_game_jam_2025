@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmo28pwkoffwd"]
+
+[ext_resource type="PackedScene" uid="uid://btg1rm68hiheq" path="res://Models/Jambe.fbx" id="1_kmqxe"]
+[ext_resource type="Material" uid="uid://cw74fednag0qt" path="res://Materials/M_Character1.tres" id="2_1wfw0"]
+
+[node name="Jambe" instance=ExtResource("1_kmqxe")]
+
+[node name="Jambe" parent="." index="0"]
+material_override = ExtResource("2_1wfw0")

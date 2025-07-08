@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=3 uid="uid://dtrt3lvupps82"]
+
+[ext_resource type="Script" uid="uid://cqymu4g7vp643" path="res://Assets/Scripts/Core/core.gd" id="1_57kve"]
+[ext_resource type="Script" uid="uid://drgrlvisx2dhf" path="res://Assets/Scripts/Core/loading_screen.gd" id="2_8yydm"]
+[ext_resource type="Shader" uid="uid://dsfjb7yo1u4k1" path="res://Shaders/circle_transition.gdshader" id="3_c1074"]
+[ext_resource type="FontFile" uid="uid://bttgq66wddl8h" path="res://Fonts/GT-Maru-Medium-Trial.otf" id="4_yjmj1"]
+[ext_resource type="Texture2D" uid="uid://dmf53eyesfnt3" path="res://Assets/Sprites/loading.png" id="5_6nua4"]
+[ext_resource type="PackedScene" uid="uid://6vtauun1jcfn" path="res://Scenes/start_menu.tscn" id="6_0s5tc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7vuks"]
+shader = ExtResource("3_c1074")
+shader_parameter/circle_size = 0.0
+shader_parameter/screen_width = 1920.0
+shader_parameter/screen_height = 1080.0
+
+[node name="Core" type="Node"]
+script = ExtResource("1_57kve")
+
+[node name="LoadingScreen" type="Control" parent="."]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_8yydm")
+
+[node name="CircleTransitionRect" type="ColorRect" parent="LoadingScreen"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_7vuks")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Progress" type="Control" parent="LoadingScreen"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LoadingLabel" type="Label" parent="LoadingScreen/Progress"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 325.0
+offset_top = 406.0
+offset_right = 716.0
+offset_bottom = 471.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_yjmj1")
+theme_override_font_sizes/font_size = 64
+text = "LOADING ..."
+
+[node name="ProgressBar" type="TextureProgressBar" parent="LoadingScreen/Progress"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -183.0
+offset_top = -184.0
+offset_right = 614.0
+offset_bottom = 583.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.2, 0.2)
+fill_mode = 4
+texture_progress = ExtResource("5_6nua4")
+
+[node name="Scenes" type="Node" parent="."]
+
+[node name="SceneContainer" type="Control" parent="Scenes"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartMenu" parent="Scenes/SceneContainer" instance=ExtResource("6_0s5tc")]
+layout_mode = 1
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://b7xu4doi4n8h4", "uid://d1oevq10yteew")
+spawn_path = NodePath("..")

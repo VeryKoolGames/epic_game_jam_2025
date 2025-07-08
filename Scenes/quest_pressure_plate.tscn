@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b2s5fyxwyg7n7" path="res://Textures/PlaqueBleue.png" id="4_r83qs"]
 [ext_resource type="Texture2D" uid="uid://dd8moyqv7nh0i" path="res://Textures/UI_Perso2.png" id="8_drgm1"]
-[ext_resource type="Script" uid="uid://ef2soe5gf3ae" path="res://Scenes/ui_number_setter.gd" id="9_sfmhx"]
+[ext_resource type="Script" uid="uid://ef2soe5gf3ae" path="res://Assets/Scripts/UI/ui_line_face.gd" id="9_sfmhx"]
 [ext_resource type="Texture2D" uid="uid://8ewgyqborc0u" path="res://Textures/UI_Perso.png" id="10_famto"]
 
 [node name="LinePressurePlate" type="HBoxContainer"]

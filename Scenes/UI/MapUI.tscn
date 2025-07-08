@@ -1,0 +1,184 @@
+[gd_scene load_steps=12 format=3 uid="uid://bu3ip0kio7dka"]
+
+[ext_resource type="Script" uid="uid://dbxwixgxb5x4m" path="res://Assets/Scripts/UI/map_ui.gd" id="1_7okpu"]
+[ext_resource type="Texture2D" uid="uid://dfuxs0t0cxtrd" path="res://Textures/Feuille.png" id="1_ylo01"]
+[ext_resource type="PackedScene" uid="uid://dcvk4j6nhljl0" path="res://Scenes/Quest_bouton.tscn" id="2_f28it"]
+[ext_resource type="PackedScene" uid="uid://c2cruqx0lragc" path="res://Scenes/quest_chauderon.tscn" id="3_f28it"]
+[ext_resource type="PackedScene" uid="uid://cdnijlm8yv5od" path="res://Scenes/quest_pressure_plate.tscn" id="3_ylo01"]
+[ext_resource type="PackedScene" uid="uid://4wflyogo0bk2" path="res://Scenes/quest_locked.tscn" id="4_dcbcb"]
+[ext_resource type="Texture2D" uid="uid://b53lphxq4vauk" path="res://Textures/Vu2.png" id="5_tbbry"]
+
+[sub_resource type="Animation" id="Animation_tbbry"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FeuilleContainer:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FeuilleContainer:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1092, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_7okpu"]
+resource_name = "UI_Close"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FeuilleContainer:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.134534, 0.733333)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FeuilleContainer:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1092, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.134534, 0.7)
+}
+
+[sub_resource type="Animation" id="Animation_dcbcb"]
+resource_name = "UI_Open"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FeuilleContainer:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 0.4988)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FeuilleContainer:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1092, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 0.4988)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tbbry"]
+_data = {
+&"RESET": SubResource("Animation_tbbry"),
+&"UI_Close": SubResource("Animation_7okpu"),
+&"UI_Open": SubResource("Animation_dcbcb")
+}
+
+[node name="MapUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7okpu")
+cauldron_quest_line_scene = ExtResource("3_f28it")
+pressure_plate_quest_line_scene = ExtResource("3_ylo01")
+button_quest_line_scene = ExtResource("2_f28it")
+unknown_quest_line_scene = ExtResource("4_dcbcb")
+
+[node name="FeuilleContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1092.0
+offset_bottom = 1092.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="FeuilleContainer"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_ylo01")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FeuilleContainer"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 119.0
+offset_top = 97.0
+offset_right = -119.0
+offset_bottom = 988.0
+grow_horizontal = 2
+
+[node name="Vus" type="VBoxContainer" parent="FeuilleContainer"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 119.0
+offset_top = 254.0
+offset_right = -119.0
+offset_bottom = 988.0
+grow_horizontal = 2
+theme_override_constants/separation = 30
+
+[node name="Vu1" type="TextureRect" parent="FeuilleContainer/Vus"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("5_tbbry")
+stretch_mode = 4
+
+[node name="Vu2" type="TextureRect" parent="FeuilleContainer/Vus"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("5_tbbry")
+stretch_mode = 4
+
+[node name="Vu3" type="TextureRect" parent="FeuilleContainer/Vus"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("5_tbbry")
+stretch_mode = 4
+
+[node name="Vu4" type="TextureRect" parent="FeuilleContainer/Vus"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("5_tbbry")
+stretch_mode = 4
+
+[node name="Vu5" type="TextureRect" parent="FeuilleContainer/Vus"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("5_tbbry")
+stretch_mode = 4
+
+[node name="UI_Anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tbbry")
+}

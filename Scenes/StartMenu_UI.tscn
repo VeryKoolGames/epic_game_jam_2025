@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://05pijcj62mo0" path="res://Textures/Controles.png" id="3_wudg0"]
 [ext_resource type="Texture2D" uid="uid://davuiivi46j0u" path="res://Textures/Host.png" id="4_7da1l"]
 [ext_resource type="Texture2D" uid="uid://cs30op1ywnkoh" path="res://Textures/Join_Selected.png" id="5_7nsd5"]
-[ext_resource type="Script" uid="uid://fug0mcjty4wp" path="res://Scenes/uiFocus.gd" id="5_kbb16"]
+[ext_resource type="Script" uid="uid://fug0mcjty4wp" path="res://Assets/Scripts/UI/ui_focus.gd" id="5_kbb16"]
 [ext_resource type="Texture2D" uid="uid://co602k1lwohr7" path="res://Textures/Host_Selected.png" id="8_7nsd5"]
 [ext_resource type="AudioStream" uid="uid://blir55sqdicaq" path="res://Sounds/HoverSound.wav" id="9_swf8m"]
 

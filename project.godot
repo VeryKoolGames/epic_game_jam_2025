@@ -17,11 +17,10 @@ config/icon="res://Assets/Sprites/icon.svg"
 
 [autoload]
 
-Enums="*res://Enums.gd"
-Events="*res://Events.gd"
-PlayerIds="*res://PlayerIds.gd"
+Enums="*res://Assets/Scripts/Globals/Enums.gd"
+Events="*res://Assets/Scripts/Globals/Events.gd"
 SoundManager="*res://Scenes/sound_manager.tscn"
-MultiplayerManager="*res://multiplayer_manager.gd"
+MultiplayerManager="*res://Assets/Scripts/Globals/multiplayer_manager.gd"
 
 [display]
 

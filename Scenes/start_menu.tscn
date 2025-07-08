@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://6vtauun1jcfn"]
 
 [ext_resource type="PackedScene" uid="uid://bcefawil7o070" path="res://Scenes/StartMenu_UI.tscn" id="1_626he"]
-[ext_resource type="Script" uid="uid://b7usiwf8r1urx" path="res://Scenes/start_menu_manager.gd" id="1_lfskg"]
+[ext_resource type="Script" uid="uid://b7usiwf8r1urx" path="res://Assets/Scripts/Managers/start_menu_manager.gd" id="1_lfskg"]
 [ext_resource type="Texture2D" uid="uid://ce5bi2mq2jued" path="res://Textures/Enter.png" id="2_8u0lp"]
-[ext_resource type="FontFile" uid="uid://bttgq66wddl8h" path="res://GT-Maru-Medium-Trial.otf" id="3_i2i62"]
+[ext_resource type="FontFile" uid="uid://bttgq66wddl8h" path="res://Fonts/GT-Maru-Medium-Trial.otf" id="3_i2i62"]
 [ext_resource type="Texture2D" uid="uid://h1ndq8lcfi74" path="res://Textures/connect.png" id="4_lfskg"]
 [ext_resource type="Texture2D" uid="uid://c2svdsj1i2bo6" path="res://Textures/connect2.png" id="5_ru7em"]
 [ext_resource type="Texture2D" uid="uid://ou4etkjgr434" path="res://Textures/1x1.png" id="6_8u0lp"]

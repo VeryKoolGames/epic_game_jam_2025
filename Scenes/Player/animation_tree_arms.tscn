@@ -1,0 +1,59 @@
+[gd_scene load_steps=13 format=3 uid="uid://b24btfvuipamm"]
+
+[ext_resource type="Script" uid="uid://nk3d3epfxysf" path="res://Assets/Scripts/Player/arm_state_machine.gd" id="1_0gn22"]
+[ext_resource type="Script" uid="uid://qog8db3utmwe" path="res://Assets/Scripts/Player/arm_idle_state.gd" id="2_p46s8"]
+[ext_resource type="Script" uid="uid://djquhmhyx8mn3" path="res://Assets/Scripts/Player/arm_pointing_state.gd" id="3_ugul2"]
+[ext_resource type="Script" uid="uid://bxtypidalnn74" path="res://Assets/Scripts/Player/arm_moving_state.gd" id="4_yp7c0"]
+[ext_resource type="Script" uid="uid://b4rwfbh8tiye0" path="res://Assets/Scripts/Player/arm_holding_state.gd" id="5_4ll03"]
+[ext_resource type="Script" uid="uid://fukua76sf1ke" path="res://Assets/Scripts/Player/arm_reading_state.gd" id="6_4awta"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jtyek"]
+animation = &"Bras_Holding"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mxyx0"]
+animation = &"Bras_Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h30la"]
+animation = &"Bras_Moving"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t4olk"]
+animation = &"Bras_Pointing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2413y"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ivjqc"]
+states/Bras_Holding/node = SubResource("AnimationNodeAnimation_jtyek")
+states/Bras_Holding/position = Vector2(672, 153.753)
+states/Bras_Idle/node = SubResource("AnimationNodeAnimation_mxyx0")
+states/Bras_Idle/position = Vector2(472.688, 153.738)
+states/Bras_Moving/node = SubResource("AnimationNodeAnimation_h30la")
+states/Bras_Moving/position = Vector2(672.25, 334.33)
+states/Bras_Pointing/node = SubResource("AnimationNodeAnimation_t4olk")
+states/Bras_Pointing/position = Vector2(349, 317.08)
+states/Start/position = Vector2(255.5, 153.959)
+transitions = ["Start", "Bras_Idle", SubResource("AnimationNodeStateMachineTransition_2413y")]
+graph_offset = Vector2(118.913, -5.71452)
+
+[node name="AnimationTree_Bras" type="AnimationTree"]
+deterministic = false
+tree_root = SubResource("AnimationNodeStateMachine_ivjqc")
+anim_player = NodePath("../AnimBras")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("1_0gn22")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("2_p46s8")
+
+[node name="Pointing" type="Node" parent="StateMachine"]
+script = ExtResource("3_ugul2")
+
+[node name="Moving" type="Node" parent="StateMachine"]
+script = ExtResource("4_yp7c0")
+
+[node name="Holding" type="Node" parent="StateMachine"]
+script = ExtResource("5_4ll03")
+
+[node name="Reading" type="Node" parent="StateMachine"]
+script = ExtResource("6_4awta")

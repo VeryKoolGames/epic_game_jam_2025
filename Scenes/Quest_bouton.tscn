@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dcvk4j6nhljl0"]
 
-[ext_resource type="Script" uid="uid://xaujhvwuy714" path="res://Scenes/ui_button_line.gd" id="1_87x1d"]
+[ext_resource type="Script" uid="uid://xaujhvwuy714" path="res://Assets/Scripts/UI/ui_button_line.gd" id="1_87x1d"]
 [ext_resource type="PackedScene" uid="uid://c8oqymfuasdpg" path="res://Scenes/ui_plus.tscn" id="2_5j3wn"]
 [ext_resource type="Texture2D" uid="uid://s37fpvt2vga8" path="res://Textures/bouton_bleu.png" id="2_87x1d"]
 [ext_resource type="PackedScene" uid="uid://bp3srd6plouv4" path="res://Scenes/ui_line_image.tscn" id="3_ydyuc"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bwvnhjymffcxf" path="res://Textures/bouton_vert.png" id="7_sraj6"]
 [ext_resource type="Texture2D" uid="uid://c3x8xm8ilwdr0" path="res://Textures/LevierJaune.png" id="8_7k22m"]
 [ext_resource type="Texture2D" uid="uid://dd8moyqv7nh0i" path="res://Textures/UI_Perso2.png" id="9_l3wma"]
-[ext_resource type="Script" uid="uid://ef2soe5gf3ae" path="res://Scenes/ui_number_setter.gd" id="10_gfe4h"]
+[ext_resource type="Script" uid="uid://ef2soe5gf3ae" path="res://Assets/Scripts/UI/ui_line_face.gd" id="10_gfe4h"]
 [ext_resource type="Texture2D" uid="uid://8ewgyqborc0u" path="res://Textures/UI_Perso.png" id="11_c7cpm"]
 
 [node name="Quest_Button" type="HBoxContainer"]

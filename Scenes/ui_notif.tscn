@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://dgym48uucr165"]
+
+[ext_resource type="Texture2D" uid="uid://us8yrpk0qj67" path="res://Textures/FeuilleUI.png" id="1_1c8k2"]
+[ext_resource type="Script" uid="uid://k1eeilunnik8" path="res://Assets/Scripts/UI/ui_notif.gd" id="1_mjoei"]
+[ext_resource type="Texture2D" uid="uid://cxurf4i1y2vhj" path="res://Textures/UI_LT.png" id="2_nemjc"]
+[ext_resource type="Texture2D" uid="uid://b8tb2vr35uqj3" path="res://Textures/Notif.png" id="3_mjoei"]
+[ext_resource type="Texture2D" uid="uid://iaue8dkk7bt0" path="res://Textures/UI_LT2.png" id="4_nemjc"]
+
+[sub_resource type="Animation" id="Animation_mjoei"]
+resource_name = "LT"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LT:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_nemjc"), ExtResource("4_nemjc")]
+}
+
+[sub_resource type="Animation" id="Animation_7cfom"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LT:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_nemjc")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y3wpb"]
+_data = {
+&"LT": SubResource("Animation_mjoei"),
+&"RESET": SubResource("Animation_7cfom")
+}
+
+[node name="UI_Notif" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 252.0
+offset_bottom = 245.0
+script = ExtResource("1_mjoei")
+
+[node name="Feuille" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_1c8k2")
+
+[node name="LT" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 79.0
+offset_right = 170.0
+offset_bottom = 122.0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_nemjc")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Notif" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 17.0
+offset_right = 167.0
+offset_bottom = 57.0
+texture = ExtResource("3_mjoei")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Notif")
+libraries = {
+&"": SubResource("AnimationLibrary_y3wpb")
+}
+autoplay = "LT"

@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://baa7hs3cq2wn3"]
-
-[ext_resource type="PackedScene" uid="uid://cmbi42cxqjoyn" path="res://Models/Casier.fbx" id="1_rhnod"]
-[ext_resource type="Material" uid="uid://d2f82ifibyrfc" path="res://Materials/M_Casier.tres" id="2_b5ss2"]
-
-[node name="Casier" instance=ExtResource("1_rhnod")]
-
-[node name="Cube_001" parent="." index="0"]
-material_override = ExtResource("2_b5ss2")

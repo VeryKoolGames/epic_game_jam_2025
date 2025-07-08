@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://baa7hs3cq2wn3"]
+
+[ext_resource type="PackedScene" uid="uid://cmbi42cxqjoyn" path="res://Models/Casier.fbx" id="1_rhnod"]
+[ext_resource type="Material" uid="uid://d2f82ifibyrfc" path="res://Materials/M_Casier.tres" id="2_b5ss2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ww6q"]
+size = Vector3(0.167053, 0.59375, 0.212646)
+
+[node name="Casier" instance=ExtResource("1_rhnod")]
+
+[node name="Cube_001" parent="." index="0"]
+material_override = ExtResource("2_b5ss2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00546265, 0.293945, -0.00256348)
+shape = SubResource("BoxShape3D_4ww6q")

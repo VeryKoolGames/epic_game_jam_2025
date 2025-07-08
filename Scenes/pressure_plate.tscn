@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=4 uid="uid://dbe5o1jd6qqm3"]
 
 [ext_resource type="PackedScene" uid="uid://dygwcegpspw6h" path="res://Models/Plaque_Pression.fbx" id="1_uayr1"]
-[ext_resource type="Script" uid="uid://cih4c0xdxw17p" path="res://Scenes/pressure_plate.gd" id="2_25r1s"]
+[ext_resource type="Script" uid="uid://cih4c0xdxw17p" path="res://Assets/Scripts/Activable/pressure_plate.gd" id="2_25r1s"]
 [ext_resource type="Material" uid="uid://ctei5tx1vcokt" path="res://Materials/M_Bouton_Bleu.tres" id="2_nsskn"]
 [ext_resource type="Material" uid="uid://ccrehi7khf42" path="res://Materials/M_Metal2.tres" id="3_s6xfs"]
 [ext_resource type="Material" uid="uid://dip7iok4xreaq" path="res://Materials/M_PlaqueDePression_lights.tres" id="3_x1gdt"]
