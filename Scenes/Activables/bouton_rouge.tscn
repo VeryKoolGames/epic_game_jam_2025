@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=4 uid="uid://c04a34ghpnpb7"]
 
 [ext_resource type="PackedScene" uid="uid://cv1xsar330yk4" path="res://Models/Bouton.fbx" id="1_cym33"]
-[ext_resource type="Script" uid="uid://bhh25luioh8tl" path="res://Assets/Scripts/Activable/activable_button.gd" id="2_38i68"]
+[ext_resource type="Script" uid="uid://bhh25luioh8tl" path="res://Scripts/Activable/activable_button.gd" id="2_38i68"]
 [ext_resource type="Material" uid="uid://0lkt3a3t5kat" path="res://Materials/M_Bouton_Rouge.tres" id="2_cym33"]
 [ext_resource type="Material" uid="uid://ccrehi7khf42" path="res://Materials/M_Metal2.tres" id="3_38i68"]
 [ext_resource type="Material" uid="uid://boonw1hakjrsj" path="res://Materials/M_OutlineMaterial.tres" id="3_gwxb4"]

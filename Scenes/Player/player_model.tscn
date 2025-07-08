@@ -3,12 +3,12 @@
 [ext_resource type="Material" uid="uid://cw74fednag0qt" path="res://Materials/M_Character1.tres" id="1_lr35n"]
 [ext_resource type="Material" uid="uid://m0j0slsor7wu" path="res://Materials/M_Doigt.tres" id="2_atni6"]
 [ext_resource type="Material" uid="uid://bqym1fmcsbwoa" path="res://Materials/M_Feuille.tres" id="3_uy1op"]
-[ext_resource type="Script" uid="uid://nk3d3epfxysf" path="res://Assets/Scripts/Player/arm_state_machine.gd" id="4_4b56n"]
-[ext_resource type="Script" uid="uid://qog8db3utmwe" path="res://Assets/Scripts/Player/arm_idle_state.gd" id="5_xtj63"]
-[ext_resource type="Script" uid="uid://djquhmhyx8mn3" path="res://Assets/Scripts/Player/arm_pointing_state.gd" id="6_fo3ty"]
-[ext_resource type="Script" uid="uid://bxtypidalnn74" path="res://Assets/Scripts/Player/arm_moving_state.gd" id="7_wxlty"]
-[ext_resource type="Script" uid="uid://b4rwfbh8tiye0" path="res://Assets/Scripts/Player/arm_holding_state.gd" id="8_p61ub"]
-[ext_resource type="Script" uid="uid://fukua76sf1ke" path="res://Assets/Scripts/Player/arm_reading_state.gd" id="9_rlsvb"]
+[ext_resource type="Script" uid="uid://nk3d3epfxysf" path="res://Scripts/Player/arm_state_machine.gd" id="4_4b56n"]
+[ext_resource type="Script" uid="uid://qog8db3utmwe" path="res://Scripts/Player/arm_idle_state.gd" id="5_xtj63"]
+[ext_resource type="Script" uid="uid://djquhmhyx8mn3" path="res://Scripts/Player/arm_pointing_state.gd" id="6_fo3ty"]
+[ext_resource type="Script" uid="uid://bxtypidalnn74" path="res://Scripts/Player/arm_moving_state.gd" id="7_wxlty"]
+[ext_resource type="Script" uid="uid://b4rwfbh8tiye0" path="res://Scripts/Player/arm_holding_state.gd" id="8_p61ub"]
+[ext_resource type="Script" uid="uid://fukua76sf1ke" path="res://Scripts/Player/arm_reading_state.gd" id="9_rlsvb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_du6dw"]
 

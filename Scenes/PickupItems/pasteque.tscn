@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://sdvkjmh51bqg"]
 
-[ext_resource type="Script" uid="uid://ctopn0cibdbr3" path="res://Assets/Scripts/PickupItems/pick_up_item.gd" id="1_ub2e1"]
+[ext_resource type="Script" uid="uid://ctopn0cibdbr3" path="res://Scripts/PickupItems/pick_up_item.gd" id="1_ub2e1"]
 [ext_resource type="Material" uid="uid://dnpsbm11ucksw" path="res://Materials/M_Pasteque.tres" id="2_2d42o"]
 [ext_resource type="Resource" uid="uid://c3iu1n28meewj" path="res://Resources/pickable_items/pasteque.tres" id="2_g50du"]
 [ext_resource type="Shader" uid="uid://d2serugfknpkw" path="res://Shaders/outline.gdshader" id="4_f03bg"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cv1xsar330yk4" path="res://Models/Bouton.fbx" id="1_amyy5"]
 [ext_resource type="Material" uid="uid://c8r4mqukscnom" path="res://Materials/M_Bouton_Vert.tres" id="2_amyy5"]
-[ext_resource type="Script" uid="uid://bhh25luioh8tl" path="res://Assets/Scripts/Activable/activable_button.gd" id="2_oi8gw"]
+[ext_resource type="Script" uid="uid://bhh25luioh8tl" path="res://Scripts/Activable/activable_button.gd" id="2_oi8gw"]
 [ext_resource type="Material" uid="uid://ccrehi7khf42" path="res://Materials/M_Metal2.tres" id="3_oi8gw"]
 [ext_resource type="Shader" uid="uid://d2serugfknpkw" path="res://Shaders/outline.gdshader" id="4_oi8gw"]
 

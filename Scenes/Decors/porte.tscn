@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=4 uid="uid://c4sglkguxh4ah"]
 
-[ext_resource type="Script" uid="uid://cojomwvgk807m" path="res://Assets/Scripts/Decors/door.gd" id="1_3tyl7"]
+[ext_resource type="Script" uid="uid://cojomwvgk807m" path="res://Scripts/Decors/door.gd" id="1_3tyl7"]
 [ext_resource type="Material" uid="uid://ccrehi7khf42" path="res://Materials/M_Metal2.tres" id="1_mlnpr"]
 [ext_resource type="Material" uid="uid://b4fbouh8wkyvp" path="res://Materials/M_Metal.tres" id="2_3tyl7"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://dwfbivyyua57s"]
 
-[ext_resource type="Script" uid="uid://ctopn0cibdbr3" path="res://Assets/Scripts/PickupItems/pick_up_item.gd" id="1_fk7dp"]
+[ext_resource type="Script" uid="uid://ctopn0cibdbr3" path="res://Scripts/PickupItems/pick_up_item.gd" id="1_fk7dp"]
 [ext_resource type="Resource" uid="uid://x7kuod37ayus" path="res://Resources/pickable_items/screw.tres" id="2_fk7dp"]
 [ext_resource type="Material" uid="uid://dro40ry32akif" path="res://Materials/M_Boulon.tres" id="3_fk7dp"]
 [ext_resource type="Shader" uid="uid://d2serugfknpkw" path="res://Shaders/outline.gdshader" id="4_xd4pm"]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=12 format=3 uid="uid://dcvk4j6nhljl0"]
+
+[ext_resource type="Script" uid="uid://xaujhvwuy714" path="res://Scripts/UI/ui_button_line.gd" id="1_43t0x"]
+[ext_resource type="PackedScene" uid="uid://c8oqymfuasdpg" path="res://Scenes/UI/ui_plus.tscn" id="2_1rwvh"]
+[ext_resource type="PackedScene" uid="uid://bp3srd6plouv4" path="res://Scenes/UI/ui_line_image.tscn" id="3_sy86n"]
+[ext_resource type="Texture2D" uid="uid://s37fpvt2vga8" path="res://Textures/bouton_bleu.png" id="4_7ojcd"]
+[ext_resource type="Texture2D" uid="uid://bawpjas8o3d76" path="res://Textures/Bouton_jaune.png" id="5_2apbj"]
+[ext_resource type="Texture2D" uid="uid://duo48bf8em8ln" path="res://Textures/bouton_rouge.png" id="6_js8df"]
+[ext_resource type="Texture2D" uid="uid://bwvnhjymffcxf" path="res://Textures/bouton_vert.png" id="7_yxs1q"]
+[ext_resource type="Texture2D" uid="uid://c3x8xm8ilwdr0" path="res://Textures/LevierJaune.png" id="8_xlvat"]
+[ext_resource type="Texture2D" uid="uid://dd8moyqv7nh0i" path="res://Textures/UI_Perso2.png" id="9_anl37"]
+[ext_resource type="Script" uid="uid://ef2soe5gf3ae" path="res://Scripts/UI/ui_line_face.gd" id="10_677as"]
+[ext_resource type="Texture2D" uid="uid://8ewgyqborc0u" path="res://Textures/UI_Perso.png" id="11_lxjii"]
+
+[node name="Quest_Button" type="HBoxContainer"]
+offset_right = 871.0
+offset_bottom = 144.0
+theme_override_constants/separation = 10
+alignment = 1
+script = ExtResource("1_43t0x")
+plus_scene = ExtResource("2_1rwvh")
+template_scene = ExtResource("3_sy86n")
+blue_button = ExtResource("4_7ojcd")
+yellow_button = ExtResource("5_2apbj")
+red_button = ExtResource("6_js8df")
+green_button = ExtResource("7_yxs1q")
+lever_button = ExtResource("8_xlvat")
+
+[node name="Numero" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("9_anl37")
+stretch_mode = 4
+script = ExtResource("10_677as")
+face_player_one = ExtResource("11_lxjii")
+face_player_two = ExtResource("9_anl37")

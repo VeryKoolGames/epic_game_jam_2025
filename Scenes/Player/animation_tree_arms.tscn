@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://b24btfvuipamm"]
 
-[ext_resource type="Script" uid="uid://nk3d3epfxysf" path="res://Assets/Scripts/Player/arm_state_machine.gd" id="1_0gn22"]
-[ext_resource type="Script" uid="uid://qog8db3utmwe" path="res://Assets/Scripts/Player/arm_idle_state.gd" id="2_p46s8"]
-[ext_resource type="Script" uid="uid://djquhmhyx8mn3" path="res://Assets/Scripts/Player/arm_pointing_state.gd" id="3_ugul2"]
-[ext_resource type="Script" uid="uid://bxtypidalnn74" path="res://Assets/Scripts/Player/arm_moving_state.gd" id="4_yp7c0"]
-[ext_resource type="Script" uid="uid://b4rwfbh8tiye0" path="res://Assets/Scripts/Player/arm_holding_state.gd" id="5_4ll03"]
-[ext_resource type="Script" uid="uid://fukua76sf1ke" path="res://Assets/Scripts/Player/arm_reading_state.gd" id="6_4awta"]
+[ext_resource type="Script" uid="uid://nk3d3epfxysf" path="res://Scripts/Player/arm_state_machine.gd" id="1_0gn22"]
+[ext_resource type="Script" uid="uid://qog8db3utmwe" path="res://Scripts/Player/arm_idle_state.gd" id="2_p46s8"]
+[ext_resource type="Script" uid="uid://djquhmhyx8mn3" path="res://Scripts/Player/arm_pointing_state.gd" id="3_ugul2"]
+[ext_resource type="Script" uid="uid://bxtypidalnn74" path="res://Scripts/Player/arm_moving_state.gd" id="4_yp7c0"]
+[ext_resource type="Script" uid="uid://b4rwfbh8tiye0" path="res://Scripts/Player/arm_holding_state.gd" id="5_4ll03"]
+[ext_resource type="Script" uid="uid://fukua76sf1ke" path="res://Scripts/Player/arm_reading_state.gd" id="6_4awta"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jtyek"]
 animation = &"Bras_Holding"

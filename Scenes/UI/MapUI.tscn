@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://bu3ip0kio7dka"]
 
-[ext_resource type="Script" uid="uid://dbxwixgxb5x4m" path="res://Assets/Scripts/UI/map_ui.gd" id="1_7okpu"]
+[ext_resource type="Script" uid="uid://dbxwixgxb5x4m" path="res://Scripts/UI/map_ui.gd" id="1_7okpu"]
 [ext_resource type="Texture2D" uid="uid://dfuxs0t0cxtrd" path="res://Textures/Feuille.png" id="1_ylo01"]
-[ext_resource type="PackedScene" uid="uid://dcvk4j6nhljl0" path="res://Scenes/Quest_bouton.tscn" id="2_f28it"]
-[ext_resource type="PackedScene" uid="uid://c2cruqx0lragc" path="res://Scenes/quest_chauderon.tscn" id="3_f28it"]
-[ext_resource type="PackedScene" uid="uid://cdnijlm8yv5od" path="res://Scenes/quest_pressure_plate.tscn" id="3_ylo01"]
-[ext_resource type="PackedScene" uid="uid://4wflyogo0bk2" path="res://Scenes/quest_locked.tscn" id="4_dcbcb"]
+[ext_resource type="PackedScene" uid="uid://dcvk4j6nhljl0" path="res://Scenes/UI/UIQuestLineButton.tscn" id="2_f28it"]
+[ext_resource type="PackedScene" uid="uid://c2cruqx0lragc" path="res://Scenes/UI/UIQuestLineCauldron.tscn" id="3_f28it"]
+[ext_resource type="PackedScene" uid="uid://cdnijlm8yv5od" path="res://Scenes/UI/UIQuestLinePressurePlate.tscn" id="3_ylo01"]
+[ext_resource type="PackedScene" uid="uid://4wflyogo0bk2" path="res://Scenes/UI/UIQuestLineUnknown.tscn" id="4_dcbcb"]
 [ext_resource type="Texture2D" uid="uid://b53lphxq4vauk" path="res://Textures/Vu2.png" id="5_tbbry"]
 
 [sub_resource type="Animation" id="Animation_tbbry"]
