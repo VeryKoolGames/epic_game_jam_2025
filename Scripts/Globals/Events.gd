@@ -1,5 +1,6 @@
 extends Node
 
+@warning_ignore_start("unused_signal")
 signal new_buttons_challenge_generated(combinaison: Array)
 signal pick_up_item_dropped_in_cauldron(item: ResPickableItem)
 signal on_challenge_created(challenge: Challenge)
@@ -9,7 +10,9 @@ signal wrong_button_pressed
 signal try_combination(id: int, player_id: int)
 
 signal on_final_challenge_completed
+signal on_final_challenge_started
 signal on_exit_reached
+signal on_game_lost
 
 # MULTIPLAYER CONNECTION MANAGEMENT
 signal on_host_connected

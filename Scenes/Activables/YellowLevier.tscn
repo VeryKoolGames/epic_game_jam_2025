@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bpvqwnh5rjub8"]
+[gd_scene load_steps=18 format=4 uid="uid://bpvqwnh5rjub8"]
 
 [ext_resource type="PackedScene" uid="uid://ciq5lcaynma44" path="res://Models/Levier.fbx" id="1_ts4xu"]
 [ext_resource type="Material" uid="uid://cuav0s0pid8x3" path="res://Materials/M_Levier_Base.tres" id="2_bqvmv"]
@@ -120,6 +120,9 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_r4tcf"]
 size = Vector3(0.332153, 0.297668, 0.149277)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nmtca"]
+size = Vector3(0.111542, 0.22467, 0.134033)
+
 [node name="Levier" node_paths=PackedStringArray("mesh") instance=ExtResource("1_ts4xu")]
 script = ExtResource("2_r4tcf")
 mesh = NodePath("Cylinder_012")
@@ -153,3 +156,9 @@ libraries = {
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0703731, 0.0524598, -0.00539394)
 shape = SubResource("BoxShape3D_r4tcf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0548553, -0.000579834, 0.00793457)
+shape = SubResource("BoxShape3D_nmtca")

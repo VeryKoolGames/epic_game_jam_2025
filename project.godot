@@ -95,6 +95,11 @@ ui_valider={
 ]
 }
 
+[physics]
+
+common/physics_ticks_per_second=90
+common/physics_jitter_fix=0.0
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

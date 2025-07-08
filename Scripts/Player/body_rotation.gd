@@ -5,7 +5,7 @@ extends Node3D
 const RIGHT_STICK_X := JOY_AXIS_RIGHT_X
 const RIGHT_STICK_Y := JOY_AXIS_RIGHT_Y
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not owner.is_multiplayer_authority():
 		return
 	var x = Input.get_joy_axis(joystick_index, RIGHT_STICK_X)

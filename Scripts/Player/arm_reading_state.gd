@@ -16,7 +16,7 @@ func sync_moving_animation_state(is_moving: bool):
 	else:
 		animation_tree.travel("Bras_Idle")
 
-func enter(previous_state_path: String, data := {}) -> void:
+func enter(_previous_state_path: String, _data := {}) -> void:
 	animation_tree.travel("Bras_Reading")
 	sync_moving_animation_state.rpc(true)
 

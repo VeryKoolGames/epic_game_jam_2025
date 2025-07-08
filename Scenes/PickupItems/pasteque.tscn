@@ -9,9 +9,8 @@
 radius = 1.08817
 height = 2.17635
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f03bg"]
-radius = 1.0021
-height = 2.22434
+[sub_resource type="SphereShape3D" id="SphereShape3D_3l1d7"]
+radius = 0.930349
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tgb3b"]
 resource_local_to_scene = true
@@ -55,9 +54,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gx1ds")
 
 [node name="Pasteque" type="RigidBody3D" node_paths=PackedStringArray("mesh") groups=["pickup"]]
-collision_layer = 2
-mass = 2.0
-gravity_scale = 5.0
 script = ExtResource("1_ub2e1")
 item = ExtResource("2_g50du")
 mesh = NodePath("Sphere")
@@ -69,7 +65,7 @@ outline_thickness = 0.2
 shape = SubResource("CapsuleShape3D_tgb3b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_f03bg")
+shape = SubResource("SphereShape3D_3l1d7")
 
 [node name="Sphere" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0116603, -0.0254318, 0.00946145)

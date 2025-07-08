@@ -77,6 +77,8 @@ func create_challenge() -> void:
 
 func create_last_challenge() -> Challenge:
 	SoundManager.play_final_challenge_music()
+	Events.on_final_challenge_started.emit()
+	on_final_challenge_started_rpc.rpc()
 	return challenges[challenges.size() - 1].create_challenge()
 
 func create_first_challenge() -> void:
@@ -108,6 +110,10 @@ func on_success_challenge():
 @rpc("any_peer")
 func on_final_challenge_completed_rpc() -> void:
 	Events.on_final_challenge_completed.emit()
+
+@rpc("any_peer")
+func on_final_challenge_started_rpc() -> void:
+	Events.on_final_challenge_started.emit()
 
 func on_final_challenge_completed() -> void:
 	Events.on_final_challenge_completed.emit()

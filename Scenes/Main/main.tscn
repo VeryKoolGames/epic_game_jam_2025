@@ -1,9 +1,11 @@
-[gd_scene load_steps=45 format=3 uid="uid://crvaw1bdwrnwx"]
+[gd_scene load_steps=48 format=3 uid="uid://crvaw1bdwrnwx"]
 
 [ext_resource type="Script" uid="uid://dsec3wupvew6w" path="res://Scripts/Utils/player_id.gd" id="1_nnb7v"]
 [ext_resource type="PackedScene" uid="uid://dgym48uucr165" path="res://Scenes/UI/ui_notif.tscn" id="2_58hs6"]
+[ext_resource type="Script" uid="uid://dk50it62aem88" path="res://Scenes/Main/timer_ui.gd" id="2_u244o"]
 [ext_resource type="Script" uid="uid://clextdiuv3kn7" path="res://Scripts/UI/server_ui.gd" id="3_emd1u"]
 [ext_resource type="Texture2D" uid="uid://dwfic5mp75p1b" path="res://Textures/IP_Banner.png" id="4_0xnc4"]
+[ext_resource type="Texture2D" uid="uid://b8tb2vr35uqj3" path="res://Textures/Notif.png" id="4_1j4pb"]
 [ext_resource type="FontFile" uid="uid://bttgq66wddl8h" path="res://Fonts/GT-Maru-Medium-Trial.otf" id="5_ouiml"]
 [ext_resource type="PackedScene" uid="uid://bu3ip0kio7dka" path="res://Scenes/UI/MapUI.tscn" id="6_hn68y"]
 [ext_resource type="PackedScene" uid="uid://bihg75wr72a7k" path="res://Scenes/Managers/challenge_manager.tscn" id="7_5jal3"]
@@ -69,8 +71,11 @@ radius = 0.493351
 [sub_resource type="BoxShape3D" id="BoxShape3D_8bv7e"]
 size = Vector3(2.24658, 0.56189, 3.10645)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1j4pb"]
+size = Vector3(2.24658, 0.56189, 3.10645)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_cbh4w"]
-size = Vector3(38.932, 8.46594, 1)
+size = Vector3(24.3643, 8.46594, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3656k"]
 size = Vector3(56.2403, 1, 19.0483)
@@ -93,6 +98,60 @@ size = Vector3(4.84473, 0.344116, 1.44043)
 [node name="Main2" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_nnb7v")
+
+[node name="TimerUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_u244o")
+
+[node name="TextureRect" type="TextureRect" parent="TimerUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -319.0
+offset_top = 17.0
+offset_right = 319.0
+offset_bottom = 135.0
+grow_horizontal = 2
+texture = ExtResource("4_0xnc4")
+
+[node name="TextureRect2" type="TextureRect" parent="TimerUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -264.0
+offset_top = 40.0
+offset_right = -189.0
+offset_bottom = 114.0
+grow_horizontal = 2
+texture = ExtResource("4_1j4pb")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="TimerUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = 39.0
+offset_right = 97.0
+offset_bottom = 111.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("5_ouiml")
+theme_override_font_sizes/font_size = 64
+text = "30:00"
+
+[node name="Timer" type="Timer" parent="TimerUI"]
+wait_time = 30.0
 
 [node name="UI_Notif" parent="." instance=ExtResource("2_58hs6")]
 metadata/_edit_use_anchors_ = true
@@ -143,20 +202,19 @@ script = ExtResource("7_js8sm")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Screw2" parent="ChallengeManager/RecipeManager/Items" instance=ExtResource("8_2ah3i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52346e-07, 0, -5.77299)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52346e-07, -1.44561, -5.77299)
 
 [node name="Pasteque" parent="ChallengeManager/RecipeManager/Items" instance=ExtResource("9_qxj1p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.66162, 0, -10.2113)
-collision_layer = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.66162, -0.590919, -10.2113)
 
 [node name="Items2" type="Node3D" parent="ChallengeManager/RecipeManager" index="1"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.293, 0, 0)
 
 [node name="Bucket" parent="ChallengeManager/RecipeManager/Items2" instance=ExtResource("10_khxql")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0251, -0.67847, -5.17975)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0251, -1.15671, -5.17975)
 
 [node name="Pizza2" parent="ChallengeManager/RecipeManager/Items2" instance=ExtResource("11_wbulw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54144, -1.06549, -17.5095)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54144, -1.38081, -17.5095)
 
 [node name="Plaque_Pression2" parent="ChallengeManager/PressurePlateManager" index="0" node_paths=PackedStringArray("pressure_plate_manager") instance=ExtResource("12_e7jmi")]
 transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, -18.0945, -1.68862, 9.88725)
@@ -260,7 +318,7 @@ transform = Transform3D(18.155, 0, 0, 0, 18.155, 0, 0, 0, 18.155, 0, -2.48838, 0
 mesh = SubResource("PlaneMesh_iu0du")
 
 [node name="Treadmil" parent="." instance=ExtResource("17_f13bm")]
-transform = Transform3D(-8.39821e-07, 0, -19.2129, 0, 13.5485, 0, 19.2129, 0, -8.39821e-07, 14.801, -0.453705, 6.46974e-07)
+transform = Transform3D(-8.39821e-07, 0, -19.2129, 0, 13.5485, 0, 19.2129, 0, -8.39821e-07, 14.801, -0.453705, 0.29123)
 
 [node name="Treadmil2" parent="." instance=ExtResource("17_f13bm")]
 transform = Transform3D(-8.39823e-07, 0, 19.2129, 0, 13.5485, 0, -19.2129, 0, -8.39823e-07, -16.0793, -1.05236, -7.02846e-07)
@@ -270,10 +328,10 @@ move_item_left = true
 transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, -15.613, -1.90931, -24.4146)
 
 [node name="Casier8" parent="." instance=ExtResource("18_ajsv4")]
-transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 18.2187, -1.90931, -20.4936)
+transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 18.4214, -1.90931, -19.8043)
 
 [node name="Casier9" parent="." instance=ExtResource("18_ajsv4")]
-transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 18.2187, -1.90931, -23.2075)
+transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 18.4214, -1.90931, -22.5182)
 
 [node name="Casier2" parent="." instance=ExtResource("18_ajsv4")]
 transform = Transform3D(-5.24537e-07, 0, -12, 0, 12, 0, 12, 0, -5.24537e-07, -12.8929, -1.90931, -24.443)
@@ -408,10 +466,18 @@ texture_focused = ExtResource("26_8uin6")
 transform = Transform3D(18.9402, 0, 0, 0, 18.9402, 0, 0, 0, 18.9402, 0.196525, -6.0761, -0.862306)
 shape = SubResource("BoxShape3D_8bv7e")
 
+[node name="Ceiling" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling"]
+transform = Transform3D(18.9402, 0, 0, 0, 18.9402, 0, 0, 0, 18.9402, 0.196525, 15.3224, -0.862306)
+shape = SubResource("BoxShape3D_1j4pb")
+
 [node name="MiddleWall" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MiddleWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0480804, 3.73297, -9.54792e-15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.199096, 3.73297, -1.06581e-14)
 shape = SubResource("BoxShape3D_cbh4w")
 
 [node name="LeftWall" type="StaticBody3D" parent="."]

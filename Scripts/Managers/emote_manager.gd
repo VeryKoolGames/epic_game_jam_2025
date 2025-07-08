@@ -5,7 +5,7 @@ var can_use_emotes := true
 @onready var thumbs_down_anim = $ThumbDown/AnimationPlayer
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("no") and can_use_emotes:
+	if event.is_action_pressed("no") and can_use_emotes and not owner.is_holding:
 		emote_cooldown()
 		SoundManager._play_no_sound()
 		play_thumbs_down_emote()

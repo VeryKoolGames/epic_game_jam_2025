@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://bvyfuyygx27e8"]
+[gd_scene load_steps=7 format=4 uid="uid://bvyfuyygx27e8"]
 
 [ext_resource type="PackedScene" uid="uid://cjqbmm2fhxwo" path="res://Models/Support.fbx" id="1_leb3j"]
 [ext_resource type="Material" uid="uid://dpqcahk3s43uj" path="res://Materials/M_Support1.tres" id="3_qobr1"]
@@ -37,6 +37,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xoo8m")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_isqnw"]
+size = Vector3(0.201172, 0.209106, 0.205078)
+
 [node name="Support" instance=ExtResource("1_leb3j")]
 
 [node name="Cube_007" parent="." index="0"]
@@ -47,3 +50,9 @@ transform = Transform3D(1, 0, 0, 0, 0.742621, 0, 0, 0, 1, 0, 0, 0)
 material_override = ExtResource("3_qobr1")
 mesh = SubResource("ArrayMesh_svj08")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00195312, 0.0848999, 0.00390625)
+shape = SubResource("BoxShape3D_isqnw")

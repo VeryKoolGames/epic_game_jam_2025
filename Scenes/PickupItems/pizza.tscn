@@ -54,9 +54,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ii2wt")
 
-[node name="Pizza2" type="RigidBody3D" node_paths=PackedStringArray("mesh") groups=["pickup"]]
-mass = 2.0
-gravity_scale = 5.0
+[node name="Pizza" type="RigidBody3D" node_paths=PackedStringArray("mesh") groups=["pickup"]]
 script = ExtResource("1_hsasi")
 item = ExtResource("2_hsasi")
 mesh = NodePath("Pizza")

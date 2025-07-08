@@ -52,8 +52,8 @@ func _setup_host_game(main_scene: Node):
 	Events.scene_loaded.disconnect(_setup_host_game)
 	Events.on_host_connected.emit(server_ip)
 
-func join_game(server_ip: String):
-	var result = peer.create_client(server_ip, 5000)
+func join_game(potential_server_ip: String):
+	var result = peer.create_client(potential_server_ip, 5000)
 	if result != OK:
 		connection_failed.emit()
 		return
@@ -134,12 +134,6 @@ func _sync_world_state(id: int):
 		var items = get_tree().get_nodes_in_group("pickup")
 		for item in items:
 			item.update_item_position.rpc_id(id, item.global_transform.origin)
-		var all_players = [1] + Array(multiplayer.get_peers())
-		for player_id in all_players:
-			if player_id != id:
-				var player = current_scene.get_node_or_null(str(player_id))
-				if player:
-					player.update_position.rpc_id(id, player.global_transform.origin)
 		recipe_manager.sync_recipes.rpc_id(id, recipe_manager.get_current_recipe())
 		challenge_manager.sync_challenges.rpc_id(id)
 		challenge_manager._share_new_challenge.rpc_id(id, challenge_manager.type)

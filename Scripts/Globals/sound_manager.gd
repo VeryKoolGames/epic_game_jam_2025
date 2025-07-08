@@ -74,7 +74,7 @@ func play_lever_sound() -> void:
 	if not lever_sound:
 		return
 	lever_sound.pitch_scale = randf_range(0.8, 1.2)
-	lever_sound.play
+	lever_sound.play()
 
 func play_final_challenge_music() -> void:
 	main_music.stop()

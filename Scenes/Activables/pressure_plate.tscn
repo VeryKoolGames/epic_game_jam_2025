@@ -137,7 +137,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bl17w"]
-size = Vector3(0.236328, 0.163574, 0.226074)
+size = Vector3(0.236328, 0.264526, 0.226074)
 
 [node name="PressurePlate" instance=ExtResource("1_uayr1")]
 script = ExtResource("2_25r1s")
@@ -165,8 +165,8 @@ libraries = {
 [node name="Area3D" type="Area3D" parent="." index="4"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0568848, 0.00170898)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.107361, 0.00170898)
 shape = SubResource("BoxShape3D_bl17w")
 
-[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
-[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
