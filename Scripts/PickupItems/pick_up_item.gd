@@ -31,14 +31,14 @@ func _set_multiplayer_authority(id: int):
 
 func _process(delta: float) -> void:
 	if is_multiplayer_authority():
-		if not freeze and linear_velocity.length() > 0.1 and not is_reseting:
-			update_item_position.rpc(global_transform.origin)
+		update_item_position.rpc(global_transform.origin)
 	else:
 		lerp_alpha = min(lerp_alpha + delta * 5.0, 1)
 		global_transform.origin = last_position.lerp(target_position, lerp_alpha)
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("cauldron") and player and ChallengeManager.can_complete_challenge(player.name.to_int()):
+		linear_velocity = Vector3.ZERO
 		player.release_item()
 		is_reseting = true
 		recipe_manager.try_ingredient(item)

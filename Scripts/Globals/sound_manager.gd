@@ -79,7 +79,7 @@ func play_lever_sound() -> void:
 func play_final_challenge_music() -> void:
 	main_music.stop()
 	main_music_stress.play()
-	play_final_challenge_music.rpc()
+	play_final_challenge_music_rpc.rpc()
 
 @rpc("any_peer")
 func play_final_challenge_music_rpc() -> void:

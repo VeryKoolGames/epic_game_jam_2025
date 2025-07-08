@@ -13,6 +13,7 @@ signal on_final_challenge_completed
 signal on_final_challenge_started
 signal on_exit_reached
 signal on_game_lost
+signal on_game_won
 
 # MULTIPLAYER CONNECTION MANAGEMENT
 signal on_host_connected

@@ -1,17 +1,24 @@
-[gd_scene load_steps=48 format=3 uid="uid://crvaw1bdwrnwx"]
+[gd_scene load_steps=55 format=3 uid="uid://crvaw1bdwrnwx"]
 
 [ext_resource type="Script" uid="uid://dsec3wupvew6w" path="res://Scripts/Utils/player_id.gd" id="1_nnb7v"]
 [ext_resource type="PackedScene" uid="uid://dgym48uucr165" path="res://Scenes/UI/ui_notif.tscn" id="2_58hs6"]
+[ext_resource type="Script" uid="uid://dsop50ho7dmbw" path="res://Scenes/Main/ui_win.gd" id="2_hvw5u"]
 [ext_resource type="Script" uid="uid://dk50it62aem88" path="res://Scenes/Main/timer_ui.gd" id="2_u244o"]
 [ext_resource type="Script" uid="uid://clextdiuv3kn7" path="res://Scripts/UI/server_ui.gd" id="3_emd1u"]
 [ext_resource type="Texture2D" uid="uid://dwfic5mp75p1b" path="res://Textures/IP_Banner.png" id="4_0xnc4"]
 [ext_resource type="Texture2D" uid="uid://b8tb2vr35uqj3" path="res://Textures/Notif.png" id="4_1j4pb"]
+[ext_resource type="Texture2D" uid="uid://dd8moyqv7nh0i" path="res://Textures/UI_Perso2.png" id="4_go6uc"]
+[ext_resource type="Texture2D" uid="uid://8ewgyqborc0u" path="res://Textures/UI_Perso.png" id="5_m6uf5"]
 [ext_resource type="FontFile" uid="uid://bttgq66wddl8h" path="res://Fonts/GT-Maru-Medium-Trial.otf" id="5_ouiml"]
+[ext_resource type="Texture2D" uid="uid://d1vfd8tl6lwqr" path="res://Textures/ThumbsUp.png" id="6_go6uc"]
 [ext_resource type="PackedScene" uid="uid://bu3ip0kio7dka" path="res://Scenes/UI/MapUI.tscn" id="6_hn68y"]
 [ext_resource type="PackedScene" uid="uid://bihg75wr72a7k" path="res://Scenes/Managers/challenge_manager.tscn" id="7_5jal3"]
 [ext_resource type="Script" uid="uid://ddvoy3b65vqch" path="res://Scripts/Managers/ending_manager.gd" id="7_js8sm"]
 [ext_resource type="PackedScene" uid="uid://dwfbivyyua57s" path="res://Scenes/PickupItems/Screw.tscn" id="8_2ah3i"]
+[ext_resource type="Script" uid="uid://ch5yptyubhaf6" path="res://Scenes/Main/ui_lost.gd" id="8_gw8t2"]
+[ext_resource type="Texture2D" uid="uid://b3jm68ee88e5c" path="res://Textures/Bulle.png" id="9_nsdex"]
 [ext_resource type="PackedScene" uid="uid://sdvkjmh51bqg" path="res://Scenes/PickupItems/pasteque.tscn" id="9_qxj1p"]
+[ext_resource type="Texture2D" uid="uid://capprch2xg8y8" path="res://Textures/NonoThisisBad.png" id="10_eo50k"]
 [ext_resource type="PackedScene" uid="uid://bbfxv8yygrnvg" path="res://Scenes/PickupItems/bucket.tscn" id="10_khxql"]
 [ext_resource type="PackedScene" uid="uid://cytfk0qwmd4ub" path="res://Scenes/PickupItems/pizza.tscn" id="11_wbulw"]
 [ext_resource type="PackedScene" uid="uid://dbe5o1jd6qqm3" path="res://Scenes/Activables/pressure_plate.tscn" id="12_e7jmi"]
@@ -98,6 +105,255 @@ size = Vector3(4.84473, 0.344116, 1.44043)
 [node name="Main2" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_nnb7v")
+
+[node name="UIWin" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+script = ExtResource("2_hvw5u")
+
+[node name="ColorRect" type="ColorRect" parent="UIWin"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.811765, 0, 1)
+
+[node name="Label" type="Label" parent="UIWin"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -704.0
+offset_top = -36.0
+offset_right = 705.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("5_ouiml")
+theme_override_font_sizes/font_size = 64
+text = "WELL DONE YOU MANAGED TO ESCAPE !"
+
+[node name="TextureRect" type="TextureRect" parent="UIWin"]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 120.0
+offset_right = 582.0
+offset_bottom = 257.0
+rotation = 0.174533
+scale = Vector2(2, 2)
+texture = ExtResource("4_go6uc")
+
+[node name="TextureRect2" type="TextureRect" parent="UIWin"]
+layout_mode = 0
+offset_left = 1141.0
+offset_top = 175.0
+offset_right = 1221.0
+offset_bottom = 312.0
+rotation = -0.174533
+scale = Vector2(2, 2)
+texture = ExtResource("5_m6uf5")
+
+[node name="TextureRect3" type="TextureRect" parent="UIWin"]
+layout_mode = 0
+offset_left = 1032.0
+offset_top = 290.0
+offset_right = 1112.0
+offset_bottom = 427.0
+rotation = -0.174533
+scale = Vector2(2, 2)
+texture = ExtResource("6_go6uc")
+stretch_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="UIWin"]
+layout_mode = 0
+offset_left = 639.0
+offset_top = 201.0
+offset_right = 719.0
+offset_bottom = 338.0
+rotation = 0.174533
+scale = Vector2(2, 2)
+texture = ExtResource("6_go6uc")
+stretch_mode = 3
+flip_h = true
+
+[node name="TextureButton" type="TextureButton" parent="UIWin"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -319.0
+offset_top = -283.0
+offset_right = 319.0
+offset_bottom = -165.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("4_0xnc4")
+
+[node name="Label" type="Label" parent="UIWin/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("5_ouiml")
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UILost" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+script = ExtResource("8_gw8t2")
+
+[node name="ColorRect" type="ColorRect" parent="UILost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.794952, 0.333096, 0.0399125, 1)
+
+[node name="Label" type="Label" parent="UILost"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -704.0
+offset_top = -36.0
+offset_right = 705.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("5_ouiml")
+theme_override_font_sizes/font_size = 64
+text = "YOU DIDN'T ESCAPE FAST ENOUGH !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UILost"]
+layout_mode = 0
+offset_left = 498.0
+offset_top = 162.0
+offset_right = 576.0
+offset_bottom = 299.0
+rotation = 0.174533
+scale = Vector2(2, 2)
+texture = ExtResource("4_go6uc")
+
+[node name="TextureRect2" type="TextureRect" parent="UILost"]
+layout_mode = 0
+offset_left = 1402.0
+offset_top = 215.0
+offset_right = 1482.0
+offset_bottom = 352.0
+rotation = -0.174533
+scale = Vector2(2, 2)
+texture = ExtResource("5_m6uf5")
+
+[node name="TextureRect5" type="TextureRect" parent="UILost"]
+layout_mode = 0
+offset_left = 1300.0
+offset_top = 33.0
+offset_right = 1397.0
+offset_bottom = 170.0
+rotation = -0.174533
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("9_nsdex")
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="UILost"]
+layout_mode = 0
+offset_left = 1314.0
+offset_top = 43.6878
+offset_right = 1411.0
+offset_bottom = 180.688
+rotation = -0.174533
+scale = Vector2(2, 2)
+texture = ExtResource("10_eo50k")
+stretch_mode = 3
+
+[node name="TextureRect6" type="TextureRect" parent="UILost"]
+layout_mode = 0
+offset_left = 628.338
+offset_top = 7.0
+offset_right = 725.338
+offset_bottom = 144.0
+rotation = 0.174533
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("9_nsdex")
+stretch_mode = 3
+flip_h = true
+
+[node name="TextureRect4" type="TextureRect" parent="UILost"]
+layout_mode = 0
+offset_left = 628.338
+offset_top = 7.0
+offset_right = 725.338
+offset_bottom = 144.0
+rotation = 0.174533
+scale = Vector2(2, 2)
+texture = ExtResource("10_eo50k")
+stretch_mode = 3
+flip_h = true
+
+[node name="TextureButton" type="TextureButton" parent="UILost"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -319.0
+offset_top = -283.0
+offset_right = 319.0
+offset_bottom = -165.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("4_0xnc4")
+
+[node name="Label" type="Label" parent="UILost/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("5_ouiml")
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TimerUI" type="Control" parent="."]
 visible = false
@@ -549,6 +805,8 @@ transform = Transform3D(-5.24537e-07, 0, -12, 0, 12.7793, 0, 12, 0, -5.24537e-07
 [node name="Porte2" parent="." instance=ExtResource("32_o1sjg")]
 transform = Transform3D(-5.24537e-07, 0, -12, 0, 12.7793, 0, 12, 0, -5.24537e-07, 18.8927, -2.20889, 11.0308)
 
+[connection signal="pressed" from="UIWin/TextureButton" to="UIWin" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="UILost/TextureButton" to="UILost" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="StartMenuUI/VBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="StartMenuUI/VBoxContainer/Join" to="." method="_on_join_pressed"]
 [connection signal="pressed" from="StartMenuUI/IP/ip_button" to="." method="_on_ip_button_pressed"]

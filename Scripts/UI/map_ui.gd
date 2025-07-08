@@ -33,17 +33,20 @@ func _open_or_close_map() -> void:
 	is_map_open = not is_map_open
 
 func _generate_challenge_line(challenge: Challenge) -> void:
-	if challenge is RecipeManager and not ChallengeManager.can_complete_challenge(owner.player_id):
+	print(ChallengeManager.is_challenge_recipe())
+	print(ChallengeManager.type)
+	print(ChallengeManager.can_complete_challenge(owner.player_id))
+	if ChallengeManager.is_challenge_recipe() and not ChallengeManager.can_complete_challenge(owner.player_id):
 		var line = cauldron_quest_line_scene.instantiate()
 		line.set_ingredients_textures(challenge.current_recipe.ingredients)
 		box_container.add_child(line)
 		box_container.move_child(line, 0)
-	elif challenge is ButtonManager and not ChallengeManager.can_complete_challenge(owner.player_id):
+	elif ChallengeManager.is_challenge_button() and not ChallengeManager.can_complete_challenge(owner.player_id):
 		var line = button_quest_line_scene.instantiate()
 		line.set_ingredients_textures(challenge.correct_combination)
 		box_container.add_child(line)
 		box_container.move_child(line, 0)
-	elif challenge is PressurePlateChallenge:
+	elif ChallengeManager.is_challenge_pressure_plate():
 		var line = pressure_plate_quest_line_scene.instantiate()
 		box_container.add_child(line)
 		box_container.move_child(line, 0)

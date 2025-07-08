@@ -26,13 +26,3 @@ texture = ExtResource("4_r83qs")
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("4_r83qs")
-
-[node name="Chauderon3" type="TextureRect" parent="."]
-layout_mode = 2
-size_flags_vertical = 4
-texture = ExtResource("4_r83qs")
-
-[node name="Chauderon4" type="TextureRect" parent="."]
-layout_mode = 2
-size_flags_vertical = 4
-texture = ExtResource("4_r83qs")

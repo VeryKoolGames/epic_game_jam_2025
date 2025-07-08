@@ -55,6 +55,9 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ii2wt")
 
 [node name="Pizza" type="RigidBody3D" node_paths=PackedStringArray("mesh") groups=["pickup"]]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 script = ExtResource("1_hsasi")
 item = ExtResource("2_hsasi")
 mesh = NodePath("Pizza")

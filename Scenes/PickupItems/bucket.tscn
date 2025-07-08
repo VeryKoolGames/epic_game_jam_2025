@@ -55,6 +55,9 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_phn6m")
 
 [node name="Bucket" type="RigidBody3D" node_paths=PackedStringArray("mesh") groups=["pickup"]]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 script = ExtResource("1_fl0yo")
 item = ExtResource("2_fl0yo")
 mesh = NodePath("Cylinder")

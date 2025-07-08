@@ -24,11 +24,18 @@ func _start_timer() -> void:
 func _stop_timer() -> void:
 	timer.stop()
 	is_timer_running = false
+	_hide_ui()
+
+func _hide_ui() -> void:
+	var tween = create_tween()
+	tween.tween_property(self, "scale", Vector2.ZERO, 0.1)
+	tween.tween_callback(func(): self.hide())
 
 func _process(_delta: float) -> void:
 	if is_timer_running:
-		timer_label.text = str(timer.time_left)
+		timer_label.text = "%.2f" % timer.time_left
 
 func _on_timer_end() -> void:
 	is_timer_running = false
 	Events.on_game_lost.emit()
+	_hide_ui()

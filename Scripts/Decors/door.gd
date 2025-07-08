@@ -10,8 +10,8 @@ func open_doors() -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		Events.on_exit_reached.emit()
 		if is_multiplayer_authority():
+			Events.on_exit_reached.emit()
 			on_exit_reached_rpc.rpc()
 
 @rpc("any_peer", "call_remote")

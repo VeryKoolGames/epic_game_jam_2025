@@ -2,7 +2,7 @@ extends Node
 class_name ChallengeManager
 
 static var challenge_counter := 0
-@export var challenge_total: int = 4
+@export var challenge_total: int = 1
 @export var challenges: Array[Challenge]
 static var current_challenge: Challenge
 static var player_that_generated_quest: int = 1
@@ -57,23 +57,23 @@ func _ready() -> void:
 	
 func create_challenge() -> void:
 	challenge_counter += 1
-	print(challenge_counter)
-	if challenge_counter >= challenge_total:
+	if challenge_counter == challenge_total:
 		current_challenge = create_last_challenge()
 	else:
 		current_challenge = challenges[randi_range(0, challenges.size() - 2)].create_challenge()
 	player_that_generated_quest = owner.player_id
-	_share_challenge_creator.rpc(owner.player_id)
-	_share_challenge_rpc.rpc()
-	_share_challenge_counter.rpc(challenge_counter)
-	_share_challenge()
 	if current_challenge is ButtonManager:
 		type = "button"
 	elif current_challenge is RecipeManager:
 		type = "recipe"
 	elif current_challenge is PressurePlateChallenge:
 		type = "pressure_plate"
+	print(type)
 	_share_new_challenge.rpc(type)
+	_share_challenge_creator.rpc(owner.player_id)
+	_share_challenge_rpc.rpc()
+	_share_challenge_counter.rpc(challenge_counter)
+	_share_challenge()
 
 func create_last_challenge() -> Challenge:
 	SoundManager.play_final_challenge_music()
@@ -83,9 +83,6 @@ func create_last_challenge() -> Challenge:
 
 func create_first_challenge() -> void:
 	current_challenge = challenges[0].create_challenge()
-	_share_challenge_creator.rpc(owner.player_id)
-	_share_challenge()
-	_share_challenge_rpc.rpc()
 	if current_challenge is ButtonManager:
 		type = "button"
 	elif current_challenge is RecipeManager:
@@ -93,6 +90,9 @@ func create_first_challenge() -> void:
 	elif current_challenge is PressurePlateChallenge:
 		type = "pressure_plate"
 	_share_new_challenge.rpc(type)
+	_share_challenge_creator.rpc(owner.player_id)
+	_share_challenge()
+	_share_challenge_rpc.rpc()
 
 static func can_complete_challenge(player_id: int) -> bool:
 	return player_id != player_that_generated_quest
@@ -116,5 +116,6 @@ func on_final_challenge_started_rpc() -> void:
 	Events.on_final_challenge_started.emit()
 
 func on_final_challenge_completed() -> void:
+	on_success_challenge()
 	Events.on_final_challenge_completed.emit()
 	on_final_challenge_completed_rpc.rpc()

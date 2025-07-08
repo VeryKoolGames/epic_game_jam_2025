@@ -9,4 +9,4 @@ func _ready() -> void:
 func _on_exit_reached() -> void:
 	counter_player_finished += 1
 	if counter_player_finished >= number_of_player:
-		print("Game is done")
+		Events.on_game_won.emit()
