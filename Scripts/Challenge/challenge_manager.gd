@@ -76,6 +76,7 @@ func create_challenge() -> void:
 	_share_new_challenge.rpc(type)
 
 func create_last_challenge() -> Challenge:
+	SoundManager.play_final_challenge_music()
 	return challenges[challenges.size() - 1].create_challenge()
 
 func create_first_challenge() -> void:

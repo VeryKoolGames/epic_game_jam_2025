@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://bu4xqgeb015w2"]
+[gd_scene load_steps=34 format=3 uid="uid://bu4xqgeb015w2"]
 
 [ext_resource type="Script" uid="uid://c7pvct1h5dgjo" path="res://Scripts/Globals/sound_manager.gd" id="1_8pdrr"]
 [ext_resource type="AudioStream" uid="uid://dyw8ewe2wamal" path="res://Sounds/main-loop.mp3" id="2_7wrvl"]
 [ext_resource type="AudioStream" uid="uid://w0o08nlpuaaw" path="res://Sounds/no-1.wav" id="3_ilaeh"]
+[ext_resource type="AudioStream" uid="uid://bc0knn40wxt5n" path="res://Sounds/stress-loop.mp3" id="3_uhul8"]
 [ext_resource type="AudioStream" uid="uid://cf4bn2ml88mvy" path="res://Sounds/no-2.wav" id="4_mvbhv"]
 [ext_resource type="AudioStream" uid="uid://cp4syecrpp6ot" path="res://Sounds/no-3.wav" id="5_52dpf"]
 [ext_resource type="AudioStream" uid="uid://dvr2u5fpeq7al" path="res://Sounds/no-4.wav" id="6_xg17n"]
@@ -47,6 +48,9 @@ lever_sound = NodePath("LeverSound")
 [node name="MainMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_7wrvl")
 autoplay = true
+
+[node name="MainMusicStress" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_uhul8")
 
 [node name="NoSounds" type="Node" parent="."]
 

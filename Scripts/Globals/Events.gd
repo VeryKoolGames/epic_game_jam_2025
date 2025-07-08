@@ -9,7 +9,7 @@ signal wrong_button_pressed
 signal try_combination(id: int, player_id: int)
 
 signal on_final_challenge_completed
-signal on_ending_reached
+signal on_exit_reached
 
 # MULTIPLAYER CONNECTION MANAGEMENT
 signal on_host_connected

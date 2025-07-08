@@ -8,6 +8,8 @@ extends Node
 @export var throw_sounds: Array[AudioStreamPlayer2D]
 @export var bad_alarm: AudioStreamPlayer2D
 @export var lever_sound: AudioStreamPlayer2D
+@onready var main_music: AudioStreamPlayer2D = $MainMusic
+@onready var main_music_stress: AudioStreamPlayer2D = $MainMusicStress
 
 @rpc("any_peer")
 func _play_no_sound_rpc():
@@ -73,3 +75,13 @@ func play_lever_sound() -> void:
 		return
 	lever_sound.pitch_scale = randf_range(0.8, 1.2)
 	lever_sound.play
+
+func play_final_challenge_music() -> void:
+	main_music.stop()
+	main_music_stress.play()
+	play_final_challenge_music.rpc()
+
+@rpc("any_peer")
+func play_final_challenge_music_rpc() -> void:
+	main_music.stop()
+	main_music_stress.play()
