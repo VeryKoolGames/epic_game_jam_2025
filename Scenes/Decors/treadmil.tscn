@@ -153,10 +153,10 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8m1c8")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wcqq5"]
-size = Vector3(0.683594, 0.126099, 0.249611)
+size = Vector3(0.683594, 0.151428, 0.249611)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fb7os"]
-size = Vector3(0.7677, 0.118454, 0.327637)
+size = Vector3(0.7677, 0.0827866, 0.327637)
 
 [node name="Treadmil" type="Node3D"]
 transform = Transform3D(-8.39821e-07, 0, -19.2129, 0, 13.5485, 0, 19.2129, 0, -8.39821e-07, 0, 0, 0)
@@ -178,13 +178,13 @@ surface_material_override/1 = ExtResource("4_wcqq5")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1.00003, 0, 7.10543e-15, 0, 1, -0.0131836, -5.82476e-05, 0.00265122)
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1.00003, 0, 7.10543e-15, 0, 1, -0.0131836, 0.0126068, 0.00265122)
 shape = SubResource("BoxShape3D_wcqq5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -0.00872801, 0.0037946, -0.00122068)
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -0.00872801, -0.0140391, -0.00122068)
 shape = SubResource("BoxShape3D_fb7os")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
