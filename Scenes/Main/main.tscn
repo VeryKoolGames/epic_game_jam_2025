@@ -210,7 +210,7 @@ shadow_mesh = SubResource("ArrayMesh_okiwx")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_nnb7v")
 
-[node name="UIWin" type="Control" parent="."]
+[node name="TimerUI" type="Control" parent="."]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -218,109 +218,94 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(960, 540)
-script = ExtResource("2_hvw5u")
+script = ExtResource("2_u244o")
 
-[node name="ColorRect" type="ColorRect" parent="UIWin"]
+[node name="TextureRect" type="TextureRect" parent="TimerUI"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.811765, 0, 1)
-
-[node name="Label" type="Label" parent="UIWin"]
-layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -704.0
-offset_top = -36.0
-offset_right = 705.0
-offset_bottom = 36.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 30
-theme_override_fonts/font = ExtResource("5_ouiml")
-theme_override_font_sizes/font_size = 64
-text = "WELL DONE YOU MANAGED TO ESCAPE !"
-
-[node name="TextureRect" type="TextureRect" parent="UIWin"]
-layout_mode = 0
-offset_left = 504.0
-offset_top = 120.0
-offset_right = 582.0
-offset_bottom = 257.0
-rotation = 0.174533
-scale = Vector2(2, 2)
-texture = ExtResource("4_go6uc")
-
-[node name="TextureRect2" type="TextureRect" parent="UIWin"]
-layout_mode = 0
-offset_left = 1141.0
-offset_top = 175.0
-offset_right = 1221.0
-offset_bottom = 312.0
-rotation = -0.174533
-scale = Vector2(2, 2)
-texture = ExtResource("5_m6uf5")
-
-[node name="TextureRect3" type="TextureRect" parent="UIWin"]
-layout_mode = 0
-offset_left = 1032.0
-offset_top = 290.0
-offset_right = 1112.0
-offset_bottom = 427.0
-rotation = -0.174533
-scale = Vector2(2, 2)
-texture = ExtResource("6_go6uc")
-stretch_mode = 3
-
-[node name="TextureRect4" type="TextureRect" parent="UIWin"]
-layout_mode = 0
-offset_left = 639.0
-offset_top = 201.0
-offset_right = 719.0
-offset_bottom = 338.0
-rotation = 0.174533
-scale = Vector2(2, 2)
-texture = ExtResource("6_go6uc")
-stretch_mode = 3
-flip_h = true
-
-[node name="TextureButton" type="TextureButton" parent="UIWin"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
 offset_left = -319.0
-offset_top = -283.0
+offset_top = 17.0
 offset_right = 319.0
-offset_bottom = -165.0
+offset_bottom = 135.0
 grow_horizontal = 2
-grow_vertical = 0
-texture_normal = ExtResource("4_0xnc4")
+texture = ExtResource("4_0xnc4")
 
-[node name="Label" type="Label" parent="UIWin/TextureButton"]
+[node name="TextureRect2" type="TextureRect" parent="TimerUI"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -264.0
+offset_top = 40.0
+offset_right = -189.0
+offset_bottom = 114.0
 grow_horizontal = 2
-grow_vertical = 2
+texture = ExtResource("4_1j4pb")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="TimerUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = 39.0
+offset_right = 97.0
+offset_bottom = 111.0
+grow_horizontal = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("5_ouiml")
 theme_override_font_sizes/font_size = 64
-text = "Quit"
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "30:00"
+
+[node name="Timer" type="Timer" parent="TimerUI"]
+wait_time = 30.0
+
+[node name="UI_Notif" parent="." instance=ExtResource("2_58hs6")]
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ServerUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_emd1u")
+
+[node name="TextureRect" type="TextureRect" parent="ServerUI"]
+layout_mode = 0
+offset_left = 649.0
+offset_top = 36.0
+offset_right = 1287.0
+offset_bottom = 154.0
+texture = ExtResource("4_0xnc4")
+
+[node name="Label" type="Label" parent="ServerUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -260.0
+offset_top = 62.0
+offset_right = 260.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("5_ouiml")
+theme_override_font_sizes/font_size = 58
+text = "IP:"
+
+[node name="MapUI" parent="." instance=ExtResource("6_hn68y")]
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="UILost" type="Control" parent="."]
 visible = false
@@ -459,7 +444,7 @@ text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TimerUI" type="Control" parent="."]
+[node name="UIWin" type="Control" parent="."]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -467,94 +452,110 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_u244o")
+pivot_offset = Vector2(960, 540)
+script = ExtResource("2_hvw5u")
 
-[node name="TextureRect" type="TextureRect" parent="TimerUI"]
+[node name="ColorRect" type="ColorRect" parent="UIWin"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.811765, 0, 1)
+
+[node name="Label" type="Label" parent="UIWin"]
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -704.0
+offset_top = -36.0
+offset_right = 705.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("5_ouiml")
+theme_override_font_sizes/font_size = 64
+text = "WELL DONE YOU MANAGED TO ESCAPE !"
+
+[node name="TextureRect" type="TextureRect" parent="UIWin"]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 120.0
+offset_right = 582.0
+offset_bottom = 257.0
+rotation = 0.174533
+scale = Vector2(2, 2)
+texture = ExtResource("4_go6uc")
+
+[node name="TextureRect2" type="TextureRect" parent="UIWin"]
+layout_mode = 0
+offset_left = 1141.0
+offset_top = 175.0
+offset_right = 1221.0
+offset_bottom = 312.0
+rotation = -0.174533
+scale = Vector2(2, 2)
+texture = ExtResource("5_m6uf5")
+
+[node name="TextureRect3" type="TextureRect" parent="UIWin"]
+layout_mode = 0
+offset_left = 1032.0
+offset_top = 290.0
+offset_right = 1112.0
+offset_bottom = 427.0
+rotation = -0.174533
+scale = Vector2(2, 2)
+texture = ExtResource("6_go6uc")
+stretch_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="UIWin"]
+layout_mode = 0
+offset_left = 639.0
+offset_top = 201.0
+offset_right = 719.0
+offset_bottom = 338.0
+rotation = 0.174533
+scale = Vector2(2, 2)
+texture = ExtResource("6_go6uc")
+stretch_mode = 3
+flip_h = true
+
+[node name="TextureButton" type="TextureButton" parent="UIWin"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
 offset_left = -319.0
-offset_top = 17.0
+offset_top = -283.0
 offset_right = 319.0
-offset_bottom = 135.0
+offset_bottom = -165.0
 grow_horizontal = 2
-texture = ExtResource("4_0xnc4")
+grow_vertical = 0
+texture_normal = ExtResource("4_0xnc4")
 
-[node name="TextureRect2" type="TextureRect" parent="TimerUI"]
+[node name="Label" type="Label" parent="UIWin/TextureButton"]
+process_mode = 4
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -264.0
-offset_top = 40.0
-offset_right = -189.0
-offset_bottom = 114.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-texture = ExtResource("4_1j4pb")
-stretch_mode = 4
-
-[node name="Label" type="Label" parent="TimerUI"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -96.0
-offset_top = 39.0
-offset_right = 97.0
-offset_bottom = 111.0
-grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("5_ouiml")
 theme_override_font_sizes/font_size = 64
-text = "30:00"
-
-[node name="Timer" type="Timer" parent="TimerUI"]
-wait_time = 30.0
-
-[node name="UI_Notif" parent="." instance=ExtResource("2_58hs6")]
-mouse_filter = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="ServerUI" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("3_emd1u")
-
-[node name="TextureRect" type="TextureRect" parent="ServerUI"]
-layout_mode = 0
-offset_left = 649.0
-offset_top = 36.0
-offset_right = 1287.0
-offset_bottom = 154.0
-texture = ExtResource("4_0xnc4")
-
-[node name="Label" type="Label" parent="ServerUI"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -260.0
-offset_top = 62.0
-offset_right = 260.0
-offset_bottom = 128.0
-grow_horizontal = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 30
-theme_override_fonts/font = ExtResource("5_ouiml")
-theme_override_font_sizes/font_size = 58
-text = "IP:"
-
-[node name="MapUI" parent="." instance=ExtResource("6_hn68y")]
-mouse_filter = 2
-metadata/_edit_use_anchors_ = true
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="EndingManager" type="Node" parent="."]
 script = ExtResource("7_js8sm")
@@ -640,6 +641,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.823529, 0.196078, 0.25098, 0)
 
 [node name="GreenOverlay" type="ColorRect" parent="ChallengeManager/AlarmManager/Overlay"]
@@ -649,6 +651,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0.568627, 0.2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -848,8 +851,8 @@ material_override = ExtResource("44_eo50k")
 mesh = SubResource("ArrayMesh_ills4")
 skeleton = NodePath("")
 
-[connection signal="pressed" from="UIWin/TextureButton" to="UIWin" method="_on_texture_button_pressed"]
 [connection signal="pressed" from="UILost/TextureButton" to="UILost" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="UIWin/TextureButton" to="UIWin" method="_on_texture_button_pressed"]
 
 [editable path="ChallengeManager"]
 [editable path="ChallengeManager/AlarmManager/Alarme2"]

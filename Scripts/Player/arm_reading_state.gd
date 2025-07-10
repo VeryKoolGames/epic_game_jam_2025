@@ -18,9 +18,12 @@ func sync_moving_animation_state(is_moving: bool):
 
 func enter(_previous_state_path: String, _data := {}) -> void:
 	animation_tree.travel("Bras_Reading")
+	if not owner.is_multiplayer_authority():
+		return
 	sync_moving_animation_state.rpc(true)
 
 func exit() -> void:
 	animation_tree.travel("Bras_Idle")
-	
+	if not owner.is_multiplayer_authority():
+		return
 	sync_moving_animation_state.rpc(false)
