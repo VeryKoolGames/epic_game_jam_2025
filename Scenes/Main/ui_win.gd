@@ -9,4 +9,5 @@ func _show_ui() -> void:
 	Events.on_scene_shown_circle_transition.emit(self)
 
 func _on_texture_button_pressed() -> void:
+	print("Click detected")
 	get_tree().quit()
