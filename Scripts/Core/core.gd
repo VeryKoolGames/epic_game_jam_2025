@@ -6,6 +6,7 @@ var first_scene_path = "res://Scenes/start_menu.tscn"
 var current_scene: Node
 
 func _ready() -> void:
+	Events.on_scene_shown_circle_transition.connect(_show_scene_with_transition)
 	loading_screen.play_scene_transition_in()
 	Events.on_scene_transition.connect(load_next_scene)
 
@@ -27,3 +28,6 @@ func on_load_finished(path: String) -> void:
 
 func get_current_scene() -> Node:
 	return current_scene
+
+func _show_scene_with_transition(scene_to_show: Node) -> void:
+	loading_screen.play_scene_transition_out_and_in(scene_to_show)

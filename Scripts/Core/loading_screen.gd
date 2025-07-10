@@ -21,6 +21,16 @@ func play_scene_transition(path_to_load: String) -> void:
 	tween.tween_property(circle_transition_rect, "material:shader_parameter/circle_size", 0, 1.0)
 	tween.tween_callback(start_loading_scene.bind(path_to_load))
 
+func play_scene_transition_out_and_in(scene_to_show: Node) -> void:
+	show()
+	var tween_out = create_tween()
+	tween_out.tween_property(circle_transition_rect, "material:shader_parameter/circle_size", 0.0, 1.0)
+	tween_out.tween_callback(func(): scene_to_show.show())
+	await tween_out.finished
+	var tween_in = create_tween()
+	tween_in.tween_property(circle_transition_rect, "material:shader_parameter/circle_size", 1.0, 1.0)
+	tween_in.tween_callback(func(): self.hide())
+
 func start_loading_scene(path_to_load: String) -> void:
 	progress_ui.show()
 	path = path_to_load

@@ -51,10 +51,9 @@ func respawn_item_rpc() -> void:
 	tween.tween_property(self, "scale", Vector3(0.1, 0.1, 0.1), 0.2)
 	tween.tween_callback(func():
 		global_transform.origin = original_position
-		if is_multiplayer_authority():
-			update_item_position.rpc(original_position)
-			var scale_up_tween = create_tween()
-			scale_up_tween.tween_property(self, "scale", Vector3(1, 1, 1), 0.2)
+		update_item_position.rpc(original_position)
+		var scale_up_tween = create_tween()
+		scale_up_tween.tween_property(self, "scale", Vector3(1, 1, 1), 0.2)
 	)
 	
 @rpc("any_peer")
