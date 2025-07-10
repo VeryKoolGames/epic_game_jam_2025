@@ -14,10 +14,11 @@ func _show_ui() -> void:
 	show()
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_BOUNCE)
-	tween.tween_property(self, "scale", Vector2.ONE, 0.1)
+	tween.tween_property(self, "scale", Vector2.ONE, 0.2)
 
 func _start_timer() -> void:
 	_show_ui()
+	await get_tree().create_timer(2).timeout
 	timer.start()
 	is_timer_running = true
 

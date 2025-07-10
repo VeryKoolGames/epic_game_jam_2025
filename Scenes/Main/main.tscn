@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://crvaw1bdwrnwx"]
+[gd_scene load_steps=54 format=3 uid="uid://crvaw1bdwrnwx"]
 
 [ext_resource type="Script" uid="uid://dsec3wupvew6w" path="res://Scripts/Utils/player_id.gd" id="1_nnb7v"]
 [ext_resource type="PackedScene" uid="uid://dgym48uucr165" path="res://Scenes/UI/ui_notif.tscn" id="2_58hs6"]
@@ -37,7 +37,6 @@
 [ext_resource type="Texture2D" uid="uid://ce5bi2mq2jued" path="res://Textures/Enter.png" id="25_1qmmy"]
 [ext_resource type="Texture2D" uid="uid://h1ndq8lcfi74" path="res://Textures/connect.png" id="26_8uin6"]
 [ext_resource type="Texture2D" uid="uid://c2svdsj1i2bo6" path="res://Textures/connect2.png" id="27_ffdec"]
-[ext_resource type="PackedScene" uid="uid://bu4xqgeb015w2" path="res://Scenes/Managers/sound_manager.tscn" id="28_xrrf8"]
 [ext_resource type="PackedScene" uid="uid://d13o8lmc5tq0p" path="res://Scenes/Decors/support_2.tscn" id="29_8m0yu"]
 [ext_resource type="PackedScene" uid="uid://bvyfuyygx27e8" path="res://Scenes/Decors/Support_1.tscn" id="30_p6t2b"]
 [ext_resource type="PackedScene" uid="uid://c14qob8p1iwj4" path="res://Scenes/Activables/bouton_jaune.tscn" id="31_gicg1"]
@@ -574,10 +573,10 @@ transform = Transform3D(18.155, 0, 0, 0, 18.155, 0, 0, 0, 18.155, 0, -2.48838, 0
 mesh = SubResource("PlaneMesh_iu0du")
 
 [node name="Treadmil" parent="." instance=ExtResource("17_f13bm")]
-transform = Transform3D(-8.39821e-07, 0, -19.2129, 0, 13.5485, 0, 19.2129, 0, -8.39821e-07, 14.801, -0.453705, 0.29123)
+transform = Transform3D(-8.39821e-07, 0, -19.2129, 0, 13.5485, 0, 19.2129, 0, -8.39821e-07, 15.6941, -1.11769, 0.29123)
 
 [node name="Treadmil2" parent="." instance=ExtResource("17_f13bm")]
-transform = Transform3D(-8.39823e-07, 0, 19.2129, 0, 13.5485, 0, -19.2129, 0, -8.39823e-07, -16.0793, -1.05236, -7.02846e-07)
+transform = Transform3D(-8.39823e-07, 0, 19.2129, 0, 13.5485, 0, -19.2129, 0, -8.39823e-07, -16.0793, -1.23325, -7.02846e-07)
 move_item_left = true
 
 [node name="Casier" parent="." instance=ExtResource("18_ajsv4")]
@@ -775,8 +774,6 @@ collision_layer = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BotWall"]
 transform = Transform3D(12.401, -1.13687e-13, 2.57837e-18, 1.13687e-13, 12.401, 1.13687e-13, 1.32137e-19, -1.13687e-13, 12.401, -0.753274, -4.06681, -2.73089)
 shape = SubResource("BoxShape3D_2ryth")
-
-[node name="SoundManager" parent="." instance=ExtResource("28_xrrf8")]
 
 [node name="Support3" parent="." instance=ExtResource("29_8m0yu")]
 transform = Transform3D(-0.058433, 0, 11.9999, 0, 12, 0, -11.9999, 0, -0.058433, -2.66828, -1.90174, 16.4939)

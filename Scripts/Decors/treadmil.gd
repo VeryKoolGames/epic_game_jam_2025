@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var move_item_left := false
-var item: PickUpItem
+var items: Array[PickUpItem]
 var direction := 1
 
 func _ready() -> void:
@@ -9,13 +9,13 @@ func _ready() -> void:
 		direction *= -1
 
 func _process(delta: float) -> void:
-	if item:
+	for item in items:
 		item.global_position.x += (5 * delta) * direction
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.get_parent().is_in_group("pickup"):
-		item = area.get_parent()
+		items.append(area.get_parent())
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
-	if area.get_parent().is_in_group("pickup") and item:
-		item = null
+	if area.get_parent().is_in_group("pickup"):
+		items.erase(area.get_parent())

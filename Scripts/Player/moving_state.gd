@@ -26,7 +26,7 @@ func sync_moving_animation_state(is_moving: bool):
 		animation_body_tree.set("parameters/conditions/Idle", true)
 		animation_body_tree.set("parameters/conditions/Moving", false)
 
-func enter(_previous_state_path: String, data := {}) -> void:
+func enter(_previous_state_path: String, _data := {}) -> void:
 	if owner.is_multiplayer_authority():
 		animation_foot_tree.set("parameters/conditions/idle", false)
 		animation_foot_tree.set("parameters/conditions/moving", true)

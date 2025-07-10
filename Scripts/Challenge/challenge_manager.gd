@@ -2,7 +2,7 @@ extends Node
 class_name ChallengeManager
 
 static var challenge_counter := 0
-@export var challenge_total: int = 1
+@export var challenge_total: int = 4
 @export var challenges: Array[Challenge]
 static var current_challenge: Challenge
 static var player_that_generated_quest: int = 1
