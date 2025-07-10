@@ -53,7 +53,6 @@ func _ready() -> void:
 	for child in get_children():
 		if child is Challenge:
 			challenges.append(child)
-#	Events.on_challenge_completed.connect(create_challenge)
 	
 func create_challenge() -> void:
 	challenge_counter += 1
