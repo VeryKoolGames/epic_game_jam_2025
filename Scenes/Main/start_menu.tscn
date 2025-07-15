@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ou4etkjgr434" path="res://Textures/1x1.png" id="6_8u0lp"]
 [ext_resource type="Material" uid="uid://bxjbi563sulmc" path="res://Materials/M_Pattern.tres" id="6_i2i62"]
 
-[node name="StartMenu" type="Control" node_paths=PackedStringArray("IpUI", "IpLineEdit")]
+[node name="StartMenu" type="Control" node_paths=PackedStringArray("IpUI", "IpLineEdit", "wrong_ip_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +19,7 @@ grow_vertical = 2
 script = ExtResource("1_lfskg")
 IpUI = NodePath("StartMenuUI/IP")
 IpLineEdit = NodePath("StartMenuUI/IP/LineEdit")
+wrong_ip_label = NodePath("StartMenuUI/IP/WrongIPLabel")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 material = ExtResource("6_i2i62")
@@ -104,6 +105,21 @@ texture_pressed = ExtResource("4_lfskg")
 texture_hover = ExtResource("4_lfskg")
 texture_disabled = ExtResource("5_ru7em")
 texture_focused = ExtResource("4_lfskg")
+
+[node name="WrongIPLabel" type="Label" parent="StartMenuUI/IP"]
+visible = false
+layout_mode = 0
+offset_left = 125.0
+offset_top = -88.0
+offset_right = 442.0
+offset_bottom = -23.0
+pivot_offset = Vector2(158.5, 32.5)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("3_i2i62")
+theme_override_font_sizes/font_size = 64
+text = "Invalid IP"
 
 [connection signal="pressed" from="StartMenuUI/VBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="StartMenuUI/VBoxContainer/Join" to="." method="_on_join_pressed"]

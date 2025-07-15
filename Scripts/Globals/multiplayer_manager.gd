@@ -52,12 +52,13 @@ func _setup_host_game(main_scene: Node):
 	Events.scene_loaded.disconnect(_setup_host_game)
 	Events.on_host_connected.emit(server_ip)
 
-func join_game(potential_server_ip: String):
+func join_game(potential_server_ip: String) -> bool:
 	var result = peer.create_client(potential_server_ip, 5000)
 	if result != OK:
 		connection_failed.emit()
-		return
+		return false
 	Events.scene_loaded.connect(_connect_client)
+	return true
 
 func _connect_client(main_scene: Node) -> void:
 	current_scene = main_scene
