@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cdnijlm8yv5od"]
 
+[ext_resource type="Script" uid="uid://digc2q0lqxtwo" path="res://Scenes/UI/pressure_plate_player_face.gd" id="2_w18i0"]
 [ext_resource type="Texture2D" uid="uid://b2s5fyxwyg7n7" path="res://Textures/PlaqueBleue.png" id="4_r83qs"]
 [ext_resource type="Texture2D" uid="uid://dd8moyqv7nh0i" path="res://Textures/UI_Perso2.png" id="8_drgm1"]
-[ext_resource type="Script" uid="uid://ef2soe5gf3ae" path="res://Scripts/UI/ui_line_face.gd" id="9_sfmhx"]
 [ext_resource type="Texture2D" uid="uid://8ewgyqborc0u" path="res://Textures/UI_Perso.png" id="10_famto"]
 
 [node name="LinePressurePlate" type="HBoxContainer"]
@@ -13,7 +13,7 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("8_drgm1")
-script = ExtResource("9_sfmhx")
+script = ExtResource("2_w18i0")
 face_player_one = ExtResource("10_famto")
 face_player_two = ExtResource("8_drgm1")
 

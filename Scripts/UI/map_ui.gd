@@ -33,9 +33,6 @@ func _open_or_close_map() -> void:
 	is_map_open = not is_map_open
 
 func _generate_challenge_line(challenge: Challenge) -> void:
-	print(ChallengeManager.is_challenge_recipe())
-	print(ChallengeManager.type)
-	print(ChallengeManager.can_complete_challenge(owner.player_id))
 	if ChallengeManager.is_challenge_recipe() and not ChallengeManager.can_complete_challenge(owner.player_id):
 		var line = cauldron_quest_line_scene.instantiate()
 		line.set_ingredients_textures(challenge.current_recipe.ingredients)
